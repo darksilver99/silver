@@ -12,7 +12,7 @@ class FFLocalizations {
   static FFLocalizations of(BuildContext context) =>
       Localizations.of<FFLocalizations>(context, FFLocalizations)!;
 
-  static List<String> languages() => ['th', 'en'];
+  static List<String> languages() => ['en'];
 
   static late SharedPreferences _prefs;
   static Future initialize() async =>
@@ -37,10 +37,9 @@ class FFLocalizations {
       (kTranslationsMap[key] ?? {})[locale.toString()] ?? '';
 
   String getVariableText({
-    String? thText = '',
     String? enText = '',
   }) =>
-      [thText, enText][languageIndex] ?? '';
+      [enText][languageIndex] ?? '';
 
   static const Set<String> _languagesWithShortCode = {
     'ar',
@@ -104,99 +103,5 @@ Locale createLocale(String language) => language.contains('_')
       )
     : Locale(language);
 
-final kTranslationsMap = <Map<String, Map<String, String>>>[
-  // HomePage
-  {
-    'oyufcm99': {
-      'th': 'Page Title',
-      'en': '',
-    },
-    'lzotjsb7': {
-      'th': 'Button',
-      'en': '',
-    },
-    'cn5e1xoa': {
-      'th': 'Home',
-      'en': '',
-    },
-  },
-  // LoginPage
-  {
-    '5twv1ehv': {
-      'th': 'Sign In',
-      'en': '',
-    },
-    'wc8uabjw': {
-      'th': 'Email',
-      'en': '',
-    },
-    'ewe07n1n': {
-      'th': '',
-      'en': '',
-    },
-    'h97mstjh': {
-      'th': 'Password',
-      'en': '',
-    },
-    'za8uwlo0': {
-      'th': '',
-      'en': '',
-    },
-    'ejnygxw5': {
-      'th': 'Sign In',
-      'en': '',
-    },
-    'axtaj6hh': {
-      'th': 'Sign Up',
-      'en': '',
-    },
-    't9rdjeiy': {
-      'th': 'Display Name',
-      'en': '',
-    },
-    '3aihe2dt': {
-      'th': '',
-      'en': '',
-    },
-    'gkagdksc': {
-      'th': 'Phone',
-      'en': '',
-    },
-    'v97h7ghx': {
-      'th': '',
-      'en': '',
-    },
-    'ovw6kzrh': {
-      'th': 'Email',
-      'en': '',
-    },
-    's7thkiod': {
-      'th': '',
-      'en': '',
-    },
-    '40u75rvp': {
-      'th': 'Password',
-      'en': '',
-    },
-    'wpwthdke': {
-      'th': '',
-      'en': '',
-    },
-    '28daqync': {
-      'th': 'Confirm password',
-      'en': '',
-    },
-    'zoejj9hw': {
-      'th': '',
-      'en': '',
-    },
-    'jyhiazko': {
-      'th': 'Sign Up',
-      'en': '',
-    },
-    'leutk4vl': {
-      'th': 'Home',
-      'en': '',
-    },
-  },
-].reduce((a, b) => a..addAll(b));
+final kTranslationsMap =
+    <Map<String, Map<String, String>>>[].reduce((a, b) => a..addAll(b));

@@ -44,9 +44,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         automaticallyImplyLeading: false,
         title: Text(
-          FFLocalizations.of(context).getText(
-            'oyufcm99' /* Page Title */,
-          ),
+          'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
                 fontFamily: 'Poppins',
                 color: Colors.white,
@@ -70,9 +68,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
                   context.goNamedAuth('LoginPage', mounted);
                 },
-                text: FFLocalizations.of(context).getText(
-                  'lzotjsb7' /* Button */,
-                ),
+                text: 'Button',
                 options: FFButtonOptions(
                   width: 130.0,
                   height: 40.0,
