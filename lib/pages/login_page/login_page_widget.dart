@@ -106,11 +106,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'dnf5v7kk' /* Email */,
+                                                  'wc8uabjw' /* Email */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -190,11 +193,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               obscureText:
                                                   !_model.passwordVisibility,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'pzqp2bd2' /* Password */,
+                                                  'h97mstjh' /* Password */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -314,7 +320,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          '2o5k20h9' /* Sign In */,
+                                          'ejnygxw5' /* Sign In */,
                                         ),
                                         options: FFButtonOptions(
                                           width: 130.0,
@@ -368,11 +374,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'p40mg197' /* Display Name */,
+                                                  't9rdjeiy' /* Display Name */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -451,11 +460,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'w1lvkzbj' /* Phone */,
+                                                  'gkagdksc' /* Phone */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -535,11 +547,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               autofocus: true,
                                               obscureText: false,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'u6u4zxea' /* Email */,
+                                                  'ovw6kzrh' /* Email */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -621,11 +636,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               obscureText: !_model
                                                   .passwordSignUpVisibility,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  '1ftb1won' /* Password */,
+                                                  '40u75rvp' /* Password */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -724,11 +742,14 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               obscureText: !_model
                                                   .comfirmPasswordVisibility,
                                               decoration: InputDecoration(
-                                                hintText:
+                                                labelText:
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                  'q7n6kait' /* Password */,
+                                                  '28daqync' /* Confirm password */,
                                                 ),
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyText2,
                                                 hintStyle:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyText2,
@@ -878,7 +899,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                         },
                                         text:
                                             FFLocalizations.of(context).getText(
-                                          'sy40hbqu' /* Sign Up */,
+                                          'jyhiazko' /* Sign Up */,
                                         ),
                                         options: FFButtonOptions(
                                           width: 130.0,

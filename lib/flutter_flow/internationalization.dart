@@ -111,7 +111,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'Page Title',
       'en': '',
     },
-    'dy1fq5c7': {
+    'lzotjsb7': {
       'th': 'Button',
       'en': '',
     },
@@ -126,15 +126,23 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'Sign In',
       'en': '',
     },
-    'dnf5v7kk': {
+    'wc8uabjw': {
       'th': 'Email',
       'en': '',
     },
-    'pzqp2bd2': {
+    'ewe07n1n': {
+      'th': '',
+      'en': '',
+    },
+    'h97mstjh': {
       'th': 'Password',
       'en': '',
     },
-    '2o5k20h9': {
+    'za8uwlo0': {
+      'th': '',
+      'en': '',
+    },
+    'ejnygxw5': {
       'th': 'Sign In',
       'en': '',
     },
@@ -142,27 +150,47 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'th': 'Sign Up',
       'en': '',
     },
-    'p40mg197': {
+    't9rdjeiy': {
       'th': 'Display Name',
       'en': '',
     },
-    'w1lvkzbj': {
+    '3aihe2dt': {
+      'th': '',
+      'en': '',
+    },
+    'gkagdksc': {
       'th': 'Phone',
       'en': '',
     },
-    'u6u4zxea': {
+    'v97h7ghx': {
+      'th': '',
+      'en': '',
+    },
+    'ovw6kzrh': {
       'th': 'Email',
       'en': '',
     },
-    '1ftb1won': {
+    's7thkiod': {
+      'th': '',
+      'en': '',
+    },
+    '40u75rvp': {
       'th': 'Password',
       'en': '',
     },
-    'q7n6kait': {
-      'th': 'Password',
+    'wpwthdke': {
+      'th': '',
       'en': '',
     },
-    'sy40hbqu': {
+    '28daqync': {
+      'th': 'Confirm password',
+      'en': '',
+    },
+    'zoejj9hw': {
+      'th': '',
+      'en': '',
+    },
+    'jyhiazko': {
       'th': 'Sign Up',
       'en': '',
     },

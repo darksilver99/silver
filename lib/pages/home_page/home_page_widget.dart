@@ -71,7 +71,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   context.goNamedAuth('LoginPage', mounted);
                 },
                 text: FFLocalizations.of(context).getText(
-                  'dy1fq5c7' /* Button */,
+                  'lzotjsb7' /* Button */,
                 ),
                 options: FFButtonOptions(
                   width: 130.0,
