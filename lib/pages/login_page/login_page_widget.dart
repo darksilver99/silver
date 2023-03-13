@@ -857,8 +857,6 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               .doc(user.uid)
                                               .update(usersCreateData);
 
-                                          await sendEmailVerification();
-
                                           context.goNamedAuth(
                                               'HomePage', mounted);
                                         },
