@@ -317,7 +317,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .secondaryColor,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2
@@ -871,7 +871,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .primaryColor,
+                                              .secondaryColor,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2
