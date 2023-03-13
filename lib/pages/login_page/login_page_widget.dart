@@ -67,7 +67,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           labelColor: FlutterFlowTheme.of(context).primaryColor,
                           labelStyle: FlutterFlowTheme.of(context).bodyText1,
                           indicatorColor:
-                              FlutterFlowTheme.of(context).secondaryColor,
+                              FlutterFlowTheme.of(context).tertiaryColor,
                           tabs: [
                             Tab(
                               text: 'Sign In',
@@ -317,7 +317,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
+                                              .tertiaryColor,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2
@@ -871,7 +871,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context)
-                                              .secondaryColor,
+                                              .tertiaryColor,
                                           textStyle:
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2
