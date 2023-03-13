@@ -303,8 +303,36 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             return;
                                           }
 
-                                          context.goNamedAuth(
-                                              'HomePage', mounted);
+                                          if (valueOrDefault(
+                                                  currentUserDocument?.status,
+                                                  0) ==
+                                              1) {
+                                            context.goNamedAuth(
+                                                'HomePage', mounted);
+
+                                            return;
+                                          } else {
+                                            GoRouter.of(context)
+                                                .prepareAuthEvent();
+                                            await signOut();
+                                            ScaffoldMessenger.of(context)
+                                                .showSnackBar(
+                                              SnackBar(
+                                                content: Text(
+                                                  'Users are disabled.',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .subtitle1,
+                                                ),
+                                                duration: Duration(
+                                                    milliseconds: 4000),
+                                                backgroundColor:
+                                                    FlutterFlowTheme.of(context)
+                                                        .tertiaryColor,
+                                              ),
+                                            );
+                                            return;
+                                          }
                                         },
                                         text: 'Sign In',
                                         options: FFButtonOptions(
