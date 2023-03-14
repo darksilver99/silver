@@ -880,6 +880,9 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             phoneNumber:
                                                 _model.phoneController.text,
                                             createdTime: getCurrentTimestamp,
+                                            displayName: _model
+                                                .displayNameController.text,
+                                            status: 1,
                                           );
                                           await UsersRecord.collection
                                               .doc(user.uid)

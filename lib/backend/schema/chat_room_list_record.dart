@@ -14,11 +14,25 @@ abstract class ChatRoomListRecord
   @BuiltValueField(wireName: 'create_date')
   DateTime? get createDate;
 
+  @BuiltValueField(wireName: 'create_by')
+  DocumentReference? get createBy;
+
+  int? get status;
+
+  @BuiltValueField(wireName: 'update_date')
+  DateTime? get updateDate;
+
+  DocumentReference? get partner;
+
+  @BuiltValueField(wireName: 'last_message')
+  DateTime? get lastMessage;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(ChatRoomListRecordBuilder builder) => builder;
+  static void _initializeBuilder(ChatRoomListRecordBuilder builder) =>
+      builder..status = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('chat_room_list');
@@ -44,11 +58,22 @@ abstract class ChatRoomListRecord
 
 Map<String, dynamic> createChatRoomListRecordData({
   DateTime? createDate,
+  DocumentReference? createBy,
+  int? status,
+  DateTime? updateDate,
+  DocumentReference? partner,
+  DateTime? lastMessage,
 }) {
   final firestoreData = serializers.toFirestore(
     ChatRoomListRecord.serializer,
     ChatRoomListRecord(
-      (c) => c..createDate = createDate,
+      (c) => c
+        ..createDate = createDate
+        ..createBy = createBy
+        ..status = status
+        ..updateDate = updateDate
+        ..partner = partner
+        ..lastMessage = lastMessage,
     ),
   );
 

@@ -3,6 +3,7 @@ import 'package:from_css_color/from_css_color.dart';
 
 import 'users_record.dart';
 import 'chat_room_list_record.dart';
+import 'chat_room_sub_list_record.dart';
 
 import 'index.dart';
 
@@ -15,6 +16,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   UsersRecord,
   ChatRoomListRecord,
+  ChatRoomSubListRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
