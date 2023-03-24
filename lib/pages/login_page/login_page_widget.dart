@@ -242,6 +242,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           } else {
                                             GoRouter.of(context).prepareAuthEvent();
                                             await signOut();
+                                            GoRouter.of(context).clearRedirectLocation();
                                             ScaffoldMessenger.of(context).showSnackBar(
                                               SnackBar(
                                                 content: Text(
