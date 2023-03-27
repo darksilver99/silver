@@ -23,10 +23,14 @@ Future<ChatRoomListRecord?> getChatRoom(
       .where('partner', isEqualTo: user1)
       .get();
   if (rs1.size != 0) {
-    return rs1.docs[0];
+    ChatRoomListRecord chatRoomListResult =
+        await ChatRoomListRecord.getDocumentOnce(rs1.docs[0].reference);
+    return chatRoomListResult;
   }
   if (rs2.size != 0) {
-    return rs2.docs[0];
+    ChatRoomListRecord chatRoomListResult =
+        await ChatRoomListRecord.getDocumentOnce(rs2.docs[0].reference);
+    return chatRoomListResult;
   }
   return null;
 }
