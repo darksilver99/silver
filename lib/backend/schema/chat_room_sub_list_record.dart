@@ -19,6 +19,8 @@ abstract class ChatRoomSubListRecord
 
   int? get status;
 
+  String? get message;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -26,7 +28,9 @@ abstract class ChatRoomSubListRecord
   DocumentReference get parentReference => reference.parent.parent!;
 
   static void _initializeBuilder(ChatRoomSubListRecordBuilder builder) =>
-      builder..status = 0;
+      builder
+        ..status = 0
+        ..message = '';
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
       parent != null
@@ -59,6 +63,7 @@ Map<String, dynamic> createChatRoomSubListRecordData({
   DocumentReference? createBy,
   DateTime? createDate,
   int? status,
+  String? message,
 }) {
   final firestoreData = serializers.toFirestore(
     ChatRoomSubListRecord.serializer,
@@ -66,7 +71,8 @@ Map<String, dynamic> createChatRoomSubListRecordData({
       (c) => c
         ..createBy = createBy
         ..createDate = createDate
-        ..status = status,
+        ..status = status
+        ..message = message,
     ),
   );
 

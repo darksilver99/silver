@@ -1,6 +1,10 @@
+import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/owner_chat_view_widget.dart';
+import '/components/partner_chat_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +33,8 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ChatRoomPageModel());
+
+    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -66,43 +72,63 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: ListView(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  children: [
-                    Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 0.0),
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 3.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Container(
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  borderRadius: BorderRadius.circular(16.0),
-                                ),
-                              ),
-                            ),
+                child: StreamBuilder<List<ChatRoomSubListRecord>>(
+                  stream: queryChatRoomSubListRecord(
+                    parent: widget.chatRoomParameter!.reference,
+                    queryBuilder: (chatRoomSubListRecord) =>
+                        chatRoomSubListRecord
+                            .where('status', isEqualTo: 1)
+                            .orderBy('create_date'),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primaryColor,
                           ),
                         ),
-                      ],
-                    ),
-                  ],
+                      );
+                    }
+                    List<ChatRoomSubListRecord>
+                        listViewChatRoomSubListRecordList = snapshot.data!;
+                    return ListView.builder(
+                      padding: EdgeInsets.zero,
+                      reverse: true,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      itemCount: listViewChatRoomSubListRecordList.length,
+                      itemBuilder: (context, listViewIndex) {
+                        final listViewChatRoomSubListRecord =
+                            listViewChatRoomSubListRecordList[listViewIndex];
+                        return Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            if (widget.chatRoomParameter!.createBy !=
+                                currentUserReference)
+                              PartnerChatViewWidget(
+                                key: Key(
+                                    'Keyex7_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
+                              ),
+                            if (widget.chatRoomParameter!.createBy ==
+                                currentUserReference)
+                              OwnerChatViewWidget(
+                                key: Key(
+                                    'Key8b0_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
+                              ),
+                          ],
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
               Container(
                 width: double.infinity,
-                height: 60.0,
+                height: 72.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
@@ -113,26 +139,85 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                       child: Padding(
                         padding:
                             EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 8.0, 0.0),
-                        child: Container(
-                          height: 40.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(16.0),
-                            border: Border.all(
-                              color: FlutterFlowTheme.of(context).lineColor,
+                        child: TextFormField(
+                          controller: _model.textController,
+                          autofocus: true,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: '[Some hint text...]',
+                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
+                          style: FlutterFlowTheme.of(context).bodyText1,
+                          validator: _model.textControllerValidator
+                              .asValidator(context),
                         ),
                       ),
                     ),
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
-                      child: Icon(
-                        Icons.send,
-                        color: Colors.black,
-                        size: 24.0,
+                      child: InkWell(
+                        onTap: () async {
+                          if (_model.textController.text != null &&
+                              _model.textController.text != '') {
+                            final chatRoomSubListCreateData =
+                                createChatRoomSubListRecordData(
+                              createBy: currentUserReference,
+                              createDate: getCurrentTimestamp,
+                              status: 1,
+                              message: _model.textController.text,
+                            );
+                            await ChatRoomSubListRecord.createDoc(
+                                    widget.chatRoomParameter!.reference)
+                                .set(chatRoomSubListCreateData);
+
+                            final chatRoomListUpdateData =
+                                createChatRoomListRecordData(
+                              updateDate: getCurrentTimestamp,
+                              lastMessage: _model.textController.text,
+                            );
+                            await widget.chatRoomParameter!.reference
+                                .update(chatRoomListUpdateData);
+                            return;
+                          } else {
+                            return;
+                          }
+                        },
+                        child: Icon(
+                          Icons.send,
+                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                          size: 36.0,
+                        ),
                       ),
                     ),
                   ],

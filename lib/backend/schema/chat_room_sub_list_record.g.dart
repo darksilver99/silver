@@ -46,6 +46,13 @@ class _$ChatRoomSubListRecordSerializer
         ..add('status')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.message;
+    if (value != null) {
+      result
+        ..add('message')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -83,6 +90,10 @@ class _$ChatRoomSubListRecordSerializer
           result.status = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'message':
+          result.message = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -104,6 +115,8 @@ class _$ChatRoomSubListRecord extends ChatRoomSubListRecord {
   @override
   final int? status;
   @override
+  final String? message;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$ChatRoomSubListRecord(
@@ -111,7 +124,7 @@ class _$ChatRoomSubListRecord extends ChatRoomSubListRecord {
       (new ChatRoomSubListRecordBuilder()..update(updates))._build();
 
   _$ChatRoomSubListRecord._(
-      {this.createBy, this.createDate, this.status, this.ffRef})
+      {this.createBy, this.createDate, this.status, this.message, this.ffRef})
       : super._();
 
   @override
@@ -130,6 +143,7 @@ class _$ChatRoomSubListRecord extends ChatRoomSubListRecord {
         createBy == other.createBy &&
         createDate == other.createDate &&
         status == other.status &&
+        message == other.message &&
         ffRef == other.ffRef;
   }
 
@@ -139,6 +153,7 @@ class _$ChatRoomSubListRecord extends ChatRoomSubListRecord {
     _$hash = $jc(_$hash, createBy.hashCode);
     _$hash = $jc(_$hash, createDate.hashCode);
     _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -150,6 +165,7 @@ class _$ChatRoomSubListRecord extends ChatRoomSubListRecord {
           ..add('createBy', createBy)
           ..add('createDate', createDate)
           ..add('status', status)
+          ..add('message', message)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -172,6 +188,10 @@ class ChatRoomSubListRecordBuilder
   int? get status => _$this._status;
   set status(int? status) => _$this._status = status;
 
+  String? _message;
+  String? get message => _$this._message;
+  set message(String? message) => _$this._message = message;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -186,6 +206,7 @@ class ChatRoomSubListRecordBuilder
       _createBy = $v.createBy;
       _createDate = $v.createDate;
       _status = $v.status;
+      _message = $v.message;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -212,6 +233,7 @@ class ChatRoomSubListRecordBuilder
             createBy: createBy,
             createDate: createDate,
             status: status,
+            message: message,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
