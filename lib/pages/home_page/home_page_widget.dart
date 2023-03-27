@@ -116,7 +116,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       onPressed: () async {
                         context.pushNamed('SwipePage');
                       },
-                      text: 'SwipePage',
+                      text: 'SwipePage1',
                       options: FFButtonOptions(
                         width: 130.0,
                         height: 40.0,
