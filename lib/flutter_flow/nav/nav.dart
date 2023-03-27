@@ -96,6 +96,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SwipePage',
           path: '/swipePage',
           builder: (context, params) => SwipePageWidget(),
+        ),
+        FFRoute(
+          name: 'ChatListPage',
+          path: '/chatListPage',
+          builder: (context, params) => ChatListPageWidget(),
+        ),
+        FFRoute(
+          name: 'FriendListPage',
+          path: '/friendListPage',
+          builder: (context, params) => FriendListPageWidget(),
+        ),
+        FFRoute(
+          name: 'ChatRoomPage',
+          path: '/chatRoomPage',
+          asyncParams: {
+            'chatRoomParameter':
+                getDoc(['chat_room_list'], ChatRoomListRecord.serializer),
+          },
+          builder: (context, params) => ChatRoomPageWidget(
+            chatRoomParameter:
+                params.getParam('chatRoomParameter', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

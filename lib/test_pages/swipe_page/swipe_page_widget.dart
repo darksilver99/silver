@@ -95,22 +95,33 @@ class _SwipePageWidgetState extends State<SwipePageWidget> {
                       itemBuilder: (context, swipeableStackIndex) {
                         final swipeableStackUsersRecord =
                             swipeableStackUsersRecordList[swipeableStackIndex];
-                        return Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color:
-                              FlutterFlowTheme.of(context).secondaryBackground,
+                        return Material(
+                          color: Colors.transparent,
                           elevation: 3.0,
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 15.0, 0.0, 0.0),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  swipeableStackUsersRecord.displayName!,
-                                  style: FlutterFlowTheme.of(context).bodyText1,
-                                ),
-                              ],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                          ),
+                          child: Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 15.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    swipeableStackUsersRecord.displayName!,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyText1,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         );
