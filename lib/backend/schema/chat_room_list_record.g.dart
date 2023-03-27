@@ -43,6 +43,28 @@ class _$ChatRoomListRecordSerializer
         ..add('status')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.updateDate;
+    if (value != null) {
+      result
+        ..add('update_date')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(DateTime)));
+    }
+    value = object.partner;
+    if (value != null) {
+      result
+        ..add('partner')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(
+                DocumentReference, const [const FullType.nullable(Object)])));
+    }
+    value = object.lastMessage;
+    if (value != null) {
+      result
+        ..add('last_message')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -80,6 +102,20 @@ class _$ChatRoomListRecordSerializer
           result.status = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'update_date':
+          result.updateDate = serializers.deserialize(value,
+              specifiedType: const FullType(DateTime)) as DateTime?;
+          break;
+        case 'partner':
+          result.partner = serializers.deserialize(value,
+              specifiedType: const FullType(DocumentReference, const [
+                const FullType.nullable(Object)
+              ])) as DocumentReference<Object?>?;
+          break;
+        case 'last_message':
+          result.lastMessage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -101,6 +137,12 @@ class _$ChatRoomListRecord extends ChatRoomListRecord {
   @override
   final int? status;
   @override
+  final DateTime? updateDate;
+  @override
+  final DocumentReference<Object?>? partner;
+  @override
+  final String? lastMessage;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$ChatRoomListRecord(
@@ -108,7 +150,13 @@ class _$ChatRoomListRecord extends ChatRoomListRecord {
       (new ChatRoomListRecordBuilder()..update(updates))._build();
 
   _$ChatRoomListRecord._(
-      {this.createDate, this.createBy, this.status, this.ffRef})
+      {this.createDate,
+      this.createBy,
+      this.status,
+      this.updateDate,
+      this.partner,
+      this.lastMessage,
+      this.ffRef})
       : super._();
 
   @override
@@ -127,15 +175,24 @@ class _$ChatRoomListRecord extends ChatRoomListRecord {
         createDate == other.createDate &&
         createBy == other.createBy &&
         status == other.status &&
+        updateDate == other.updateDate &&
+        partner == other.partner &&
+        lastMessage == other.lastMessage &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc($jc($jc(0, createDate.hashCode), createBy.hashCode),
-            status.hashCode),
-        ffRef.hashCode));
+    var _$hash = 0;
+    _$hash = $jc(_$hash, createDate.hashCode);
+    _$hash = $jc(_$hash, createBy.hashCode);
+    _$hash = $jc(_$hash, status.hashCode);
+    _$hash = $jc(_$hash, updateDate.hashCode);
+    _$hash = $jc(_$hash, partner.hashCode);
+    _$hash = $jc(_$hash, lastMessage.hashCode);
+    _$hash = $jc(_$hash, ffRef.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
   }
 
   @override
@@ -144,6 +201,9 @@ class _$ChatRoomListRecord extends ChatRoomListRecord {
           ..add('createDate', createDate)
           ..add('createBy', createBy)
           ..add('status', status)
+          ..add('updateDate', updateDate)
+          ..add('partner', partner)
+          ..add('lastMessage', lastMessage)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -166,6 +226,18 @@ class ChatRoomListRecordBuilder
   int? get status => _$this._status;
   set status(int? status) => _$this._status = status;
 
+  DateTime? _updateDate;
+  DateTime? get updateDate => _$this._updateDate;
+  set updateDate(DateTime? updateDate) => _$this._updateDate = updateDate;
+
+  DocumentReference<Object?>? _partner;
+  DocumentReference<Object?>? get partner => _$this._partner;
+  set partner(DocumentReference<Object?>? partner) => _$this._partner = partner;
+
+  String? _lastMessage;
+  String? get lastMessage => _$this._lastMessage;
+  set lastMessage(String? lastMessage) => _$this._lastMessage = lastMessage;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -180,6 +252,9 @@ class ChatRoomListRecordBuilder
       _createDate = $v.createDate;
       _createBy = $v.createBy;
       _status = $v.status;
+      _updateDate = $v.updateDate;
+      _partner = $v.partner;
+      _lastMessage = $v.lastMessage;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -206,10 +281,13 @@ class ChatRoomListRecordBuilder
             createDate: createDate,
             createBy: createBy,
             status: status,
+            updateDate: updateDate,
+            partner: partner,
+            lastMessage: lastMessage,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new,unnecessary_lambdas
+// ignore_for_file: deprecated_member_use_from_same_package,type=lint
