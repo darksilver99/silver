@@ -1,5 +1,7 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +9,14 @@ import 'partner_chat_view_model.dart';
 export 'partner_chat_view_model.dart';
 
 class PartnerChatViewWidget extends StatefulWidget {
-  const PartnerChatViewWidget({Key? key}) : super(key: key);
+  const PartnerChatViewWidget({
+    Key? key,
+    this.userParameter,
+    this.message,
+  }) : super(key: key);
+
+  final DocumentReference? userParameter;
+  final String? message;
 
   @override
   _PartnerChatViewWidgetState createState() => _PartnerChatViewWidgetState();
@@ -57,15 +66,33 @@ class _PartnerChatViewWidgetState extends State<PartnerChatViewWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  _model.displayName!,
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                      ),
+                StreamBuilder<UsersRecord>(
+                  stream: UsersRecord.getDocument(widget.userParameter!),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
+                        ),
+                      );
+                    }
+                    final textUsersRecord = snapshot.data!;
+                    return Text(
+                      textUsersRecord.displayName!,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold,
+                          ),
+                    );
+                  },
                 ),
                 Text(
-                  _model.message!,
+                  widget.message!,
                   style: FlutterFlowTheme.of(context).bodyText1,
                 ),
               ],

@@ -1,5 +1,7 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +9,14 @@ import 'owner_chat_view_model.dart';
 export 'owner_chat_view_model.dart';
 
 class OwnerChatViewWidget extends StatefulWidget {
-  const OwnerChatViewWidget({Key? key}) : super(key: key);
+  const OwnerChatViewWidget({
+    Key? key,
+    this.userParameter,
+    this.message,
+  }) : super(key: key);
+
+  final DocumentReference? userParameter;
+  final String? message;
 
   @override
   _OwnerChatViewWidgetState createState() => _OwnerChatViewWidgetState();
@@ -57,12 +66,30 @@ class _OwnerChatViewWidgetState extends State<OwnerChatViewWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(
-                  _model.displayName!,
-                  style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.bold,
-                      ),
+                StreamBuilder<UsersRecord>(
+                  stream: UsersRecord.getDocument(widget.userParameter!),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primaryColor,
+                          ),
+                        ),
+                      );
+                    }
+                    final textUsersRecord = snapshot.data!;
+                    return Text(
+                      textUsersRecord.displayName!,
+                      style: FlutterFlowTheme.of(context).bodyText1.override(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.bold,
+                          ),
+                    );
+                  },
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
@@ -70,7 +97,7 @@ class _OwnerChatViewWidgetState extends State<OwnerChatViewWidget> {
                   children: [
                     Expanded(
                       child: Text(
-                        _model.message!,
+                        widget.message!,
                         style: FlutterFlowTheme.of(context).bodyText1,
                       ),
                     ),

@@ -112,12 +112,18 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                               PartnerChatViewWidget(
                                 key: Key(
                                     'Keyex7_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
+                                message: listViewChatRoomSubListRecord.message,
+                                userParameter:
+                                    listViewChatRoomSubListRecord.createBy,
                               ),
                             if (widget.chatRoomParameter!.createBy ==
                                 currentUserReference)
                               OwnerChatViewWidget(
                                 key: Key(
                                     'Key8b0_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
+                                message: listViewChatRoomSubListRecord.message,
+                                userParameter:
+                                    listViewChatRoomSubListRecord.createBy,
                               ),
                           ],
                         );
