@@ -66,26 +66,24 @@ class _PartnerChatViewWidgetState extends State<PartnerChatViewWidget> {
             ),
           ),
         ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(4.0, 8.0, 16.0, 8.0),
-            child: Material(
-              color: Colors.transparent,
-              elevation: 3.0,
-              shape: RoundedRectangleBorder(
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(4.0, 8.0, 16.0, 8.0),
+          child: Material(
+            color: Colors.transparent,
+            elevation: 3.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16.0),
+            ),
+            child: Container(
+              decoration: BoxDecoration(
+                color: FlutterFlowTheme.of(context).secondaryBackground,
                 borderRadius: BorderRadius.circular(16.0),
               ),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                  child: Text(
-                    widget.message!,
-                    style: FlutterFlowTheme.of(context).bodyText1,
-                  ),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                child: Text(
+                  widget.message!,
+                  style: FlutterFlowTheme.of(context).bodyText1,
                 ),
               ),
             ),
