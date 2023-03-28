@@ -236,7 +236,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                                 currentUserReference) {
                               triggerPushNotification(
                                 notificationTitle: currentUserDisplayName,
-                                notificationText: _model.textController.text,
+                                notificationText: FFAppState().temporaryMessage,
                                 userRefs: [widget.chatRoomParameter!.partner!],
                                 initialPageName: 'ChatRoomPage',
                                 parameterData: {
@@ -246,7 +246,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                             } else {
                               triggerPushNotification(
                                 notificationTitle: currentUserDisplayName,
-                                notificationText: _model.textController.text,
+                                notificationText: FFAppState().temporaryMessage,
                                 userRefs: [widget.chatRoomParameter!.createBy!],
                                 initialPageName: 'ChatRoomPage',
                                 parameterData: {
