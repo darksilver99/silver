@@ -1,5 +1,6 @@
 import '/auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/owner_chat_view_widget.dart';
 import '/components/partner_chat_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -231,6 +232,29 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                             );
                             await widget.chatRoomParameter!.reference
                                 .update(chatRoomListUpdateData);
+                            if (widget.chatRoomParameter!.createBy ==
+                                currentUserReference) {
+                              triggerPushNotification(
+                                notificationTitle: currentUserDisplayName,
+                                notificationText: _model.textController.text,
+                                userRefs: [widget.chatRoomParameter!.partner!],
+                                initialPageName: 'ChatRoomPage',
+                                parameterData: {
+                                  'chatRoomParameter': widget.chatRoomParameter,
+                                },
+                              );
+                            } else {
+                              triggerPushNotification(
+                                notificationTitle: currentUserDisplayName,
+                                notificationText: _model.textController.text,
+                                userRefs: [widget.chatRoomParameter!.createBy!],
+                                initialPageName: 'ChatRoomPage',
+                                parameterData: {
+                                  'chatRoomParameter': widget.chatRoomParameter,
+                                },
+                              );
+                            }
+
                             FFAppState().temporaryMessage = '';
                             return;
                           } else {
