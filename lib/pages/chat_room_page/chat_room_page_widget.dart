@@ -78,7 +78,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                     queryBuilder: (chatRoomSubListRecord) =>
                         chatRoomSubListRecord
                             .where('status', isEqualTo: 1)
-                            .orderBy('create_date'),
+                            .orderBy('create_date', descending: true),
                   ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
@@ -107,7 +107,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                         return Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            if (widget.chatRoomParameter!.createBy !=
+                            if (listViewChatRoomSubListRecord.createBy !=
                                 currentUserReference)
                               PartnerChatViewWidget(
                                 key: Key(
@@ -196,6 +196,10 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                         onTap: () async {
                           if (_model.textController.text != null &&
                               _model.textController.text != '') {
+                            setState(() {
+                              _model.textController?.clear();
+                            });
+
                             final chatRoomSubListCreateData =
                                 createChatRoomSubListRecordData(
                               createBy: currentUserReference,
