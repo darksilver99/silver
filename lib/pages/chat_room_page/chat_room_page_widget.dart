@@ -196,10 +196,6 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                         onTap: () async {
                           if (_model.textController.text != null &&
                               _model.textController.text != '') {
-                            setState(() {
-                              _model.textController?.clear();
-                            });
-
                             final chatRoomSubListCreateData =
                                 createChatRoomSubListRecordData(
                               createBy: currentUserReference,
@@ -218,6 +214,9 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                             );
                             await widget.chatRoomParameter!.reference
                                 .update(chatRoomListUpdateData);
+                            setState(() {
+                              _model.textController?.clear();
+                            });
                             return;
                           } else {
                             return;
