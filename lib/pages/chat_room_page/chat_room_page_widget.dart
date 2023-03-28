@@ -111,21 +111,31 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                           children: [
                             if (listViewChatRoomSubListRecord.createBy !=
                                 currentUserReference)
-                              PartnerChatViewWidget(
-                                key: Key(
-                                    'Keyex7_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
-                                message: listViewChatRoomSubListRecord.message,
-                                userParameter:
-                                    listViewChatRoomSubListRecord.createBy,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 32.0, 0.0),
+                                child: PartnerChatViewWidget(
+                                  key: Key(
+                                      'Keyex7_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
+                                  message:
+                                      listViewChatRoomSubListRecord.message,
+                                  userParameter:
+                                      listViewChatRoomSubListRecord.createBy,
+                                ),
                               ),
                             if (listViewChatRoomSubListRecord.createBy ==
                                 currentUserReference)
-                              OwnerChatViewWidget(
-                                key: Key(
-                                    'Key8b0_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
-                                message: listViewChatRoomSubListRecord.message,
-                                userParameter:
-                                    listViewChatRoomSubListRecord.createBy,
+                              Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    32.0, 0.0, 0.0, 0.0),
+                                child: OwnerChatViewWidget(
+                                  key: Key(
+                                      'Key8b0_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
+                                  message:
+                                      listViewChatRoomSubListRecord.message,
+                                  userParameter:
+                                      listViewChatRoomSubListRecord.createBy,
+                                ),
                               ),
                           ],
                         );

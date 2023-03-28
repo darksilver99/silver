@@ -1,4 +1,3 @@
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -48,68 +47,51 @@ class _OwnerChatViewWidgetState extends State<OwnerChatViewWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 8.0),
-      child: Material(
-        color: Colors.transparent,
-        elevation: 3.0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16.0),
-        ),
-        child: Container(
-          width: double.infinity,
-          decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).secondaryBackground,
-            borderRadius: BorderRadius.circular(16.0),
-          ),
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        Expanded(
           child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                StreamBuilder<UsersRecord>(
-                  stream: UsersRecord.getDocument(widget.userParameter!),
-                  builder: (context, snapshot) {
-                    // Customize what your widget looks like when it's loading.
-                    if (!snapshot.hasData) {
-                      return Center(
-                        child: SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
-                          ),
-                        ),
-                      );
-                    }
-                    final textUsersRecord = snapshot.data!;
-                    return Text(
-                      textUsersRecord.displayName!,
-                      style: FlutterFlowTheme.of(context).bodyText1.override(
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.bold,
-                          ),
-                    );
-                  },
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 4.0, 8.0),
+            child: Material(
+              color: Colors.transparent,
+              elevation: 3.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16.0),
+              ),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  borderRadius: BorderRadius.circular(16.0),
                 ),
-                Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        widget.message!,
-                        style: FlutterFlowTheme.of(context).bodyText1,
-                      ),
-                    ),
-                  ],
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                  child: Text(
+                    widget.message!,
+                    style: FlutterFlowTheme.of(context).bodyText1,
+                  ),
                 ),
-              ],
+              ),
             ),
           ),
         ),
-      ),
+        Padding(
+          padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+          child: Container(
+            width: 42.0,
+            height: 42.0,
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+            ),
+            child: Image.network(
+              'https://picsum.photos/seed/837/600',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
