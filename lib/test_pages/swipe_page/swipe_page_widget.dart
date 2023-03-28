@@ -83,8 +83,8 @@ class _SwipePageWidgetState extends State<SwipePageWidget> {
                     List<UsersRecord> swipeableStackUsersRecordList =
                         snapshot.data!;
                     return FlutterFlowSwipeableStack(
-                      topCardHeightFraction: 0.72,
-                      middleCardHeightFraction: 0.68,
+                      topCardHeightFraction: 0.82,
+                      middleCardHeightFraction: 0.8,
                       bottomCardHeightFraction: 0.75,
                       topCardWidthFraction: 0.9,
                       middleCardWidthFraction: 0.85,
