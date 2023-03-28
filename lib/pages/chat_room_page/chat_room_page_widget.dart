@@ -113,7 +113,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                                 currentUserReference)
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 32.0, 0.0),
+                                    8.0, 0.0, 46.0, 0.0),
                                 child: PartnerChatViewWidget(
                                   key: Key(
                                       'Keyex7_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
@@ -127,7 +127,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                                 currentUserReference)
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 0.0, 0.0, 0.0),
+                                    46.0, 0.0, 8.0, 0.0),
                                 child: OwnerChatViewWidget(
                                   key: Key(
                                       'Key8b0_${listViewIndex}_of_${listViewChatRoomSubListRecordList.length}'),
