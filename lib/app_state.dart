@@ -30,6 +30,30 @@ class FFAppState extends ChangeNotifier {
   set temporaryMessage(String _value) {
     _temporaryMessage = _value;
   }
+
+  DocumentReference? _singleUser;
+  DocumentReference? get singleUser => _singleUser;
+  set singleUser(DocumentReference? _value) {
+    _singleUser = _value;
+  }
+
+  List<DocumentReference> _multipleUsers = [];
+  List<DocumentReference> get multipleUsers => _multipleUsers;
+  set multipleUsers(List<DocumentReference> _value) {
+    _multipleUsers = _value;
+  }
+
+  void addToMultipleUsers(DocumentReference _value) {
+    _multipleUsers.add(_value);
+  }
+
+  void removeFromMultipleUsers(DocumentReference _value) {
+    _multipleUsers.remove(_value);
+  }
+
+  void removeAtIndexFromMultipleUsers(int _index) {
+    _multipleUsers.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

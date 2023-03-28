@@ -234,20 +234,24 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                                 .update(chatRoomListUpdateData);
                             if (widget.chatRoomParameter!.createBy ==
                                 currentUserReference) {
+                              FFAppState().singleUser =
+                                  widget.chatRoomParameter!.partner;
                               triggerPushNotification(
                                 notificationTitle: currentUserDisplayName,
                                 notificationText: FFAppState().temporaryMessage,
-                                userRefs: [widget.chatRoomParameter!.partner!],
+                                userRefs: [FFAppState().singleUser!],
                                 initialPageName: 'ChatRoomPage',
                                 parameterData: {
                                   'chatRoomParameter': widget.chatRoomParameter,
                                 },
                               );
                             } else {
+                              FFAppState().singleUser =
+                                  widget.chatRoomParameter!.createBy;
                               triggerPushNotification(
                                 notificationTitle: currentUserDisplayName,
                                 notificationText: FFAppState().temporaryMessage,
-                                userRefs: [widget.chatRoomParameter!.createBy!],
+                                userRefs: [FFAppState().singleUser!],
                                 initialPageName: 'ChatRoomPage',
                                 parameterData: {
                                   'chatRoomParameter': widget.chatRoomParameter,
@@ -256,6 +260,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                             }
 
                             FFAppState().temporaryMessage = '';
+                            FFAppState().singleUser = null;
                             return;
                           } else {
                             return;
