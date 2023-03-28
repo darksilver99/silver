@@ -96,6 +96,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'SwipePage',
           path: '/swipePage',
+          requireAuth: true,
           builder: (context, params) => SwipePageWidget(),
         ),
         FFRoute(
