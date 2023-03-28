@@ -118,7 +118,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                                 userParameter:
                                     listViewChatRoomSubListRecord.createBy,
                               ),
-                            if (widget.chatRoomParameter!.createBy ==
+                            if (listViewChatRoomSubListRecord.createBy ==
                                 currentUserReference)
                               OwnerChatViewWidget(
                                 key: Key(
