@@ -54,8 +54,8 @@ class _PartnerChatViewWidgetState extends State<PartnerChatViewWidget> {
         Padding(
           padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
           child: Container(
-            width: 42.0,
-            height: 42.0,
+            width: 36.0,
+            height: 36.0,
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
