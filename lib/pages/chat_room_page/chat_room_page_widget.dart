@@ -47,6 +47,8 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -147,7 +149,6 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 8.0, 0.0),
                         child: TextFormField(
                           controller: _model.textController,
-                          autofocus: true,
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: '[Some hint text...]',
@@ -196,12 +197,18 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                         onTap: () async {
                           if (_model.textController.text != null &&
                               _model.textController.text != '') {
+                            FFAppState().temporaryMessage =
+                                _model.textController.text;
+                            setState(() {
+                              _model.textController?.clear();
+                            });
+
                             final chatRoomSubListCreateData =
                                 createChatRoomSubListRecordData(
                               createBy: currentUserReference,
                               createDate: getCurrentTimestamp,
                               status: 1,
-                              message: _model.textController.text,
+                              message: FFAppState().temporaryMessage,
                             );
                             await ChatRoomSubListRecord.createDoc(
                                     widget.chatRoomParameter!.reference)
@@ -210,13 +217,11 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                             final chatRoomListUpdateData =
                                 createChatRoomListRecordData(
                               updateDate: getCurrentTimestamp,
-                              lastMessage: _model.textController.text,
+                              lastMessage: FFAppState().temporaryMessage,
                             );
                             await widget.chatRoomParameter!.reference
                                 .update(chatRoomListUpdateData);
-                            setState(() {
-                              _model.textController?.clear();
-                            });
+                            FFAppState().temporaryMessage = '';
                             return;
                           } else {
                             return;
