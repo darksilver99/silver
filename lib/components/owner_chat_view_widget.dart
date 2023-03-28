@@ -68,10 +68,11 @@ class _OwnerChatViewWidgetState extends State<OwnerChatViewWidget> {
                 ),
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                  child: Text(
-                    widget.message!,
-                    style: FlutterFlowTheme.of(context).bodyText1,
-                  ),
+                  child: SelectionArea(
+                      child: Text(
+                        widget.message!,
+                        style: FlutterFlowTheme.of(context).bodyText1,
+                      )),
                 ),
               ),
             ),
