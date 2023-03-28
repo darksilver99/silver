@@ -81,10 +81,11 @@ class _PartnerChatViewWidgetState extends State<PartnerChatViewWidget> {
               ),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
-                child: Text(
+                child: SelectionArea(
+                    child: Text(
                   widget.message!,
                   style: FlutterFlowTheme.of(context).bodyText1,
-                ),
+                )),
               ),
             ),
           ),
