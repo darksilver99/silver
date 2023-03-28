@@ -37,6 +37,8 @@ class _NoDataViewWidgetState extends State<NoDataViewWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container();
   }
 }
