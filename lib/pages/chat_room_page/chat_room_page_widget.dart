@@ -59,7 +59,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
         title: Text(
           'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+                fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
               ),

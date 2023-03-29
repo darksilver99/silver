@@ -13,7 +13,8 @@ class GetProvinceListCall {
   static Future<ApiCallResponse> call() {
     return ApiManager.instance.makeApiCall(
       callName: 'getProvinceList',
-      apiUrl: 'https://asia-east2-silver-65166.cloudfunctions.net/helloWorld',
+      apiUrl:
+          'https://asia-east2-silver-65166.cloudfunctions.net/provincesList',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -33,6 +34,21 @@ class GetProvinceListCall {
         r'''$.data''',
         true,
       );
+  static dynamic dataID(dynamic response) => getJsonField(
+        response,
+        r'''$.data[?(@)].id''',
+        true,
+      );
+  static dynamic dataName(dynamic response) => getJsonField(
+        response,
+        r'''$.data[?(@)].name''',
+        true,
+      );
+  static dynamic dataPostCode(dynamic response) => getJsonField(
+        response,
+        r'''$.data[?(@)].postCode''',
+        true,
+      );
 }
 
 class AddProvinceCall {
@@ -48,6 +64,36 @@ class AddProvinceCall {
       params: {
         'name': name,
         'postCode': postCode,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
+      );
+  static dynamic msg(dynamic response) => getJsonField(
+        response,
+        r'''$.msg''',
+      );
+}
+
+class DeleteProvinceCall {
+  static Future<ApiCallResponse> call({
+    String? id = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'deleteProvince',
+      apiUrl:
+          'https://asia-east2-silver-65166.cloudfunctions.net/deleteProvince',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'id': id,
       },
       returnBody: true,
       encodeBodyUtf8: false,

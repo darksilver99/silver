@@ -50,7 +50,7 @@ class _FriendListPageWidgetState extends State<FriendListPageWidget> {
         title: Text(
           'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+                fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
               ),
@@ -138,7 +138,7 @@ class _FriendListPageWidgetState extends State<FriendListPageWidget> {
                                       style: FlutterFlowTheme.of(context)
                                           .bodyText1
                                           .override(
-                                            fontFamily: 'Poppins',
+                                            fontFamily: 'Kanit',
                                             fontSize: 22.0,
                                           ),
                                     ),

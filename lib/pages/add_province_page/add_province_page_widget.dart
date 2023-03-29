@@ -51,7 +51,7 @@ class _AddProvincePageWidgetState extends State<AddProvincePageWidget> {
         title: Text(
           'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+                fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
               ),
@@ -84,7 +84,6 @@ class _AddProvincePageWidgetState extends State<AddProvincePageWidget> {
                               16.0, 16.0, 16.0, 16.0),
                           child: TextFormField(
                             controller: _model.nameController,
-                            autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Name',
@@ -128,7 +127,6 @@ class _AddProvincePageWidgetState extends State<AddProvincePageWidget> {
                               16.0, 16.0, 16.0, 16.0),
                           child: TextFormField(
                             controller: _model.postCodeController,
-                            autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
                               labelText: 'Post Code',
@@ -185,7 +183,7 @@ class _AddProvincePageWidgetState extends State<AddProvincePageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .subtitle2
                                         .override(
-                                          fontFamily: 'Poppins',
+                                          fontFamily: 'Kanit',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
                                         ),
@@ -232,7 +230,7 @@ class _AddProvincePageWidgetState extends State<AddProvincePageWidget> {
                             color: FlutterFlowTheme.of(context).primaryColor,
                             textStyle:
                                 FlutterFlowTheme.of(context).subtitle2.override(
-                                      fontFamily: 'Poppins',
+                                      fontFamily: 'Kanit',
                                       color: Colors.white,
                                     ),
                             borderSide: BorderSide(
