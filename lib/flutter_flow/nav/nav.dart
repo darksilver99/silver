@@ -120,6 +120,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             chatRoomParameter:
                 params.getParam('chatRoomParameter', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'TopicListPage',
+          path: '/topicListPage',
+          builder: (context, params) => TopicListPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

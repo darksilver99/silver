@@ -261,6 +261,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
 
                             FFAppState().temporaryMessage = '';
                             FFAppState().singleUser = null;
+                            FFAppState().multipleUsers = [];
                             return;
                           } else {
                             return;
