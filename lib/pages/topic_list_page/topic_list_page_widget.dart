@@ -42,8 +42,8 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('FloatingActionButton pressed ...');
+        onPressed: () async {
+          context.pushNamed('AddProvincePage');
         },
         backgroundColor: FlutterFlowTheme.of(context).primaryColor,
         elevation: 8.0,
