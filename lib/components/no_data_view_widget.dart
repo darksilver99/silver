@@ -39,6 +39,30 @@ class _NoDataViewWidgetState extends State<NoDataViewWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container();
+    return Padding(
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(),
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.info_rounded,
+              color: FlutterFlowTheme.of(context).secondaryText,
+              size: 42.0,
+            ),
+            Text(
+              'ไม่มีข้อมูล',
+              style: FlutterFlowTheme.of(context).title2.override(
+                    fontFamily: 'Kanit',
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                  ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

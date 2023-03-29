@@ -355,7 +355,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    fontFamily: 'Kanit',
                                                     color: Colors.white,
                                                   ),
                                           borderSide: BorderSide(
@@ -912,7 +912,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                               FlutterFlowTheme.of(context)
                                                   .subtitle2
                                                   .override(
-                                                    fontFamily: 'Poppins',
+                                                    fontFamily: 'Kanit',
                                                     color: Colors.white,
                                                   ),
                                           borderSide: BorderSide(

@@ -48,7 +48,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         title: Text(
           'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+                fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
               ),
@@ -105,7 +105,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Kanit',
                                   color: Colors.white,
                                 ),
                         borderSide: BorderSide(
@@ -143,7 +143,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Kanit',
                                   color: Colors.white,
                                 ),
                         borderSide: BorderSide(
@@ -181,7 +181,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Kanit',
                                   color: Colors.white,
                                 ),
                         borderSide: BorderSide(
@@ -223,7 +223,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         color: FlutterFlowTheme.of(context).tertiaryColor,
                         textStyle:
                             FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Poppins',
+                                  fontFamily: 'Kanit',
                                   color: Colors.white,
                                 ),
                         borderSide: BorderSide(

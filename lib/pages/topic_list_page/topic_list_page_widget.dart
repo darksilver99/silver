@@ -1,7 +1,9 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/no_data_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'topic_list_page_model.dart';
@@ -45,8 +47,12 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
         onPressed: () async {
           context.pushNamed('AddProvincePage');
         },
-        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
         elevation: 8.0,
+        child: Icon(
+          Icons.add,
+          size: 36.0,
+        ),
       ),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
@@ -54,7 +60,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
         title: Text(
           'Page Title',
           style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
+                fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
               ),
@@ -92,13 +98,15 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                       decoration: BoxDecoration(),
                       child: Builder(
                         builder: (context) {
-                          final provinceList = (GetProvinceListCall.dataList(
+                          final provinceList = GetProvinceListCall.dataList(
                                 columnGetProvinceListResponse.jsonBody,
-                              ) as List)
-                                  .map<String>((s) => s.toString())
-                                  .toList()
-                                  ?.toList() ??
+                              )?.toList() ??
                               [];
+                          if (provinceList.isEmpty) {
+                            return Center(
+                              child: NoDataViewWidget(),
+                            );
+                          }
                           return ListView.builder(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
@@ -107,28 +115,169 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                             itemBuilder: (context, provinceListIndex) {
                               final provinceListItem =
                                   provinceList[provinceListIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        provinceListItem,
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyText1,
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Container(
+                                    width: double.infinity,
+                                    height: 80.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 0.0, 0.0, 0.0),
+                                      child: Slidable(
+                                        endActionPane: ActionPane(
+                                          motion: const ScrollMotion(),
+                                          extentRatio: 0.25,
+                                          children: [
+                                            SlidableAction(
+                                              label: 'Delete',
+                                              backgroundColor:
+                                                  FlutterFlowTheme.of(context)
+                                                      .alternate,
+                                              icon: Icons.delete,
+                                              onPressed: (_) async {
+                                                var _shouldSetState = false;
+                                                var confirmDialogResponse =
+                                                    await showDialog<bool>(
+                                                          context: context,
+                                                          builder:
+                                                              (alertDialogContext) {
+                                                            return AlertDialog(
+                                                              title: Text(
+                                                                  'ต้องการลบหรือไม่ ?'),
+                                                              actions: [
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          false),
+                                                                  child: Text(
+                                                                      'Cancel'),
+                                                                ),
+                                                                TextButton(
+                                                                  onPressed: () =>
+                                                                      Navigator.pop(
+                                                                          alertDialogContext,
+                                                                          true),
+                                                                  child: Text(
+                                                                      'Confirm'),
+                                                                ),
+                                                              ],
+                                                            );
+                                                          },
+                                                        ) ??
+                                                        false;
+                                                if (confirmDialogResponse) {
+                                                  _model.deletededResult =
+                                                      await DeleteProvinceCall
+                                                          .call(
+                                                    id: getJsonField(
+                                                      provinceListItem,
+                                                      r'''$.data[?(@)].id''',
+                                                    ).toString(),
+                                                  );
+                                                  _shouldSetState = true;
+                                                  if (DeleteProvinceCall.status(
+                                                    (_model.deletededResult
+                                                            ?.jsonBody ??
+                                                        ''),
+                                                  )) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          DeleteProvinceCall
+                                                              .msg(
+                                                            (_model.deletededResult
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ).toString(),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryColor,
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      SnackBar(
+                                                        content: Text(
+                                                          DeleteProvinceCall
+                                                              .msg(
+                                                            (_model.deletededResult
+                                                                    ?.jsonBody ??
+                                                                ''),
+                                                          ).toString(),
+                                                          style: TextStyle(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .primaryText,
+                                                          ),
+                                                        ),
+                                                        duration: Duration(
+                                                            milliseconds: 4000),
+                                                        backgroundColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .alternate,
+                                                      ),
+                                                    );
+                                                  }
+
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                } else {
+                                                  if (_shouldSetState)
+                                                    setState(() {});
+                                                  return;
+                                                }
+
+                                                if (_shouldSetState)
+                                                  setState(() {});
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                        child: ListTile(
+                                          title: Text(
+                                            getJsonField(
+                                              provinceListItem,
+                                              r'''$.data[?(@)].name''',
+                                            ).toString(),
+                                            style: FlutterFlowTheme.of(context)
+                                                .title3,
+                                          ),
+                                          tileColor: Color(0xFFF5F5F5),
+                                          dense: false,
+                                        ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 1.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .lineColor,
+                                    ),
+                                  ),
+                                ],
                               );
                             },
                           );
