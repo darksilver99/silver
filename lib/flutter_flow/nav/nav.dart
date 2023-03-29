@@ -125,6 +125,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TopicListPage',
           path: '/topicListPage',
           builder: (context, params) => TopicListPageWidget(),
+        ),
+        FFRoute(
+          name: 'AddProvincePage',
+          path: '/addProvincePage',
+          builder: (context, params) => AddProvincePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

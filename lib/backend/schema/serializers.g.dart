@@ -9,6 +9,7 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(ChatRoomListRecord.serializer)
       ..add(ChatRoomSubListRecord.serializer)
+      ..add(ProvinceListRecord.serializer)
       ..add(TopicListRecord.serializer)
       ..add(TopicSubListRecord.serializer)
       ..add(UsersRecord.serializer))
