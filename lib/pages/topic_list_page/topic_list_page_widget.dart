@@ -41,6 +41,13 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: FlutterFlowTheme.of(context).primaryColor,
+        elevation: 8.0,
+      ),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
         automaticallyImplyLeading: false,
@@ -78,49 +85,56 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
               return Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Builder(
-                    builder: (context) {
-                      final provinceList = (GetProvinceListCall.dataList(
-                            columnGetProvinceListResponse.jsonBody,
-                          ) as List)
-                              .map<String>((s) => s.toString())
-                              .toList()
-                              ?.toList() ??
-                          [];
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: provinceList.length,
-                        itemBuilder: (context, provinceListIndex) {
-                          final provinceListItem =
-                              provinceList[provinceListIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 16.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    provinceListItem,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                  Expanded(
+                    child: Container(
+                      width: double.infinity,
+                      height: 100.0,
+                      decoration: BoxDecoration(),
+                      child: Builder(
+                        builder: (context) {
+                          final provinceList = (GetProvinceListCall.dataList(
+                                columnGetProvinceListResponse.jsonBody,
+                              ) as List)
+                                  .map<String>((s) => s.toString())
+                                  .toList()
+                                  ?.toList() ??
+                              [];
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: provinceList.length,
+                            itemBuilder: (context, provinceListIndex) {
+                              final provinceListItem =
+                                  provinceList[provinceListIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 16.0, 16.0, 16.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
                                   ),
-                                ],
-                              ),
-                            ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        provinceListItem,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyText1,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
                           );
                         },
-                      );
-                    },
+                      ),
+                    ),
                   ),
                 ],
               );
