@@ -177,7 +177,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                                                           .call(
                                                     id: getJsonField(
                                                       provinceListItem,
-                                                      r'''$.data[?(@)].id''',
+                                                      r'''$.id''',
                                                     ).toString(),
                                                   );
                                                   _shouldSetState = true;
@@ -258,7 +258,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                                           title: Text(
                                             getJsonField(
                                               provinceListItem,
-                                              r'''$.data[?(@)].name''',
+                                              r'''$.name''',
                                             ).toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .title3,
