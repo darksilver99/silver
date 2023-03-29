@@ -8,3 +8,5 @@ export '/pages/friend_list_page/friend_list_page_widget.dart'
     show FriendListPageWidget;
 export '/pages/chat_room_page/chat_room_page_widget.dart'
     show ChatRoomPageWidget;
+export '/pages/topic_list_page/topic_list_page_widget.dart'
+    show TopicListPageWidget;
