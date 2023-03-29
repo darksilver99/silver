@@ -266,7 +266,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context).tertiaryColor,
                                           textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Kanit',
                                                 color: Colors.white,
                                               ),
                                           borderSide: BorderSide(
@@ -643,7 +643,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                           color: FlutterFlowTheme.of(context).tertiaryColor,
                                           textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                                                fontFamily: 'Poppins',
+                                                fontFamily: 'Kanit',
                                                 color: Colors.white,
                                               ),
                                           borderSide: BorderSide(

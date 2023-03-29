@@ -396,6 +396,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_slidable:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: d10a912aae1fb0da330d9c83169f15ed2b0b42a2
+      resolved-ref: d10a912aae1fb0da330d9c83169f15ed2b0b42a2
+      url: "https://github.com/letsar/flutter_slidable.git"
+    source: git
+    version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
