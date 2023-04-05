@@ -47,7 +47,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
         onPressed: () async {
           context.pushNamed('AddProvincePage');
         },
-        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).tertiary,
         elevation: 8.0,
         child: Icon(
           Icons.add,
@@ -55,11 +55,11 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
         ),
       ),
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).tertiary,
         automaticallyImplyLeading: false,
         title: Text(
           'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
@@ -82,7 +82,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 );
@@ -208,7 +208,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                                                         backgroundColor:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .secondaryColor,
+                                                                .secondary,
                                                       ),
                                                     );
                                                   } else {
@@ -261,7 +261,7 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
                                               r'''$.name''',
                                             ).toString(),
                                             style: FlutterFlowTheme.of(context)
-                                                .title3,
+                                                .headlineSmall,
                                           ),
                                           tileColor: Color(0xFFF5F5F5),
                                           dense: false,

@@ -70,7 +70,7 @@ class _OwnerChatViewWidgetState extends State<OwnerChatViewWidget> {
                 child: SelectionArea(
                     child: Text(
                   widget.message!,
-                  style: FlutterFlowTheme.of(context).bodyText1,
+                  style: FlutterFlowTheme.of(context).bodyMedium,
                 )),
               ),
             ),

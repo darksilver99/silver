@@ -41,11 +41,11 @@ class _ChatListPageWidgetState extends State<ChatListPageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).tertiary,
         automaticallyImplyLeading: false,
         title: Text(
           'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,

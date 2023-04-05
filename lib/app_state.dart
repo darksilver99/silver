@@ -55,6 +55,24 @@ class FFAppState extends ChangeNotifier {
   void removeAtIndexFromMultipleUsers(int _index) {
     _multipleUsers.removeAt(_index);
   }
+
+  List<String> _testList = ['test1', 'test2', 'test3'];
+  List<String> get testList => _testList;
+  set testList(List<String> _value) {
+    _testList = _value;
+  }
+
+  void addToTestList(String _value) {
+    _testList.add(_value);
+  }
+
+  void removeFromTestList(String _value) {
+    _testList.remove(_value);
+  }
+
+  void removeAtIndexFromTestList(int _index) {
+    _testList.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

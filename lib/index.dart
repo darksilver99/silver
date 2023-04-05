@@ -12,3 +12,5 @@ export '/pages/topic_list_page/topic_list_page_widget.dart'
     show TopicListPageWidget;
 export '/pages/add_province_page/add_province_page_widget.dart'
     show AddProvincePageWidget;
+export '/pages/add_something_page/add_something_page_widget.dart'
+    show AddSomethingPageWidget;

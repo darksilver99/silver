@@ -44,11 +44,11 @@ class _SwipePageWidgetState extends State<SwipePageWidget> {
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
+        backgroundColor: FlutterFlowTheme.of(context).tertiary,
         automaticallyImplyLeading: false,
         title: Text(
           'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
+          style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Kanit',
                 color: Colors.white,
                 fontSize: 22.0,
@@ -75,7 +75,7 @@ class _SwipePageWidgetState extends State<SwipePageWidget> {
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -120,7 +120,7 @@ class _SwipePageWidgetState extends State<SwipePageWidget> {
                                   Text(
                                     swipeableStackUsersRecord.displayName!,
                                     style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                        FlutterFlowTheme.of(context).bodyMedium,
                                   ),
                                 ],
                               ),
