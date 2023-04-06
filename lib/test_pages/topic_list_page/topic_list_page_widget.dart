@@ -40,38 +40,38 @@ class _TopicListPageWidgetState extends State<TopicListPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          context.pushNamed('AddProvincePage');
-        },
-        backgroundColor: FlutterFlowTheme.of(context).tertiary,
-        elevation: 8.0,
-        child: Icon(
-          Icons.add,
-          size: 36.0,
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            context.pushNamed('AddProvincePage');
+          },
+          backgroundColor: FlutterFlowTheme.of(context).tertiary,
+          elevation: 8.0,
+          child: Icon(
+            Icons.add,
+            size: 36.0,
+          ),
         ),
-      ),
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).tertiary,
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Page Title',
-          style: FlutterFlowTheme.of(context).headlineMedium.override(
-                fontFamily: 'Kanit',
-                color: Colors.white,
-                fontSize: 22.0,
-              ),
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).tertiary,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Page Title',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Kanit',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2.0,
         ),
-        actions: [],
-        centerTitle: false,
-        elevation: 2.0,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        body: SafeArea(
           child: FutureBuilder<ApiCallResponse>(
             future: GetProvinceListCall.call(),
             builder: (context, snapshot) {

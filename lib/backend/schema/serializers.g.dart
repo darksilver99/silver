@@ -7,12 +7,16 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(BookingListRecord.serializer)
       ..add(ChatRoomListRecord.serializer)
       ..add(ChatRoomSubListRecord.serializer)
       ..add(ProvinceListRecord.serializer)
       ..add(TopicListRecord.serializer)
       ..add(TopicSubListRecord.serializer)
-      ..add(UsersRecord.serializer))
+      ..add(UsersRecord.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>()))
     .build();
 
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

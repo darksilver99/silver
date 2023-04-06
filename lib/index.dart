@@ -1,16 +1,18 @@
 // Export pages
-export '/pages/home_page/home_page_widget.dart' show HomePageWidget;
-export '/pages/login_page/login_page_widget.dart' show LoginPageWidget;
+export '/home/home_page/home_page_widget.dart' show HomePageWidget;
+export '/member/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/test_pages/swipe_page/swipe_page_widget.dart' show SwipePageWidget;
-export '/pages/chat_list_page/chat_list_page_widget.dart'
+export '/test_pages/chat_list_page/chat_list_page_widget.dart'
     show ChatListPageWidget;
-export '/pages/friend_list_page/friend_list_page_widget.dart'
+export '/test_pages/friend_list_page/friend_list_page_widget.dart'
     show FriendListPageWidget;
-export '/pages/chat_room_page/chat_room_page_widget.dart'
+export '/test_pages/chat_room_page/chat_room_page_widget.dart'
     show ChatRoomPageWidget;
-export '/pages/topic_list_page/topic_list_page_widget.dart'
+export '/test_pages/topic_list_page/topic_list_page_widget.dart'
     show TopicListPageWidget;
-export '/pages/add_province_page/add_province_page_widget.dart'
+export '/test_pages/add_province_page/add_province_page_widget.dart'
     show AddProvincePageWidget;
-export '/pages/add_something_page/add_something_page_widget.dart'
+export '/test_pages/add_something_page/add_something_page_widget.dart'
     show AddSomethingPageWidget;
+export '/booking/booking_form_page/booking_form_page_widget.dart'
+    show BookingFormPageWidget;

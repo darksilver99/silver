@@ -135,6 +135,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddSomethingPage',
           path: '/addSomethingPage',
           builder: (context, params) => AddSomethingPageWidget(),
+        ),
+        FFRoute(
+          name: 'BookingFormPage',
+          path: '/bookingFormPage',
+          requireAuth: true,
+          builder: (context, params) => BookingFormPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

@@ -7,6 +7,7 @@ import 'chat_room_sub_list_record.dart';
 import 'topic_list_record.dart';
 import 'topic_sub_list_record.dart';
 import 'province_list_record.dart';
+import 'booking_list_record.dart';
 
 import 'index.dart';
 
@@ -23,6 +24,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   TopicListRecord,
   TopicSubListRecord,
   ProvinceListRecord,
+  BookingListRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

@@ -187,16 +187,16 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Poppins';
+  String get displayLargeFamily => 'Kanit';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
-  String get displayMediumFamily => 'Poppins';
+  String get displayMediumFamily => 'Kanit';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
@@ -208,9 +208,9 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get headlineLargeFamily => 'Poppins';
+  String get headlineLargeFamily => 'Kanit';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
@@ -229,9 +229,9 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Poppins';
+  String get titleLargeFamily => 'Kanit';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
@@ -250,23 +250,23 @@ class ThemeTypography extends Typography {
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Poppins';
+  String get labelLargeFamily => 'Kanit';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelMediumFamily => 'Poppins';
+  String get labelMediumFamily => 'Kanit';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
-  String get labelSmallFamily => 'Poppins';
+  String get labelSmallFamily => 'Kanit';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Poppins',
+        'Kanit',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,

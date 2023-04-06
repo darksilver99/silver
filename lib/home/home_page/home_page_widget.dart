@@ -39,27 +39,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).tertiary,
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Page Title',
-          style: FlutterFlowTheme.of(context).headlineMedium.override(
-                fontFamily: 'Kanit',
-                color: Colors.white,
-                fontSize: 22.0,
-              ),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).tertiary,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Page Title',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Kanit',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2.0,
         ),
-        actions: [],
-        centerTitle: false,
-        elevation: 2.0,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.start,
@@ -92,7 +92,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('AddSomethingPage');
+                        context.pushNamed('BookingFormPage');
                       },
                       text: 'AddSomethingPage',
                       options: FFButtonOptions(
