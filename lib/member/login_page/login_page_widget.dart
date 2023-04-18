@@ -1,4 +1,4 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -295,7 +295,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           GoRouter.of(context)
                                               .prepareAuthEvent();
 
-                                          final user = await signInWithEmail(
+                                          final user =
+                                              await authManager.signInWithEmail(
                                             context,
                                             _model.emailController.text,
                                             _model.passwordController.text,
@@ -315,7 +316,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                           } else {
                                             GoRouter.of(context)
                                                 .prepareAuthEvent();
-                                            await signOut();
+                                            await authManager.signOut();
                                             GoRouter.of(context)
                                                 .clearRedirectLocation();
 
@@ -867,8 +868,8 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                             return;
                                           }
 
-                                          final user =
-                                              await createAccountWithEmail(
+                                          final user = await authManager
+                                              .createAccountWithEmail(
                                             context,
                                             _model.emailSignUpController.text,
                                             _model

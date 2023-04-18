@@ -1,12 +1,10 @@
-import '/auth/auth_util.dart';
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/upload_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
@@ -355,7 +353,7 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                         child: Builder(
                                           builder: (context) {
                                             final photoList = _model
-                                                .uploadedFileUrls
+                                                .uploadedLocalFiles
                                                 .toList();
                                             return Wrap(
                                               spacing: 4.0,
@@ -401,11 +399,7 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                       ),
                                                       InkWell(
                                                         onTap: () async {
-                                                          await FirebaseStorage
-                                                              .instance
-                                                              .refFromURL(
-                                                                  photoListItem)
-                                                              .delete();
+                                                          setState(() {});
                                                         },
                                                         child: Icon(
                                                           Icons.cancel_sharp,
@@ -453,8 +447,7 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                             true);
                                                     var selectedUploadedFiles =
                                                         <FFUploadedFile>[];
-                                                    var downloadUrls =
-                                                        <String>[];
+
                                                     try {
                                                       showUploadMessage(
                                                         context,
@@ -480,20 +473,6 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                                         ?.width,
                                                                   ))
                                                               .toList();
-
-                                                      downloadUrls =
-                                                          (await Future.wait(
-                                                        selectedMedia.map(
-                                                          (m) async =>
-                                                              await uploadData(
-                                                                  m.storagePath,
-                                                                  m.bytes),
-                                                        ),
-                                                      ))
-                                                              .where((u) =>
-                                                                  u != null)
-                                                              .map((u) => u!)
-                                                              .toList();
                                                     } finally {
                                                       ScaffoldMessenger.of(
                                                               context)
@@ -502,17 +481,11 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                           false;
                                                     }
                                                     if (selectedUploadedFiles
-                                                                .length ==
-                                                            selectedMedia
-                                                                .length &&
-                                                        downloadUrls.length ==
-                                                            selectedMedia
-                                                                .length) {
+                                                            .length ==
+                                                        selectedMedia.length) {
                                                       setState(() {
                                                         _model.uploadedLocalFiles =
                                                             selectedUploadedFiles;
-                                                        _model.uploadedFileUrls =
-                                                            downloadUrls;
                                                       });
                                                       showUploadMessage(
                                                           context, 'Success!');
@@ -533,7 +506,7 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                   height: 40.0,
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
+                                                          16.0, 0.0, 16.0, 0.0),
                                                   iconPadding:
                                                       EdgeInsetsDirectional
                                                           .fromSTEB(0.0, 0.0,
@@ -578,18 +551,16 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                     return;
                                   }
 
-                                  final bookingListCreateData = {
-                                    ...createBookingListRecordData(
-                                      createDate: getCurrentTimestamp,
-                                      createBy: currentUserReference,
-                                      status: 1,
-                                      subject: _model.subjectController.text,
-                                      detail: _model.detailController.text,
-                                      price: int.tryParse(
-                                          _model.priceController.text),
-                                    ),
-                                    'photo': _model.uploadedFileUrls,
-                                  };
+                                  final bookingListCreateData =
+                                      createBookingListRecordData(
+                                    createDate: getCurrentTimestamp,
+                                    createBy: currentUserReference,
+                                    status: 1,
+                                    subject: _model.subjectController.text,
+                                    detail: _model.detailController.text,
+                                    price: int.tryParse(
+                                        _model.priceController.text),
+                                  );
                                   await BookingListRecord.collection
                                       .doc()
                                       .set(bookingListCreateData);

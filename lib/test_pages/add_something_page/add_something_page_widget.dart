@@ -173,7 +173,7 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                             chipSpacing: 20.0,
                             multiselect: false,
                             alignment: WrapAlignment.start,
-                            controller: _model.choiceChipsController ??=
+                            controller: _model.choiceChipsValueController ??=
                                 FormFieldController<List<String>>(
                               [],
                             ),
