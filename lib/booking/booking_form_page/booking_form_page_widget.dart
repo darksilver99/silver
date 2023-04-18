@@ -108,8 +108,7 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                       borderRadius: BorderRadius.circular(16.0),
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 32.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 32.0),
                       child: Form(
                         key: _model.formKey,
                         autovalidateMode: AutovalidateMode.disabled,
@@ -117,139 +116,119 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                               child: TextFormField(
                                 controller: _model.subjectController,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'ชื่อบริการของคุณ',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
+                                      color: FlutterFlowTheme.of(context).lineColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
+                                      color: FlutterFlowTheme.of(context).lineColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(context).alternate,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(context).alternate,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
-                                validator: _model.subjectControllerValidator
-                                    .asValidator(context),
+                                validator: _model.subjectControllerValidator.asValidator(context),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                               child: TextFormField(
                                 controller: _model.detailController,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'รายละเอียดเพิ่มเติม (หากมี)',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
+                                      color: FlutterFlowTheme.of(context).lineColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
+                                      color: FlutterFlowTheme.of(context).lineColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(context).alternate,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(context).alternate,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
-                                validator: _model.detailControllerValidator
-                                    .asValidator(context),
+                                validator: _model.detailControllerValidator.asValidator(context),
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                               child: TextFormField(
                                 controller: _model.priceController,
                                 obscureText: false,
                                 decoration: InputDecoration(
                                   labelText: 'ช่วงราคา',
-                                  hintStyle:
-                                      FlutterFlowTheme.of(context).bodySmall,
+                                  hintStyle: FlutterFlowTheme.of(context).bodySmall,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
+                                      color: FlutterFlowTheme.of(context).lineColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .lineColor,
+                                      color: FlutterFlowTheme.of(context).lineColor,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   errorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(context).alternate,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
                                   ),
                                   focusedErrorBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
+                                      color: FlutterFlowTheme.of(context).alternate,
                                       width: 1.0,
                                     ),
                                     borderRadius: BorderRadius.circular(16.0),
@@ -257,55 +236,46 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                 ),
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                                 keyboardType: TextInputType.number,
-                                validator: _model.priceControllerValidator
-                                    .asValidator(context),
+                                validator: _model.priceControllerValidator.asValidator(context),
                                 inputFormatters: [_model.priceMask],
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
                                 height: 320.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                  color: FlutterFlowTheme.of(context).secondaryBackground,
                                   borderRadius: BorderRadius.circular(16.0),
                                   border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineColor,
+                                    color: FlutterFlowTheme.of(context).lineColor,
                                   ),
                                 ),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          16.0, 16.0, 0.0, 0.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: [
                                           Text(
                                             'ที่ตั้งร้าน',
                                             textAlign: TextAlign.start,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                            style: FlutterFlowTheme.of(context).bodyMedium,
                                           ),
                                         ],
                                       ),
                                     ),
                                     Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 0.0),
+                                      padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                                       child: Container(
                                         width: double.infinity,
                                         height: 250.0,
                                         decoration: BoxDecoration(
-                                          color: FlutterFlowTheme.of(context)
-                                              .alternate,
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
+                                          color: FlutterFlowTheme.of(context).alternate,
+                                          borderRadius: BorderRadius.circular(0.0),
                                         ),
                                       ),
                                     ),
@@ -314,86 +284,62 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                               child: Container(
                                 width: double.infinity,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                                  color: FlutterFlowTheme.of(context).secondaryBackground,
                                   borderRadius: BorderRadius.circular(16.0),
                                   border: Border.all(
-                                    color:
-                                        FlutterFlowTheme.of(context).lineColor,
+                                    color: FlutterFlowTheme.of(context).lineColor,
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 24.0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: [
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 0.0, 0.0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Text(
                                               'รูปภาพ',
                                               textAlign: TextAlign.start,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                              style: FlutterFlowTheme.of(context).bodyMedium,
                                             ),
                                           ],
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 8.0, 8.0, 0.0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                                         child: Builder(
                                           builder: (context) {
-                                            final photoList = _model
-                                                .uploadedFileUrls
-                                                .toList();
+                                            final photoList = _model.uploadedFileUrls.toList();
                                             return Wrap(
                                               spacing: 4.0,
                                               runSpacing: 4.0,
                                               alignment: WrapAlignment.start,
-                                              crossAxisAlignment:
-                                                  WrapCrossAlignment.start,
+                                              crossAxisAlignment: WrapCrossAlignment.start,
                                               direction: Axis.horizontal,
                                               runAlignment: WrapAlignment.start,
-                                              verticalDirection:
-                                                  VerticalDirection.down,
+                                              verticalDirection: VerticalDirection.down,
                                               clipBehavior: Clip.none,
-                                              children: List.generate(
-                                                  photoList.length,
-                                                  (photoListIndex) {
-                                                final photoListItem =
-                                                    photoList[photoListIndex];
+                                              children: List.generate(photoList.length, (photoListIndex) {
+                                                final photoListItem = photoList[photoListIndex];
                                                 return Container(
                                                   width: 100.0,
                                                   height: 100.0,
                                                   decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            16.0),
+                                                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                                                    borderRadius: BorderRadius.circular(16.0),
                                                   ),
                                                   child: Stack(
-                                                    alignment:
-                                                        AlignmentDirectional(
-                                                            0.9000000000000001,
-                                                            -0.9),
+                                                    alignment: AlignmentDirectional(0.9000000000000001, -0.9),
                                                     children: [
                                                       ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(16.0),
+                                                        borderRadius: BorderRadius.circular(16.0),
                                                         child: Image.network(
                                                           'https://picsum.photos/seed/322/600',
                                                           fit: BoxFit.cover,
@@ -401,17 +347,11 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                       ),
                                                       InkWell(
                                                         onTap: () async {
-                                                          await FirebaseStorage
-                                                              .instance
-                                                              .refFromURL(
-                                                                  photoListItem)
-                                                              .delete();
+                                                          await FirebaseStorage.instance.refFromURL(photoListItem).delete();
                                                         },
                                                         child: Icon(
                                                           Icons.cancel_sharp,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .error,
+                                                          color: FlutterFlowTheme.of(context).error,
                                                           size: 24.0,
                                                         ),
                                                       ),
@@ -424,102 +364,60 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                         ),
                                       ),
                                       Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            8.0, 0.0, 0.0, 0.0),
+                                        padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 16.0, 0.0, 0.0),
+                                              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                                               child: FFButtonWidget(
                                                 onPressed: () async {
-                                                  final selectedMedia =
-                                                      await selectMedia(
+                                                  final selectedMedia = await selectMedia(
                                                     maxWidth: 200.00,
                                                     imageQuality: 100,
-                                                    mediaSource: MediaSource
-                                                        .photoGallery,
+                                                    mediaSource: MediaSource.photoGallery,
                                                     multiImage: true,
                                                   );
-                                                  if (selectedMedia != null &&
-                                                      selectedMedia.every((m) =>
-                                                          validateFileFormat(
-                                                              m.storagePath,
-                                                              context))) {
-                                                    setState(() =>
-                                                        _model.isDataUploading =
-                                                            true);
-                                                    var selectedUploadedFiles =
-                                                        <FFUploadedFile>[];
-                                                    var downloadUrls =
-                                                        <String>[];
+                                                  if (selectedMedia != null && selectedMedia.every((m) => validateFileFormat(m.storagePath, context))) {
+                                                    setState(() => _model.isDataUploading = true);
+                                                    var selectedUploadedFiles = <FFUploadedFile>[];
+                                                    var downloadUrls = <String>[];
                                                     try {
                                                       showUploadMessage(
                                                         context,
                                                         'Uploading file...',
                                                         showLoading: true,
                                                       );
-                                                      selectedUploadedFiles =
-                                                          selectedMedia
-                                                              .map((m) =>
-                                                                  FFUploadedFile(
-                                                                    name: m
-                                                                        .storagePath
-                                                                        .split(
-                                                                            '/')
-                                                                        .last,
-                                                                    bytes:
-                                                                        m.bytes,
-                                                                    height: m
-                                                                        .dimensions
-                                                                        ?.height,
-                                                                    width: m
-                                                                        .dimensions
-                                                                        ?.width,
-                                                                  ))
-                                                              .toList();
+                                                      selectedUploadedFiles = selectedMedia
+                                                          .map((m) => FFUploadedFile(
+                                                                name: m.storagePath.split('/').last,
+                                                                bytes: m.bytes,
+                                                                height: m.dimensions?.height,
+                                                                width: m.dimensions?.width,
+                                                              ))
+                                                          .toList();
 
-                                                      downloadUrls =
-                                                          (await Future.wait(
+                                                      downloadUrls = (await Future.wait(
                                                         selectedMedia.map(
-                                                          (m) async =>
-                                                              await uploadData(
-                                                                  m.storagePath,
-                                                                  m.bytes),
+                                                          (m) async => await uploadData(m.storagePath, m.bytes),
                                                         ),
                                                       ))
-                                                              .where((u) =>
-                                                                  u != null)
-                                                              .map((u) => u!)
-                                                              .toList();
+                                                          .where((u) => u != null)
+                                                          .map((u) => u!)
+                                                          .toList();
                                                     } finally {
-                                                      ScaffoldMessenger.of(
-                                                              context)
-                                                          .hideCurrentSnackBar();
-                                                      _model.isDataUploading =
-                                                          false;
+                                                      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                                                      _model.isDataUploading = false;
                                                     }
-                                                    if (selectedUploadedFiles
-                                                                .length ==
-                                                            selectedMedia
-                                                                .length &&
-                                                        downloadUrls.length ==
-                                                            selectedMedia
-                                                                .length) {
+                                                    if (selectedUploadedFiles.length == selectedMedia.length && downloadUrls.length == selectedMedia.length) {
                                                       setState(() {
-                                                        _model.uploadedLocalFiles =
-                                                            selectedUploadedFiles;
-                                                        _model.uploadedFileUrls =
-                                                            downloadUrls;
+                                                        _model.uploadedLocalFiles = selectedUploadedFiles;
+                                                        _model.uploadedFileUrls = downloadUrls;
                                                       });
-                                                      showUploadMessage(
-                                                          context, 'Success!');
+                                                      showUploadMessage(context, 'Success!');
                                                     } else {
                                                       setState(() {});
-                                                      showUploadMessage(context,
-                                                          'Failed to upload data');
+                                                      showUploadMessage(context, 'Failed to upload data');
                                                       return;
                                                     }
                                                   }
@@ -531,31 +429,18 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                 ),
                                                 options: FFButtonOptions(
                                                   height: 40.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  textStyle:
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .titleSmall
-                                                          .override(
-                                                            fontFamily: 'Kanit',
-                                                            color: Colors.white,
-                                                          ),
+                                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(context).tertiary,
+                                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                                                        fontFamily: 'Kanit',
+                                                        color: Colors.white,
+                                                      ),
                                                   borderSide: BorderSide(
                                                     color: Colors.transparent,
                                                     width: 1.0,
                                                   ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          8.0),
+                                                  borderRadius: BorderRadius.circular(8.0),
                                                 ),
                                               ),
                                             ),
@@ -568,13 +453,10 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 0.0),
+                              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
-                                  if (_model.formKey.currentState == null ||
-                                      !_model.formKey.currentState!
-                                          .validate()) {
+                                  if (_model.formKey.currentState == null || !_model.formKey.currentState!.validate()) {
                                     return;
                                   }
 
@@ -585,31 +467,22 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                       status: 1,
                                       subject: _model.subjectController.text,
                                       detail: _model.detailController.text,
-                                      price: int.tryParse(
-                                          _model.priceController.text),
+                                      price: int.tryParse(_model.priceController.text),
                                     ),
                                     'photo': _model.uploadedFileUrls,
                                   };
-                                  await BookingListRecord.collection
-                                      .doc()
-                                      .set(bookingListCreateData);
+                                  await BookingListRecord.collection.doc().set(bookingListCreateData);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
                                       content: Text(
                                         'บันทึกข้อมูลเรียบร้อยแล้ว',
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleMedium
-                                            .override(
+                                        style: FlutterFlowTheme.of(context).titleMedium.override(
                                               fontFamily: 'Kanit',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryBtnText,
+                                              color: FlutterFlowTheme.of(context).primaryBtnText,
                                             ),
                                       ),
                                       duration: Duration(milliseconds: 1500),
-                                      backgroundColor:
-                                          FlutterFlowTheme.of(context)
-                                              .secondary,
+                                      backgroundColor: FlutterFlowTheme.of(context).secondary,
                                     ),
                                   );
                                   context.safePop();
@@ -618,14 +491,10 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 40.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                  iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).success,
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .titleSmall
-                                      .override(
+                                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                                         fontFamily: 'Kanit',
                                         color: Colors.white,
                                       ),
