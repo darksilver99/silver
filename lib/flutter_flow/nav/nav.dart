@@ -130,6 +130,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddProvincePage',
           path: '/addProvincePage',
           builder: (context, params) => AddProvincePageWidget(),
+        ),
+        FFRoute(
+          name: 'AddSomethingPage',
+          path: '/addSomethingPage',
+          builder: (context, params) => AddSomethingPageWidget(),
+        ),
+        FFRoute(
+          name: 'BookingFormPage',
+          path: '/bookingFormPage',
+          requireAuth: true,
+          builder: (context, params) => BookingFormPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
@@ -316,7 +327,7 @@ class FFRoute {
                     width: 50.0,
                     height: 50.0,
                     child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primaryColor,
+                      color: FlutterFlowTheme.of(context).primary,
                     ),
                   ),
                 )

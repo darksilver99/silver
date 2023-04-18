@@ -82,7 +82,7 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
             width: 50.0,
             height: 50.0,
             child: CircularProgressIndicator(
-              color: FlutterFlowTheme.of(context).primaryColor,
+              color: FlutterFlowTheme.of(context).primary,
             ),
           ),
         )
@@ -123,6 +123,8 @@ final parametersBuilderMap =
       ),
   'TopicListPage': ParameterData.none(),
   'AddProvincePage': ParameterData.none(),
+  'AddSomethingPage': ParameterData.none(),
+  'BookingFormPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

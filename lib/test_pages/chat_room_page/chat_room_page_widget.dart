@@ -50,27 +50,27 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).tertiaryColor,
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Page Title',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Kanit',
-                color: Colors.white,
-                fontSize: 22.0,
-              ),
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).tertiary,
+          automaticallyImplyLeading: false,
+          title: Text(
+            'Page Title',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Kanit',
+                  color: Colors.white,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2.0,
         ),
-        actions: [],
-        centerTitle: false,
-        elevation: 2.0,
-      ),
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).requestFocus(_unfocusNode),
+        body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -91,7 +91,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                           width: 50.0,
                           height: 50.0,
                           child: CircularProgressIndicator(
-                            color: FlutterFlowTheme.of(context).primaryColor,
+                            color: FlutterFlowTheme.of(context).primary,
                           ),
                         ),
                       );
@@ -163,7 +163,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: '[Some hint text...]',
-                            hintStyle: FlutterFlowTheme.of(context).bodyText2,
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).lineColor,
@@ -195,7 +195,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                               borderRadius: BorderRadius.circular(16.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyText1,
+                          style: FlutterFlowTheme.of(context).bodyMedium,
                           validator: _model.textControllerValidator
                               .asValidator(context),
                         ),
@@ -269,7 +269,7 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                         },
                         child: Icon(
                           Icons.send,
-                          color: FlutterFlowTheme.of(context).tertiaryColor,
+                          color: FlutterFlowTheme.of(context).tertiary,
                           size: 36.0,
                         ),
                       ),

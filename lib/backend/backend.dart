@@ -11,6 +11,7 @@ import 'schema/chat_room_sub_list_record.dart';
 import 'schema/topic_list_record.dart';
 import 'schema/topic_sub_list_record.dart';
 import 'schema/province_list_record.dart';
+import 'schema/booking_list_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -24,6 +25,7 @@ export 'schema/chat_room_sub_list_record.dart';
 export 'schema/topic_list_record.dart';
 export 'schema/topic_sub_list_record.dart';
 export 'schema/province_list_record.dart';
+export 'schema/booking_list_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -339,6 +341,58 @@ Future<FFFirestorePage<ProvinceListRecord>> queryProvinceListRecordPage({
     queryCollectionPage(
       ProvinceListRecord.collection,
       ProvinceListRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query BookingListRecords (as a Stream and as a Future).
+Future<int> queryBookingListRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      BookingListRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<BookingListRecord>> queryBookingListRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      BookingListRecord.collection,
+      BookingListRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<BookingListRecord>> queryBookingListRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      BookingListRecord.collection,
+      BookingListRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<BookingListRecord>> queryBookingListRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      BookingListRecord.collection,
+      BookingListRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

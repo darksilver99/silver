@@ -55,6 +55,46 @@ class FFAppState extends ChangeNotifier {
   void removeAtIndexFromMultipleUsers(int _index) {
     _multipleUsers.removeAt(_index);
   }
+
+  List<String> _testList = ['test1', 'test2', 'test3'];
+  List<String> get testList => _testList;
+  set testList(List<String> _value) {
+    _testList = _value;
+  }
+
+  void addToTestList(String _value) {
+    _testList.add(_value);
+  }
+
+  void removeFromTestList(String _value) {
+    _testList.remove(_value);
+  }
+
+  void removeAtIndexFromTestList(int _index) {
+    _testList.removeAt(_index);
+  }
+
+  List<String> _photoTestList = [
+    'https://picsum.photos/seed/607/600',
+    'https://picsum.photos/seed/125/600',
+    'https://picsum.photos/seed/560/600'
+  ];
+  List<String> get photoTestList => _photoTestList;
+  set photoTestList(List<String> _value) {
+    _photoTestList = _value;
+  }
+
+  void addToPhotoTestList(String _value) {
+    _photoTestList.add(_value);
+  }
+
+  void removeFromPhotoTestList(String _value) {
+    _photoTestList.remove(_value);
+  }
+
+  void removeAtIndexFromPhotoTestList(int _index) {
+    _photoTestList.removeAt(_index);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
