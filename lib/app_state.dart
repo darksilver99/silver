@@ -95,6 +95,12 @@ class FFAppState extends ChangeNotifier {
   void removeAtIndexFromPhotoTestList(int _index) {
     _photoTestList.removeAt(_index);
   }
+
+  bool _isFullData = true;
+  bool get isFullData => _isFullData;
+  set isFullData(bool _value) {
+    _isFullData = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
