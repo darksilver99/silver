@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -100,15 +101,19 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                 child: TextFormField(
                   controller: _model.textController,
-                  onFieldSubmitted: (_) async {
-                    setState(() => _model.algoliaSearchResults = null);
-                    await DataListRecord.search(
-                      term: _model.textController.text,
-                    )
-                        .then((r) => _model.algoliaSearchResults = r)
-                        .onError((_, __) => _model.algoliaSearchResults = [])
-                        .whenComplete(() => setState(() {}));
-                  },
+                  onChanged: (_) => EasyDebounce.debounce(
+                    '_model.textController',
+                    Duration(milliseconds: 2000),
+                    () async {
+                      setState(() => _model.algoliaSearchResults = null);
+                      await DataListRecord.search(
+                        term: _model.textController.text,
+                      )
+                          .then((r) => _model.algoliaSearchResults = r)
+                          .onError((_, __) => _model.algoliaSearchResults = [])
+                          .whenComplete(() => setState(() {}));
+                    },
+                  ),
                   obscureText: false,
                   decoration: InputDecoration(
                     hintText: '[Some hint text...]',
