@@ -16,3 +16,5 @@ export '/test_pages/add_something_page/add_something_page_widget.dart'
     show AddSomethingPageWidget;
 export '/booking/booking_form_page/booking_form_page_widget.dart'
     show BookingFormPageWidget;
+export '/test_pages/list_data_page/list_data_page_widget.dart'
+    show ListDataPageWidget;

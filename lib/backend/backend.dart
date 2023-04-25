@@ -12,6 +12,7 @@ import 'schema/topic_list_record.dart';
 import 'schema/topic_sub_list_record.dart';
 import 'schema/province_list_record.dart';
 import 'schema/booking_list_record.dart';
+import 'schema/data_list_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -26,6 +27,7 @@ export 'schema/topic_list_record.dart';
 export 'schema/topic_sub_list_record.dart';
 export 'schema/province_list_record.dart';
 export 'schema/booking_list_record.dart';
+export 'schema/data_list_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -393,6 +395,58 @@ Future<FFFirestorePage<BookingListRecord>> queryBookingListRecordPage({
     queryCollectionPage(
       BookingListRecord.collection,
       BookingListRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query DataListRecords (as a Stream and as a Future).
+Future<int> queryDataListRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      DataListRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<DataListRecord>> queryDataListRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      DataListRecord.collection,
+      DataListRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<DataListRecord>> queryDataListRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      DataListRecord.collection,
+      DataListRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<DataListRecord>> queryDataListRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      DataListRecord.collection,
+      DataListRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

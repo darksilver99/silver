@@ -398,6 +398,14 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                         ),
                                                       ),
                                                       InkWell(
+                                                        splashColor:
+                                                            Colors.transparent,
+                                                        focusColor:
+                                                            Colors.transparent,
+                                                        hoverColor:
+                                                            Colors.transparent,
+                                                        highlightColor:
+                                                            Colors.transparent,
                                                         onTap: () async {
                                                           setState(() {});
                                                         },
@@ -471,6 +479,8 @@ class _BookingFormPageWidgetState extends State<BookingFormPageWidget> {
                                                                     width: m
                                                                         .dimensions
                                                                         ?.width,
+                                                                    blurHash: m
+                                                                        .blurHash,
                                                                   ))
                                                               .toList();
                                                     } finally {
