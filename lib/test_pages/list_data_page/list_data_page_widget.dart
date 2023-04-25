@@ -104,27 +104,20 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                       child: Container(
                         width: double.infinity,
                         child: TextFormField(
                           controller: _model.textController,
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController',
-                            Duration(milliseconds: 2000),
+                            Duration(milliseconds: 100),
                             () async {
                               if (_model.textController.text != '') {
-                                setState(
-                                    () => _model.algoliaSearchResults = null);
+                                setState(() => _model.algoliaSearchResults = null);
                                 await DataListRecord.search(
                                   term: _model.textController.text,
-                                )
-                                    .then(
-                                        (r) => _model.algoliaSearchResults = r)
-                                    .onError((_, __) =>
-                                        _model.algoliaSearchResults = [])
-                                    .whenComplete(() => setState(() {}));
+                                ).then((r) => _model.algoliaSearchResults = r).onError((_, __) => _model.algoliaSearchResults = []).whenComplete(() => setState(() {}));
 
                                 setState(() {
                                   FFAppState().isFullData = false;
@@ -174,15 +167,13 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                             ),
                           ),
                           style: FlutterFlowTheme.of(context).bodyMedium,
-                          validator: _model.textControllerValidator
-                              .asValidator(context),
+                          validator: _model.textControllerValidator.asValidator(context),
                         ),
                       ),
                     ),
                   ),
                   Padding(
-                    padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                     child: FlutterFlowIconButton(
                       borderColor: Colors.transparent,
                       borderRadius: 30.0,
@@ -220,8 +211,7 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                         ),
                       );
                     }
-                    final agoliaResults =
-                        _model.algoliaSearchResults?.toList() ?? [];
+                    final agoliaResults = _model.algoliaSearchResults?.toList() ?? [];
                     if (agoliaResults.isEmpty) {
                       return Center(
                         child: NoDataViewWidget(),
@@ -233,11 +223,9 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                       scrollDirection: Axis.vertical,
                       itemCount: agoliaResults.length,
                       itemBuilder: (context, agoliaResultsIndex) {
-                        final agoliaResultsItem =
-                            agoliaResults[agoliaResultsIndex];
+                        final agoliaResultsItem = agoliaResults[agoliaResultsIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 8.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                           child: Material(
                             color: Colors.transparent,
                             elevation: 3.0,
@@ -248,13 +236,11 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                               width: 100.0,
                               height: 100.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).secondaryBackground,
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -262,14 +248,12 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                                     Text(
                                       agoliaResultsItem.name!,
                                       maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                     ),
                                     Text(
                                       agoliaResultsItem.detail!,
                                       maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                     ),
                                   ],
                                 ),
@@ -297,8 +281,7 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                         ),
                       );
                     }
-                    List<DataListRecord> listViewDataListRecordList =
-                        snapshot.data!;
+                    List<DataListRecord> listViewDataListRecordList = snapshot.data!;
                     if (listViewDataListRecordList.isEmpty) {
                       return Center(
                         child: NoDataViewWidget(),
@@ -310,11 +293,9 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                       scrollDirection: Axis.vertical,
                       itemCount: listViewDataListRecordList.length,
                       itemBuilder: (context, listViewIndex) {
-                        final listViewDataListRecord =
-                            listViewDataListRecordList[listViewIndex];
+                        final listViewDataListRecord = listViewDataListRecordList[listViewIndex];
                         return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 8.0, 16.0, 0.0),
+                          padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                           child: Material(
                             color: Colors.transparent,
                             elevation: 3.0,
@@ -325,13 +306,11 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                               width: 100.0,
                               height: 100.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
+                                color: FlutterFlowTheme.of(context).secondaryBackground,
                                 borderRadius: BorderRadius.circular(16.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 16.0, 16.0, 16.0),
+                                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
                                 child: Column(
                                   mainAxisSize: MainAxisSize.max,
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -339,14 +318,12 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                                     Text(
                                       listViewDataListRecord.name!,
                                       maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                     ),
                                     Text(
                                       listViewDataListRecord.detail!,
                                       maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                      style: FlutterFlowTheme.of(context).bodyMedium,
                                     ),
                                   ],
                                 ),
