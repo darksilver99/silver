@@ -198,6 +198,9 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                         setState(() {
                           FFAppState().isFullData = true;
                         });
+                        setState(() {
+                          _model.textController?.clear();
+                        });
                       },
                     ),
                   ),
