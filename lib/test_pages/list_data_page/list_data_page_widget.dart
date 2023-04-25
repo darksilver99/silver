@@ -58,7 +58,13 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                 false,
                 false,
               ),
-              detail: '',
+              detail: random_data.randomString(
+                10,
+                30,
+                true,
+                false,
+                false,
+              ),
               searchText: '',
             );
             await DataListRecord.collection.doc().set(dataListCreateData);
