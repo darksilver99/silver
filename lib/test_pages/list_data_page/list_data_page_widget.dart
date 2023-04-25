@@ -112,6 +112,16 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                           .then((r) => _model.algoliaSearchResults = r)
                           .onError((_, __) => _model.algoliaSearchResults = [])
                           .whenComplete(() => setState(() {}));
+
+                      if (_model.algoliaSearchResults!.length > 0) {
+                        setState(() {
+                          FFAppState().isFullData = false;
+                        });
+                      } else {
+                        setState(() {
+                          FFAppState().isFullData = true;
+                        });
+                      }
                     },
                   ),
                   obscureText: false,
