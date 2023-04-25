@@ -65,18 +65,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                     initialIndex: 0,
                     child: Column(
                       children: [
-                        TabBar(
-                          labelColor: FlutterFlowTheme.of(context).primary,
-                          labelStyle: FlutterFlowTheme.of(context).bodyMedium,
-                          indicatorColor: FlutterFlowTheme.of(context).tertiary,
-                          tabs: [
-                            Tab(
-                              text: 'Sign In',
-                            ),
-                            Tab(
-                              text: 'Sign Up',
-                            ),
-                          ],
+                        Align(
+                          alignment: Alignment(0.0, 0),
+                          child: TabBar(
+                            labelColor: FlutterFlowTheme.of(context).primary,
+                            labelStyle: FlutterFlowTheme.of(context).bodyMedium,
+                            indicatorColor:
+                                FlutterFlowTheme.of(context).tertiary,
+                            tabs: [
+                              Tab(
+                                text: 'Sign In',
+                              ),
+                              Tab(
+                                text: 'Sign Up',
+                              ),
+                            ],
+                          ),
                         ),
                         Expanded(
                           child: TabBarView(

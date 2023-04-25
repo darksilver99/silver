@@ -205,6 +205,10 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                       child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
                         onTap: () async {
                           if (_model.textController.text != null &&
                               _model.textController.text != '') {

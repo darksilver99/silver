@@ -8,9 +8,11 @@ import 'topic_list_record.dart';
 import 'topic_sub_list_record.dart';
 import 'province_list_record.dart';
 import 'booking_list_record.dart';
+import 'data_list_record.dart';
 
 import 'index.dart';
 
+export '../algolia/algolia_manager.dart';
 export 'index.dart';
 
 part 'serializers.g.dart';
@@ -25,6 +27,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   TopicSubListRecord,
   ProvinceListRecord,
   BookingListRecord,
+  DataListRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
