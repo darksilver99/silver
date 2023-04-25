@@ -114,19 +114,26 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                             '_model.textController',
                             Duration(milliseconds: 2000),
                             () async {
-                              setState(
-                                  () => _model.algoliaSearchResults = null);
-                              await DataListRecord.search(
-                                term: _model.textController.text,
-                              )
-                                  .then((r) => _model.algoliaSearchResults = r)
-                                  .onError((_, __) =>
-                                      _model.algoliaSearchResults = [])
-                                  .whenComplete(() => setState(() {}));
+                              if (_model.textController.text != '') {
+                                setState(
+                                    () => _model.algoliaSearchResults = null);
+                                await DataListRecord.search(
+                                  term: _model.textController.text,
+                                )
+                                    .then(
+                                        (r) => _model.algoliaSearchResults = r)
+                                    .onError((_, __) =>
+                                        _model.algoliaSearchResults = [])
+                                    .whenComplete(() => setState(() {}));
 
-                              setState(() {
-                                FFAppState().isFullData = false;
-                              });
+                                setState(() {
+                                  FFAppState().isFullData = false;
+                                });
+                              } else {
+                                setState(() {
+                                  FFAppState().isFullData = true;
+                                });
+                              }
                             },
                           ),
                           obscureText: false,
