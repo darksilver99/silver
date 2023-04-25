@@ -1,5 +1,7 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/no_data_view_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
@@ -97,74 +99,102 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
-                child: TextFormField(
-                  controller: _model.textController,
-                  onChanged: (_) => EasyDebounce.debounce(
-                    '_model.textController',
-                    Duration(milliseconds: 2000),
-                    () async {
-                      setState(() => _model.algoliaSearchResults = null);
-                      await DataListRecord.search(
-                        term: _model.textController.text,
-                      )
-                          .then((r) => _model.algoliaSearchResults = r)
-                          .onError((_, __) => _model.algoliaSearchResults = [])
-                          .whenComplete(() => setState(() {}));
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(
+                          16.0, 16.0, 16.0, 16.0),
+                      child: Container(
+                        width: double.infinity,
+                        child: TextFormField(
+                          controller: _model.textController,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController',
+                            Duration(milliseconds: 2000),
+                            () async {
+                              setState(
+                                  () => _model.algoliaSearchResults = null);
+                              await DataListRecord.search(
+                                term: _model.textController.text,
+                              )
+                                  .then((r) => _model.algoliaSearchResults = r)
+                                  .onError((_, __) =>
+                                      _model.algoliaSearchResults = [])
+                                  .whenComplete(() => setState(() {}));
 
-                      if (_model.algoliaSearchResults!.length > 0) {
-                        setState(() {
-                          FFAppState().isFullData = false;
-                        });
-                      } else {
+                              setState(() {
+                                FFAppState().isFullData = false;
+                              });
+                            },
+                          ),
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            hintText: '[Some hint text...]',
+                            hintStyle: FlutterFlowTheme.of(context).bodySmall,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).lineColor,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).error,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.search_outlined,
+                              size: 32.0,
+                            ),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          validator: _model.textControllerValidator
+                              .asValidator(context),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                    child: FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30.0,
+                      borderWidth: 1.0,
+                      buttonSize: 42.0,
+                      fillColor: FlutterFlowTheme.of(context).tertiary,
+                      icon: Icon(
+                        Icons.clear,
+                        color: Colors.white,
+                        size: 22.0,
+                      ),
+                      onPressed: () async {
                         setState(() {
                           FFAppState().isFullData = true;
                         });
-                      }
-                    },
-                  ),
-                  obscureText: false,
-                  decoration: InputDecoration(
-                    hintText: '[Some hint text...]',
-                    hintStyle: FlutterFlowTheme.of(context).bodySmall,
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).lineColor,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).lineColor,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    errorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    focusedErrorBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                        color: FlutterFlowTheme.of(context).error,
-                        width: 1.0,
-                      ),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    suffixIcon: Icon(
-                      Icons.search_sharp,
-                      size: 32.0,
+                      },
                     ),
                   ),
-                  style: FlutterFlowTheme.of(context).bodyMedium,
-                  validator:
-                      _model.textControllerValidator.asValidator(context),
-                ),
+                ],
               ),
               if (!FFAppState().isFullData)
                 Builder(
@@ -182,6 +212,11 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                     }
                     final agoliaResults =
                         _model.algoliaSearchResults?.toList() ?? [];
+                    if (agoliaResults.isEmpty) {
+                      return Center(
+                        child: NoDataViewWidget(),
+                      );
+                    }
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
@@ -254,6 +289,11 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
                     }
                     List<DataListRecord> listViewDataListRecordList =
                         snapshot.data!;
+                    if (listViewDataListRecordList.isEmpty) {
+                      return Center(
+                        child: NoDataViewWidget(),
+                      );
+                    }
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
