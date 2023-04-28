@@ -146,6 +146,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ListDataPage',
           path: '/listDataPage',
           builder: (context, params) => ListDataPageWidget(),
+        ),
+        FFRoute(
+          name: 'ProductDetailPage',
+          path: '/productDetailPage',
+          builder: (context, params) => ProductDetailPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
