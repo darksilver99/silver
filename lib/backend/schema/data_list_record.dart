@@ -48,11 +48,13 @@ abstract class DataListRecord
           ..ffRef = DataListRecord.collection.doc(snapshot.objectID),
       );
 
-  static Future<List<DataListRecord>> search(
-          {String? term,
-          FutureOr<LatLng>? location,
-          int? maxResults,
-          double? searchRadiusMeters}) =>
+  static Future<List<DataListRecord>> search({
+    String? term,
+    FutureOr<LatLng>? location,
+    int? maxResults,
+    double? searchRadiusMeters,
+    bool useCache = false,
+  }) =>
       FFAlgoliaManager.instance
           .algoliaQuery(
             index: 'data_list',
@@ -60,6 +62,7 @@ abstract class DataListRecord
             maxResults: maxResults,
             location: location,
             searchRadiusMeters: searchRadiusMeters,
+            useCache: useCache,
           )
           .then((r) => r.map(fromAlgolia).toList());
 
