@@ -126,6 +126,7 @@ final parametersBuilderMap =
   'AddSomethingPage': ParameterData.none(),
   'BookingFormPage': ParameterData.none(),
   'ListDataPage': ParameterData.none(),
+  'ProductDetailPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

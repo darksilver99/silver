@@ -18,3 +18,5 @@ export '/booking/booking_form_page/booking_form_page_widget.dart'
     show BookingFormPageWidget;
 export '/test_pages/list_data_page/list_data_page_widget.dart'
     show ListDataPageWidget;
+export '/test_pages/product_detail_page/product_detail_page_widget.dart'
+    show ProductDetailPageWidget;
