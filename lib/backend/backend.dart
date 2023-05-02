@@ -13,6 +13,7 @@ import 'schema/topic_sub_list_record.dart';
 import 'schema/province_list_record.dart';
 import 'schema/booking_list_record.dart';
 import 'schema/data_list_record.dart';
+import 'schema/setting_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -28,6 +29,7 @@ export 'schema/topic_sub_list_record.dart';
 export 'schema/province_list_record.dart';
 export 'schema/booking_list_record.dart';
 export 'schema/data_list_record.dart';
+export 'schema/setting_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -447,6 +449,58 @@ Future<FFFirestorePage<DataListRecord>> queryDataListRecordPage({
     queryCollectionPage(
       DataListRecord.collection,
       DataListRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query SettingRecords (as a Stream and as a Future).
+Future<int> querySettingRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SettingRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SettingRecord>> querySettingRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SettingRecord.collection,
+      SettingRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SettingRecord>> querySettingRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SettingRecord.collection,
+      SettingRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<SettingRecord>> querySettingRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      SettingRecord.collection,
+      SettingRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

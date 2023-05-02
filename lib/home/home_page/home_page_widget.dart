@@ -1,4 +1,5 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -78,6 +79,45 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 child: Text(
                   currentUserEmail,
                   style: FlutterFlowTheme.of(context).bodyMedium,
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                child: StreamBuilder<List<SettingRecord>>(
+                  stream: querySettingRecord(
+                    queryBuilder: (settingRecord) => settingRecord.where('type',
+                        isEqualTo: valueOrDefault<String>(
+                          null,
+                          'policy',
+                        )),
+                    singleRecord: true,
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            color: FlutterFlowTheme.of(context).primary,
+                          ),
+                        ),
+                      );
+                    }
+                    List<SettingRecord> textSettingRecordList = snapshot.data!;
+                    // Return an empty Container when the item does not exist.
+                    if (snapshot.data!.isEmpty) {
+                      return Container();
+                    }
+                    final textSettingRecord = textSettingRecordList.isNotEmpty
+                        ? textSettingRecordList.first
+                        : null;
+                    return Text(
+                      textSettingRecord!.text!,
+                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    );
+                  },
                 ),
               ),
               Padding(
