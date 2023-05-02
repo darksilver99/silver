@@ -12,5 +12,5 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../auth/firebase_auth/auth_util.dart';
 
 String addNewLine(String str) {
-  return str.replaceAll('\n', '\n');
+  return str.replaceAll('\\n', '\n');
 }
