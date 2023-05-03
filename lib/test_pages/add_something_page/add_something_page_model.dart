@@ -18,7 +18,7 @@ class AddSomethingPageModel extends FlutterFlowModel {
   TextEditingController? nameController;
   String? Function(BuildContext, String?)? nameControllerValidator;
   // State field(s) for ChoiceChips widget.
-  String? choiceChipsValue;
+  List<String>? choiceChipsValues;
   FormFieldController<List<String>>? choiceChipsValueController;
 
   /// Initialization and disposal methods.
