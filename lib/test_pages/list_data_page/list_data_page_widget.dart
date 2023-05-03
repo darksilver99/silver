@@ -83,9 +83,9 @@ class _ListDataPageWidgetState extends State<ListDataPageWidget> {
         body: NestedScrollView(
           headerSliverBuilder: (context, _) => [
             SliverAppBar(
+              expandedHeight: 120.0,
               pinned: false,
-              floating: true,
-              snap: true,
+              floating: false,
               backgroundColor: FlutterFlowTheme.of(context).tertiary,
               automaticallyImplyLeading: false,
               title: Text(
