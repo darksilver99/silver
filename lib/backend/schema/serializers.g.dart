@@ -13,9 +13,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(DataListRecord.serializer)
       ..add(ProvinceListRecord.serializer)
       ..add(SettingRecord.serializer)
+      ..add(SomethingDataRecord.serializer)
       ..add(TopicListRecord.serializer)
       ..add(TopicSubListRecord.serializer)
       ..add(UsersRecord.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>()))

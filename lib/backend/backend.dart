@@ -14,6 +14,7 @@ import 'schema/province_list_record.dart';
 import 'schema/booking_list_record.dart';
 import 'schema/data_list_record.dart';
 import 'schema/setting_record.dart';
+import 'schema/something_data_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -30,6 +31,7 @@ export 'schema/province_list_record.dart';
 export 'schema/booking_list_record.dart';
 export 'schema/data_list_record.dart';
 export 'schema/setting_record.dart';
+export 'schema/something_data_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -501,6 +503,58 @@ Future<FFFirestorePage<SettingRecord>> querySettingRecordPage({
     queryCollectionPage(
       SettingRecord.collection,
       SettingRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query SomethingDataRecords (as a Stream and as a Future).
+Future<int> querySomethingDataRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      SomethingDataRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<SomethingDataRecord>> querySomethingDataRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      SomethingDataRecord.collection,
+      SomethingDataRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<SomethingDataRecord>> querySomethingDataRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      SomethingDataRecord.collection,
+      SomethingDataRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<SomethingDataRecord>> querySomethingDataRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      SomethingDataRecord.collection,
+      SomethingDataRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

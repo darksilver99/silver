@@ -1,7 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -138,14 +142,8 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                                 .testList
                                 .map((label) => ChipData(label))
                                 .toList(),
-                            onChanged: (val) async {
-                              setState(
-                                  () => _model.choiceChipsValue = val?.first);
-                              setState(() {
-                                _model.nameController?.text =
-                                    _model.choiceChipsValue!;
-                              });
-                            },
+                            onChanged: (val) => setState(
+                                () => _model.choiceChipsValue = val?.first),
                             selectedChipStyle: ChipStyle(
                               backgroundColor: Color(0xFFE3E7ED),
                               textStyle: FlutterFlowTheme.of(context)
@@ -176,6 +174,38 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                             controller: _model.choiceChipsValueController ??=
                                 FormFieldController<List<String>>(
                               [],
+                            ),
+                          ),
+                          FFButtonWidget(
+                            onPressed: () async {
+                              final somethingDataCreateData =
+                                  createSomethingDataRecordData(
+                                text: _model.nameController.text,
+                              );
+                              await SomethingDataRecord.collection
+                                  .doc()
+                                  .set(somethingDataCreateData);
+                            },
+                            text: 'Button',
+                            options: FFButtonOptions(
+                              width: 130.0,
+                              height: 40.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: FlutterFlowTheme.of(context).primary,
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Kanit',
+                                    color: Colors.white,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
                         ],
