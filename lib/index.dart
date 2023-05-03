@@ -20,6 +20,6 @@ export '/test_pages/list_data_page/list_data_page_widget.dart'
     show ListDataPageWidget;
 export '/test_pages/product_detail_page/product_detail_page_widget.dart'
     show ProductDetailPageWidget;
+export '/home/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/test_pages/example_page/example_page_widget.dart'
     show ExamplePageWidget;
-export '/home/profile_page/profile_page_widget.dart' show ProfilePageWidget;
