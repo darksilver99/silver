@@ -8,6 +8,7 @@ import '/flutter_flow/form_field_controller.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'add_something_page_model.dart';
 export 'add_something_page_model.dart';
@@ -176,6 +177,13 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                                 FormFieldController<List<String>>(
                               [],
                             ),
+                          ),
+                          Lottie.network(
+                            'https://assets2.lottiefiles.com/packages/lf20_aZTdD5.json',
+                            width: 150.0,
+                            height: 130.0,
+                            fit: BoxFit.cover,
+                            animate: true,
                           ),
                           FFButtonWidget(
                             onPressed: () async {
