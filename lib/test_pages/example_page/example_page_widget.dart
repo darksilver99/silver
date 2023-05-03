@@ -86,10 +86,13 @@ class _ExamplePageWidgetState extends State<ExamplePageWidget> {
                     final _localAuth = LocalAuthentication();
                     bool _isBiometricSupported =
                         await _localAuth.isDeviceSupported();
-
-                    if (_isBiometricSupported) {
+                    bool canCheckBiometrics =
+                        await _localAuth.canCheckBiometrics;
+                    if (_isBiometricSupported && canCheckBiometrics) {
                       _model.isPass = await _localAuth.authenticate(
-                          localizedReason: 'Please authentication.');
+                          localizedReason: 'Please authentication.',
+                          options:
+                              const AuthenticationOptions(biometricOnly: true));
                       setState(() {});
                     }
 

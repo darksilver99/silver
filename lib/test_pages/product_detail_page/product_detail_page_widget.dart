@@ -72,7 +72,7 @@ class _ProductDetailPageWidgetState extends State<ProductDetailPageWidget> {
                   onPressed: () async {
                     final paymentResponse = await processStripePayment(
                       context,
-                      amount: 50,
+                      amount: 1000,
                       currency: 'THB',
                       customerEmail: currentUserEmail,
                       customerName: 'testerUser',
