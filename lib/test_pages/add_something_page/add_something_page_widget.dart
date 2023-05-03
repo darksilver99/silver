@@ -142,14 +142,8 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                                 .testList
                                 .map((label) => ChipData(label))
                                 .toList(),
-                            onChanged: (val) async {
-                              setState(
-                                  () => _model.choiceChipsValue = val?.first);
-                              setState(() {
-                                _model.nameController?.text =
-                                    _model.choiceChipsValue!;
-                              });
-                            },
+                            onChanged: (val) => setState(
+                                () => _model.choiceChipsValue = val?.first),
                             selectedChipStyle: ChipStyle(
                               backgroundColor: Color(0xFFE3E7ED),
                               textStyle: FlutterFlowTheme.of(context)
