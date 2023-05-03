@@ -159,7 +159,7 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home,
+              Icons.home_rounded,
               size: 24.0,
             ),
             label: 'Home',
@@ -167,7 +167,7 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person,
+              Icons.person_rounded,
               size: 24.0,
             ),
             label: 'Profile',

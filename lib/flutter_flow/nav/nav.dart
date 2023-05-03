@@ -158,16 +158,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ProductDetailPageWidget(),
         ),
         FFRoute(
-          name: 'ExamplePage',
-          path: '/examplePage',
-          builder: (context, params) => ExamplePageWidget(),
-        ),
-        FFRoute(
           name: 'ProfilePage',
           path: '/profilePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'ProfilePage')
               : ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'ExamplePage',
+          path: '/examplePage',
+          builder: (context, params) => ExamplePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
