@@ -2,9 +2,11 @@ import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_choice_chips.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,6 +34,7 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
     _model = createModel(context, () => AddSomethingPageModel());
 
     _model.nameController ??= TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -184,6 +187,26 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                             height: 130.0,
                             fit: BoxFit.cover,
                             animate: true,
+                          ),
+                          FlutterFlowTimer(
+                            initialTime: _model.timerMilliseconds,
+                            getDisplayTime: (value) =>
+                                StopWatchTimer.getDisplayTime(value,
+                                    milliSecond: false),
+                            timer: _model.timerController,
+                            updateStateInterval: Duration(milliseconds: 1000),
+                            onChanged: (value, displayTime, shouldUpdate) {
+                              _model.timerMilliseconds = value;
+                              _model.timerValue = displayTime;
+                              if (shouldUpdate) setState(() {});
+                            },
+                            textAlign: TextAlign.start,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Kanit',
+                                  color: FlutterFlowTheme.of(context).primary,
+                                ),
                           ),
                           FFButtonWidget(
                             onPressed: () async {
