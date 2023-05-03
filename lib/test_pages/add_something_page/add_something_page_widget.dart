@@ -142,8 +142,8 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                                 .testList
                                 .map((label) => ChipData(label))
                                 .toList(),
-                            onChanged: (val) => setState(
-                                () => _model.choiceChipsValue = val?.first),
+                            onChanged: (val) =>
+                                setState(() => _model.choiceChipsValues = val),
                             selectedChipStyle: ChipStyle(
                               backgroundColor: Color(0xFFE3E7ED),
                               textStyle: FlutterFlowTheme.of(context)
@@ -169,7 +169,8 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                               elevation: 4.0,
                             ),
                             chipSpacing: 20.0,
-                            multiselect: false,
+                            multiselect: true,
+                            initialized: _model.choiceChipsValues != null,
                             alignment: WrapAlignment.start,
                             controller: _model.choiceChipsValueController ??=
                                 FormFieldController<List<String>>(
@@ -178,10 +179,12 @@ class _AddSomethingPageWidgetState extends State<AddSomethingPageWidget> {
                           ),
                           FFButtonWidget(
                             onPressed: () async {
-                              final somethingDataCreateData =
-                                  createSomethingDataRecordData(
-                                text: _model.nameController.text,
-                              );
+                              final somethingDataCreateData = {
+                                ...createSomethingDataRecordData(
+                                  text: _model.nameController.text,
+                                ),
+                                'listData': _model.choiceChipsValues,
+                              };
                               await SomethingDataRecord.collection
                                   .doc()
                                   .set(somethingDataCreateData);
