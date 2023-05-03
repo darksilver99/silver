@@ -10,6 +10,7 @@ import 'province_list_record.dart';
 import 'booking_list_record.dart';
 import 'data_list_record.dart';
 import 'setting_record.dart';
+import 'something_data_record.dart';
 
 import 'index.dart';
 
@@ -30,6 +31,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   BookingListRecord,
   DataListRecord,
   SettingRecord,
+  SomethingDataRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
