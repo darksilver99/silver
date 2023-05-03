@@ -168,6 +168,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ExamplePage',
           path: '/examplePage',
           builder: (context, params) => ExamplePageWidget(),
+        ),
+        FFRoute(
+          name: 'SensitivePage',
+          path: '/sensitivePage',
+          builder: (context, params) => SensitivePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,

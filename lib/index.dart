@@ -23,3 +23,5 @@ export '/test_pages/product_detail_page/product_detail_page_widget.dart'
 export '/home/profile_page/profile_page_widget.dart' show ProfilePageWidget;
 export '/test_pages/example_page/example_page_widget.dart'
     show ExamplePageWidget;
+export '/test_pages/sensitive_page/sensitive_page_widget.dart'
+    show SensitivePageWidget;
