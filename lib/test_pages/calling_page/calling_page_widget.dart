@@ -109,11 +109,14 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
     );
   }
 
+  hangUp(){}
+
   @override
   void dispose() {
     _model.dispose();
 
     _unfocusNode.dispose();
+    hangUp();
     _engine.release();
     super.dispose();
   }
