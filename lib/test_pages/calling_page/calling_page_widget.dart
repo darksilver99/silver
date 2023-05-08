@@ -1,4 +1,5 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:agora_token_service/agora_token_service.dart';
 
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -12,7 +13,7 @@ export 'calling_page_model.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 const appId = "77be9babb28c42728fbc98285dea623a";
-const token = "007eJxTYCi0nPjJ9Kjt5dQ8BdU30l/Fbu8LcKlIa3Xp2FMy06MsM1uBwdw8KdUyKTEpycgi2cTI3MgiLSnZ0sLIwjQlNdHMyDhRKzcipSGQkWH2stmMjAwQCOIzMRgYMjAAAO7eHb4=";
+String token = "";
 const channel = "01";
 
 class CallingPageWidget extends StatefulWidget {
@@ -36,6 +37,24 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CallingPageModel());
+    getAgoraToken();
+  }
+
+  getAgoraToken() {
+    final expirationInSeconds = 3600;
+    final currentTimestamp = DateTime.now().millisecondsSinceEpoch ~/ 1000;
+    final expireTimestamp = currentTimestamp + expirationInSeconds;
+
+    token = RtcTokenBuilder.build(
+      appId: appId,
+      appCertificate: '59af839b8fb942c88a9bcd0d5fad1861',
+      channelName: channel,
+      uid: "0",
+      role: RtcRole.publisher,
+      expireTimestamp: expireTimestamp,
+    );
+    print("token");
+    print(token);
     initAgora();
   }
 
@@ -97,7 +116,6 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
 
     _unfocusNode.dispose();
     _engine.release();
-    print("disposedispose");
     super.dispose();
   }
 

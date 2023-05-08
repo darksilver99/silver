@@ -125,6 +125,7 @@ dependencies:
 
   #pity
   agora_rtc_engine: ^6.1.1
+  agora_token_service: ^0.1.2
   permission_handler: ^10.2.0
 
 
