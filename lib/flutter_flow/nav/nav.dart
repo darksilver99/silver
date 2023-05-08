@@ -177,7 +177,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CallingPage',
           path: '/callingPage',
-          builder: (context, params) => CallingPageWidget(),
+          builder: (context, params) => CallingPageWidget(
+            roomID: params.getParam('roomID', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
