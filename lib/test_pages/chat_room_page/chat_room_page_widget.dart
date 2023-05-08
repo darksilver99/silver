@@ -3,6 +3,7 @@ import '/backend/backend.dart';
 import '/backend/push_notifications/push_notifications_util.dart';
 import '/components/owner_chat_view_widget.dart';
 import '/components/partner_chat_view_widget.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -66,7 +67,22 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                   fontSize: 22.0,
                 ),
           ),
-          actions: [],
+          actions: [
+            FlutterFlowIconButton(
+              borderColor: Colors.transparent,
+              borderRadius: 30.0,
+              borderWidth: 1.0,
+              buttonSize: 60.0,
+              icon: Icon(
+                Icons.call,
+                color: FlutterFlowTheme.of(context).primaryText,
+                size: 30.0,
+              ),
+              onPressed: () async {
+                context.pushNamed('CallingPage');
+              },
+            ),
+          ],
           centerTitle: false,
           elevation: 2.0,
         ),

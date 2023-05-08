@@ -25,3 +25,4 @@ export '/test_pages/example_page/example_page_widget.dart'
     show ExamplePageWidget;
 export '/test_pages/sensitive_page/sensitive_page_widget.dart'
     show SensitivePageWidget;
+export '/calling_page/calling_page_widget.dart' show CallingPageWidget;
