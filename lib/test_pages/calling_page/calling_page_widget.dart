@@ -14,7 +14,6 @@ import 'package:permission_handler/permission_handler.dart';
 
 const appId = "77be9babb28c42728fbc98285dea623a";
 String token = "";
-const channel = "01";
 
 class CallingPageWidget extends StatefulWidget {
   const CallingPageWidget({Key? key}) : super(key: key);
@@ -48,7 +47,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
     token = RtcTokenBuilder.build(
       appId: appId,
       appCertificate: '59af839b8fb942c88a9bcd0d5fad1861',
-      channelName: channel,
+      channelName: FFAppState().roomID,
       uid: "0",
       role: RtcRole.publisher,
       expireTimestamp: expireTimestamp,
@@ -104,7 +103,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
 
     await _engine.joinChannel(
       token: token,
-      channelId: channel,
+      channelId: FFAppState().roomID,
       uid: 0,
       options: const ChannelMediaOptions(),
     );
@@ -195,7 +194,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
         controller: VideoViewController.remote(
           rtcEngine: _engine,
           canvas: VideoCanvas(uid: _remoteUid),
-          connection: const RtcConnection(channelId: channel),
+          connection: RtcConnection(channelId: FFAppState().roomID),
         ),
       );
     } else {
