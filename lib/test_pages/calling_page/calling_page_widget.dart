@@ -1,3 +1,5 @@
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -7,6 +9,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'calling_page_model.dart';
 export 'calling_page_model.dart';
+import 'package:permission_handler/permission_handler.dart';
+
+const appId = "77be9babb28c42728fbc98285dea623a";
+const token = "007eJxTYCi0nPjJ9Kjt5dQ8BdU30l/Fbu8LcKlIa3Xp2FMy06MsM1uBwdw8KdUyKTEpycgi2cTI3MgiLSnZ0sLIwjQlNdHMyDhRKzcipSGQkWH2stmMjAwQCOIzMRgYMjAAAO7eHb4=";
+const channel = "01";
 
 class CallingPageWidget extends StatefulWidget {
   const CallingPageWidget({Key? key}) : super(key: key);
@@ -21,10 +28,67 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
 
+  int? _remoteUid;
+  bool _localUserJoined = false;
+  late RtcEngine _engine;
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => CallingPageModel());
+    initAgora();
+  }
+
+  Future<void> initAgora() async {
+    // retrieve permissions
+    await [Permission.microphone, Permission.camera].request();
+
+    //create the engine
+    _engine = createAgoraRtcEngine();
+    await _engine.initialize(const RtcEngineContext(
+      appId: appId,
+      channelProfile: ChannelProfileType.channelProfileLiveBroadcasting,
+    ));
+
+    _engine.registerEventHandler(
+      RtcEngineEventHandler(
+        onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
+          debugPrint("local user ${connection.localUid} joined");
+          setState(() {
+            _localUserJoined = true;
+          });
+        },
+        onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
+          debugPrint("remote user $remoteUid joined");
+          setState(() {
+            _remoteUid = remoteUid;
+          });
+        },
+        onUserOffline: (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
+          debugPrint("remote user $remoteUid left channel");
+          setState(() {
+            _remoteUid = null;
+          });
+        },
+        onLeaveChannel: (RtcConnection connection, RtcStats stats) {
+          print("onLeaveChannel");
+        },
+        onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
+          debugPrint('[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+        },
+      ),
+    );
+
+    await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
+    await _engine.enableVideo();
+    await _engine.startPreview();
+
+    await _engine.joinChannel(
+      token: token,
+      channelId: channel,
+      uid: 0,
+      options: const ChannelMediaOptions(),
+    );
   }
 
   @override
@@ -32,9 +96,12 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
     _model.dispose();
 
     _unfocusNode.dispose();
+    _engine.release();
+    print("disposedispose");
     super.dispose();
   }
 
+  // Create UI with local view and remote view
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
@@ -74,12 +141,50 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Stack(
+            children: [
+              Center(
+                child: _remoteVideo(),
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: SizedBox(
+                  width: 100,
+                  height: 150,
+                  child: Center(
+                    child: _localUserJoined
+                        ? AgoraVideoView(
+                            controller: VideoViewController(
+                              rtcEngine: _engine,
+                              canvas: const VideoCanvas(uid: 0),
+                            ),
+                          )
+                        : const CircularProgressIndicator(),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
     );
+  }
+
+  // Display remote user's video
+  Widget _remoteVideo() {
+    if (_remoteUid != null) {
+      return AgoraVideoView(
+        controller: VideoViewController.remote(
+          rtcEngine: _engine,
+          canvas: VideoCanvas(uid: _remoteUid),
+          connection: const RtcConnection(channelId: channel),
+        ),
+      );
+    } else {
+      return const Text(
+        'Please wait for remote user to join',
+        textAlign: TextAlign.center,
+      );
+    }
   }
 }
