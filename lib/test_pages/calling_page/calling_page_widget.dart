@@ -1,6 +1,9 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:agora_token_service/agora_token_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+import '../../backend/schema/chat_room_list_record.dart';
+import '../../backend/schema/users_record.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -109,7 +112,19 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
     );
   }
 
-  hangUp(){}
+  hangUp() {
+    print("hangUp");
+    FirebaseFirestore.instance.doc('chat_room_list/${FFAppState().roomID}').get().then((ref) {
+      FirebaseFirestore.instance.doc(ref.data()!["create_by"].path).update({
+        'isCalling': false,
+        'roomIDCalling': '',
+      });
+      FirebaseFirestore.instance.doc(ref.data()!["partner"].path).update({
+        'isCalling': false,
+        'roomIDCalling': '',
+      });
+    });
+  }
 
   @override
   void dispose() {
