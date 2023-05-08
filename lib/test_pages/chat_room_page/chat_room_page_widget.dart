@@ -99,15 +99,29 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                     currentUserReference) {
                   final usersUpdateData1 = createUsersRecordData(
                     roomIDCalling: FFAppState().roomID,
+                    isCalling: true,
                   );
                   await widget.chatRoomParameter!.partner!
                       .update(usersUpdateData1);
-                } else {
+
                   final usersUpdateData2 = createUsersRecordData(
-                    roomIDCalling: FFAppState().roomID,
+                    isCalling: true,
                   );
                   await widget.chatRoomParameter!.createBy!
                       .update(usersUpdateData2);
+                } else {
+                  final usersUpdateData3 = createUsersRecordData(
+                    roomIDCalling: FFAppState().roomID,
+                    isCalling: true,
+                  );
+                  await widget.chatRoomParameter!.createBy!
+                      .update(usersUpdateData3);
+
+                  final usersUpdateData4 = createUsersRecordData(
+                    isCalling: true,
+                  );
+                  await widget.chatRoomParameter!.partner!
+                      .update(usersUpdateData4);
                 }
 
                 context.pushNamed('CallingPage');
