@@ -87,12 +87,14 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
         },
         onUserOffline: (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
           debugPrint("remote user $remoteUid left channel");
+          hangUp();
           setState(() {
             _remoteUid = null;
           });
         },
         onLeaveChannel: (RtcConnection connection, RtcStats stats) {
           print("onLeaveChannel");
+          hangUp();
         },
         onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
           debugPrint('[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
@@ -124,6 +126,11 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
         'roomIDCalling': '',
       });
     });
+    FFAppState().roomID = '';
+    _engine.disableVideo();
+    _engine.stopPreview();
+    _engine.leaveChannel();
+    _engine.release();
   }
 
   @override
@@ -132,7 +139,6 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
 
     _unfocusNode.dispose();
     hangUp();
-    _engine.release();
     super.dispose();
   }
 
