@@ -9,12 +9,7 @@ import 'calling_page_model.dart';
 export 'calling_page_model.dart';
 
 class CallingPageWidget extends StatefulWidget {
-  const CallingPageWidget({
-    Key? key,
-    required this.roomID,
-  }) : super(key: key);
-
-  final String? roomID;
+  const CallingPageWidget({Key? key}) : super(key: key);
 
   @override
   _CallingPageWidgetState createState() => _CallingPageWidgetState();

@@ -94,15 +94,9 @@ class _ChatRoomPageWidgetState extends State<ChatRoomPageWidget> {
                 size: 30.0,
               ),
               onPressed: () async {
-                context.pushNamed(
-                  'CallingPage',
-                  queryParams: {
-                    'roomID': serializeParam(
-                      widget.chatRoomParameter!.reference.id,
-                      ParamType.String,
-                    ),
-                  }.withoutNulls,
-                );
+                FFAppState().roomID = widget.chatRoomParameter!.reference.id;
+
+                context.pushNamed('CallingPage');
               },
             ),
           ],
