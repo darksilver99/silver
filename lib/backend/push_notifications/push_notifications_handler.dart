@@ -130,6 +130,7 @@ final parametersBuilderMap =
   'ProfilePage': ParameterData.none(),
   'ExamplePage': ParameterData.none(),
   'SensitivePage': ParameterData.none(),
+  'CallingPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

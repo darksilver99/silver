@@ -27,6 +27,7 @@ void main() async {
   await FlutterFlowTheme.initialize();
 
   final appState = FFAppState(); // Initialize FFAppState
+  await appState.initializePersistedState();
 
   await initializeStripe();
   if (!kIsWeb) {

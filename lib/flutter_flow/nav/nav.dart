@@ -173,6 +173,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'SensitivePage',
           path: '/sensitivePage',
           builder: (context, params) => SensitivePageWidget(),
+        ),
+        FFRoute(
+          name: 'CallingPage',
+          path: '/callingPage',
+          builder: (context, params) => CallingPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
