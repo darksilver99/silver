@@ -95,6 +95,12 @@ class FFAppState extends ChangeNotifier {
   set isFullData(bool _value) {
     _isFullData = _value;
   }
+
+  String _roomID = '';
+  String get roomID => _roomID;
+  set roomID(String _value) {
+    _roomID = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

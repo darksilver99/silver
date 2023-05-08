@@ -130,11 +130,7 @@ final parametersBuilderMap =
   'ProfilePage': ParameterData.none(),
   'ExamplePage': ParameterData.none(),
   'SensitivePage': ParameterData.none(),
-  'CallingPage': (data) async => ParameterData(
-        allParams: {
-          'roomID': getParameter<String>(data, 'roomID'),
-        },
-      ),
+  'CallingPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {
