@@ -178,6 +178,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CallingPage',
           path: '/callingPage',
           builder: (context, params) => CallingPageWidget(),
+        ),
+        FFRoute(
+          name: 'BannerPage',
+          path: '/bannerPage',
+          builder: (context, params) => BannerPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       urlPathStrategy: UrlPathStrategy.path,
