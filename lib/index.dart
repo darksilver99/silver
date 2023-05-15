@@ -27,3 +27,4 @@ export '/test_pages/sensitive_page/sensitive_page_widget.dart'
     show SensitivePageWidget;
 export '/test_pages/calling_page/calling_page_widget.dart'
     show CallingPageWidget;
+export '/banner_page/banner_page_widget.dart' show BannerPageWidget;
