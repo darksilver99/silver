@@ -41,17 +41,18 @@ class _BannerPageWidgetState extends State<BannerPageWidget> {
       _model.instantTimer = InstantTimer.periodic(
         duration: Duration(milliseconds: 2000),
         callback: (timer) async {
-          if (pageViewCurrentIndex < 3) {
+          if (pageViewCurrentIndex < 2) {
+            await _model.pageViewController?.nextPage(
+              duration: Duration(milliseconds: 300),
+              curve: Curves.ease,
+            );
+          } else {
             await _model.pageViewController?.animateToPage(
               0,
               duration: Duration(milliseconds: 500),
               curve: Curves.ease,
             );
-          } else {
-            await _model.pageViewController?.nextPage(
-              duration: Duration(milliseconds: 300),
-              curve: Curves.ease,
-            );
+
           }
         },
         startImmediately: true,
