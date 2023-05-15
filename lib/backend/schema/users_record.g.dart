@@ -81,6 +81,13 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
         ..add(
             serializers.serialize(value, specifiedType: const FullType(bool)));
     }
+    value = object.displayImage;
+    if (value != null) {
+      result
+        ..add('display_image')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -139,6 +146,10 @@ class _$UsersRecordSerializer implements StructuredSerializer<UsersRecord> {
           result.isCalling = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool?;
           break;
+        case 'display_image':
+          result.displayImage = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -172,6 +183,8 @@ class _$UsersRecord extends UsersRecord {
   @override
   final bool? isCalling;
   @override
+  final String? displayImage;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UsersRecord([void Function(UsersRecordBuilder)? updates]) =>
@@ -187,6 +200,7 @@ class _$UsersRecord extends UsersRecord {
       this.status,
       this.roomIDCalling,
       this.isCalling,
+      this.displayImage,
       this.ffRef})
       : super._();
 
@@ -210,6 +224,7 @@ class _$UsersRecord extends UsersRecord {
         status == other.status &&
         roomIDCalling == other.roomIDCalling &&
         isCalling == other.isCalling &&
+        displayImage == other.displayImage &&
         ffRef == other.ffRef;
   }
 
@@ -225,6 +240,7 @@ class _$UsersRecord extends UsersRecord {
     _$hash = $jc(_$hash, status.hashCode);
     _$hash = $jc(_$hash, roomIDCalling.hashCode);
     _$hash = $jc(_$hash, isCalling.hashCode);
+    _$hash = $jc(_$hash, displayImage.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -242,6 +258,7 @@ class _$UsersRecord extends UsersRecord {
           ..add('status', status)
           ..add('roomIDCalling', roomIDCalling)
           ..add('isCalling', isCalling)
+          ..add('displayImage', displayImage)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -287,6 +304,10 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
   bool? get isCalling => _$this._isCalling;
   set isCalling(bool? isCalling) => _$this._isCalling = isCalling;
 
+  String? _displayImage;
+  String? get displayImage => _$this._displayImage;
+  set displayImage(String? displayImage) => _$this._displayImage = displayImage;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -307,6 +328,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
       _status = $v.status;
       _roomIDCalling = $v.roomIDCalling;
       _isCalling = $v.isCalling;
+      _displayImage = $v.displayImage;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -339,6 +361,7 @@ class UsersRecordBuilder implements Builder<UsersRecord, UsersRecordBuilder> {
             status: status,
             roomIDCalling: roomIDCalling,
             isCalling: isCalling,
+            displayImage: displayImage,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
