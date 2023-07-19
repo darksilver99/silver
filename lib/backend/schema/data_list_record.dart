@@ -1,51 +1,73 @@
 import 'dart:async';
 
 import 'package:from_css_color/from_css_color.dart';
+import '/backend/algolia/algolia_manager.dart';
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'data_list_record.g.dart';
+class DataListRecord extends FirestoreRecord {
+  DataListRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class DataListRecord
-    implements Built<DataListRecord, DataListRecordBuilder> {
-  static Serializer<DataListRecord> get serializer =>
-      _$dataListRecordSerializer;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  String? get name;
+  // "detail" field.
+  String? _detail;
+  String get detail => _detail ?? '';
+  bool hasDetail() => _detail != null;
 
-  String? get detail;
+  // "searchText" field.
+  String? _searchText;
+  String get searchText => _searchText ?? '';
+  bool hasSearchText() => _searchText != null;
 
-  String? get searchText;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(DataListRecordBuilder builder) => builder
-    ..name = ''
-    ..detail = ''
-    ..searchText = '';
+  void _initializeFields() {
+    _name = snapshotData['name'] as String?;
+    _detail = snapshotData['detail'] as String?;
+    _searchText = snapshotData['searchText'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('data_list');
 
-  static Stream<DataListRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<DataListRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => DataListRecord.fromSnapshot(s));
 
-  static Future<DataListRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<DataListRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => DataListRecord.fromSnapshot(s));
+
+  static DataListRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      DataListRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
+
+  static DataListRecord getDocumentFromData(
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      DataListRecord._(reference, mapFromFirestore(data));
 
   static DataListRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      DataListRecord(
-        (c) => c
-          ..name = snapshot.data['name']
-          ..detail = snapshot.data['detail']
-          ..searchText = snapshot.data['searchText']
-          ..ffRef = DataListRecord.collection.doc(snapshot.objectID),
+      DataListRecord.getDocumentFromData(
+        {
+          'name': snapshot.data['name'],
+          'detail': snapshot.data['detail'],
+          'searchText': snapshot.data['searchText'],
+        },
+        DataListRecord.collection.doc(snapshot.objectID),
       );
 
   static Future<List<DataListRecord>> search({
@@ -66,14 +88,17 @@ abstract class DataListRecord
           )
           .then((r) => r.map(fromAlgolia).toList());
 
-  DataListRecord._();
-  factory DataListRecord([void Function(DataListRecordBuilder) updates]) =
-      _$DataListRecord;
+  @override
+  String toString() =>
+      'DataListRecord(reference: ${reference.path}, data: $snapshotData)';
 
-  static DataListRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is DataListRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createDataListRecordData({
@@ -81,15 +106,31 @@ Map<String, dynamic> createDataListRecordData({
   String? detail,
   String? searchText,
 }) {
-  final firestoreData = serializers.toFirestore(
-    DataListRecord.serializer,
-    DataListRecord(
-      (d) => d
-        ..name = name
-        ..detail = detail
-        ..searchText = searchText,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'name': name,
+      'detail': detail,
+      'searchText': searchText,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class DataListRecordDocumentEquality implements Equality<DataListRecord> {
+  const DataListRecordDocumentEquality();
+
+  @override
+  bool equals(DataListRecord? e1, DataListRecord? e2) {
+    return e1?.name == e2?.name &&
+        e1?.detail == e2?.detail &&
+        e1?.searchText == e2?.searchText;
+  }
+
+  @override
+  int hash(DataListRecord? e) =>
+      const ListEquality().hash([e?.name, e?.detail, e?.searchText]);
+
+  @override
+  bool isValidKey(Object? o) => o is DataListRecord;
 }
