@@ -114,19 +114,36 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       return Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 8.0, 16.0, 0.0),
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 3.0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
-                          ),
-                          child: Container(
-                            width: double.infinity,
-                            height: 100.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed(
+                              'TestPage',
+                              queryParameters: {
+                                'testParam': serializeParam(
+                                  'aaaa',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
+                          },
+                          child: Material(
+                            color: Colors.transparent,
+                            elevation: 3.0,
+                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(16.0),
+                            ),
+                            child: Container(
+                              width: double.infinity,
+                              height: 100.0,
+                              decoration: BoxDecoration(
+                                color: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                borderRadius: BorderRadius.circular(16.0),
+                              ),
                             ),
                           ),
                         ).animateOnActionTrigger(

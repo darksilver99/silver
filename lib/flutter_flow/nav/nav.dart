@@ -65,6 +65,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'ProfilePage')
               : ProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'TestPage',
+          path: '/testPage',
+          builder: (context, params) => TestPageWidget(
+            testParam: params.getParam('testParam', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'GoTripViewPage',
+          path: '/goTripViewPage',
+          builder: (context, params) => GoTripViewPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
