@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
@@ -15,8 +14,6 @@ import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
-export '/backend/firebase_dynamic_links/firebase_dynamic_links.dart'
-    show generateCurrentPageLink;
 
 const kTransitionInfoKey = '__transition_info__';
 
@@ -38,20 +35,36 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, state) => _RouteErrorBuilder(
-        state: state,
-        child: HomePageWidget(),
-      ),
+      errorBuilder: (context, state) => NavBarPage(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
+          builder: (context, _) => NavBarPage(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => HomePageWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'HomePage')
+              : NavBarPage(
+                  initialPage: 'HomePage',
+                  page: HomePageWidget(),
+                ),
+        ),
+        FFRoute(
+          name: 'AboutPage',
+          path: '/aboutPage',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'AboutPage')
+              : AboutPageWidget(),
+        ),
+        FFRoute(
+          name: 'ProfilePage',
+          path: '/profilePage',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'ProfilePage')
+              : ProfilePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -206,32 +219,4 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
-}
-
-class _RouteErrorBuilder extends StatefulWidget {
-  const _RouteErrorBuilder({
-    Key? key,
-    required this.state,
-    required this.child,
-  }) : super(key: key);
-
-  final GoRouterState state;
-  final Widget child;
-
-  @override
-  State<_RouteErrorBuilder> createState() => _RouteErrorBuilderState();
-}
-
-class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
-  @override
-  void initState() {
-    super.initState();
-    // Handle erroneous links from Firebase Dynamic Links.
-    if (widget.state.location.startsWith('/link?request_ip_version')) {
-      SchedulerBinding.instance.addPostFrameCallback((_) => context.go('/'));
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) => widget.child;
 }

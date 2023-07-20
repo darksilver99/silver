@@ -37,10 +37,10 @@
         <key>CFBundleTypeRole</key>
         <string>Editor</string>
         <key>CFBundleURLName</key>
-        <string>silver</string>
+        <string>silverproject.page.link</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>com.silverproject</string>
+        <string>silver</string>
         </array>
         </dict>
     </array>
