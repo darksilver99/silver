@@ -1,16 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
-import '../../backend/backend.dart';
+import '/backend/backend.dart';
 
-import '../../auth/base_auth_user_provider.dart';
-import '../../backend/push_notifications/push_notifications_handler.dart'
-    show PushNotificationsHandler;
-import '../../backend/firebase_dynamic_links/firebase_dynamic_links.dart'
-    show DynamicLinksHandler;
 import '../../index.dart';
 import '../../main.dart';
 import '../lat_lng.dart';
@@ -19,49 +15,18 @@ import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
-export '../../backend/firebase_dynamic_links/firebase_dynamic_links.dart'
+export '/backend/firebase_dynamic_links/firebase_dynamic_links.dart'
     show generateCurrentPageLink;
 
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
-  BaseAuthUser? initialUser;
-  BaseAuthUser? user;
+  AppStateNotifier._();
+
+  static AppStateNotifier? _instance;
+  static AppStateNotifier get instance => _instance ??= AppStateNotifier._();
+
   bool showSplashImage = true;
-  String? _redirectLocation;
-
-  /// Determines whether the app will refresh and build again when a sign
-  /// in or sign out happens. This is useful when the app is launched or
-  /// on an unexpected logout. However, this must be turned off when we
-  /// intend to sign in/out and then navigate or perform any actions after.
-  /// Otherwise, this will trigger a refresh and interrupt the action(s).
-  bool notifyOnAuthChange = true;
-
-  bool get loading => user == null || showSplashImage;
-  bool get loggedIn => user?.loggedIn ?? false;
-  bool get initiallyLoggedIn => initialUser?.loggedIn ?? false;
-  bool get shouldRedirect => loggedIn && _redirectLocation != null;
-
-  String getRedirectLocation() => _redirectLocation!;
-  bool hasRedirect() => _redirectLocation != null;
-  void setRedirectLocationIfUnset(String loc) => _redirectLocation ??= loc;
-  void clearRedirectLocation() => _redirectLocation = null;
-
-  /// Mark as not needing to notify on a sign in / out when we intend
-  /// to perform subsequent actions (such as navigation) afterwards.
-  void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
-
-  void update(BaseAuthUser newUser) {
-    initialUser ??= newUser;
-    user = newUser;
-    // Refresh the app on auth change unless explicitly marked otherwise.
-    if (notifyOnAuthChange) {
-      notifyListeners();
-    }
-    // Once again mark the notifier as needing to update on auth change
-    // (in order to catch sign in / out events).
-    updateNotifyOnAuthChange(true);
-  }
 
   void stopShowingSplashImage() {
     showSplashImage = false;
@@ -73,119 +38,22 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
-      navigatorBuilder: (_, __, child) => DynamicLinksHandler(child: child),
+      errorBuilder: (context, state) => _RouteErrorBuilder(
+        state: state,
+        child: HomePageWidget(),
+      ),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : LoginPageWidget(),
+          builder: (context, _) => HomePageWidget(),
         ),
         FFRoute(
           name: 'HomePage',
           path: '/homePage',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'HomePage')
-              : NavBarPage(
-                  initialPage: 'HomePage',
-                  page: HomePageWidget(),
-                ),
-        ),
-        FFRoute(
-          name: 'LoginPage',
-          path: '/loginPage',
-          builder: (context, params) => LoginPageWidget(),
-        ),
-        FFRoute(
-          name: 'SwipePage',
-          path: '/swipePage',
-          requireAuth: true,
-          builder: (context, params) => SwipePageWidget(),
-        ),
-        FFRoute(
-          name: 'ChatListPage',
-          path: '/chatListPage',
-          builder: (context, params) => ChatListPageWidget(),
-        ),
-        FFRoute(
-          name: 'FriendListPage',
-          path: '/friendListPage',
-          builder: (context, params) => FriendListPageWidget(),
-        ),
-        FFRoute(
-          name: 'ChatRoomPage',
-          path: '/chatRoomPage',
-          asyncParams: {
-            'chatRoomParameter':
-                getDoc(['chat_room_list'], ChatRoomListRecord.serializer),
-          },
-          builder: (context, params) => ChatRoomPageWidget(
-            chatRoomParameter:
-                params.getParam('chatRoomParameter', ParamType.Document),
-          ),
-        ),
-        FFRoute(
-          name: 'TopicListPage',
-          path: '/topicListPage',
-          builder: (context, params) => TopicListPageWidget(),
-        ),
-        FFRoute(
-          name: 'AddProvincePage',
-          path: '/addProvincePage',
-          builder: (context, params) => AddProvincePageWidget(),
-        ),
-        FFRoute(
-          name: 'AddSomethingPage',
-          path: '/addSomethingPage',
-          builder: (context, params) => AddSomethingPageWidget(),
-        ),
-        FFRoute(
-          name: 'BookingFormPage',
-          path: '/bookingFormPage',
-          requireAuth: true,
-          builder: (context, params) => BookingFormPageWidget(),
-        ),
-        FFRoute(
-          name: 'ListDataPage',
-          path: '/listDataPage',
-          builder: (context, params) => ListDataPageWidget(),
-        ),
-        FFRoute(
-          name: 'ProductDetailPage',
-          path: '/productDetailPage',
-          builder: (context, params) => ProductDetailPageWidget(),
-        ),
-        FFRoute(
-          name: 'ProfilePage',
-          path: '/profilePage',
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'ProfilePage')
-              : ProfilePageWidget(),
-        ),
-        FFRoute(
-          name: 'ExamplePage',
-          path: '/examplePage',
-          builder: (context, params) => ExamplePageWidget(),
-        ),
-        FFRoute(
-          name: 'SensitivePage',
-          path: '/sensitivePage',
-          builder: (context, params) => SensitivePageWidget(),
-        ),
-        FFRoute(
-          name: 'CallingPage',
-          path: '/callingPage',
-          builder: (context, params) => CallingPageWidget(),
-        ),
-        FFRoute(
-          name: 'BannerPage',
-          path: '/bannerPage',
-          builder: (context, params) => BannerPageWidget(),
+          builder: (context, params) => HomePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      urlPathStrategy: UrlPathStrategy.path,
     );
 
 extension NavParamExtensions on Map<String, String?> {
@@ -197,72 +65,23 @@ extension NavParamExtensions on Map<String, String?> {
 }
 
 extension NavigationExtensions on BuildContext {
-  void goNamedAuth(
-    String name,
-    bool mounted, {
-    Map<String, String> params = const <String, String>{},
-    Map<String, String> queryParams = const <String, String>{},
-    Object? extra,
-    bool ignoreRedirect = false,
-  }) =>
-      !mounted || GoRouter.of(this).shouldRedirect(ignoreRedirect)
-          ? null
-          : goNamed(
-              name,
-              params: params,
-              queryParams: queryParams,
-              extra: extra,
-            );
-
-  void pushNamedAuth(
-    String name,
-    bool mounted, {
-    Map<String, String> params = const <String, String>{},
-    Map<String, String> queryParams = const <String, String>{},
-    Object? extra,
-    bool ignoreRedirect = false,
-  }) =>
-      !mounted || GoRouter.of(this).shouldRedirect(ignoreRedirect)
-          ? null
-          : pushNamed(
-              name,
-              params: params,
-              queryParams: queryParams,
-              extra: extra,
-            );
-
   void safePop() {
     // If there is only one route on the stack, navigate to the initial
     // page instead of popping.
-    if (GoRouter.of(this).routerDelegate.matches.length <= 1) {
-      go('/');
-    } else {
+    if (canPop()) {
       pop();
+    } else {
+      go('/');
     }
   }
-}
-
-extension GoRouterExtensions on GoRouter {
-  AppStateNotifier get appState =>
-      (routerDelegate.refreshListenable as AppStateNotifier);
-  void prepareAuthEvent([bool ignoreRedirect = false]) =>
-      appState.hasRedirect() && !ignoreRedirect
-          ? null
-          : appState.updateNotifyOnAuthChange(false);
-  bool shouldRedirect(bool ignoreRedirect) =>
-      !ignoreRedirect && appState.hasRedirect();
-  void clearRedirectLocation() => appState.clearRedirectLocation();
-  void setRedirectLocationIfUnset(String location) =>
-      (routerDelegate.refreshListenable as AppStateNotifier)
-          .updateNotifyOnAuthChange(false);
 }
 
 extension _GoRouterStateExtensions on GoRouterState {
   Map<String, dynamic> get extraMap =>
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
-    ..addAll(params)
-    ..addAll(queryParams)
+    ..addAll(pathParameters)
+    ..addAll(queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -318,7 +137,8 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList, collectionNamePath);
+    return deserializeParam<T>(param, type, isList,
+        collectionNamePath: collectionNamePath);
   }
 }
 
@@ -342,19 +162,6 @@ class FFRoute {
   GoRoute toRoute(AppStateNotifier appStateNotifier) => GoRoute(
         name: name,
         path: path,
-        redirect: (state) {
-          if (appStateNotifier.shouldRedirect) {
-            final redirectLocation = appStateNotifier.getRedirectLocation();
-            appStateNotifier.clearRedirectLocation();
-            return redirectLocation;
-          }
-
-          if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/loginPage';
-          }
-          return null;
-        },
         pageBuilder: (context, state) {
           final ffParams = FFParameters(state, asyncParams);
           final page = ffParams.hasFutures
@@ -363,17 +170,7 @@ class FFRoute {
                   builder: (context, _) => builder(context, ffParams),
                 )
               : builder(context, ffParams);
-          final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: CircularProgressIndicator(
-                      color: FlutterFlowTheme.of(context).primary,
-                    ),
-                  ),
-                )
-              : PushNotificationsHandler(child: page);
+          final child = page;
 
           final transitionInfo = state.transitionInfo;
           return transitionInfo.hasTransition
@@ -409,4 +206,32 @@ class TransitionInfo {
   final Alignment? alignment;
 
   static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
+}
+
+class _RouteErrorBuilder extends StatefulWidget {
+  const _RouteErrorBuilder({
+    Key? key,
+    required this.state,
+    required this.child,
+  }) : super(key: key);
+
+  final GoRouterState state;
+  final Widget child;
+
+  @override
+  State<_RouteErrorBuilder> createState() => _RouteErrorBuilderState();
+}
+
+class _RouteErrorBuilderState extends State<_RouteErrorBuilder> {
+  @override
+  void initState() {
+    super.initState();
+    // Handle erroneous links from Firebase Dynamic Links.
+    if (widget.state.location.startsWith('/link?request_ip_version')) {
+      SchedulerBinding.instance.addPostFrameCallback((_) => context.go('/'));
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
 }

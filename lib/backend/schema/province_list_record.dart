@@ -1,51 +1,74 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'province_list_record.g.dart';
+class ProvinceListRecord extends FirestoreRecord {
+  ProvinceListRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class ProvinceListRecord
-    implements Built<ProvinceListRecord, ProvinceListRecordBuilder> {
-  static Serializer<ProvinceListRecord> get serializer =>
-      _$provinceListRecordSerializer;
+  // "id" field.
+  int? _id;
+  int get id => _id ?? 0;
+  bool hasId() => _id != null;
 
-  int? get id;
+  // "name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  String? get name;
+  // "postCode" field.
+  String? _postCode;
+  String get postCode => _postCode ?? '';
+  bool hasPostCode() => _postCode != null;
 
-  String? get postCode;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(ProvinceListRecordBuilder builder) => builder
-    ..id = 0
-    ..name = ''
-    ..postCode = '';
+  void _initializeFields() {
+    _id = castToType<int>(snapshotData['id']);
+    _name = snapshotData['name'] as String?;
+    _postCode = snapshotData['postCode'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('province_list');
 
-  static Stream<ProvinceListRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<ProvinceListRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => ProvinceListRecord.fromSnapshot(s));
 
   static Future<ProvinceListRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => ProvinceListRecord.fromSnapshot(s));
 
-  ProvinceListRecord._();
-  factory ProvinceListRecord(
-          [void Function(ProvinceListRecordBuilder) updates]) =
-      _$ProvinceListRecord;
+  static ProvinceListRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      ProvinceListRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static ProvinceListRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      ProvinceListRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'ProvinceListRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is ProvinceListRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createProvinceListRecordData({
@@ -53,15 +76,32 @@ Map<String, dynamic> createProvinceListRecordData({
   String? name,
   String? postCode,
 }) {
-  final firestoreData = serializers.toFirestore(
-    ProvinceListRecord.serializer,
-    ProvinceListRecord(
-      (p) => p
-        ..id = id
-        ..name = name
-        ..postCode = postCode,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'id': id,
+      'name': name,
+      'postCode': postCode,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class ProvinceListRecordDocumentEquality
+    implements Equality<ProvinceListRecord> {
+  const ProvinceListRecordDocumentEquality();
+
+  @override
+  bool equals(ProvinceListRecord? e1, ProvinceListRecord? e2) {
+    return e1?.id == e2?.id &&
+        e1?.name == e2?.name &&
+        e1?.postCode == e2?.postCode;
+  }
+
+  @override
+  int hash(ProvinceListRecord? e) =>
+      const ListEquality().hash([e?.id, e?.name, e?.postCode]);
+
+  @override
+  bool isValidKey(Object? o) => o is ProvinceListRecord;
 }

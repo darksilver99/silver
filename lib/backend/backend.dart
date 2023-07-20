@@ -1,9 +1,7 @@
-import 'package:built_value/serializer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import '../auth/firebase_auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_util.dart';
+import 'schema/util/firestore_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/chat_room_list_record.dart';
@@ -15,12 +13,12 @@ import 'schema/booking_list_record.dart';
 import 'schema/data_list_record.dart';
 import 'schema/setting_record.dart';
 import 'schema/something_data_record.dart';
-import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'schema/index.dart';
-export 'schema/serializers.dart';
+export 'schema/util/firestore_util.dart';
+export 'schema/util/schema_util.dart';
 
 export 'schema/users_record.dart';
 export 'schema/chat_room_list_record.dart';
@@ -51,7 +49,7 @@ Stream<List<UsersRecord>> queryUsersRecord({
 }) =>
     queryCollection(
       UsersRecord.collection,
-      UsersRecord.serializer,
+      UsersRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -64,25 +62,10 @@ Future<List<UsersRecord>> queryUsersRecordOnce({
 }) =>
     queryCollectionOnce(
       UsersRecord.collection,
-      UsersRecord.serializer,
+      UsersRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<UsersRecord>> queryUsersRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      UsersRecord.collection,
-      UsersRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query ChatRoomListRecords (as a Stream and as a Future).
@@ -103,7 +86,7 @@ Stream<List<ChatRoomListRecord>> queryChatRoomListRecord({
 }) =>
     queryCollection(
       ChatRoomListRecord.collection,
-      ChatRoomListRecord.serializer,
+      ChatRoomListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -116,25 +99,10 @@ Future<List<ChatRoomListRecord>> queryChatRoomListRecordOnce({
 }) =>
     queryCollectionOnce(
       ChatRoomListRecord.collection,
-      ChatRoomListRecord.serializer,
+      ChatRoomListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<ChatRoomListRecord>> queryChatRoomListRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      ChatRoomListRecord.collection,
-      ChatRoomListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query ChatRoomSubListRecords (as a Stream and as a Future).
@@ -157,7 +125,7 @@ Stream<List<ChatRoomSubListRecord>> queryChatRoomSubListRecord({
 }) =>
     queryCollection(
       ChatRoomSubListRecord.collection(parent),
-      ChatRoomSubListRecord.serializer,
+      ChatRoomSubListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -171,26 +139,10 @@ Future<List<ChatRoomSubListRecord>> queryChatRoomSubListRecordOnce({
 }) =>
     queryCollectionOnce(
       ChatRoomSubListRecord.collection(parent),
-      ChatRoomSubListRecord.serializer,
+      ChatRoomSubListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<ChatRoomSubListRecord>> queryChatRoomSubListRecordPage({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      ChatRoomSubListRecord.collection(parent),
-      ChatRoomSubListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query TopicListRecords (as a Stream and as a Future).
@@ -211,7 +163,7 @@ Stream<List<TopicListRecord>> queryTopicListRecord({
 }) =>
     queryCollection(
       TopicListRecord.collection,
-      TopicListRecord.serializer,
+      TopicListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -224,25 +176,10 @@ Future<List<TopicListRecord>> queryTopicListRecordOnce({
 }) =>
     queryCollectionOnce(
       TopicListRecord.collection,
-      TopicListRecord.serializer,
+      TopicListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<TopicListRecord>> queryTopicListRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      TopicListRecord.collection,
-      TopicListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query TopicSubListRecords (as a Stream and as a Future).
@@ -265,7 +202,7 @@ Stream<List<TopicSubListRecord>> queryTopicSubListRecord({
 }) =>
     queryCollection(
       TopicSubListRecord.collection(parent),
-      TopicSubListRecord.serializer,
+      TopicSubListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -279,26 +216,10 @@ Future<List<TopicSubListRecord>> queryTopicSubListRecordOnce({
 }) =>
     queryCollectionOnce(
       TopicSubListRecord.collection(parent),
-      TopicSubListRecord.serializer,
+      TopicSubListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<TopicSubListRecord>> queryTopicSubListRecordPage({
-  DocumentReference? parent,
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      TopicSubListRecord.collection(parent),
-      TopicSubListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query ProvinceListRecords (as a Stream and as a Future).
@@ -319,7 +240,7 @@ Stream<List<ProvinceListRecord>> queryProvinceListRecord({
 }) =>
     queryCollection(
       ProvinceListRecord.collection,
-      ProvinceListRecord.serializer,
+      ProvinceListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -332,25 +253,10 @@ Future<List<ProvinceListRecord>> queryProvinceListRecordOnce({
 }) =>
     queryCollectionOnce(
       ProvinceListRecord.collection,
-      ProvinceListRecord.serializer,
+      ProvinceListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<ProvinceListRecord>> queryProvinceListRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      ProvinceListRecord.collection,
-      ProvinceListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query BookingListRecords (as a Stream and as a Future).
@@ -371,7 +277,7 @@ Stream<List<BookingListRecord>> queryBookingListRecord({
 }) =>
     queryCollection(
       BookingListRecord.collection,
-      BookingListRecord.serializer,
+      BookingListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -384,25 +290,10 @@ Future<List<BookingListRecord>> queryBookingListRecordOnce({
 }) =>
     queryCollectionOnce(
       BookingListRecord.collection,
-      BookingListRecord.serializer,
+      BookingListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<BookingListRecord>> queryBookingListRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      BookingListRecord.collection,
-      BookingListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query DataListRecords (as a Stream and as a Future).
@@ -423,7 +314,7 @@ Stream<List<DataListRecord>> queryDataListRecord({
 }) =>
     queryCollection(
       DataListRecord.collection,
-      DataListRecord.serializer,
+      DataListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -436,25 +327,10 @@ Future<List<DataListRecord>> queryDataListRecordOnce({
 }) =>
     queryCollectionOnce(
       DataListRecord.collection,
-      DataListRecord.serializer,
+      DataListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<DataListRecord>> queryDataListRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      DataListRecord.collection,
-      DataListRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query SettingRecords (as a Stream and as a Future).
@@ -475,7 +351,7 @@ Stream<List<SettingRecord>> querySettingRecord({
 }) =>
     queryCollection(
       SettingRecord.collection,
-      SettingRecord.serializer,
+      SettingRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -488,25 +364,10 @@ Future<List<SettingRecord>> querySettingRecordOnce({
 }) =>
     queryCollectionOnce(
       SettingRecord.collection,
-      SettingRecord.serializer,
+      SettingRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<SettingRecord>> querySettingRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      SettingRecord.collection,
-      SettingRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 /// Functions to query SomethingDataRecords (as a Stream and as a Future).
@@ -527,7 +388,7 @@ Stream<List<SomethingDataRecord>> querySomethingDataRecord({
 }) =>
     queryCollection(
       SomethingDataRecord.collection,
-      SomethingDataRecord.serializer,
+      SomethingDataRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -540,25 +401,10 @@ Future<List<SomethingDataRecord>> querySomethingDataRecordOnce({
 }) =>
     queryCollectionOnce(
       SomethingDataRecord.collection,
-      SomethingDataRecord.serializer,
+      SomethingDataRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<SomethingDataRecord>> querySomethingDataRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      SomethingDataRecord.collection,
-      SomethingDataRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
     );
 
 Future<int> queryCollectionCount(
@@ -577,10 +423,13 @@ Future<int> queryCollectionCount(
   }).then((value) => value.count);
 }
 
-Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
-    {Query Function(Query)? queryBuilder,
-    int limit = -1,
-    bool singleRecord = false}) {
+Stream<List<T>> queryCollection<T>(
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) {
   final builder = queryBuilder ?? (q) => q;
   var query = builder(collection);
   if (limit > 0 || singleRecord) {
@@ -591,7 +440,7 @@ Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
   }).map((s) => s.docs
       .map(
         (d) => safeGet(
-          () => serializers.deserializeWith(serializer, serializedData(d)),
+          () => recordBuilder(d),
           (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
         ),
       )
@@ -601,10 +450,12 @@ Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
 }
 
 Future<List<T>> queryCollectionOnce<T>(
-    Query collection, Serializer<T> serializer,
-    {Query Function(Query)? queryBuilder,
-    int limit = -1,
-    bool singleRecord = false}) {
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) {
   final builder = queryBuilder ?? (q) => q;
   var query = builder(collection);
   if (limit > 0 || singleRecord) {
@@ -613,7 +464,7 @@ Future<List<T>> queryCollectionOnce<T>(
   return query.get().then((s) => s.docs
       .map(
         (d) => safeGet(
-          () => serializers.deserializeWith(serializer, serializedData(d)),
+          () => recordBuilder(d),
           (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
         ),
       )
@@ -647,7 +498,7 @@ class FFFirestorePage<T> {
 
 Future<FFFirestorePage<T>> queryCollectionPage<T>(
   Query collection,
-  Serializer<T> serializer, {
+  RecordBuilder<T> recordBuilder, {
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
@@ -669,7 +520,7 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   final getDocs = (QuerySnapshot s) => s.docs
       .map(
         (d) => safeGet(
-          () => serializers.deserializeWith(serializer, serializedData(d)),
+          () => recordBuilder(d),
           (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
         ),
       )
@@ -680,27 +531,4 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   final dataStream = docSnapshotStream?.map(getDocs);
   final nextPageToken = docSnapshot.docs.isEmpty ? null : docSnapshot.docs.last;
   return FFFirestorePage(data, dataStream, nextPageToken);
-}
-
-// Creates a Firestore document representing the logged in user if it doesn't yet exist
-Future maybeCreateUser(User user) async {
-  final userRecord = UsersRecord.collection.doc(user.uid);
-  final userExists = await userRecord.get().then((u) => u.exists);
-  if (userExists) {
-    currentUserDocument = await UsersRecord.getDocumentOnce(userRecord);
-    return;
-  }
-
-  final userData = createUsersRecordData(
-    email: user.email,
-    displayName: user.displayName,
-    photoUrl: user.photoURL,
-    uid: user.uid,
-    phoneNumber: user.phoneNumber,
-    createdTime: getCurrentTimestamp,
-  );
-
-  await userRecord.set(userData);
-  currentUserDocument =
-      serializers.deserializeWith(UsersRecord.serializer, userData);
 }

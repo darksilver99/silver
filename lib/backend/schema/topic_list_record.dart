@@ -1,65 +1,104 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'topic_list_record.g.dart';
+class TopicListRecord extends FirestoreRecord {
+  TopicListRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class TopicListRecord
-    implements Built<TopicListRecord, TopicListRecordBuilder> {
-  static Serializer<TopicListRecord> get serializer =>
-      _$topicListRecordSerializer;
+  // "create_date" field.
+  DateTime? _createDate;
+  DateTime? get createDate => _createDate;
+  bool hasCreateDate() => _createDate != null;
 
-  @BuiltValueField(wireName: 'create_date')
-  DateTime? get createDate;
+  // "create_by" field.
+  DocumentReference? _createBy;
+  DocumentReference? get createBy => _createBy;
+  bool hasCreateBy() => _createBy != null;
 
-  @BuiltValueField(wireName: 'create_by')
-  DocumentReference? get createBy;
+  // "status" field.
+  int? _status;
+  int get status => _status ?? 0;
+  bool hasStatus() => _status != null;
 
-  int? get status;
+  // "subject" field.
+  String? _subject;
+  String get subject => _subject ?? '';
+  bool hasSubject() => _subject != null;
 
-  String? get subject;
+  // "detail" field.
+  String? _detail;
+  String get detail => _detail ?? '';
+  bool hasDetail() => _detail != null;
 
-  String? get detail;
+  // "hits" field.
+  int? _hits;
+  int get hits => _hits ?? 0;
+  bool hasHits() => _hits != null;
 
-  int? get hits;
+  // "update_date" field.
+  DateTime? _updateDate;
+  DateTime? get updateDate => _updateDate;
+  bool hasUpdateDate() => _updateDate != null;
 
-  @BuiltValueField(wireName: 'update_date')
-  DateTime? get updateDate;
+  // "update_by" field.
+  DocumentReference? _updateBy;
+  DocumentReference? get updateBy => _updateBy;
+  bool hasUpdateBy() => _updateBy != null;
 
-  @BuiltValueField(wireName: 'update_by')
-  DocumentReference? get updateBy;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(TopicListRecordBuilder builder) => builder
-    ..status = 0
-    ..subject = ''
-    ..detail = ''
-    ..hits = 0;
+  void _initializeFields() {
+    _createDate = snapshotData['create_date'] as DateTime?;
+    _createBy = snapshotData['create_by'] as DocumentReference?;
+    _status = castToType<int>(snapshotData['status']);
+    _subject = snapshotData['subject'] as String?;
+    _detail = snapshotData['detail'] as String?;
+    _hits = castToType<int>(snapshotData['hits']);
+    _updateDate = snapshotData['update_date'] as DateTime?;
+    _updateBy = snapshotData['update_by'] as DocumentReference?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('topic_list');
 
-  static Stream<TopicListRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<TopicListRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => TopicListRecord.fromSnapshot(s));
 
-  static Future<TopicListRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<TopicListRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => TopicListRecord.fromSnapshot(s));
 
-  TopicListRecord._();
-  factory TopicListRecord([void Function(TopicListRecordBuilder) updates]) =
-      _$TopicListRecord;
+  static TopicListRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      TopicListRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static TopicListRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      TopicListRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'TopicListRecord(reference: ${reference.path}, data: $snapshotData)';
+
+  @override
+  int get hashCode => reference.path.hashCode;
+
+  @override
+  bool operator ==(other) =>
+      other is TopicListRecord &&
+      reference.path.hashCode == other.reference.path.hashCode;
 }
 
 Map<String, dynamic> createTopicListRecordData({
@@ -72,20 +111,49 @@ Map<String, dynamic> createTopicListRecordData({
   DateTime? updateDate,
   DocumentReference? updateBy,
 }) {
-  final firestoreData = serializers.toFirestore(
-    TopicListRecord.serializer,
-    TopicListRecord(
-      (t) => t
-        ..createDate = createDate
-        ..createBy = createBy
-        ..status = status
-        ..subject = subject
-        ..detail = detail
-        ..hits = hits
-        ..updateDate = updateDate
-        ..updateBy = updateBy,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'create_date': createDate,
+      'create_by': createBy,
+      'status': status,
+      'subject': subject,
+      'detail': detail,
+      'hits': hits,
+      'update_date': updateDate,
+      'update_by': updateBy,
+    }.withoutNulls,
   );
 
   return firestoreData;
+}
+
+class TopicListRecordDocumentEquality implements Equality<TopicListRecord> {
+  const TopicListRecordDocumentEquality();
+
+  @override
+  bool equals(TopicListRecord? e1, TopicListRecord? e2) {
+    return e1?.createDate == e2?.createDate &&
+        e1?.createBy == e2?.createBy &&
+        e1?.status == e2?.status &&
+        e1?.subject == e2?.subject &&
+        e1?.detail == e2?.detail &&
+        e1?.hits == e2?.hits &&
+        e1?.updateDate == e2?.updateDate &&
+        e1?.updateBy == e2?.updateBy;
+  }
+
+  @override
+  int hash(TopicListRecord? e) => const ListEquality().hash([
+        e?.createDate,
+        e?.createBy,
+        e?.status,
+        e?.subject,
+        e?.detail,
+        e?.hits,
+        e?.updateDate,
+        e?.updateBy
+      ]);
+
+  @override
+  bool isValidKey(Object? o) => o is TopicListRecord;
 }
