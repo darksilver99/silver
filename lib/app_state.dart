@@ -36,114 +36,12 @@ class FFAppState extends ChangeNotifier {
 
   late SharedPreferences prefs;
 
-  String _temporaryMessage = '';
-  String get temporaryMessage => _temporaryMessage;
-  set temporaryMessage(String _value) {
-    _temporaryMessage = _value;
-  }
-
-  DocumentReference? _singleUser;
-  DocumentReference? get singleUser => _singleUser;
-  set singleUser(DocumentReference? _value) {
-    _singleUser = _value;
-  }
-
-  List<DocumentReference> _multipleUsers = [];
-  List<DocumentReference> get multipleUsers => _multipleUsers;
-  set multipleUsers(List<DocumentReference> _value) {
-    _multipleUsers = _value;
-  }
-
-  void addToMultipleUsers(DocumentReference _value) {
-    _multipleUsers.add(_value);
-  }
-
-  void removeFromMultipleUsers(DocumentReference _value) {
-    _multipleUsers.remove(_value);
-  }
-
-  void removeAtIndexFromMultipleUsers(int _index) {
-    _multipleUsers.removeAt(_index);
-  }
-
-  void updateMultipleUsersAtIndex(
-    int _index,
-    DocumentReference Function(DocumentReference) updateFn,
-  ) {
-    _multipleUsers[_index] = updateFn(_multipleUsers[_index]);
-  }
-
-  List<String> _testList = ['test1', 'test2', 'test3'];
-  List<String> get testList => _testList;
-  set testList(List<String> _value) {
-    _testList = _value;
-  }
-
-  void addToTestList(String _value) {
-    _testList.add(_value);
-  }
-
-  void removeFromTestList(String _value) {
-    _testList.remove(_value);
-  }
-
-  void removeAtIndexFromTestList(int _index) {
-    _testList.removeAt(_index);
-  }
-
-  void updateTestListAtIndex(
-    int _index,
-    String Function(String) updateFn,
-  ) {
-    _testList[_index] = updateFn(_testList[_index]);
-  }
-
-  List<String> _photoTestList = [
-    'https://picsum.photos/seed/607/600',
-    'https://picsum.photos/seed/125/600',
-    'https://picsum.photos/seed/560/600'
-  ];
-  List<String> get photoTestList => _photoTestList;
-  set photoTestList(List<String> _value) {
-    _photoTestList = _value;
-  }
-
-  void addToPhotoTestList(String _value) {
-    _photoTestList.add(_value);
-  }
-
-  void removeFromPhotoTestList(String _value) {
-    _photoTestList.remove(_value);
-  }
-
-  void removeAtIndexFromPhotoTestList(int _index) {
-    _photoTestList.removeAt(_index);
-  }
-
-  void updatePhotoTestListAtIndex(
-    int _index,
-    String Function(String) updateFn,
-  ) {
-    _photoTestList[_index] = updateFn(_photoTestList[_index]);
-  }
-
-  bool _isFullData = true;
-  bool get isFullData => _isFullData;
-  set isFullData(bool _value) {
-    _isFullData = _value;
-  }
-
-  String _roomID = '';
-  String get roomID => _roomID;
-  set roomID(String _value) {
-    _roomID = _value;
-  }
-
   List<dynamic> _monthList = [
-    jsonDecode(
-        '{\"month_no\":\"1\",\"month_th\":\"มกราคม\",\"month_en\":\"Janury\"}'),
-    jsonDecode(
-        '{\"month_no\":\"1\",\"month_th\":\"มกราคม\",\"month_en\":\"Janury\"}')
+    jsonDecode('{\"month\":\"1\"}'),
+    jsonDecode('{\"month\":\"1\"}'),
+    jsonDecode('{\"month\":\"1\"}'),
+    jsonDecode('{\"month\":\"1\"}'),
+    jsonDecode('{\"month\":\"1\"}')
   ];
   List<dynamic> get monthList => _monthList;
   set monthList(List<dynamic> _value) {

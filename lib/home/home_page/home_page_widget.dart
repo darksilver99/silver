@@ -27,10 +27,10 @@ class _HomePageWidgetState extends State<HomePageWidget>
       trigger: AnimationTrigger.onPageLoad,
       effects: [
         MoveEffect(
-          curve: Curves.easeInOut,
+          curve: Curves.easeIn,
           delay: 0.ms,
-          duration: 600.ms,
-          begin: Offset(0.0, 0.0),
+          duration: 160.ms,
+          begin: Offset(-35.0, 0.0),
           end: Offset(0.0, 0.0),
         ),
       ],
@@ -68,15 +68,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
           top: true,
           child: Builder(
             builder: (context) {
-              final monthList = FFAppState().monthList.toList();
+              final testList = FFAppState().monthList.toList();
               return SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
-                  children: List.generate(monthList.length, (monthListIndex) {
-                    final monthListItem = monthList[monthListIndex];
+                  children: List.generate(testList.length, (testListIndex) {
+                    final testListItem = testList[testListIndex];
                     return Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                       child: Material(
                         color: Colors.transparent,
                         elevation: 3.0,
