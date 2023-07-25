@@ -16,14 +16,16 @@ export 'home_page_model.dart';
 
 import 'package:http/http.dart' as http;
 
-class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+// อัพโหลดไฟล์ ผ่าน firebase function (nodejs) เข้า storage ของ firebase
+
+class HomePageCustomWidget extends StatefulWidget {
+  const HomePageCustomWidget({Key? key}) : super(key: key);
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  _HomePageCustomWidgetState createState() => _HomePageCustomWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> with TickerProviderStateMixin {
+class _HomePageCustomWidgetState extends State<HomePageCustomWidget> with TickerProviderStateMixin {
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
