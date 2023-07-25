@@ -43,7 +43,7 @@ class _GoTripSelectPlacePageWidgetState
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       body: SafeArea(
         top: true,
         child: SingleChildScrollView(

@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -9,7 +10,6 @@ import 'package:provider/provider.dart';
 class GoTripCreatePageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   TextEditingController? textController1;
   String? Function(BuildContext, String?)? textController1Validator;
@@ -22,7 +22,6 @@ class GoTripCreatePageModel extends FlutterFlowModel {
   void initState(BuildContext context) {}
 
   void dispose() {
-    unfocusNode.dispose();
     textController1?.dispose();
     textController2?.dispose();
   }

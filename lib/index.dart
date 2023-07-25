@@ -9,3 +9,5 @@ export '/go_trip/go_trip_select_place_page/go_trip_select_place_page_widget.dart
     show GoTripSelectPlacePageWidget;
 export '/go_trip/go_trip_create_page/go_trip_create_page_widget.dart'
     show GoTripCreatePageWidget;
+export '/go_trip/go_trip_profile_page/go_trip_profile_page_widget.dart'
+    show GoTripProfilePageWidget;

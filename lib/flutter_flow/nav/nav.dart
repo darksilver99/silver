@@ -88,6 +88,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GoTripCreatePage',
           path: '/goTripCreatePage',
           builder: (context, params) => GoTripCreatePageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripProfilePage',
+          path: '/goTripProfilePage',
+          builder: (context, params) => GoTripProfilePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

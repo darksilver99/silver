@@ -41,12 +41,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
-        appBar: AppBar(
-          iconTheme: IconThemeData(color: Colors.black),
-          automaticallyImplyLeading: false,
-          actions: [],
-          centerTitle: false,
-        ),
         body: SafeArea(
           top: true,
           child: SingleChildScrollView(

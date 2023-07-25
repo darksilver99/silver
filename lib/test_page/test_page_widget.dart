@@ -47,13 +47,6 @@ class _TestPageWidgetState extends State<TestPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: true,
-          actions: [],
-          centerTitle: true,
-          elevation: 4.0,
-        ),
         body: SafeArea(
           top: true,
           child: Column(
