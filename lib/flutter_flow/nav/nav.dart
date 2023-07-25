@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
@@ -74,9 +75,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'GoTripViewPage',
-          path: '/goTripViewPage',
-          builder: (context, params) => GoTripViewPageWidget(),
+          name: 'GoTripDetailPage',
+          path: '/goTripDetailPage',
+          builder: (context, params) => GoTripDetailPageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripCreatePage',
+          path: '/goTripCreatePage',
+          builder: (context, params) => GoTripCreatePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

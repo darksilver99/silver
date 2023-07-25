@@ -3,28 +3,29 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'go_trip_view_page_model.dart';
-export 'go_trip_view_page_model.dart';
+import 'go_trip_detail_page_model.dart';
+export 'go_trip_detail_page_model.dart';
 
-class GoTripViewPageWidget extends StatefulWidget {
-  const GoTripViewPageWidget({Key? key}) : super(key: key);
+class GoTripDetailPageWidget extends StatefulWidget {
+  const GoTripDetailPageWidget({Key? key}) : super(key: key);
 
   @override
-  _GoTripViewPageWidgetState createState() => _GoTripViewPageWidgetState();
+  _GoTripDetailPageWidgetState createState() => _GoTripDetailPageWidgetState();
 }
 
-class _GoTripViewPageWidgetState extends State<GoTripViewPageWidget> {
-  late GoTripViewPageModel _model;
+class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
+  late GoTripDetailPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => GoTripViewPageModel());
+    _model = createModel(context, () => GoTripDetailPageModel());
 
     _model.textController ??= TextEditingController();
   }
