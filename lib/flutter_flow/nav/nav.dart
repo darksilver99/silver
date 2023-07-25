@@ -80,6 +80,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => GoTripDetailPageWidget(),
         ),
         FFRoute(
+          name: 'GoTripSelectPlacePage',
+          path: '/goTripSelectPlacePage',
+          builder: (context, params) => GoTripSelectPlacePageWidget(),
+        ),
+        FFRoute(
           name: 'GoTripCreatePage',
           path: '/goTripCreatePage',
           builder: (context, params) => GoTripCreatePageWidget(),
