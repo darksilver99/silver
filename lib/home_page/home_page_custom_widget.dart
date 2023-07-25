@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:image_picker/image_picker.dart';
 
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
@@ -29,21 +28,6 @@ class _HomePageCustomWidgetState extends State<HomePageCustomWidget> with Ticker
   late HomePageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 0.ms,
-          duration: 160.ms,
-          begin: Offset(-35.0, 0.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-  };
 
   List<XFile>? _mediaFileList;
 
