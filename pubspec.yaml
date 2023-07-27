@@ -64,7 +64,7 @@ dependencies:
   stream_transform: 2.1.0
   styled_divider: 1.0.4
   timeago: 3.2.2
-  universal_io: 2.2.0
+  universal_io: 2.2.2
   url_launcher: 6.1.10
   url_launcher_android: 6.0.27
   url_launcher_ios: 6.1.4
