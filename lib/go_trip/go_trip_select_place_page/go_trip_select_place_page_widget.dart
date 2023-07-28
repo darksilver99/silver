@@ -55,7 +55,7 @@ class _GoTripSelectPlacePageWidgetState
                 child: Text(
                   'Create your trip',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
-                        fontFamily: 'Kanit',
+                        fontFamily: 'Montserrat',
                         fontSize: 20.0,
                       ),
                 ),
@@ -69,7 +69,7 @@ class _GoTripSelectPlacePageWidgetState
                     Text(
                       'Where to ?',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Kanit',
+                            fontFamily: 'Montserrat',
                             fontWeight: FontWeight.w300,
                           ),
                     ),
@@ -81,7 +81,7 @@ class _GoTripSelectPlacePageWidgetState
                             'Enter destination (country, region, or city)',
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   color: Color(0xFFC8C8C8),
                                 ),
                         hintStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -127,7 +127,7 @@ class _GoTripSelectPlacePageWidgetState
                       child: Text(
                         'Dates (Optional)',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
-                              fontFamily: 'Kanit',
+                              fontFamily: 'Montserrat',
                               fontWeight: FontWeight.w300,
                             ),
                       ),
@@ -174,7 +174,7 @@ class _GoTripSelectPlacePageWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Kanit',
+                                                  fontFamily: 'Montserrat',
                                                   color: Color(0xFFC8C8C8),
                                                   fontSize: 14.0,
                                                 ),
@@ -185,7 +185,7 @@ class _GoTripSelectPlacePageWidgetState
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
-                                                  fontFamily: 'Kanit',
+                                                  fontFamily: 'Montserrat',
                                                   fontSize: 14.0,
                                                 ),
                                           ),
@@ -215,7 +215,7 @@ class _GoTripSelectPlacePageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Kanit',
+                                            fontFamily: 'Montserrat',
                                             color: Color(0xFFC8C8C8),
                                             fontSize: 14.0,
                                           ),
@@ -226,7 +226,7 @@ class _GoTripSelectPlacePageWidgetState
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Kanit',
+                                            fontFamily: 'Montserrat',
                                             fontSize: 14.0,
                                           ),
                                     ),
@@ -256,7 +256,7 @@ class _GoTripSelectPlacePageWidgetState
                           color: Color(0xFFF79552),
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     color: Colors.white,
                                   ),
                           elevation: 3.0,

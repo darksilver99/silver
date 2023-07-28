@@ -165,104 +165,104 @@ class ThemeTypography extends Typography {
 
   final FlutterFlowTheme theme;
 
-  String get displayLargeFamily => 'Kanit';
+  String get displayLargeFamily => 'Montserrat';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 57.0,
       );
-  String get displayMediumFamily => 'Kanit';
+  String get displayMediumFamily => 'Montserrat';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get displaySmallFamily => 'Kanit';
+  String get displaySmallFamily => 'Montserrat';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 45.0,
       );
-  String get headlineLargeFamily => 'Kanit';
+  String get headlineLargeFamily => 'Montserrat';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineMediumFamily => 'Kanit';
+  String get headlineMediumFamily => 'Montserrat';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 32.0,
       );
-  String get headlineSmallFamily => 'Kanit';
+  String get headlineSmallFamily => 'Montserrat';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 24.0,
       );
-  String get titleLargeFamily => 'Kanit';
+  String get titleLargeFamily => 'Montserrat';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleMediumFamily => 'Kanit';
+  String get titleMediumFamily => 'Montserrat';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 22.0,
       );
-  String get titleSmallFamily => 'Kanit';
+  String get titleSmallFamily => 'Montserrat';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.w500,
         fontSize: 16.0,
       );
-  String get labelLargeFamily => 'Kanit';
+  String get labelLargeFamily => 'Montserrat';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 14.0,
       );
-  String get labelMediumFamily => 'Kanit';
+  String get labelMediumFamily => 'Montserrat';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 12.0,
       );
-  String get labelSmallFamily => 'Kanit';
+  String get labelSmallFamily => 'Montserrat';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.w500,
         fontSize: 11.0,
       );
-  String get bodyLargeFamily => '';
+  String get bodyLargeFamily => 'Montserrat';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Roboto',
+        'Montserrat',
       );
-  String get bodyMediumFamily => 'Kanit';
+  String get bodyMediumFamily => 'Montserrat';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.primaryText,
         fontWeight: FontWeight.normal,
         fontSize: 16.0,
       );
-  String get bodySmallFamily => 'Kanit';
+  String get bodySmallFamily => 'Montserrat';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Kanit',
+        'Montserrat',
         color: theme.secondaryText,
         fontWeight: FontWeight.normal,
         fontSize: 14.0,

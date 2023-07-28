@@ -106,7 +106,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                           'Hello World',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     fontSize: 14.0,
                                   ),
                         ),
