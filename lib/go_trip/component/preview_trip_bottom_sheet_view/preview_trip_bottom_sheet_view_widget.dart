@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'add_activity_bottom_sheet_view_model.dart';
-export 'add_activity_bottom_sheet_view_model.dart';
+import 'preview_trip_bottom_sheet_view_model.dart';
+export 'preview_trip_bottom_sheet_view_model.dart';
 
-class AddActivityBottomSheetViewWidget extends StatefulWidget {
-  const AddActivityBottomSheetViewWidget({Key? key}) : super(key: key);
+class PreviewTripBottomSheetViewWidget extends StatefulWidget {
+  const PreviewTripBottomSheetViewWidget({Key? key}) : super(key: key);
 
   @override
-  _AddActivityBottomSheetViewWidgetState createState() =>
-      _AddActivityBottomSheetViewWidgetState();
+  _PreviewTripBottomSheetViewWidgetState createState() =>
+      _PreviewTripBottomSheetViewWidgetState();
 }
 
-class _AddActivityBottomSheetViewWidgetState
-    extends State<AddActivityBottomSheetViewWidget> {
-  late AddActivityBottomSheetViewModel _model;
+class _PreviewTripBottomSheetViewWidgetState
+    extends State<PreviewTripBottomSheetViewWidget> {
+  late PreviewTripBottomSheetViewModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -28,7 +28,7 @@ class _AddActivityBottomSheetViewWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddActivityBottomSheetViewModel());
+    _model = createModel(context, () => PreviewTripBottomSheetViewModel());
   }
 
   @override
@@ -74,51 +74,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85439.png',
+                        'assets/images/globe_3_(1).png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add booking',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ),
-                    Icon(
-                      Icons.navigate_next_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  setState(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: Image.asset(
-                        'assets/images/Frame_85424.png',
-                        height: 42.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Add note',
+                        'Pin setting',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -143,14 +106,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85439_(1).png',
+                        'assets/images/lock_2.png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add transportation',
+                        'View only mode',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -175,14 +138,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85444.png',
+                        'assets/images/lock_3.png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add expenses',
+                        'Print this trip',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -207,14 +170,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85441.png',
+                        'assets/images/lock_1_(1).png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add photo',
+                        'Delete plan',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),

@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'add_activity_bottom_sheet_view_model.dart';
-export 'add_activity_bottom_sheet_view_model.dart';
+import 'save_trip_bottom_sheet_view_model.dart';
+export 'save_trip_bottom_sheet_view_model.dart';
 
-class AddActivityBottomSheetViewWidget extends StatefulWidget {
-  const AddActivityBottomSheetViewWidget({Key? key}) : super(key: key);
+class SaveTripBottomSheetViewWidget extends StatefulWidget {
+  const SaveTripBottomSheetViewWidget({Key? key}) : super(key: key);
 
   @override
-  _AddActivityBottomSheetViewWidgetState createState() =>
-      _AddActivityBottomSheetViewWidgetState();
+  _SaveTripBottomSheetViewWidgetState createState() =>
+      _SaveTripBottomSheetViewWidgetState();
 }
 
-class _AddActivityBottomSheetViewWidgetState
-    extends State<AddActivityBottomSheetViewWidget> {
-  late AddActivityBottomSheetViewModel _model;
+class _SaveTripBottomSheetViewWidgetState
+    extends State<SaveTripBottomSheetViewWidget> {
+  late SaveTripBottomSheetViewModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -28,7 +28,7 @@ class _AddActivityBottomSheetViewWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AddActivityBottomSheetViewModel());
+    _model = createModel(context, () => SaveTripBottomSheetViewModel());
   }
 
   @override
@@ -74,51 +74,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85439.png',
+                        'assets/images/globe_3.png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add booking',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ),
-                    Icon(
-                      Icons.navigate_next_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  setState(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: Image.asset(
-                        'assets/images/Frame_85424.png',
-                        height: 42.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Add note',
+                        'Public',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -143,14 +106,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85439_(1).png',
+                        'assets/images/user-group_4.png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add transportation',
+                        'Friends',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
@@ -175,46 +138,14 @@ class _AddActivityBottomSheetViewWidgetState
                     ClipRRect(
                       borderRadius: BorderRadius.circular(0.0),
                       child: Image.asset(
-                        'assets/images/Frame_85444.png',
+                        'assets/images/lock_1.png',
                         height: 42.0,
                         fit: BoxFit.cover,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Add expenses',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  setState(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: Image.asset(
-                        'assets/images/Frame_85441.png',
-                        height: 42.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Add photo',
+                        'Private',
                         style: FlutterFlowTheme.of(context).bodyMedium,
                       ),
                     ),
