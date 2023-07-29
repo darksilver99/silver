@@ -60,12 +60,16 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium,
               ),
-              Container(
-                width: 24.0,
-                height: 24.0,
-                decoration: BoxDecoration(
-                  color: Color(0xFFD5E0FC),
-                  shape: BoxShape.circle,
+              Material(
+                color: Colors.transparent,
+                elevation: 3.0,
+                child: Container(
+                  width: 24.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFD5E0FC),
+                    shape: BoxShape.rectangle,
+                  ),
                 ),
               ),
               Icon(
@@ -114,6 +118,19 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     ],
                   ),
                 ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
               ),
             ],
           ),

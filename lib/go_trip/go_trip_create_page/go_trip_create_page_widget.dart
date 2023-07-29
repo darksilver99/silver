@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/go_trip/component/add_activity_bottom_sheet_view/add_activity_bottom_sheet_view_widget.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,13 +57,29 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('FloatingActionButton pressed ...');
+        },
+        backgroundColor: Color(0xFF1DBEC8),
+        elevation: 8.0,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(0.0),
+          child: Image.asset(
+            'assets/images/Vector.png',
+            height: 24.0,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
       body: NestedScrollView(
         floatHeaderSlivers: true,
         headerSliverBuilder: (context, _) => [
           SliverAppBar(
             expandedHeight: 120.0,
-            pinned: true,
-            floating: false,
+            pinned: false,
+            floating: true,
+            snap: false,
             backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
             automaticallyImplyLeading: false,
             leading: Padding(
@@ -1923,11 +1940,33 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     ],
                                   ),
                                 ),
-                                Icon(
-                                  Icons.add_circle,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                  size: 24.0,
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      enableDrag: false,
+                                      context: context,
+                                      builder: (context) {
+                                        return Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child:
+                                              AddActivityBottomSheetViewWidget(),
+                                        );
+                                      },
+                                    ).then((value) => setState(() {}));
+                                  },
+                                  child: Icon(
+                                    Icons.add_circle,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
                                 ),
                               ],
                             ),

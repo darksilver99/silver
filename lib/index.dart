@@ -11,3 +11,5 @@ export '/go_trip/go_trip_create_page/go_trip_create_page_widget.dart'
     show GoTripCreatePageWidget;
 export '/go_trip/go_trip_profile_page/go_trip_profile_page_widget.dart'
     show GoTripProfilePageWidget;
+export '/go_trip/create_trip_drawer_view/create_trip_drawer_view_widget.dart'
+    show CreateTripDrawerViewWidget;
