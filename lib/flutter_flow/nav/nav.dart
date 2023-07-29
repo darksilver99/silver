@@ -99,6 +99,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreateTripDrawerView',
           path: '/createTripDrawerView',
           builder: (context, params) => CreateTripDrawerViewWidget(),
+        ),
+        FFRoute(
+          name: 'AddExpensePage',
+          path: '/addExpensePage',
+          builder: (context, params) => AddExpensePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
