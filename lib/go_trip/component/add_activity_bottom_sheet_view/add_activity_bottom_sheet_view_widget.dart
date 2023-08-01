@@ -1,5 +1,7 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/go_trip/component/add_booking_dialog_view/add_booking_dialog_view_widget.dart';
+import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,40 +59,57 @@ class _AddActivityBottomSheetViewWidgetState
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 16.0, 0.0),
-              child: InkWell(
-                splashColor: Colors.transparent,
-                focusColor: Colors.transparent,
-                hoverColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                onTap: () async {
-                  setState(() {});
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: Image.asset(
-                        'assets/images/Frame_85439.png',
-                        height: 42.0,
-                        fit: BoxFit.cover,
+            Builder(
+              builder: (context) => Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 16.0, 0.0),
+                child: InkWell(
+                  splashColor: Colors.transparent,
+                  focusColor: Colors.transparent,
+                  hoverColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await showAlignedDialog(
+                      context: context,
+                      isGlobal: true,
+                      avoidOverflow: false,
+                      targetAnchor: AlignmentDirectional(0.0, 0.0)
+                          .resolve(Directionality.of(context)),
+                      followerAnchor: AlignmentDirectional(0.0, 0.0)
+                          .resolve(Directionality.of(context)),
+                      builder: (dialogContext) {
+                        return Material(
+                          color: Colors.transparent,
+                          child: AddBookingDialogViewWidget(),
+                        );
+                      },
+                    ).then((value) => setState(() {}));
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(0.0),
+                        child: Image.asset(
+                          'assets/images/Frame_85439.png',
+                          height: 42.0,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                    ),
-                    Expanded(
-                      child: Text(
-                        'Add booking',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      Expanded(
+                        child: Text(
+                          'Add booking',
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.navigate_next_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                  ],
+                      Icon(
+                        Icons.navigate_next_rounded,
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        size: 24.0,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
