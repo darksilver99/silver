@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/go_trip/component/add_activity_bottom_sheet_view/add_activity_bottom_sheet_view_widget.dart';
 import '/go_trip/component/edit_budget_dialog_view/edit_budget_dialog_view_widget.dart';
 import '/go_trip/component/edit_each_trip_bottom_sheet_view/edit_each_trip_bottom_sheet_view_widget.dart';
+import '/go_trip/component/invite_trip_dialog_view/invite_trip_dialog_view_widget.dart';
 import '/go_trip/component/preview_trip_bottom_sheet_view/preview_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/save_trip_bottom_sheet_view/save_trip_bottom_sheet_view_widget.dart';
 import 'package:styled_divider/styled_divider.dart';
@@ -519,19 +520,55 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     fit: BoxFit.cover,
                                   ),
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      4.0, 0.0, 4.0, 0.0),
-                                  child: Icon(
-                                    Icons.add_circle,
-                                    color: FlutterFlowTheme.of(context).primary,
-                                    size: 24.0,
+                                Builder(
+                                  builder: (context) => InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      await showAlignedDialog(
+                                        context: context,
+                                        isGlobal: true,
+                                        avoidOverflow: false,
+                                        targetAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        followerAnchor:
+                                            AlignmentDirectional(0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
+                                        builder: (dialogContext) {
+                                          return Material(
+                                            color: Colors.transparent,
+                                            child: InviteTripDialogViewWidget(),
+                                          );
+                                        },
+                                      ).then((value) => setState(() {}));
+                                    },
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  4.0, 0.0, 4.0, 0.0),
+                                          child: Icon(
+                                            Icons.add_circle,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 24.0,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Invite',
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                                Text(
-                                  'Invite',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
                                 ),
                               ],
                             ),

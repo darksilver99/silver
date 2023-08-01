@@ -1,24 +1,22 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'edit_budget_dialog_view_model.dart';
-export 'edit_budget_dialog_view_model.dart';
+import 'add_place_dialog_view_model.dart';
+export 'add_place_dialog_view_model.dart';
 
-class EditBudgetDialogViewWidget extends StatefulWidget {
-  const EditBudgetDialogViewWidget({Key? key}) : super(key: key);
+class AddPlaceDialogViewWidget extends StatefulWidget {
+  const AddPlaceDialogViewWidget({Key? key}) : super(key: key);
 
   @override
-  _EditBudgetDialogViewWidgetState createState() =>
-      _EditBudgetDialogViewWidgetState();
+  _AddPlaceDialogViewWidgetState createState() =>
+      _AddPlaceDialogViewWidgetState();
 }
 
-class _EditBudgetDialogViewWidgetState
-    extends State<EditBudgetDialogViewWidget> {
-  late EditBudgetDialogViewModel _model;
+class _AddPlaceDialogViewWidgetState extends State<AddPlaceDialogViewWidget> {
+  late AddPlaceDialogViewModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -29,7 +27,7 @@ class _EditBudgetDialogViewWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => EditBudgetDialogViewModel());
+    _model = createModel(context, () => AddPlaceDialogViewModel());
 
     _model.textController ??= TextEditingController();
   }
@@ -65,7 +63,7 @@ class _EditBudgetDialogViewWidgetState
                   children: [
                     Expanded(
                       child: Text(
-                        'Edit budget',
+                        'Add a place',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
@@ -89,24 +87,13 @@ class _EditBudgetDialogViewWidgetState
                   ],
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
-                  child: Text(
-                    'Budget',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 14.0,
-                        ),
-                  ),
-                ),
-                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController,
-                    autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
                       labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                      hintText: '฿ 0.00',
+                      hintText: 'Expenses name',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Montserrat',
@@ -143,48 +130,44 @@ class _EditBudgetDialogViewWidgetState
                       ),
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
-                    keyboardType: TextInputType.number,
                     validator:
                         _model.textControllerValidator.asValidator(context),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9]'))
-                    ],
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 8.0, 0.0, 8.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                Navigator.pop(context);
-                              },
-                              child: Text(
-                                'Cancel',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 0.0, 8.0),
+                          child: InkWell(
+                            splashColor: Colors.transparent,
+                            focusColor: Colors.transparent,
+                            hoverColor: Colors.transparent,
+                            highlightColor: Colors.transparent,
+                            onTap: () async {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'Cancel',
+                              style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                         ),
                       ),
-                      Expanded(
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                         child: InkWell(
                           splashColor: Colors.transparent,
                           focusColor: Colors.transparent,
@@ -201,9 +184,9 @@ class _EditBudgetDialogViewWidgetState
                             alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 8.0, 0.0, 8.0),
+                                  32.0, 8.0, 32.0, 8.0),
                               child: Text(
-                                'Save',
+                                'OK',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(

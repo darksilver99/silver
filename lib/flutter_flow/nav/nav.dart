@@ -104,6 +104,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddExpensePage',
           path: '/addExpensePage',
           builder: (context, params) => AddExpensePageWidget(),
+        ),
+        FFRoute(
+          name: 'ManualUploadPage',
+          path: '/manualUploadPage',
+          builder: (context, params) => ManualUploadPageWidget(),
+        ),
+        FFRoute(
+          name: 'AddFromBookingPage',
+          path: '/addFromBookingPage',
+          builder: (context, params) => AddFromBookingPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

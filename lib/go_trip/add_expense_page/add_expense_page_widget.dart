@@ -87,245 +87,275 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                  child: Text(
-                    'Categories',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 14.0,
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 0.0),
+                        child: Text(
+                          'Categories',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 14.0,
+                                  ),
                         ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-                  child: FlutterFlowDropDown<String>(
-                    controller: _model.dropDownValueController ??=
-                        FormFieldController<String>(null),
-                    options: ['Option 1', 'Option 2', 'Option 3'],
-                    onChanged: (val) =>
-                        setState(() => _model.dropDownValue = val),
-                    width: double.infinity,
-                    height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                    hintText: 'Please select...',
-                    icon: Icon(
-                      Icons.keyboard_arrow_down_rounded,
-                      color: FlutterFlowTheme.of(context).secondaryText,
-                      size: 24.0,
-                    ),
-                    fillColor: FlutterFlowTheme.of(context).secondaryBackground,
-                    elevation: 2.0,
-                    borderColor: FlutterFlowTheme.of(context).accent2,
-                    borderWidth: 1.0,
-                    borderRadius: 8.0,
-                    margin:
-                        EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
-                    hidesUnderline: true,
-                    isSearchable: false,
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                  child: Text(
-                    'Budget',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 14.0,
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 8.0, 16.0, 0.0),
+                        child: FlutterFlowDropDown<String>(
+                          controller: _model.dropDownValueController ??=
+                              FormFieldController<String>(null),
+                          options: ['Option 1', 'Option 2', 'Option 3'],
+                          onChanged: (val) =>
+                              setState(() => _model.dropDownValue = val),
+                          width: double.infinity,
+                          height: 50.0,
+                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                          hintText: 'Please select...',
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
+                          ),
+                          fillColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          elevation: 2.0,
+                          borderColor: FlutterFlowTheme.of(context).accent2,
+                          borderWidth: 1.0,
+                          borderRadius: 8.0,
+                          margin: EdgeInsetsDirectional.fromSTEB(
+                              16.0, 4.0, 16.0, 4.0),
+                          hidesUnderline: true,
+                          isSearchable: false,
                         ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController1,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                      hintText: '฿ 0.00',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'Montserrat',
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 0.0),
+                        child: Text(
+                          'Budget',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 14.0,
+                                  ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 8.0, 16.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.textController1,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle:
+                                FlutterFlowTheme.of(context).labelMedium,
+                            hintText: '฿ 0.00',
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).accent2,
+                                ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
                               ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          keyboardType: TextInputType.number,
+                          validator: _model.textController1Validator
+                              .asValidator(context),
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[a-zA-Z0-9]'))
+                          ],
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 0.0),
+                        child: Text(
+                          'Description',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 14.0,
+                                  ),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 8.0, 16.0, 0.0),
+                        child: TextFormField(
+                          controller: _model.textController2,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelStyle:
+                                FlutterFlowTheme.of(context).labelMedium,
+                            hintText: 'Description',
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  color: FlutterFlowTheme.of(context).accent2,
+                                ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                          ),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          maxLines: 3,
+                          validator: _model.textController2Validator
+                              .asValidator(context),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 16.0, 16.0, 0.0),
+                        child: Text(
+                          'Date',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 14.0,
+                                  ),
                         ),
-                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    keyboardType: TextInputType.number,
-                    validator:
-                        _model.textController1Validator.asValidator(context),
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9]'))
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 8.0, 16.0, 0.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            final _datePickedDate = await showDatePicker(
+                              context: context,
+                              initialDate: getCurrentTimestamp,
+                              firstDate: getCurrentTimestamp,
+                              lastDate: DateTime(2050),
+                            );
+
+                            if (_datePickedDate != null) {
+                              setState(() {
+                                _model.datePicked = DateTime(
+                                  _datePickedDate.year,
+                                  _datePickedDate.month,
+                                  _datePickedDate.day,
+                                );
+                              });
+                            }
+                            setState(() {
+                              _model.dateTimeTextSelected = dateTimeFormat(
+                                'd/M/y',
+                                _model.datePicked,
+                                locale:
+                                    FFLocalizations.of(context).languageCode,
+                              );
+                            });
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .primaryBackground,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border: Border.all(
+                                color: FlutterFlowTheme.of(context).accent2,
+                                width: 1.0,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 12.0, 16.0, 12.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      _model.dateTimeTextSelected,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ),
+                                  Icon(
+                                    Icons.calendar_month_outlined,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                    size: 24.0,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
                 Padding(
                   padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                  child: Text(
-                    'Description',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 14.0,
-                        ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-                  child: TextFormField(
-                    controller: _model.textController2,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                      hintText: 'Description',
-                      hintStyle:
-                          FlutterFlowTheme.of(context).labelMedium.override(
-                                fontFamily: 'Montserrat',
-                                color: FlutterFlowTheme.of(context).accent2,
-                              ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
-                        ),
-                        borderRadius: BorderRadius.circular(8.0),
-                      ),
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    maxLines: 3,
-                    validator:
-                        _model.textController2Validator.asValidator(context),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                  child: Text(
-                    'Date',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          fontSize: 14.0,
-                        ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-                  child: InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      final _datePickedDate = await showDatePicker(
-                        context: context,
-                        initialDate: getCurrentTimestamp,
-                        firstDate: getCurrentTimestamp,
-                        lastDate: DateTime(2050),
-                      );
-
-                      if (_datePickedDate != null) {
-                        setState(() {
-                          _model.datePicked = DateTime(
-                            _datePickedDate.year,
-                            _datePickedDate.month,
-                            _datePickedDate.day,
-                          );
-                        });
-                      }
-                      setState(() {
-                        _model.dateTimeTextSelected = dateTimeFormat(
-                          'd/M/y',
-                          _model.datePicked,
-                          locale: FFLocalizations.of(context).languageCode,
-                        );
-                      });
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        borderRadius: BorderRadius.circular(8.0),
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).accent2,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 12.0, 16.0, 12.0),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                _model.dateTimeTextSelected,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
-                            Icon(
-                              Icons.calendar_month_outlined,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () {
                       print('Button pressed ...');

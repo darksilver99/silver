@@ -15,3 +15,7 @@ export '/go_trip/create_trip_drawer_view/create_trip_drawer_view_widget.dart'
     show CreateTripDrawerViewWidget;
 export '/go_trip/add_expense_page/add_expense_page_widget.dart'
     show AddExpensePageWidget;
+export '/go_trip/manual_upload_page/manual_upload_page_widget.dart'
+    show ManualUploadPageWidget;
+export '/go_trip/add_from_booking_page/add_from_booking_page_widget.dart'
+    show AddFromBookingPageWidget;

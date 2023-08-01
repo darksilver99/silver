@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import '/go_trip/component/add_activity_bottom_sheet_view/add_activity_bottom_sheet_view_widget.dart';
 import '/go_trip/component/edit_budget_dialog_view/edit_budget_dialog_view_widget.dart';
 import '/go_trip/component/edit_each_trip_bottom_sheet_view/edit_each_trip_bottom_sheet_view_widget.dart';
+import '/go_trip/component/invite_trip_dialog_view/invite_trip_dialog_view_widget.dart';
 import '/go_trip/component/preview_trip_bottom_sheet_view/preview_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/save_trip_bottom_sheet_view/save_trip_bottom_sheet_view_widget.dart';
 import 'package:styled_divider/styled_divider.dart';
