@@ -114,6 +114,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddFromBookingPage',
           path: '/addFromBookingPage',
           builder: (context, params) => AddFromBookingPageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripMapPickerPage',
+          path: '/goTripMapPickerPage',
+          builder: (context, params) => GoTripMapPickerPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

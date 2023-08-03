@@ -19,3 +19,5 @@ export '/go_trip/manual_upload_page/manual_upload_page_widget.dart'
     show ManualUploadPageWidget;
 export '/go_trip/add_from_booking_page/add_from_booking_page_widget.dart'
     show AddFromBookingPageWidget;
+export '/go_trip/go_trip_map_picker_page/go_trip_map_picker_page_widget.dart'
+    show GoTripMapPickerPageWidget;
