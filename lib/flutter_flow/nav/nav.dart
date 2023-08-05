@@ -119,6 +119,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GoTripMapPickerPage',
           path: '/goTripMapPickerPage',
           builder: (context, params) => GoTripMapPickerPageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripDetailPageCopy',
+          path: '/goTripDetailPageCopy',
+          builder: (context, params) => GoTripDetailPageCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

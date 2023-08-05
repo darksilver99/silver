@@ -21,3 +21,5 @@ export '/go_trip/add_from_booking_page/add_from_booking_page_widget.dart'
     show AddFromBookingPageWidget;
 export '/go_trip/go_trip_map_picker_page/go_trip_map_picker_page_widget.dart'
     show GoTripMapPickerPageWidget;
+export '/old_ds/go_trip_detail_page_copy/go_trip_detail_page_copy_widget.dart'
+    show GoTripDetailPageCopyWidget;
