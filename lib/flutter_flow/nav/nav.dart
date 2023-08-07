@@ -49,7 +49,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'HomePage')
-              : HomePageWidget(),
+              : NavBarPage(
+                  initialPage: 'HomePage',
+                  page: HomePageWidget(),
+                ),
         ),
         FFRoute(
           name: 'AboutPage',
@@ -68,10 +71,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'TestPage',
           path: '/testPage',
-          builder: (context, params) => NavBarPage(
-            initialPage: '',
-            page: TestPageWidget(),
-          ),
+          builder: (context, params) => TestPageWidget(),
         ),
         FFRoute(
           name: 'GoTripDetailPage',
@@ -122,6 +122,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GoTripDetailPageCopy',
           path: '/goTripDetailPageCopy',
           builder: (context, params) => GoTripDetailPageCopyWidget(),
+        ),
+        FFRoute(
+          name: 'Test2Page',
+          path: '/test2Page',
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: Test2PageWidget(),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
