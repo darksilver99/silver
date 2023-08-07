@@ -12,12 +12,7 @@ import 'test_page_model.dart';
 export 'test_page_model.dart';
 
 class TestPageWidget extends StatefulWidget {
-  const TestPageWidget({
-    Key? key,
-    required this.testParam,
-  }) : super(key: key);
-
-  final String? testParam;
+  const TestPageWidget({Key? key}) : super(key: key);
 
   @override
   _TestPageWidgetState createState() => _TestPageWidgetState();

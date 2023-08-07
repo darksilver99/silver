@@ -450,7 +450,12 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   8.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 '1,324',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Color(0xFFE53E3E),
+                                    ),
                               ),
                             ),
                           ],
