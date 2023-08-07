@@ -1,6 +1,10 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,7 +79,126 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              Text(
+                dateTimeFormat(
+                  'yMMMd',
+                  getCurrentTimestamp,
+                  locale: FFLocalizations.of(context).languageCode,
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
+              Material(
+                color: Colors.transparent,
+                elevation: 3.0,
+                child: Container(
+                  width: 24.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFD5E0FC),
+                    shape: BoxShape.rectangle,
+                  ),
+                ),
+              ),
+              Icon(
+                Icons.settings_outlined,
+                color: FlutterFlowTheme.of(context).secondaryText,
+                size: 24.0,
+              ),
+              Text(
+                formatNumber(
+                  random_data.randomInteger(0, 10),
+                  formatType: FormatType.decimal,
+                  decimalType: DecimalType.automatic,
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100.0),
+                  border: Border.all(
+                    color: Color(0xFFD5E0FC),
+                    width: 1.0,
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 2.0, 8.0, 2.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.insert_drive_file,
+                        color: FlutterFlowTheme.of(context).tertiary,
+                        size: 20.0,
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          'Hello World',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 14.0,
+                                  ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
+              ),
+              FlutterFlowRadioButton(
+                options: ['Option 1'].toList(),
+                onChanged: (val) => setState(() {}),
+                controller: _model.radioButtonValueController ??=
+                    FormFieldController<String>(null),
+                optionHeight: 32.0,
+                textStyle: FlutterFlowTheme.of(context).labelMedium,
+                buttonPosition: RadioButtonPosition.left,
+                direction: Axis.vertical,
+                radioButtonColor: FlutterFlowTheme.of(context).alternate,
+                inactiveRadioButtonColor: FlutterFlowTheme.of(context).warning,
+                toggleable: false,
+                horizontalAlignment: WrapAlignment.start,
+                verticalAlignment: WrapCrossAlignment.start,
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  setState(() {});
+                },
+                text: 'Sign out',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).tertiary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+            ],
           ),
         ),
       ),
