@@ -106,7 +106,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -150,7 +150,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -194,7 +194,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -238,7 +238,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -362,75 +362,67 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 80.0,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFF4F8FB),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(0.0),
-                            child: Image.asset(
-                              'assets/images/goCheese_(1).png',
-                              height: 42.0,
-                              fit: BoxFit.cover,
-                            ),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 32.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(0.0),
+                          child: Image.asset(
+                            'assets/images/Share.png',
+                            height: 32.0,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(0.0),
-                            child: Image.asset(
-                              'assets/images/Share.png',
-                              height: 42.0,
-                              fit: BoxFit.cover,
-                            ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(0.0),
+                          child: Image.asset(
+                            'assets/images/bookmark_3.png',
+                            height: 22.0,
+                            fit: BoxFit.cover,
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 0.0, 0.0),
-                          child: Container(
-                            height: 40.0,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF1DBEC8),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
-                            child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
-                              child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    32.0, 0.0, 32.0, 0.0),
-                                child: Text(
-                                  'Used this trip',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Kanit',
-                                        color: Colors.white,
-                                      ),
-                                ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                        child: Container(
+                          height: 40.0,
+                          decoration: BoxDecoration(
+                            color: Color(0xFF1DBEC8),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                          child: Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  32.0, 0.0, 32.0, 0.0),
+                              child: Text(
+                                'Used this trip',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.white,
+                                    ),
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
                   child: Text(
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum in pretium purus. Risus in id sed purus orci, non id vulputate. Vulputate purus, morbi quis in. ',
                     style: FlutterFlowTheme.of(context).bodyMedium,
@@ -444,115 +436,112 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 32.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              color: Color(0xFFE53E3E),
+                              size: 24.0,
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                '1,324',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      color: Color(0xFFE53E3E),
+                                    ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             ClipRRect(
                               borderRadius: BorderRadius.circular(0.0),
                               child: Image.asset(
-                                'assets/images/GoCheese_icon-02.png',
-                                height: 18.0,
+                                'assets/images/chat2.png',
+                                height: 20.0,
                                 fit: BoxFit.cover,
                               ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 0.0),
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                '28.3k Likes',
+                                '1,324',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(0.0),
-                            child: Image.asset(
-                              'assets/images/chat.png',
-                              height: 24.0,
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              '28.3k Likes',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Divider(
-                  thickness: 1.0,
-                  indent: 16.0,
-                  endIndent: 6.0,
-                  color: Color(0xFFC5C7CB),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 32.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Icon(
-                              Icons.share_outlined,
-                              color: Color(0xFFD9D9D9),
-                              size: 24.0,
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(0.0),
+                              child: Image.asset(
+                                'assets/images/Share.png',
+                                height: 32.0,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 0.0, 0.0),
+                                  8.0, 0.0, 0.0, 0.0),
                               child: Text(
-                                '28.3k Likes',
+                                '1,324',
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(0.0),
-                            child: Image.asset(
-                              'assets/images/bookmark_3.png',
-                              height: 18.0,
-                              fit: BoxFit.cover,
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 16.0, 0.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(0.0),
+                                child: Image.asset(
+                                  'assets/images/bookmark_3.png',
+                                  height: 20.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 0.0, 0.0),
-                            child: Text(
-                              '28.3k Likes',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  8.0, 0.0, 0.0, 0.0),
+                              child: Text(
+                                '1,324',
+                                style: FlutterFlowTheme.of(context).bodyMedium,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                ),
-                Divider(
-                  thickness: 1.0,
-                  indent: 16.0,
-                  endIndent: 6.0,
-                  color: Color(0xFFC5C7CB),
                 ),
                 Align(
                   alignment: AlignmentDirectional(-1.0, 0.0),
@@ -626,7 +615,8 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
                                                         .override(
-                                                          fontFamily: 'Kanit',
+                                                          fontFamily:
+                                                              'Montserrat',
                                                           fontSize: 10.0,
                                                         ),
                                               ),
@@ -701,7 +691,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     color: Color(0xFF7B7B7B),
                                     fontWeight: FontWeight.w300,
                                   ),
@@ -743,7 +733,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   fontSize: 12.0,
                                 ),
                             validator: _model.textControllerValidator
@@ -827,7 +817,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                     child: Text(
                       'Our trip to Yellowstone is part of a larger road trip to Wyoming & Montana. You can read all about our trip on my blog',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Kanit',
+                            fontFamily: 'Montserrat',
                             color: Color(0xFF343740),
                             fontSize: 12.0,
                             fontWeight: FontWeight.w100,
@@ -869,7 +859,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -886,7 +876,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -939,7 +929,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w200,
                                       ),
@@ -954,7 +944,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1008,7 +998,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -1025,7 +1015,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1078,7 +1068,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w200,
                                       ),
@@ -1093,7 +1083,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1136,7 +1126,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 10.0,
                                       fontWeight: FontWeight.w100,
                                     ),
@@ -1173,7 +1163,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -1190,7 +1180,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1233,7 +1223,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 10.0,
                                       fontWeight: FontWeight.w100,
                                     ),
@@ -1276,7 +1266,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 10.0,
                                       fontWeight: FontWeight.w100,
                                     ),
@@ -1313,7 +1303,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -1330,7 +1320,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1383,7 +1373,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w200,
                                       ),
@@ -1398,7 +1388,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1452,7 +1442,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 10.0,
                                         ),
                                   ),
@@ -1469,7 +1459,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1522,7 +1512,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w200,
                                       ),
@@ -1537,7 +1527,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.w200,
                                     ),
@@ -1580,7 +1570,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       fontSize: 10.0,
                                       fontWeight: FontWeight.w100,
                                     ),
@@ -1854,7 +1844,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w200,
                                 ),
                           ),
@@ -1885,7 +1875,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   fontWeight: FontWeight.w200,
                                 ),
                           ),
@@ -1939,7 +1929,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   color: Colors.white,
                                   fontSize: 12.0,
                                   fontWeight: FontWeight.w300,
@@ -1963,7 +1953,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     color: Colors.black,
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w300,
@@ -1985,7 +1975,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   color: Colors.black,
                                   fontSize: 12.0,
                                   fontWeight: FontWeight.w300,
@@ -2003,7 +1993,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     color: Color(0xFF8D919D),
                                     fontSize: 12.0,
                                     fontWeight: FontWeight.w200,
@@ -2059,7 +2049,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           color: Color(0xFF8D919D),
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.w300,
@@ -2070,7 +2060,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
-                                          fontFamily: 'Kanit',
+                                          fontFamily: 'Montserrat',
                                           fontSize: 14.0,
                                           fontWeight: FontWeight.w300,
                                         ),
@@ -2083,7 +2073,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
-                                              fontFamily: 'Kanit',
+                                              fontFamily: 'Montserrat',
                                               color: Color(0xFF8D919D),
                                               fontSize: 12.0,
                                               fontWeight: FontWeight.w300,
@@ -2130,7 +2120,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     fontSize: 14.0,
                                     fontWeight: FontWeight.w300,
                                   ),
@@ -2180,7 +2170,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         color: Color(0xFF343740),
                                         fontWeight: FontWeight.w300,
                                       ),
@@ -2207,7 +2197,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         color: Color(0xFF343740),
                                         fontWeight: FontWeight.w300,
                                       ),
@@ -2238,7 +2228,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         color: Color(0xFF343740),
                                         fontWeight: FontWeight.w300,
                                       ),
@@ -2275,7 +2265,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Kanit',
+                                        fontFamily: 'Montserrat',
                                         color: Color(0xFFF79552),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w300,
@@ -2308,7 +2298,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                     child: Text(
                       'Let’s collect your memories here.',
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
-                            fontFamily: 'Kanit',
+                            fontFamily: 'Montserrat',
                             color: Color(0xFF343740),
                             fontSize: 14.0,
                             fontWeight: FontWeight.w300,
@@ -2387,7 +2377,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   child: Text(
                     'Our trip to Yellowstone is part of a larger road trip to Wyoming & Montana. You can read all about our trip on my blog at https://tylervlayne.com/wyomito-montana-trip-day-1/',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Kanit',
+                          fontFamily: 'Montserrat',
                           color: Color(0xFF343740),
                           fontSize: 12.0,
                           fontWeight: FontWeight.w300,
@@ -2416,7 +2406,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Kanit',
+                                  fontFamily: 'Montserrat',
                                   color: Color(0xFF343740),
                                   fontSize: 14.0,
                                   fontWeight: FontWeight.w300,
@@ -2511,7 +2501,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Kanit',
+                                                                        'Montserrat',
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -2524,7 +2514,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                                                   .bodyMedium
                                                                   .override(
                                                                     fontFamily:
-                                                                        'Kanit',
+                                                                        'Montserrat',
                                                                     color: Color(
                                                                         0xFF8D919D),
                                                                     fontSize:
@@ -2566,7 +2556,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Kanit',
+                                      fontFamily: 'Montserrat',
                                       color: Color(0xFFFDFCFF),
                                       fontWeight: FontWeight.w300,
                                     ),

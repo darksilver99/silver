@@ -1,22 +1,18 @@
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'test_page_model.dart';
 export 'test_page_model.dart';
 
 class TestPageWidget extends StatefulWidget {
-  const TestPageWidget({
-    Key? key,
-    required this.testParam,
-  }) : super(key: key);
-
-  final String? testParam;
+  const TestPageWidget({Key? key}) : super(key: key);
 
   @override
   _TestPageWidgetState createState() => _TestPageWidgetState();
@@ -49,35 +45,6 @@ class _TestPageWidgetState extends State<TestPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: Color(0x00EE8B60),
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: FaIcon(
-              FontAwesomeIcons.arrowCircleLeft,
-              color: Colors.white,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          title: Text(
-            'Page Title',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Kanit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
-          ),
-          actions: [],
-          centerTitle: false,
-          elevation: 0.0,
-        ),
         body: SafeArea(
           top: true,
           child: Column(
@@ -91,12 +58,16 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 style: FlutterFlowTheme.of(context).bodyMedium,
               ),
-              Container(
-                width: 24.0,
-                height: 24.0,
-                decoration: BoxDecoration(
-                  color: Color(0xFFD5E0FC),
-                  shape: BoxShape.circle,
+              Material(
+                color: Colors.transparent,
+                elevation: 3.0,
+                child: Container(
+                  width: 24.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: Color(0xFFD5E0FC),
+                    shape: BoxShape.rectangle,
+                  ),
                 ),
               ),
               Icon(
@@ -137,13 +108,64 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                           'Hello World',
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Kanit',
+                                    fontFamily: 'Montserrat',
                                     fontSize: 14.0,
                                   ),
                         ),
                       ),
                     ],
                   ),
+                ),
+              ),
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                  Text(
+                    'Hello World',
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                  ),
+                ],
+              ),
+              FlutterFlowRadioButton(
+                options: ['Option 1'].toList(),
+                onChanged: (val) => setState(() {}),
+                controller: _model.radioButtonValueController ??=
+                    FormFieldController<String>(null),
+                optionHeight: 32.0,
+                textStyle: FlutterFlowTheme.of(context).labelMedium,
+                buttonPosition: RadioButtonPosition.left,
+                direction: Axis.vertical,
+                radioButtonColor: FlutterFlowTheme.of(context).alternate,
+                inactiveRadioButtonColor: FlutterFlowTheme.of(context).warning,
+                toggleable: false,
+                horizontalAlignment: WrapAlignment.start,
+                verticalAlignment: WrapCrossAlignment.start,
+              ),
+              FFButtonWidget(
+                onPressed: () async {
+                  setState(() {});
+                },
+                text: 'Sign out',
+                options: FFButtonOptions(
+                  height: 40.0,
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  iconPadding:
+                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                  color: FlutterFlowTheme.of(context).tertiary,
+                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                      ),
+                  elevation: 3.0,
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                    width: 1.0,
+                  ),
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ],

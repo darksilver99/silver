@@ -27,6 +27,15 @@ class FFAppState extends ChangeNotifier {
           }).toList() ??
           _monthList;
     });
+    _safeInit(() {
+      if (prefs.containsKey('ff_userData')) {
+        try {
+          _userData = jsonDecode(prefs.getString('ff_userData') ?? '');
+        } catch (e) {
+          print("Can't decode persisted json. Error: $e.");
+        }
+      }
+    });
   }
 
   void update(VoidCallback callback) {
@@ -75,6 +84,13 @@ class FFAppState extends ChangeNotifier {
     _monthList[_index] = updateFn(_monthList[_index]);
     prefs.setStringList(
         'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
+  }
+
+  dynamic _userData;
+  dynamic get userData => _userData;
+  set userData(dynamic _value) {
+    _userData = _value;
+    prefs.setString('ff_userData', jsonEncode(_value));
   }
 }
 

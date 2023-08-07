@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
-import '../flutter_flow_theme.dart';
 import '/backend/backend.dart';
 
-import '../../index.dart';
-import '../../main.dart';
-import '../lat_lng.dart';
-import '../place.dart';
+import '/index.dart';
+import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -65,14 +66,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/profilePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'ProfilePage')
-              : ProfilePageWidget(),
+              : NavBarPage(
+                  initialPage: 'ProfilePage',
+                  page: ProfilePageWidget(),
+                ),
         ),
         FFRoute(
           name: 'TestPage',
           path: '/testPage',
-          builder: (context, params) => TestPageWidget(
-            testParam: params.getParam('testParam', ParamType.String),
-          ),
+          builder: (context, params) => TestPageWidget(),
         ),
         FFRoute(
           name: 'GoTripDetailPage',
@@ -80,9 +82,49 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => GoTripDetailPageWidget(),
         ),
         FFRoute(
+          name: 'GoTripSelectPlacePage',
+          path: '/goTripSelectPlacePage',
+          builder: (context, params) => GoTripSelectPlacePageWidget(),
+        ),
+        FFRoute(
           name: 'GoTripCreatePage',
           path: '/goTripCreatePage',
           builder: (context, params) => GoTripCreatePageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripProfilePage',
+          path: '/goTripProfilePage',
+          builder: (context, params) => GoTripProfilePageWidget(),
+        ),
+        FFRoute(
+          name: 'CreateTripDrawerView',
+          path: '/createTripDrawerView',
+          builder: (context, params) => CreateTripDrawerViewWidget(),
+        ),
+        FFRoute(
+          name: 'AddExpensePage',
+          path: '/addExpensePage',
+          builder: (context, params) => AddExpensePageWidget(),
+        ),
+        FFRoute(
+          name: 'ManualUploadPage',
+          path: '/manualUploadPage',
+          builder: (context, params) => ManualUploadPageWidget(),
+        ),
+        FFRoute(
+          name: 'AddFromBookingPage',
+          path: '/addFromBookingPage',
+          builder: (context, params) => AddFromBookingPageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripMapPickerPage',
+          path: '/goTripMapPickerPage',
+          builder: (context, params) => GoTripMapPickerPageWidget(),
+        ),
+        FFRoute(
+          name: 'GoTripDetailPageCopy',
+          path: '/goTripDetailPageCopy',
+          builder: (context, params) => GoTripDetailPageCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
