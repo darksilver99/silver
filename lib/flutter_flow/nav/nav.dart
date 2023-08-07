@@ -49,10 +49,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           path: '/homePage',
           builder: (context, params) => params.isEmpty
               ? NavBarPage(initialPage: 'HomePage')
-              : NavBarPage(
-                  initialPage: 'HomePage',
-                  page: HomePageWidget(),
-                ),
+              : HomePageWidget(),
         ),
         FFRoute(
           name: 'AboutPage',
@@ -71,7 +68,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'TestPage',
           path: '/testPage',
-          builder: (context, params) => TestPageWidget(),
+          builder: (context, params) => NavBarPage(
+            initialPage: '',
+            page: TestPageWidget(),
+          ),
         ),
         FFRoute(
           name: 'GoTripDetailPage',
