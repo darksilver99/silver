@@ -1,9 +1,8 @@
+import '/backend/backend.dart';
 import '/components/loading_view_widget.dart';
-import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -89,69 +88,57 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
             top: true,
             child: Stack(
               children: [
-                SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      FlutterFlowDropDown<String>(
-                        controller: _model.dropDownValueController ??=
-                            FormFieldController<String>(
-                          _model.dropDownValue ??= 'Option 2',
-                        ),
-                        options: ['Option 1', 'Option 2', 'Option 3'],
-                        onChanged: (val) =>
-                            setState(() => _model.dropDownValue = val),
-                        width: 300.0,
-                        height: 50.0,
-                        textStyle: FlutterFlowTheme.of(context).bodyMedium,
-                        hintText: 'Please select...',
-                        icon: Icon(
-                          Icons.keyboard_arrow_down_rounded,
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          size: 24.0,
-                        ),
-                        fillColor:
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                        elevation: 2.0,
-                        borderColor: FlutterFlowTheme.of(context).alternate,
-                        borderWidth: 2.0,
-                        borderRadius: 8.0,
-                        margin: EdgeInsetsDirectional.fromSTEB(
-                            16.0, 4.0, 16.0, 4.0),
-                        hidesUnderline: true,
-                        isSearchable: false,
-                      ),
-                      Theme(
-                        data: ThemeData(
-                          checkboxTheme: CheckboxThemeData(
-                            visualDensity: VisualDensity.compact,
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4.0),
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    StreamBuilder<List<ProvinceListRecord>>(
+                      stream: queryProvinceListRecord(),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitChasingDots(
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 50.0,
+                              ),
                             ),
-                          ),
-                          unselectedWidgetColor:
-                              FlutterFlowTheme.of(context).secondaryText,
-                        ),
-                        child: Checkbox(
-                          value: _model.checkboxValue ??= true,
-                          onChanged: (newValue) async {
-                            setState(() => _model.checkboxValue = newValue!);
-
-                            if (!newValue!) {
-                              setState(() {
-                                _model.dropDownValueController?.value =
-                                    'Option 1';
-                              });
-                            }
+                          );
+                        }
+                        List<ProvinceListRecord>
+                            listViewProvinceListRecordList = snapshot.data!;
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: listViewProvinceListRecordList.length,
+                          itemBuilder: (context, listViewIndex) {
+                            final listViewProvinceListRecord =
+                                listViewProvinceListRecordList[listViewIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 8.0, 16.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                ),
+                                child: Text(
+                                  listViewProvinceListRecord.name,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            );
                           },
-                          activeColor: FlutterFlowTheme.of(context).primary,
-                          checkColor: FlutterFlowTheme.of(context).info,
-                        ),
-                      ),
-                    ],
-                  ),
+                        );
+                      },
+                    ),
+                  ],
                 ),
                 if (_model.isLoading)
                   wrapWithModel(
