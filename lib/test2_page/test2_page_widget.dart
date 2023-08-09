@@ -91,8 +91,8 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    StreamBuilder<List<ProvinceListRecord>>(
-                      stream: queryProvinceListRecord(),
+                    StreamBuilder<List<DataListRecord>>(
+                      stream: queryDataListRecord(),
                       builder: (context, snapshot) {
                         // Customize what your widget looks like when it's loading.
                         if (!snapshot.hasData) {
@@ -107,16 +107,16 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                             ),
                           );
                         }
-                        List<ProvinceListRecord>
-                            listViewProvinceListRecordList = snapshot.data!;
+                        List<DataListRecord> listViewDataListRecordList =
+                            snapshot.data!;
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           shrinkWrap: true,
                           scrollDirection: Axis.vertical,
-                          itemCount: listViewProvinceListRecordList.length,
+                          itemCount: listViewDataListRecordList.length,
                           itemBuilder: (context, listViewIndex) {
-                            final listViewProvinceListRecord =
-                                listViewProvinceListRecordList[listViewIndex];
+                            final listViewDataListRecord =
+                                listViewDataListRecordList[listViewIndex];
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 8.0, 16.0, 0.0),
@@ -128,7 +128,7 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                                       .secondaryBackground,
                                 ),
                                 child: Text(
-                                  listViewProvinceListRecord.name,
+                                  listViewDataListRecord.name,
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
