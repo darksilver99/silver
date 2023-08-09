@@ -91,52 +91,54 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                 Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    StreamBuilder<List<DataListRecord>>(
-                      stream: queryDataListRecord(),
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: SpinKitChasingDots(
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                size: 50.0,
-                              ),
-                            ),
-                          );
-                        }
-                        List<DataListRecord> listViewDataListRecordList =
-                            snapshot.data!;
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.vertical,
-                          itemCount: listViewDataListRecordList.length,
-                          itemBuilder: (context, listViewIndex) {
-                            final listViewDataListRecord =
-                                listViewDataListRecordList[listViewIndex];
-                            return Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 8.0, 16.0, 0.0),
-                              child: Container(
-                                width: double.infinity,
-                                height: 100.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                ),
-                                child: Text(
-                                  listViewDataListRecord.name,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                    Expanded(
+                      child: StreamBuilder<List<DataListRecord>>(
+                        stream: queryDataListRecord(),
+                        builder: (context, snapshot) {
+                          // Customize what your widget looks like when it's loading.
+                          if (!snapshot.hasData) {
+                            return Center(
+                              child: SizedBox(
+                                width: 50.0,
+                                height: 50.0,
+                                child: SpinKitChasingDots(
+                                  color: FlutterFlowTheme.of(context).tertiary,
+                                  size: 50.0,
                                 ),
                               ),
                             );
-                          },
-                        );
-                      },
+                          }
+                          List<DataListRecord> listViewDataListRecordList =
+                              snapshot.data!;
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: listViewDataListRecordList.length,
+                            itemBuilder: (context, listViewIndex) {
+                              final listViewDataListRecord =
+                                  listViewDataListRecordList[listViewIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    16.0, 8.0, 16.0, 0.0),
+                                child: Container(
+                                  width: double.infinity,
+                                  height: 100.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Text(
+                                    listViewDataListRecord.name,
+                                    style:
+                                        FlutterFlowTheme.of(context).bodyMedium,
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),
