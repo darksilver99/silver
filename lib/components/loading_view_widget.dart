@@ -43,19 +43,22 @@ class _LoadingViewWidgetState extends State<LoadingViewWidget> {
 
     return Container(
       width: double.infinity,
-      height: MediaQuery.sizeOf(context).height * 1.0,
+      height: double.infinity,
       decoration: BoxDecoration(
         color: Color(0x7B000000),
       ),
-      child: Align(
-        alignment: AlignmentDirectional(0.0, 0.0),
-        child: Lottie.network(
-          'https://lottie.host/a0a6c139-e4f6-4252-8768-746759e62475/jAVw2MX8Ih.json',
-          width: 150.0,
-          height: 250.0,
-          fit: BoxFit.cover,
-          animate: true,
-        ),
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.asset(
+            'assets/lottie_animations/Animation_-_1691570316585_(1).json',
+            width: 128.0,
+            height: 128.0,
+            fit: BoxFit.contain,
+            animate: true,
+          ),
+        ],
       ),
     );
   }
