@@ -3,6 +3,7 @@ import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -48,69 +49,76 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
-      child: WillPopScope(
-        onWillPop: () async => false,
-        child: Scaffold(
-          key: scaffoldKey,
-          backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-          appBar: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-            automaticallyImplyLeading: false,
-            leading: FlutterFlowIconButton(
-              borderColor: Colors.transparent,
-              borderRadius: 30.0,
-              borderWidth: 1.0,
-              buttonSize: 60.0,
-              icon: Icon(
-                Icons.chevron_left_rounded,
-                color: FlutterFlowTheme.of(context).primary,
-                size: 30.0,
-              ),
-              onPressed: () async {
-                context.pop();
-              },
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderColor: Colors.transparent,
+            borderRadius: 30.0,
+            borderWidth: 1.0,
+            buttonSize: 60.0,
+            icon: Icon(
+              Icons.chevron_left_rounded,
+              color: FlutterFlowTheme.of(context).primary,
+              size: 30.0,
             ),
-            title: Text(
-              'Test2Page',
-              style: FlutterFlowTheme.of(context).headlineMedium.override(
-                    fontFamily: 'Kanit',
-                    color: FlutterFlowTheme.of(context).primary,
-                    fontSize: 22.0,
-                  ),
-            ),
-            actions: [],
-            centerTitle: false,
-            elevation: 3.0,
+            onPressed: () async {
+              context.pop();
+            },
           ),
-          body: SafeArea(
-            top: true,
-            child: Stack(
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Expanded(
-                      child: StreamBuilder<List<DataListRecord>>(
-                        stream: queryDataListRecord(),
-                        builder: (context, snapshot) {
-                          // Customize what your widget looks like when it's loading.
-                          if (!snapshot.hasData) {
-                            return Center(
-                              child: SizedBox(
-                                width: 50.0,
-                                height: 50.0,
-                                child: SpinKitChasingDots(
-                                  color: FlutterFlowTheme.of(context).tertiary,
-                                  size: 50.0,
-                                ),
+          title: Text(
+            'Test2Page',
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Kanit',
+                  color: FlutterFlowTheme.of(context).primary,
+                  fontSize: 22.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 3.0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Stack(
+            children: [
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Expanded(
+                    child: FutureBuilder<List<DataListRecord>>(
+                      future: (_model.firestoreRequestCompleter ??=
+                              Completer<List<DataListRecord>>()
+                                ..complete(queryDataListRecordOnce()))
+                          .future,
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: SpinKitChasingDots(
+                                color: FlutterFlowTheme.of(context).tertiary,
+                                size: 50.0,
                               ),
-                            );
-                          }
-                          List<DataListRecord> listViewDataListRecordList =
-                              snapshot.data!;
-                          return ListView.builder(
+                            ),
+                          );
+                        }
+                        List<DataListRecord> listViewDataListRecordList =
+                            snapshot.data!;
+                        return RefreshIndicator(
+                          onRefresh: () async {
+                            setState(
+                                () => _model.firestoreRequestCompleter = null);
+                            await _model.waitForFirestoreRequestCompleted();
+                          },
+                          child: ListView.builder(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             scrollDirection: Axis.vertical,
@@ -136,20 +144,20 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                                 ),
                               );
                             },
-                          );
-                        },
-                      ),
+                          ),
+                        );
+                      },
                     ),
-                  ],
-                ),
-                if (_model.isLoading)
-                  wrapWithModel(
-                    model: _model.loadingViewModel,
-                    updateCallback: () => setState(() {}),
-                    child: LoadingViewWidget(),
                   ),
-              ],
-            ),
+                ],
+              ),
+              if (_model.isLoading)
+                wrapWithModel(
+                  model: _model.loadingViewModel,
+                  updateCallback: () => setState(() {}),
+                  child: LoadingViewWidget(),
+                ),
+            ],
           ),
         ),
       ),
