@@ -3,7 +3,8 @@ import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -31,7 +32,8 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 3000));
+      _model.dataListResult = await queryDataListRecordOnce();
+      await Future.delayed(const Duration(milliseconds: 1000));
       setState(() {
         _model.isLoading = false;
       });
@@ -91,60 +93,34 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Expanded(
-                    child: FutureBuilder<List<DataListRecord>>(
-                      future: (_model.firestoreRequestCompleter ??=
-                              Completer<List<DataListRecord>>()
-                                ..complete(queryDataListRecordOnce()))
-                          .future,
-                      builder: (context, snapshot) {
-                        // Customize what your widget looks like when it's loading.
-                        if (!snapshot.hasData) {
-                          return Center(
-                            child: SizedBox(
-                              width: 50.0,
-                              height: 50.0,
-                              child: SpinKitChasingDots(
-                                color: FlutterFlowTheme.of(context).tertiary,
-                                size: 50.0,
-                              ),
-                            ),
-                          );
-                        }
-                        List<DataListRecord> listViewDataListRecordList =
-                            snapshot.data!;
-                        return RefreshIndicator(
-                          onRefresh: () async {
-                            setState(
-                                () => _model.firestoreRequestCompleter = null);
-                            await _model.waitForFirestoreRequestCompleted();
-                          },
-                          child: ListView.builder(
-                            padding: EdgeInsets.zero,
-                            shrinkWrap: true,
-                            scrollDirection: Axis.vertical,
-                            itemCount: listViewDataListRecordList.length,
-                            itemBuilder: (context, listViewIndex) {
-                              final listViewDataListRecord =
-                                  listViewDataListRecordList[listViewIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 8.0, 16.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                  ),
-                                  child: Text(
-                                    listViewDataListRecord.name,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                  ),
+                    child: Builder(
+                      builder: (context) {
+                        final dataList = _model.dataListResult?.toList() ?? [];
+                        return ListView.builder(
+                          padding: EdgeInsets.zero,
+                          shrinkWrap: true,
+                          scrollDirection: Axis.vertical,
+                          itemCount: dataList.length,
+                          itemBuilder: (context, dataListIndex) {
+                            final dataListItem = dataList[dataListIndex];
+                            return Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 8.0, 16.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                height: 100.0,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
                                 ),
-                              );
-                            },
-                          ),
+                                child: Text(
+                                  dataListItem.name,
+                                  style:
+                                      FlutterFlowTheme.of(context).bodyMedium,
+                                ),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),
