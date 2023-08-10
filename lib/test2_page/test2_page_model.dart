@@ -21,16 +21,21 @@ class Test2PageModel extends FlutterFlowModel {
 
   // Stores action output result for [Firestore Query - Query a collection] action in Test2Page widget.
   List<DataListRecord>? dataListResult;
+  // Models for listSwitchView dynamic component.
+  late FlutterFlowDynamicModels<ListSwitchViewModel> listSwitchViewModels;
   // Model for loadingView component.
   late LoadingViewModel loadingViewModel;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {
+    listSwitchViewModels =
+        FlutterFlowDynamicModels(() => ListSwitchViewModel());
     loadingViewModel = createModel(context, () => LoadingViewModel());
   }
 
   void dispose() {
+    listSwitchViewModels.dispose();
     loadingViewModel.dispose();
   }
 
