@@ -1,44 +1,31 @@
 import '/backend/backend.dart';
-import '/components/list_switch_view_widget.dart';
-import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
+import '/test/list_switch_view/list_switch_view_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'test2_page_model.dart';
-export 'test2_page_model.dart';
+import 'test4_page_model.dart';
+export 'test4_page_model.dart';
 
-class Test2PageWidget extends StatefulWidget {
-  const Test2PageWidget({Key? key}) : super(key: key);
+class Test4PageWidget extends StatefulWidget {
+  const Test4PageWidget({Key? key}) : super(key: key);
 
   @override
-  _Test2PageWidgetState createState() => _Test2PageWidgetState();
+  _Test4PageWidgetState createState() => _Test4PageWidgetState();
 }
 
-class _Test2PageWidgetState extends State<Test2PageWidget> {
-  late Test2PageModel _model;
+class _Test4PageWidgetState extends State<Test4PageWidget> {
+  late Test4PageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Test2PageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.dataListResult = await queryDataListRecordOnce();
-      await Future.delayed(const Duration(milliseconds: 3000));
-      setState(() {
-        _model.isLoading = false;
-      });
-    });
+    _model = createModel(context, () => Test4PageModel());
   }
 
   @override
@@ -73,7 +60,7 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
           },
         ),
         title: Text(
-          'Test2Page',
+          'Test4Future',
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
@@ -92,30 +79,38 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                  child: Builder(
-                    builder: (context) {
-                      final dataList = _model.dataListResult?.toList() ?? [];
+                  child: FutureBuilder<List<DataListRecord>>(
+                    future: queryDataListRecordOnce(),
+                    builder: (context, snapshot) {
+                      // Customize what your widget looks like when it's loading.
+                      if (!snapshot.hasData) {
+                        return Center(
+                          child: SizedBox(
+                            width: 50.0,
+                            height: 50.0,
+                            child: SpinKitChasingDots(
+                              color: FlutterFlowTheme.of(context).tertiary,
+                              size: 50.0,
+                            ),
+                          ),
+                        );
+                      }
+                      List<DataListRecord> listViewDataListRecordList =
+                          snapshot.data!;
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
-                        itemCount: dataList.length,
-                        itemBuilder: (context, dataListIndex) {
-                          final dataListItem = dataList[dataListIndex];
-                          return wrapWithModel(
-                            model: _model.listSwitchViewModels.getModel(
-                              dataListIndex.toString(),
-                              dataListIndex,
-                            ),
-                            updateCallback: () => setState(() {}),
-                            child: ListSwitchViewWidget(
-                              key: Key(
-                                'Keyhbe_${dataListIndex.toString()}',
-                              ),
-                              parameter1: dataListItem.name,
-                              parameter2: dataListItem.isCheck,
-                              parameter3: dataListItem.reference,
-                            ),
+                        itemCount: listViewDataListRecordList.length,
+                        itemBuilder: (context, listViewIndex) {
+                          final listViewDataListRecord =
+                              listViewDataListRecordList[listViewIndex];
+                          return ListSwitchViewWidget(
+                            key: Key(
+                                'Keys9i_${listViewIndex}_of_${listViewDataListRecordList.length}'),
+                            parameter1: listViewDataListRecord.name,
+                            parameter2: listViewDataListRecord.isCheck,
+                            parameter3: listViewDataListRecord.reference,
                           );
                         },
                       );
@@ -124,12 +119,6 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                 ),
               ],
             ),
-            if (_model.isLoading)
-              wrapWithModel(
-                model: _model.loadingViewModel,
-                updateCallback: () => setState(() {}),
-                child: LoadingViewWidget(),
-              ),
           ],
         ),
       ),
