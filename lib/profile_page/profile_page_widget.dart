@@ -1,6 +1,11 @@
+import '/backend/backend.dart';
+import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -23,6 +28,15 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ProfilePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.dataListResult = await queryDataListRecordOnce();
+      await Future.delayed(const Duration(milliseconds: 1000));
+      setState(() {
+        _model.isLoading = false;
+      });
+    });
   }
 
   @override
@@ -43,9 +57,44 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Stack(
+            children: [
+              Builder(
+                builder: (context) {
+                  final dataList = _model.dataListResult?.toList() ?? [];
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    scrollDirection: Axis.vertical,
+                    itemCount: dataList.length,
+                    itemBuilder: (context, dataListIndex) {
+                      final dataListItem = dataList[dataListIndex];
+                      return Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 8.0, 15.0, 0.0),
+                        child: Container(
+                          width: double.infinity,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                          ),
+                          child: Text(
+                            dataListItem.name,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+              if (_model.isLoading)
+                wrapWithModel(
+                  model: _model.loadingViewModel,
+                  updateCallback: () => setState(() {}),
+                  child: LoadingViewWidget(),
+                ),
+            ],
           ),
         ),
       ),
