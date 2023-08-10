@@ -118,8 +118,9 @@ class _Test6PageWidgetState extends State<Test6PageWidget> {
                                     backgroundColor:
                                         FlutterFlowTheme.of(context).alternate,
                                     icon: Icons.delete,
-                                    onPressed: (_) {
-                                      print('SlidableActionWidget pressed ...');
+                                    onPressed: (_) async {
+                                      await listViewDataListRecord.reference
+                                          .delete();
                                     },
                                   ),
                                 ],
