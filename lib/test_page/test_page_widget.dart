@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
@@ -196,6 +197,22 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     width: 1.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
+              ToggleIcon(
+                onPressed: () async {
+                  setState(() => _model.isBooked = !_model.isBooked);
+                },
+                value: _model.isBooked,
+                onIcon: Icon(
+                  Icons.bookmark_rounded,
+                  color: Color(0xFFDE8410),
+                  size: 25.0,
+                ),
+                offIcon: Icon(
+                  Icons.bookmark_border_rounded,
+                  color: FlutterFlowTheme.of(context).secondaryText,
+                  size: 25.0,
                 ),
               ),
             ],
