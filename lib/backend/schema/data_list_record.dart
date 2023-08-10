@@ -33,10 +33,16 @@ class DataListRecord extends FirestoreRecord {
   String get searchText => _searchText ?? '';
   bool hasSearchText() => _searchText != null;
 
+  // "is_check" field.
+  bool? _isCheck;
+  bool get isCheck => _isCheck ?? false;
+  bool hasIsCheck() => _isCheck != null;
+
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
     _detail = snapshotData['detail'] as String?;
     _searchText = snapshotData['searchText'] as String?;
+    _isCheck = snapshotData['is_check'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -66,6 +72,7 @@ class DataListRecord extends FirestoreRecord {
           'name': snapshot.data['name'],
           'detail': snapshot.data['detail'],
           'searchText': snapshot.data['searchText'],
+          'is_check': snapshot.data['is_check'],
         },
         DataListRecord.collection.doc(snapshot.objectID),
       );
@@ -105,12 +112,14 @@ Map<String, dynamic> createDataListRecordData({
   String? name,
   String? detail,
   String? searchText,
+  bool? isCheck,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
       'detail': detail,
       'searchText': searchText,
+      'is_check': isCheck,
     }.withoutNulls,
   );
 
@@ -124,12 +133,13 @@ class DataListRecordDocumentEquality implements Equality<DataListRecord> {
   bool equals(DataListRecord? e1, DataListRecord? e2) {
     return e1?.name == e2?.name &&
         e1?.detail == e2?.detail &&
-        e1?.searchText == e2?.searchText;
+        e1?.searchText == e2?.searchText &&
+        e1?.isCheck == e2?.isCheck;
   }
 
   @override
-  int hash(DataListRecord? e) =>
-      const ListEquality().hash([e?.name, e?.detail, e?.searchText]);
+  int hash(DataListRecord? e) => const ListEquality()
+      .hash([e?.name, e?.detail, e?.searchText, e?.isCheck]);
 
   @override
   bool isValidKey(Object? o) => o is DataListRecord;

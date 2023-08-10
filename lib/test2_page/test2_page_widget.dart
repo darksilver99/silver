@@ -104,17 +104,39 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 8.0, 16.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Text(
+                            child: SwitchListTile.adaptive(
+                              value: _model.switchListTileValue ??=
+                                  dataListItem.isCheck,
+                              onChanged: (newValue) async {
+                                setState(() =>
+                                    _model.switchListTileValue = newValue!);
+                                if (newValue!) {
+                                  await dataListItem.reference
+                                      .update(createDataListRecordData(
+                                    isCheck: true,
+                                  ));
+                                } else {
+                                  await dataListItem.reference
+                                      .update(createDataListRecordData(
+                                    isCheck: false,
+                                  ));
+                                }
+                              },
+                              title: Text(
                                 dataListItem.name,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context).titleLarge,
                               ),
+                              subtitle: Text(
+                                'Subtitle goes here...',
+                                style: FlutterFlowTheme.of(context).labelMedium,
+                              ),
+                              tileColor: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              activeColor: FlutterFlowTheme.of(context).primary,
+                              activeTrackColor:
+                                  FlutterFlowTheme.of(context).accent1,
+                              dense: false,
+                              controlAffinity: ListTileControlAffinity.trailing,
                             ),
                           );
                         },
