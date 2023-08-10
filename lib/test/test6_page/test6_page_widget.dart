@@ -60,7 +60,7 @@ class _Test6PageWidgetState extends State<Test6PageWidget> {
           },
         ),
         title: Text(
-          'Test5Stream del data',
+          'Test6Stream del data',
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
@@ -105,34 +105,40 @@ class _Test6PageWidgetState extends State<Test6PageWidget> {
                         itemBuilder: (context, listViewIndex) {
                           final listViewDataListRecord =
                               listViewDataListRecordList[listViewIndex];
-                          return Slidable(
-                            endActionPane: ActionPane(
-                              motion: const ScrollMotion(),
-                              extentRatio: 0.25,
-                              children: [
-                                SlidableAction(
-                                  label: 'del',
-                                  backgroundColor:
-                                      FlutterFlowTheme.of(context).alternate,
-                                  icon: Icons.delete,
-                                  onPressed: (_) {
-                                    print('SlidableActionWidget pressed ...');
-                                  },
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 8.0, 0.0, 0.0),
+                            child: Slidable(
+                              endActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                extentRatio: 0.25,
+                                children: [
+                                  SlidableAction(
+                                    label: 'del',
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    icon: Icons.delete,
+                                    onPressed: (_) {
+                                      print('SlidableActionWidget pressed ...');
+                                    },
+                                  ),
+                                ],
+                              ),
+                              child: ListTile(
+                                title: Text(
+                                  listViewDataListRecord.name,
+                                  style:
+                                      FlutterFlowTheme.of(context).titleLarge,
                                 ),
-                              ],
-                            ),
-                            child: ListTile(
-                              title: Text(
-                                listViewDataListRecord.name,
-                                style: FlutterFlowTheme.of(context).titleLarge,
+                                subtitle: Text(
+                                  listViewDataListRecord.detail,
+                                  style:
+                                      FlutterFlowTheme.of(context).labelMedium,
+                                ),
+                                tileColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                dense: false,
                               ),
-                              subtitle: Text(
-                                listViewDataListRecord.detail,
-                                style: FlutterFlowTheme.of(context).labelMedium,
-                              ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              dense: false,
                             ),
                           );
                         },
