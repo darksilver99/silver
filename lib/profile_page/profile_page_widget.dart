@@ -71,16 +71,25 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                       return Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
                             16.0, 8.0, 15.0, 0.0),
-                        child: Container(
-                          width: double.infinity,
-                          height: 100.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                          ),
-                          child: Text(
-                            dataListItem.name,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('Test3Page');
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Text(
+                              dataListItem.name,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
                           ),
                         ),
                       );
