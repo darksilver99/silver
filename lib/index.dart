@@ -2,7 +2,7 @@
 export '/home_page/home_page_widget.dart' show HomePageWidget;
 export '/about_page/about_page_widget.dart' show AboutPageWidget;
 export '/profile_page/profile_page_widget.dart' show ProfilePageWidget;
-export '/test_page/test_page_widget.dart' show TestPageWidget;
+export '/test/test_page/test_page_widget.dart' show TestPageWidget;
 export '/go_trip/go_trip_detail_page/go_trip_detail_page_widget.dart'
     show GoTripDetailPageWidget;
 export '/go_trip/go_trip_select_place_page/go_trip_select_place_page_widget.dart'
@@ -23,5 +23,6 @@ export '/go_trip/go_trip_map_picker_page/go_trip_map_picker_page_widget.dart'
     show GoTripMapPickerPageWidget;
 export '/old_ds/go_trip_detail_page_copy/go_trip_detail_page_copy_widget.dart'
     show GoTripDetailPageCopyWidget;
-export '/test2_page/test2_page_widget.dart' show Test2PageWidget;
-export '/test3_page/test3_page_widget.dart' show Test3PageWidget;
+export '/test/test2_page/test2_page_widget.dart' show Test2PageWidget;
+export '/test/test3_page/test3_page_widget.dart' show Test3PageWidget;
+export '/test/test4_page/test4_page_widget.dart' show Test4PageWidget;
