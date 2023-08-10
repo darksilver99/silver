@@ -26,3 +26,4 @@ export '/old_ds/go_trip_detail_page_copy/go_trip_detail_page_copy_widget.dart'
 export '/test/test2_page/test2_page_widget.dart' show Test2PageWidget;
 export '/test/test3_page/test3_page_widget.dart' show Test3PageWidget;
 export '/test/test4_page/test4_page_widget.dart' show Test4PageWidget;
+export '/test/test5_page/test5_page_widget.dart' show Test5PageWidget;
