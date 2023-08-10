@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/list_switch_view_widget.dart';
 import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -20,8 +21,6 @@ class Test2PageModel extends FlutterFlowModel {
 
   // Stores action output result for [Firestore Query - Query a collection] action in Test2Page widget.
   List<DataListRecord>? dataListResult;
-  // State field(s) for SwitchListTile widget.
-  bool? switchListTileValue;
   // Model for loadingView component.
   late LoadingViewModel loadingViewModel;
 

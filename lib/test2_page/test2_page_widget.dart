@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/list_switch_view_widget.dart';
 import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -101,43 +102,12 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                         itemCount: dataList.length,
                         itemBuilder: (context, dataListIndex) {
                           final dataListItem = dataList[dataListIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 8.0, 16.0, 0.0),
-                            child: SwitchListTile.adaptive(
-                              value: _model.switchListTileValue ??=
-                                  dataListItem.isCheck,
-                              onChanged: (newValue) async {
-                                setState(() =>
-                                    _model.switchListTileValue = newValue!);
-                                if (newValue!) {
-                                  await dataListItem.reference
-                                      .update(createDataListRecordData(
-                                    isCheck: true,
-                                  ));
-                                } else {
-                                  await dataListItem.reference
-                                      .update(createDataListRecordData(
-                                    isCheck: false,
-                                  ));
-                                }
-                              },
-                              title: Text(
-                                dataListItem.name,
-                                style: FlutterFlowTheme.of(context).titleLarge,
-                              ),
-                              subtitle: Text(
-                                'Subtitle goes here...',
-                                style: FlutterFlowTheme.of(context).labelMedium,
-                              ),
-                              tileColor: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              activeColor: FlutterFlowTheme.of(context).primary,
-                              activeTrackColor:
-                                  FlutterFlowTheme.of(context).accent1,
-                              dense: false,
-                              controlAffinity: ListTileControlAffinity.trailing,
-                            ),
+                          return ListSwitchViewWidget(
+                            key: Key(
+                                'Keyhbe_${dataListIndex}_of_${dataList.length}'),
+                            parameter1: dataListItem.name,
+                            parameter2: dataListItem.isCheck,
+                            parameter3: dataListItem.reference,
                           );
                         },
                       );
