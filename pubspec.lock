@@ -355,6 +355,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.9"
+  flutter_slidable:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: d10a912aae1fb0da330d9c83169f15ed2b0b42a2
+      resolved-ref: d10a912aae1fb0da330d9c83169f15ed2b0b42a2
+      url: "https://github.com/letsar/flutter_slidable.git"
+    source: git
+    version: "2.0.0"
   flutter_spinkit:
     dependency: "direct main"
     description:
