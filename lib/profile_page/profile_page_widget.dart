@@ -32,7 +32,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.dataListResult = await queryDataListRecordOnce();
-      await Future.delayed(const Duration(milliseconds: 1000));
+      await Future.delayed(const Duration(milliseconds: 3000));
       setState(() {
         _model.isLoading = false;
       });
