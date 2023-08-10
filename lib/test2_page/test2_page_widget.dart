@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/list_switch_view_widget.dart';
 import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -101,21 +102,12 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                         itemCount: dataList.length,
                         itemBuilder: (context, dataListIndex) {
                           final dataListItem = dataList[dataListIndex];
-                          return Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 8.0, 16.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: 100.0,
-                              decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                              ),
-                              child: Text(
-                                dataListItem.name,
-                                style: FlutterFlowTheme.of(context).bodyMedium,
-                              ),
-                            ),
+                          return ListSwitchViewWidget(
+                            key: Key(
+                                'Keyhbe_${dataListIndex}_of_${dataList.length}'),
+                            parameter1: dataListItem.name,
+                            parameter2: dataListItem.isCheck,
+                            parameter3: dataListItem.reference,
                           );
                         },
                       );
