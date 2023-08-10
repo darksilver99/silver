@@ -139,6 +139,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'Test5Page',
           path: '/test5Page',
           builder: (context, params) => Test5PageWidget(),
+        ),
+        FFRoute(
+          name: 'Test6Page',
+          path: '/test6Page',
+          builder: (context, params) => Test6PageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
