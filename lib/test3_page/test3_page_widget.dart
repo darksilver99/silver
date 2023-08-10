@@ -1,6 +1,5 @@
 import '/backend/backend.dart';
 import '/components/list_switch_view_widget.dart';
-import '/components/loading_view_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -120,12 +119,6 @@ class _Test3PageWidgetState extends State<Test3PageWidget> {
                 ),
               ],
             ),
-            if (_model.isLoading)
-              wrapWithModel(
-                model: _model.loadingViewModel,
-                updateCallback: () => setState(() {}),
-                child: LoadingViewWidget(),
-              ),
           ],
         ),
       ),
