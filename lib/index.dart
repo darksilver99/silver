@@ -24,3 +24,4 @@ export '/go_trip/go_trip_map_picker_page/go_trip_map_picker_page_widget.dart'
 export '/old_ds/go_trip_detail_page_copy/go_trip_detail_page_copy_widget.dart'
     show GoTripDetailPageCopyWidget;
 export '/test2_page/test2_page_widget.dart' show Test2PageWidget;
+export '/test3_page/test3_page_widget.dart' show Test3PageWidget;
