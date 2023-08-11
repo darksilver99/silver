@@ -57,34 +57,25 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: FlutterFlowTheme.of(context).secondaryBackground,
-      ),
-      child: Align(
-        alignment: AlignmentDirectional(-1.0, 0.0),
-        child: ToggleIcon(
-          onPressed: () async {
-            setState(() => _model.isCheck = !_model.isCheck);
-            _model.apiResultkr3 = await DataListCheckCall.call(
-              docID: widget.docID,
-            );
+    return ToggleIcon(
+      onPressed: () async {
+        setState(() => _model.isCheck = !_model.isCheck);
+        _model.apiResultjjc = await DataListCheckCall.call(
+          docID: widget.docID,
+        );
 
-            setState(() {});
-          },
-          value: _model.isCheck,
-          onIcon: Icon(
-            Icons.bookmark_rounded,
-            color: FlutterFlowTheme.of(context).primary,
-            size: 36.0,
-          ),
-          offIcon: Icon(
-            Icons.bookmark_border,
-            color: FlutterFlowTheme.of(context).secondaryText,
-            size: 36.0,
-          ),
-        ),
+        setState(() {});
+      },
+      value: _model.isCheck,
+      onIcon: Icon(
+        Icons.favorite_sharp,
+        color: FlutterFlowTheme.of(context).primary,
+        size: 25.0,
+      ),
+      offIcon: Icon(
+        Icons.favorite_border,
+        color: FlutterFlowTheme.of(context).secondaryText,
+        size: 25.0,
       ),
     );
   }

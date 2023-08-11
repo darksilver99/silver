@@ -16,7 +16,7 @@ class ToggleTestModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this component.
 
   // Stores action output result for [Backend Call - API (dataListCheck)] action in ToggleIcon widget.
-  ApiCallResponse? apiResultkr3;
+  ApiCallResponse? apiResultjjc;
 
   /// Initialization and disposal methods.
 
