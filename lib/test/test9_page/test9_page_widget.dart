@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/components/toggle_test_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -109,61 +110,80 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                             itemCount: dataList.length,
                             itemBuilder: (context, dataListIndex) {
                               final dataListItem = dataList[dataListIndex];
-                              return Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 8.0, 0.0, 0.0),
-                                child: Slidable(
-                                  endActionPane: ActionPane(
-                                    motion: const ScrollMotion(),
-                                    extentRatio: 0.25,
-                                    children: [
-                                      // ใช้ setstate หรือ refresh DB ก็ได้
-                                      SlidableAction(
-                                        label: 'del',
-                                        backgroundColor:
-                                            FlutterFlowTheme.of(context)
-                                                .alternate,
-                                        icon: Icons.delete,
-                                        onPressed: (_) async {
-                                          _model.apiResultcj9 =
-                                              await DataListDelCall.call(
-                                            docID: getJsonField(
-                                              dataListItem,
-                                              r'''$.id''',
-                                            ).toString(),
-                                          );
-                                          if ((_model.apiResultcj9?.succeeded ??
-                                              true)) {
-                                            setState(() {});
-                                          }
+                              return Column(
+                                mainAxisSize: MainAxisSize.max,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 8.0, 0.0, 0.0),
+                                    child: Slidable(
+                                      endActionPane: ActionPane(
+                                        motion: const ScrollMotion(),
+                                        extentRatio: 0.25,
+                                        children: [
+                                          // ใช้ setstate หรือ refresh DB ก็ได้
+                                          SlidableAction(
+                                            label: 'del',
+                                            backgroundColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .alternate,
+                                            icon: Icons.delete,
+                                            onPressed: (_) async {
+                                              _model.apiResultcj9 =
+                                                  await DataListDelCall.call(
+                                                docID: getJsonField(
+                                                  dataListItem,
+                                                  r'''$.id''',
+                                                ).toString(),
+                                              );
+                                              if ((_model.apiResultcj9
+                                                      ?.succeeded ??
+                                                  true)) {
+                                                setState(() {});
+                                              }
 
-                                          setState(() {});
-                                        },
+                                              setState(() {});
+                                            },
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
-                                  child: ListTile(
-                                    title: Text(
-                                      getJsonField(
-                                        dataListItem,
-                                        r'''$.name''',
-                                      ).toString(),
-                                      style: FlutterFlowTheme.of(context)
-                                          .titleLarge,
+                                      child: ListTile(
+                                        title: Text(
+                                          getJsonField(
+                                            dataListItem,
+                                            r'''$.name''',
+                                          ).toString(),
+                                          style: FlutterFlowTheme.of(context)
+                                              .titleLarge,
+                                        ),
+                                        subtitle: Text(
+                                          getJsonField(
+                                            dataListItem,
+                                            r'''$.detail''',
+                                          ).toString(),
+                                          style: FlutterFlowTheme.of(context)
+                                              .labelMedium,
+                                        ),
+                                        tileColor: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        dense: false,
+                                      ),
                                     ),
-                                    subtitle: Text(
-                                      getJsonField(
-                                        dataListItem,
-                                        r'''$.detail''',
-                                      ).toString(),
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
-                                    ),
-                                    tileColor: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    dense: false,
                                   ),
-                                ),
+                                  ToggleTestWidget(
+                                    key: Key(
+                                        'Keyksw_${dataListIndex}_of_${dataList.length}'),
+                                    isCheck: getJsonField(
+                                      dataListItem,
+                                      r'''$.is_check''',
+                                    ),
+                                    docID: getJsonField(
+                                      dataListItem,
+                                      r'''$.id''',
+                                    ).toString(),
+                                  ),
+                                ],
                               );
                             },
                           );

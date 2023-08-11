@@ -196,6 +196,36 @@ class DataListDelCall {
       );
 }
 
+class DataListCheckCall {
+  static Future<ApiCallResponse> call({
+    String? docID = 'test',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'dataListCheck',
+      apiUrl:
+          'https://asia-east2-silver-65166.cloudfunctions.net/dataListCheck',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'docID': docID,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
+      );
+  static dynamic msg(dynamic response) => getJsonField(
+        response,
+        r'''$.msg''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
