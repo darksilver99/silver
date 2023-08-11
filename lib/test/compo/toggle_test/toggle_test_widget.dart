@@ -60,6 +60,7 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
     return ToggleIcon(
       onPressed: () async {
         setState(() => _model.isCheck = !_model.isCheck);
+        await Future.delayed(const Duration(milliseconds: 1000));
         _model.apiResultjjc = await DataListCheckCall.call(
           docID: widget.docID,
         );
