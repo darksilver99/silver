@@ -2,6 +2,7 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -80,7 +81,10 @@ class _Test8PageWidgetState extends State<Test8PageWidget> {
               children: [
                 Expanded(
                   child: FutureBuilder<List<DataListRecord>>(
-                    future: queryDataListRecordOnce(),
+                    future: (_model.firestoreRequestCompleter ??=
+                            Completer<List<DataListRecord>>()
+                              ..complete(queryDataListRecordOnce()))
+                        .future,
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -121,6 +125,10 @@ class _Test8PageWidgetState extends State<Test8PageWidget> {
                                     onPressed: (_) async {
                                       await listViewDataListRecord.reference
                                           .delete();
+                                      setState(() => _model
+                                          .firestoreRequestCompleter = null);
+                                      await _model
+                                          .waitForFirestoreRequestCompleted();
                                     },
                                   ),
                                 ],
