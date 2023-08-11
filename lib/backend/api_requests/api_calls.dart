@@ -112,6 +112,85 @@ class DeleteProvinceCall {
       );
 }
 
+class DataListCall {
+  static Future<ApiCallResponse> call() {
+    return ApiManager.instance.makeApiCall(
+      callName: 'dataList',
+      apiUrl: 'https://asia-east2-silver-65166.cloudfunctions.net/dataList',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
+      );
+  static dynamic msg(dynamic response) => getJsonField(
+        response,
+        r'''$.msg''',
+      );
+  static dynamic data(dynamic response) => getJsonField(
+        response,
+        r'''$.data''',
+        true,
+      );
+  static dynamic name(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].name''',
+        true,
+      );
+  static dynamic detail(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].detail''',
+        true,
+      );
+  static dynamic searchText(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].searchText''',
+        true,
+      );
+  static dynamic ischeck(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].is_check''',
+        true,
+      );
+}
+
+class DataListDelCall {
+  static Future<ApiCallResponse> call({
+    String? docID = 'test',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'dataListDel',
+      apiUrl: 'https://asia-east2-silver-65166.cloudfunctions.net/dataListDel',
+      callType: ApiCallType.GET,
+      headers: {},
+      params: {
+        'docID': docID,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic status(dynamic response) => getJsonField(
+        response,
+        r'''$.status''',
+      );
+  static dynamic msg(dynamic response) => getJsonField(
+        response,
+        r'''$.msg''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
