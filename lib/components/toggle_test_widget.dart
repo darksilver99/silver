@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -13,9 +14,11 @@ class ToggleTestWidget extends StatefulWidget {
   const ToggleTestWidget({
     Key? key,
     required this.isCheck,
+    required this.docID,
   }) : super(key: key);
 
   final bool? isCheck;
+  final String? docID;
 
   @override
   _ToggleTestWidgetState createState() => _ToggleTestWidgetState();
@@ -64,6 +67,11 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
         child: ToggleIcon(
           onPressed: () async {
             setState(() => _model.isCheck = !_model.isCheck);
+            _model.apiResultkr3 = await DataListCheckCall.call(
+              docID: widget.docID,
+            );
+
+            setState(() {});
           },
           value: _model.isCheck,
           onIcon: Icon(

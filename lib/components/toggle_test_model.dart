@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -11,6 +12,11 @@ class ToggleTestModel extends FlutterFlowModel {
   ///  Local state fields for this component.
 
   bool isCheck = false;
+
+  ///  State fields for stateful widgets in this component.
+
+  // Stores action output result for [Backend Call - API (dataListCheck)] action in ToggleIcon widget.
+  ApiCallResponse? apiResultkr3;
 
   /// Initialization and disposal methods.
 
