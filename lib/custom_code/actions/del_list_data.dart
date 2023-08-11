@@ -10,6 +10,6 @@ import 'package:flutter/material.dart';
 Future delListData(List<DocumentReference>? dataList) async {
   // Add your function code here!
   for (var i = 0; i < dataList!.length; i++) {
-    FirebaseFirestore.instance.doc(dataList[i].path).delete;
+    FirebaseFirestore.instance.doc(dataList[i].path).delete();
   }
 }

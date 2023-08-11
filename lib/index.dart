@@ -29,3 +29,4 @@ export '/test/test4_page/test4_page_widget.dart' show Test4PageWidget;
 export '/test/test5_page/test5_page_widget.dart' show Test5PageWidget;
 export '/test/test6_page/test6_page_widget.dart' show Test6PageWidget;
 export '/test/test7_page/test7_page_widget.dart' show Test7PageWidget;
+export '/test/test8_page/test8_page_widget.dart' show Test8PageWidget;

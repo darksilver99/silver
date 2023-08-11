@@ -2,31 +2,30 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import '/custom_code/actions/index.dart' as actions;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'test7_page_model.dart';
-export 'test7_page_model.dart';
+import 'test8_page_model.dart';
+export 'test8_page_model.dart';
 
-class Test7PageWidget extends StatefulWidget {
-  const Test7PageWidget({Key? key}) : super(key: key);
+class Test8PageWidget extends StatefulWidget {
+  const Test8PageWidget({Key? key}) : super(key: key);
 
   @override
-  _Test7PageWidgetState createState() => _Test7PageWidgetState();
+  _Test8PageWidgetState createState() => _Test8PageWidgetState();
 }
 
-class _Test7PageWidgetState extends State<Test7PageWidget> {
-  late Test7PageModel _model;
+class _Test8PageWidgetState extends State<Test8PageWidget> {
+  late Test8PageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => Test7PageModel());
+    _model = createModel(context, () => Test8PageModel());
   }
 
   @override
@@ -43,23 +42,6 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          if (_model.checkedRefList.length > 0) {
-            await actions.delListData(
-              _model.checkedRefList.toList(),
-            );
-            _model.checkedRefList = [];
-          }
-        },
-        backgroundColor: FlutterFlowTheme.of(context).primary,
-        elevation: 8.0,
-        child: Icon(
-          Icons.delete,
-          color: FlutterFlowTheme.of(context).secondaryText,
-          size: 24.0,
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
@@ -78,7 +60,7 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
           },
         ),
         title: Text(
-          'Test7Stream del data checked',
+          'Test8Future delete item',
           style: FlutterFlowTheme.of(context).headlineMedium.override(
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
@@ -97,8 +79,8 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Expanded(
-                  child: StreamBuilder<List<DataListRecord>>(
-                    stream: queryDataListRecord(),
+                  child: FutureBuilder<List<DataListRecord>>(
+                    future: queryDataListRecordOnce(),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -126,31 +108,24 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
-                            child: Theme(
-                              data: ThemeData(
-                                checkboxTheme: CheckboxThemeData(
-                                  visualDensity: VisualDensity.compact,
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
-                                ),
-                                unselectedWidgetColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
+                            child: Slidable(
+                              endActionPane: ActionPane(
+                                motion: const ScrollMotion(),
+                                extentRatio: 0.25,
+                                children: [
+                                  SlidableAction(
+                                    label: 'del',
+                                    backgroundColor:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    icon: Icons.delete,
+                                    onPressed: (_) async {
+                                      await listViewDataListRecord.reference
+                                          .delete();
+                                    },
+                                  ),
+                                ],
                               ),
-                              child: CheckboxListTile(
-                                value: _model.checkboxListTileValueMap[
-                                    listViewDataListRecord] ??= false,
-                                onChanged: (newValue) async {
-                                  setState(() =>
-                                      _model.checkboxListTileValueMap[
-                                          listViewDataListRecord] = newValue!);
-                                  if (newValue!) {
-                                    _model.addToCheckedRefList(
-                                        listViewDataListRecord.reference);
-                                  } else {
-                                    _model.removeFromCheckedRefList(
-                                        listViewDataListRecord.reference);
-                                  }
-                                },
+                              child: ListTile(
                                 title: Text(
                                   listViewDataListRecord.name,
                                   style:
@@ -163,12 +138,7 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                checkColor: FlutterFlowTheme.of(context).info,
                                 dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
                               ),
                             ),
                           );
