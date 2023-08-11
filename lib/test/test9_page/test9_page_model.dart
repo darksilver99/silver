@@ -16,14 +16,20 @@ class Test9PageModel extends FlutterFlowModel {
 
   ///  State fields for stateful widgets in this page.
 
+  // Models for toggleTest dynamic component.
+  late FlutterFlowDynamicModels<ToggleTestModel> toggleTestModels;
   // Stores action output result for [Backend Call - API (dataListDel)] action in SlidableActionWidget widget.
   ApiCallResponse? apiResultcj9;
 
   /// Initialization and disposal methods.
 
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    toggleTestModels = FlutterFlowDynamicModels(() => ToggleTestModel());
+  }
 
-  void dispose() {}
+  void dispose() {
+    toggleTestModels.dispose();
+  }
 
   /// Action blocks are added here.
 
