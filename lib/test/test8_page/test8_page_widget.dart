@@ -117,6 +117,7 @@ class _Test8PageWidgetState extends State<Test8PageWidget> {
                                 motion: const ScrollMotion(),
                                 extentRatio: 0.25,
                                 children: [
+                                  // ใช้ setstate หรือ refresh DB ก็ได้
                                   SlidableAction(
                                     label: 'del',
                                     backgroundColor:
