@@ -235,7 +235,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                       child: FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('Test7Page');
+                          context.pushNamed('Test8Page');
                         },
                         text: 'test8 future del data',
                         options: FFButtonOptions(
