@@ -160,6 +160,11 @@ class DataListCall {
         r'''$.data[:].is_check''',
         true,
       );
+  static dynamic id(dynamic response) => getJsonField(
+        response,
+        r'''$.data[:].id''',
+        true,
+      );
 }
 
 class DataListDelCall {

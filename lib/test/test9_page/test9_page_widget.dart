@@ -2,7 +2,6 @@ import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -81,10 +80,7 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
               children: [
                 Expanded(
                   child: FutureBuilder<ApiCallResponse>(
-                    future: (_model.apiRequestCompleter ??=
-                            Completer<ApiCallResponse>()
-                              ..complete(DataListCall.call()))
-                        .future,
+                    future: DataListCall.call(),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -106,65 +102,70 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                 listViewDataListResponse.jsonBody,
                               )?.toList() ??
                               [];
-                          return RefreshIndicator(
-                            onRefresh: () async {
-                              setState(() => _model.apiRequestCompleter = null);
-                              await _model.waitForApiRequestCompleted();
-                            },
-                            child: ListView.builder(
-                              padding: EdgeInsets.zero,
-                              shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              itemCount: dataList.length,
-                              itemBuilder: (context, dataListIndex) {
-                                final dataListItem = dataList[dataListIndex];
-                                return Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 8.0, 0.0, 0.0),
-                                  child: Slidable(
-                                    endActionPane: ActionPane(
-                                      motion: const ScrollMotion(),
-                                      extentRatio: 0.25,
-                                      children: [
-                                        // ใช้ setstate หรือ refresh DB ก็ได้
-                                        SlidableAction(
-                                          label: 'del',
-                                          backgroundColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .alternate,
-                                          icon: Icons.delete,
-                                          onPressed: (_) {
-                                            print(
-                                                'SlidableActionWidget pressed ...');
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                    child: ListTile(
-                                      title: Text(
-                                        getJsonField(
-                                          dataListItem,
-                                          r'''$.name''',
-                                        ).toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .titleLarge,
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            itemCount: dataList.length,
+                            itemBuilder: (context, dataListIndex) {
+                              final dataListItem = dataList[dataListIndex];
+                              return Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 8.0, 0.0, 0.0),
+                                child: Slidable(
+                                  endActionPane: ActionPane(
+                                    motion: const ScrollMotion(),
+                                    extentRatio: 0.25,
+                                    children: [
+                                      // ใช้ setstate หรือ refresh DB ก็ได้
+                                      SlidableAction(
+                                        label: 'del',
+                                        backgroundColor:
+                                            FlutterFlowTheme.of(context)
+                                                .alternate,
+                                        icon: Icons.delete,
+                                        onPressed: (_) async {
+                                          _model.apiResultcj9 =
+                                              await DataListDelCall.call(
+                                            docID: getJsonField(
+                                              dataListItem,
+                                              r'''$.id''',
+                                            ).toString(),
+                                          );
+                                          if ((_model.apiResultcj9?.succeeded ??
+                                              true)) {
+                                            setState(() {});
+                                          }
+
+                                          setState(() {});
+                                        },
                                       ),
-                                      subtitle: Text(
-                                        getJsonField(
-                                          dataListItem,
-                                          r'''$.detail''',
-                                        ).toString(),
-                                        style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
-                                      ),
-                                      tileColor: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      dense: false,
-                                    ),
+                                    ],
                                   ),
-                                );
-                              },
-                            ),
+                                  child: ListTile(
+                                    title: Text(
+                                      getJsonField(
+                                        dataListItem,
+                                        r'''$.name''',
+                                      ).toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .titleLarge,
+                                    ),
+                                    subtitle: Text(
+                                      getJsonField(
+                                        dataListItem,
+                                        r'''$.detail''',
+                                      ).toString(),
+                                      style: FlutterFlowTheme.of(context)
+                                          .labelMedium,
+                                    ),
+                                    tileColor: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    dense: false,
+                                  ),
+                                ),
+                              );
+                            },
                           );
                         },
                       );
