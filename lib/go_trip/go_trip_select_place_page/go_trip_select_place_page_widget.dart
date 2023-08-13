@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -132,6 +133,13 @@ class _GoTripSelectPlacePageWidgetState
                           controller: textEditingController,
                           focusNode: focusNode,
                           onEditingComplete: onEditingComplete,
+                          onChanged: (_) => EasyDebounce.debounce(
+                            '_model.textController',
+                            Duration(milliseconds: 2000),
+                            () async {
+                              setState(() {});
+                            },
+                          ),
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText:
