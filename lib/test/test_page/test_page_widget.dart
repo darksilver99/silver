@@ -183,9 +183,10 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    final selectedMedia = await selectMedia(
-                      mediaSource: MediaSource.photoGallery,
-                      multiImage: true,
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      allowPhoto: true,
                     );
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
@@ -209,7 +210,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       if (selectedUploadedFiles.length ==
                           selectedMedia.length) {
                         setState(() {
-                          _model.uploadedLocalFiles = selectedUploadedFiles;
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
                         });
                       } else {
                         setState(() {});
@@ -253,34 +255,71 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     size: 25.0,
                   ),
                 ),
-                Material(
-                  color: Colors.transparent,
-                  elevation: 3.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(16.0),
-                      bottomRight: Radius.circular(16.0),
-                      topLeft: Radius.circular(0.0),
-                      topRight: Radius.circular(0.0),
+                Wrap(
+                  spacing: 8.0,
+                  runSpacing: 8.0,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Stack(
+                      alignment: AlignmentDirectional(1.0, -1.0),
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            'https://picsum.photos/seed/688/600',
+                            height: 150.0,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 8.0, 8.0, 0.0),
+                          child: Icon(
+                            Icons.cancel_rounded,
+                            color: FlutterFlowTheme.of(context).error,
+                            size: 32.0,
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(16.0),
-                        bottomRight: Radius.circular(16.0),
-                        topLeft: Radius.circular(0.0),
-                        topRight: Radius.circular(0.0),
-                      ),
-                      border: Border.all(
-                        color: FlutterFlowTheme.of(context).alternate,
-                        width: 1.0,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://picsum.photos/seed/688/600',
+                        height: 150.0,
+                        fit: BoxFit.cover,
                       ),
                     ),
-                  ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://picsum.photos/seed/688/600',
+                        height: 150.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://picsum.photos/seed/688/600',
+                        height: 150.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.network(
+                        'https://picsum.photos/seed/688/600',
+                        height: 150.0,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
