@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -21,6 +22,8 @@ class TestPageModel extends FlutterFlowModel {
   final unfocusNode = FocusNode();
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
+  bool isDataUploading = false;
+  List<FFUploadedFile> uploadedLocalFiles = [];
 
   /// Initialization and disposal methods.
 

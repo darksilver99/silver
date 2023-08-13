@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -182,7 +183,39 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    setState(() {});
+                    final selectedMedia = await selectMedia(
+                      mediaSource: MediaSource.photoGallery,
+                      multiImage: true,
+                    );
+                    if (selectedMedia != null &&
+                        selectedMedia.every((m) =>
+                            validateFileFormat(m.storagePath, context))) {
+                      setState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                      try {
+                        selectedUploadedFiles = selectedMedia
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                  height: m.dimensions?.height,
+                                  width: m.dimensions?.width,
+                                  blurHash: m.blurHash,
+                                ))
+                            .toList();
+                      } finally {
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                          selectedMedia.length) {
+                        setState(() {
+                          _model.uploadedLocalFiles = selectedUploadedFiles;
+                        });
+                      } else {
+                        setState(() {});
+                        return;
+                      }
+                    }
                   },
                   text: 'Sign out',
                   options: FFButtonOptions(
