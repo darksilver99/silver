@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -86,53 +87,99 @@ class _GoTripSelectPlacePageWidgetState
                             fontWeight: FontWeight.w300,
                           ),
                     ),
-                    TextFormField(
-                      controller: _model.textController,
-                      obscureText: false,
-                      decoration: InputDecoration(
-                        labelText:
-                            'Enter destination (country, region, or city)',
-                        labelStyle:
-                            FlutterFlowTheme.of(context).labelMedium.override(
+                    Autocomplete<String>(
+                      initialValue: TextEditingValue(),
+                      optionsBuilder: (textEditingValue) {
+                        if (textEditingValue.text == '') {
+                          return const Iterable<String>.empty();
+                        }
+                        return ['Option 1'].where((option) {
+                          final lowercaseOption = option.toLowerCase();
+                          return lowercaseOption
+                              .contains(textEditingValue.text.toLowerCase());
+                        });
+                      },
+                      optionsViewBuilder: (context, onSelected, options) {
+                        return AutocompleteOptionsList(
+                          textFieldKey: _model.textFieldKey,
+                          textController: _model.textController!,
+                          options: options.toList(),
+                          onSelected: onSelected,
+                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                          textHighlightStyle: TextStyle(),
+                          elevation: 4.0,
+                          optionBackgroundColor:
+                              FlutterFlowTheme.of(context).primaryBackground,
+                          optionHighlightColor:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          maxHeight: 200.0,
+                        );
+                      },
+                      onSelected: (String selection) {
+                        setState(
+                            () => _model.textFieldSelectedOption = selection);
+                        FocusScope.of(context).unfocus();
+                      },
+                      fieldViewBuilder: (
+                        context,
+                        textEditingController,
+                        focusNode,
+                        onEditingComplete,
+                      ) {
+                        _model.textController = textEditingController;
+                        return TextFormField(
+                          key: _model.textFieldKey,
+                          controller: textEditingController,
+                          focusNode: focusNode,
+                          onEditingComplete: onEditingComplete,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            labelText:
+                                'Enter destination (country, region, or city)',
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
                                   fontFamily: 'Montserrat',
                                   color: Color(0xFFC8C8C8),
                                 ),
-                        hintStyle: FlutterFlowTheme.of(context).labelMedium,
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFE0E0E0),
-                            width: 1.0,
+                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFE0E0E0),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFE0E0E0),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFE21C3D),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Color(0xFFE21C3D),
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            prefixIcon: Icon(
+                              Icons.location_on,
+                            ),
                           ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFE0E0E0),
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        errorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFE21C3D),
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        focusedErrorBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Color(0xFFE21C3D),
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                        prefixIcon: Icon(
-                          Icons.location_on,
-                        ),
-                      ),
-                      style: FlutterFlowTheme.of(context).bodyMedium,
-                      validator:
-                          _model.textControllerValidator.asValidator(context),
+                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          validator: _model.textControllerValidator
+                              .asValidator(context),
+                        );
+                      },
                     ),
                     Padding(
                       padding:

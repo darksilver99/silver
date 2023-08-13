@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_autocomplete_options_list.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -24,7 +25,9 @@ class GoTripSelectPlacePageModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.
+  final textFieldKey = GlobalKey();
   TextEditingController? textController;
+  String? textFieldSelectedOption;
   String? Function(BuildContext, String?)? textControllerValidator;
   DateTime? datePicked1;
   DateTime? datePicked2;
@@ -33,9 +36,7 @@ class GoTripSelectPlacePageModel extends FlutterFlowModel {
 
   void initState(BuildContext context) {}
 
-  void dispose() {
-    textController?.dispose();
-  }
+  void dispose() {}
 
   /// Action blocks are added here.
 
