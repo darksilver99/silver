@@ -1,10 +1,13 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_place_picker.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/place.dart';
+import 'dart:io';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -217,6 +220,38 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     Icons.bookmark_border_rounded,
                     color: FlutterFlowTheme.of(context).secondaryText,
                     size: 25.0,
+                  ),
+                ),
+                FlutterFlowPlacePicker(
+                  iOSGoogleMapsApiKey:
+                      'AIzaSyDWXh2tc_-2QR-8vguRLbqPV93zLYjuTBE',
+                  androidGoogleMapsApiKey:
+                      'AIzaSyC-oEqqV_yGbxKu93tbIoU_3rIb_aPh0xM',
+                  webGoogleMapsApiKey:
+                      'AIzaSyBhQuOCeHXqg0Xio3BbtQX9Y6rlVKTkR1M',
+                  onSelect: (place) async {
+                    setState(() => _model.placePickerValue = place);
+                  },
+                  defaultText: 'Select Location',
+                  icon: Icon(
+                    Icons.place,
+                    color: FlutterFlowTheme.of(context).info,
+                    size: 16.0,
+                  ),
+                  buttonOptions: FFButtonOptions(
+                    width: 200.0,
+                    height: 40.0,
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Montserrat',
+                          color: FlutterFlowTheme.of(context).info,
+                        ),
+                    elevation: 2.0,
+                    borderSide: BorderSide(
+                      color: Colors.transparent,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                 ),
               ],
