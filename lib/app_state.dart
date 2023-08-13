@@ -36,6 +36,18 @@ class FFAppState extends ChangeNotifier {
         }
       }
     });
+    _safeInit(() {
+      _tripCreatedMapList =
+          prefs.getStringList('ff_tripCreatedMapList')?.map((x) {
+                try {
+                  return jsonDecode(x);
+                } catch (e) {
+                  print("Can't decode persisted json. Error: $e.");
+                  return {};
+                }
+              }).toList() ??
+              _tripCreatedMapList;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -91,6 +103,41 @@ class FFAppState extends ChangeNotifier {
   set userData(dynamic _value) {
     _userData = _value;
     prefs.setString('ff_userData', jsonEncode(_value));
+  }
+
+  List<dynamic> _tripCreatedMapList = [];
+  List<dynamic> get tripCreatedMapList => _tripCreatedMapList;
+  set tripCreatedMapList(List<dynamic> _value) {
+    _tripCreatedMapList = _value;
+    prefs.setStringList(
+        'ff_tripCreatedMapList', _value.map((x) => jsonEncode(x)).toList());
+  }
+
+  void addToTripCreatedMapList(dynamic _value) {
+    _tripCreatedMapList.add(_value);
+    prefs.setStringList('ff_tripCreatedMapList',
+        _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeFromTripCreatedMapList(dynamic _value) {
+    _tripCreatedMapList.remove(_value);
+    prefs.setStringList('ff_tripCreatedMapList',
+        _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromTripCreatedMapList(int _index) {
+    _tripCreatedMapList.removeAt(_index);
+    prefs.setStringList('ff_tripCreatedMapList',
+        _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void updateTripCreatedMapListAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _tripCreatedMapList[_index] = updateFn(_tripCreatedMapList[_index]);
+    prefs.setStringList('ff_tripCreatedMapList',
+        _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
 }
 
