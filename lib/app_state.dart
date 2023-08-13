@@ -145,6 +145,12 @@ class FFAppState extends ChangeNotifier {
   set tripCreatedMapData(dynamic _value) {
     _tripCreatedMapData = _value;
   }
+
+  dynamic _selectedLocationPlace;
+  dynamic get selectedLocationPlace => _selectedLocationPlace;
+  set selectedLocationPlace(dynamic _value) {
+    _selectedLocationPlace = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
