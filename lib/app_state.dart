@@ -139,6 +139,12 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
+
+  dynamic _tripCreatedMapData;
+  dynamic get tripCreatedMapData => _tripCreatedMapData;
+  set tripCreatedMapData(dynamic _value) {
+    _tripCreatedMapData = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

@@ -326,8 +326,26 @@ class _GoTripSelectPlacePageWidgetState
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          if (!(_model.travelName != null &&
+                              _model.travelName != '')) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Start planing: Trip name empty  ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                ),
+                                duration: Duration(milliseconds: 2000),
+                                backgroundColor: Color(0x95000000),
+                              ),
+                            );
+                          }
                         },
                         text: 'Next',
                         options: FFButtonOptions(
