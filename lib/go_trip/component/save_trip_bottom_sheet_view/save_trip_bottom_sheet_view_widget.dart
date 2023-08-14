@@ -69,6 +69,7 @@ class _SaveTripBottomSheetViewWidgetState
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     Navigator.pop(context);
+                    await Future.delayed(const Duration(milliseconds: 1000));
                     await showAlignedDialog(
                       context: context,
                       isGlobal: true,
