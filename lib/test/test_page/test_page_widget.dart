@@ -5,8 +5,10 @@ import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +31,15 @@ class _TestPageWidgetState extends State<TestPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.textController?.text = 'aaaa';
+      });
+    });
+
+    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -81,6 +92,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   dateTimeFormat(
@@ -154,7 +166,13 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Hello World',
+                      random_data.randomString(
+                        10,
+                        20,
+                        true,
+                        true,
+                        true,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                     Text(
@@ -181,7 +199,41 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    setState(() {});
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      allowPhoto: true,
+                    );
+                    if (selectedMedia != null &&
+                        selectedMedia.every((m) =>
+                            validateFileFormat(m.storagePath, context))) {
+                      setState(() => _model.isDataUploading = true);
+                      var selectedUploadedFiles = <FFUploadedFile>[];
+
+                      try {
+                        selectedUploadedFiles = selectedMedia
+                            .map((m) => FFUploadedFile(
+                                  name: m.storagePath.split('/').last,
+                                  bytes: m.bytes,
+                                  height: m.dimensions?.height,
+                                  width: m.dimensions?.width,
+                                  blurHash: m.blurHash,
+                                ))
+                            .toList();
+                      } finally {
+                        _model.isDataUploading = false;
+                      }
+                      if (selectedUploadedFiles.length ==
+                          selectedMedia.length) {
+                        setState(() {
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
+                        });
+                      } else {
+                        setState(() {});
+                        return;
+                      }
+                    }
                   },
                   text: 'Sign out',
                   options: FFButtonOptions(
@@ -206,6 +258,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ToggleIcon(
                   onPressed: () async {
                     setState(() => _model.isBooked = !_model.isBooked);
+                    await Future.delayed(const Duration(milliseconds: 1000));
                   },
                   value: _model.isBooked,
                   onIcon: Icon(
@@ -217,6 +270,50 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     Icons.bookmark_border_rounded,
                     color: FlutterFlowTheme.of(context).secondaryText,
                     size: 25.0,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                  child: TextFormField(
+                    controller: _model.textController,
+                    autofocus: true,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Label here...',
+                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                      enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    validator:
+                        _model.textControllerValidator.asValidator(context),
                   ),
                 ),
               ],

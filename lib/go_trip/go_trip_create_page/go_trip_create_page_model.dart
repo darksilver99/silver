@@ -8,6 +8,9 @@ import '/go_trip/component/edit_each_trip_bottom_sheet_view/edit_each_trip_botto
 import '/go_trip/component/invite_trip_dialog_view/invite_trip_dialog_view_widget.dart';
 import '/go_trip/component/preview_trip_bottom_sheet_view/preview_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/save_trip_bottom_sheet_view/save_trip_bottom_sheet_view_widget.dart';
+import '/go_trip/component/selected_booking_category_bottom_sheet_view/selected_booking_category_bottom_sheet_view_widget.dart';
+import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_expense_category_bottom_sheet_view_widget.dart';
+import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';

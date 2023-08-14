@@ -1,7 +1,10 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -26,6 +29,17 @@ class _GoTripSelectPlacePageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => GoTripSelectPlacePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      setState(() {
+        _model.dateFrom = dateTimeFormat(
+          'y/M/d',
+          getCurrentTimestamp,
+          locale: FFLocalizations.of(context).languageCode,
+        );
+      });
+    });
 
     _model.textController ??= TextEditingController();
   }
@@ -75,6 +89,15 @@ class _GoTripSelectPlacePageWidgetState
                     ),
                     TextFormField(
                       controller: _model.textController,
+                      onChanged: (_) => EasyDebounce.debounce(
+                        '_model.textController',
+                        Duration(milliseconds: 2000),
+                        () async {
+                          setState(() {});
+                          await Future.delayed(
+                              const Duration(milliseconds: 1000));
+                        },
+                      ),
                       obscureText: false,
                       decoration: InputDecoration(
                         labelText:
@@ -161,35 +184,72 @@ class _GoTripSelectPlacePageWidgetState
                                       size: 24.0,
                                     ),
                                     Expanded(
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                            'Start date',
-                                            maxLines: 1,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  color: Color(0xFFC8C8C8),
-                                                  fontSize: 14.0,
-                                                ),
-                                          ),
-                                          Text(
-                                            'dd/mm/yy',
-                                            maxLines: 1,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Montserrat',
-                                                  fontSize: 14.0,
-                                                ),
-                                          ),
-                                        ],
+                                      child: InkWell(
+                                        splashColor: Colors.transparent,
+                                        focusColor: Colors.transparent,
+                                        hoverColor: Colors.transparent,
+                                        highlightColor: Colors.transparent,
+                                        onTap: () async {
+                                          final _datePicked1Date =
+                                              await showDatePicker(
+                                            context: context,
+                                            initialDate: getCurrentTimestamp,
+                                            firstDate: getCurrentTimestamp,
+                                            lastDate: DateTime(2050),
+                                          );
+
+                                          if (_datePicked1Date != null) {
+                                            setState(() {
+                                              _model.datePicked1 = DateTime(
+                                                _datePicked1Date.year,
+                                                _datePicked1Date.month,
+                                                _datePicked1Date.day,
+                                              );
+                                            });
+                                          }
+                                          setState(() {
+                                            _model.dateFrom = dateTimeFormat(
+                                              'y/M/d',
+                                              _model.datePicked1,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            );
+                                          });
+                                        },
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'Start date',
+                                              maxLines: 1,
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    color: Color(0xFFC8C8C8),
+                                                    fontSize: 14.0,
+                                                  ),
+                                            ),
+                                            Text(
+                                              _model.dateFrom,
+                                              maxLines: 1,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        fontSize: 14.0,
+                                                      ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -204,33 +264,67 @@ class _GoTripSelectPlacePageWidgetState
                             Expanded(
                               child: Container(
                                 decoration: BoxDecoration(),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'End date',
-                                      maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            color: Color(0xFFC8C8C8),
-                                            fontSize: 14.0,
-                                          ),
-                                    ),
-                                    Text(
-                                      'dd/mm/yy',
-                                      maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Montserrat',
-                                            fontSize: 14.0,
-                                          ),
-                                    ),
-                                  ],
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    final _datePicked2Date =
+                                        await showDatePicker(
+                                      context: context,
+                                      initialDate: getCurrentTimestamp,
+                                      firstDate: getCurrentTimestamp,
+                                      lastDate: DateTime(2050),
+                                    );
+
+                                    if (_datePicked2Date != null) {
+                                      setState(() {
+                                        _model.datePicked2 = DateTime(
+                                          _datePicked2Date.year,
+                                          _datePicked2Date.month,
+                                          _datePicked2Date.day,
+                                        );
+                                      });
+                                    }
+                                    setState(() {
+                                      _model.dateTo = dateTimeFormat(
+                                        'y/M/d',
+                                        _model.datePicked2,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      );
+                                    });
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'End date',
+                                        maxLines: 1,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              color: Color(0xFFC8C8C8),
+                                              fontSize: 14.0,
+                                            ),
+                                      ),
+                                      Text(
+                                        _model.dateTo,
+                                        maxLines: 1,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              fontSize: 14.0,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -242,8 +336,26 @@ class _GoTripSelectPlacePageWidgetState
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          if (!(_model.travelName != null &&
+                              _model.travelName != '')) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Start planing: Trip name empty  ',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodySmall
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        color: FlutterFlowTheme.of(context)
+                                            .primaryText,
+                                      ),
+                                ),
+                                duration: Duration(milliseconds: 2000),
+                                backgroundColor: Color(0x95000000),
+                              ),
+                            );
+                          }
                         },
                         text: 'Next',
                         options: FFButtonOptions(
