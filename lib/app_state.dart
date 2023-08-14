@@ -151,6 +151,117 @@ class FFAppState extends ChangeNotifier {
   set selectedLocationPlace(dynamic _value) {
     _selectedLocationPlace = _value;
   }
+
+  dynamic _manualUploadBooking;
+  dynamic get manualUploadBooking => _manualUploadBooking;
+  set manualUploadBooking(dynamic _value) {
+    _manualUploadBooking = _value;
+  }
+
+  List<dynamic> _expenseCategoryList = [
+    jsonDecode('{\"name\":\"Hotel\",\"image\":\"Booking-Hotel.png\"}'),
+    jsonDecode('{\"name\":\"Flight\",\"image\":\"Booking-Flight.png\"}'),
+    jsonDecode('{\"name\":\"Car Rental\",\"image\":\"Booking-Transport.png\"}'),
+    jsonDecode('{\"name\":\"Ticket\",\"image\":\"Booking-Concert.png\"}'),
+    jsonDecode(
+        '{\"name\":\"Public transit\",\"image\":\"Booking-Activities.png\"}'),
+    jsonDecode('{\"name\":\"Food\",\"image\":\"E-Food 2.png\"}'),
+    jsonDecode('{\"name\":\"Drink\",\"image\":\"Booking-Activities.png\"}'),
+    jsonDecode(
+        '{\"name\":\"Gas station\",\"image\":\"Booking-Activities.png\"}'),
+    jsonDecode(
+        '{\"name\":\"Attraction\",\"image\":\"Booking-Activities.png\"}'),
+    jsonDecode('{\"name\":\"Landmark\",\"image\":\"Booking-Activities.png\"}'),
+    jsonDecode('{\"name\":\"Other\",\"image\":\"Booking-Activities.png\"}')
+  ];
+  List<dynamic> get expenseCategoryList => _expenseCategoryList;
+  set expenseCategoryList(List<dynamic> _value) {
+    _expenseCategoryList = _value;
+  }
+
+  void addToExpenseCategoryList(dynamic _value) {
+    _expenseCategoryList.add(_value);
+  }
+
+  void removeFromExpenseCategoryList(dynamic _value) {
+    _expenseCategoryList.remove(_value);
+  }
+
+  void removeAtIndexFromExpenseCategoryList(int _index) {
+    _expenseCategoryList.removeAt(_index);
+  }
+
+  void updateExpenseCategoryListAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _expenseCategoryList[_index] = updateFn(_expenseCategoryList[_index]);
+  }
+
+  List<dynamic> _bookingCategoryList = [
+    jsonDecode('{\"name\":\"Hotel\",\"image\":\"Booking-Hotel.png\"}'),
+    jsonDecode('{\"name\":\"Flight\",\"image\":\"Booking-Flight.png\"}'),
+    jsonDecode(
+        '{\"name\":\"Transportation\",\"image\":\"Booking-Transport.png\"}'),
+    jsonDecode('{\"name\":\"Concert\",\"image\":\"Booking-Concert.png\"}'),
+    jsonDecode('{\"name\":\"Activity\",\"image\":\"Booking-Activities.png\"}')
+  ];
+  List<dynamic> get bookingCategoryList => _bookingCategoryList;
+  set bookingCategoryList(List<dynamic> _value) {
+    _bookingCategoryList = _value;
+  }
+
+  void addToBookingCategoryList(dynamic _value) {
+    _bookingCategoryList.add(_value);
+  }
+
+  void removeFromBookingCategoryList(dynamic _value) {
+    _bookingCategoryList.remove(_value);
+  }
+
+  void removeAtIndexFromBookingCategoryList(int _index) {
+    _bookingCategoryList.removeAt(_index);
+  }
+
+  void updateBookingCategoryListAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _bookingCategoryList[_index] = updateFn(_bookingCategoryList[_index]);
+  }
+
+  List<dynamic> _transportationCategoryList = [
+    jsonDecode('{\"name\":\"Walk\",\"image\":\"Transport-bike.png\"}'),
+    jsonDecode('{\"name\":\"Car\",\"image\":\"Transport-car.png\"}'),
+    jsonDecode('{\"name\":\"Bus\",\"image\":\"Transport-bus.png\"}'),
+    jsonDecode('{\"name\":\"Rail\",\"image\":\"Transport-train.png\"}'),
+    jsonDecode('{\"name\":\"Airplane\",\"image\":\"Transport-airplan.png\"}'),
+    jsonDecode('{\"name\":\"Boat\",\"image\":\"Transport-boat.png\"}')
+  ];
+  List<dynamic> get transportationCategoryList => _transportationCategoryList;
+  set transportationCategoryList(List<dynamic> _value) {
+    _transportationCategoryList = _value;
+  }
+
+  void addToTransportationCategoryList(dynamic _value) {
+    _transportationCategoryList.add(_value);
+  }
+
+  void removeFromTransportationCategoryList(dynamic _value) {
+    _transportationCategoryList.remove(_value);
+  }
+
+  void removeAtIndexFromTransportationCategoryList(int _index) {
+    _transportationCategoryList.removeAt(_index);
+  }
+
+  void updateTransportationCategoryListAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _transportationCategoryList[_index] =
+        updateFn(_transportationCategoryList[_index]);
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

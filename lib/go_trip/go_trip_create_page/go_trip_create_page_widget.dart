@@ -8,6 +8,9 @@ import '/go_trip/component/edit_each_trip_bottom_sheet_view/edit_each_trip_botto
 import '/go_trip/component/invite_trip_dialog_view/invite_trip_dialog_view_widget.dart';
 import '/go_trip/component/preview_trip_bottom_sheet_view/preview_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/save_trip_bottom_sheet_view/save_trip_bottom_sheet_view_widget.dart';
+import '/go_trip/component/selected_booking_category_bottom_sheet_view/selected_booking_category_bottom_sheet_view_widget.dart';
+import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_expense_category_bottom_sheet_view_widget.dart';
+import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
@@ -1214,12 +1217,35 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.asset(
-                                        'assets/images/Booking-Concert.png',
-                                        height: 24.0,
-                                        fit: BoxFit.cover,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  SelectedExpenseCategoryBottomSheetViewWidget(),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: Image.asset(
+                                          'assets/images/Booking-Concert.png',
+                                          height: 24.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     Expanded(
@@ -1428,12 +1454,35 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(0.0),
-                                      child: Image.asset(
-                                        'assets/images/Booking-Concert.png',
-                                        height: 24.0,
-                                        fit: BoxFit.cover,
+                                    InkWell(
+                                      splashColor: Colors.transparent,
+                                      focusColor: Colors.transparent,
+                                      hoverColor: Colors.transparent,
+                                      highlightColor: Colors.transparent,
+                                      onTap: () async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child:
+                                                  SelectedBookingCategoryBottomSheetViewWidget(),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: Image.asset(
+                                          'assets/images/Booking-Concert.png',
+                                          height: 24.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     Expanded(
@@ -1976,13 +2025,37 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             8.0, 0.0, 8.0, 0.0),
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.asset(
-                                            'assets/images/car-side_1.png',
-                                            height: 22.0,
-                                            fit: BoxFit.cover,
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            await showModalBottomSheet(
+                                              isScrollControlled: true,
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              enableDrag: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child:
+                                                      SelectedTransportCategoryBottomSheetViewWidget(),
+                                                );
+                                              },
+                                            ).then((value) => setState(() {}));
+                                          },
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.asset(
+                                              'assets/images/car-side_1.png',
+                                              height: 22.0,
+                                              fit: BoxFit.cover,
+                                            ),
                                           ),
                                         ),
                                       ),

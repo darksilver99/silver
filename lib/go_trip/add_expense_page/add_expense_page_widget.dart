@@ -89,6 +89,10 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
               children: [
                 Container(
                   width: double.infinity,
+                  constraints: BoxConstraints(
+                    minHeight: MediaQuery.sizeOf(context).height * 0.8,
+                    maxHeight: 133.0,
+                  ),
                   decoration: BoxDecoration(
                     color: FlutterFlowTheme.of(context).secondaryBackground,
                   ),

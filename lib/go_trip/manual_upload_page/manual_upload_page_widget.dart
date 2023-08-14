@@ -110,7 +110,9 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                       child: FlutterFlowDropDown<String>(
                         controller: _model.dropDownValueController ??=
-                            FormFieldController<String>(null),
+                            FormFieldController<String>(
+                          _model.dropDownValue ??= 'Option 1',
+                        ),
                         options: ['Option 1', 'Option 2', 'Option 3'],
                         onChanged: (val) =>
                             setState(() => _model.dropDownValue = val),
@@ -358,8 +360,8 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                 child: FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    await Future.delayed(const Duration(milliseconds: 1000));
                   },
                   text: 'Save',
                   options: FFButtonOptions(
