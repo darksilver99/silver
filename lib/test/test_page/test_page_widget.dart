@@ -166,7 +166,13 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Hello World',
+                      random_data.randomString(
+                        10,
+                        20,
+                        true,
+                        true,
+                        true,
+                      ),
                       style: FlutterFlowTheme.of(context).bodyMedium,
                     ),
                     Text(
@@ -252,6 +258,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ToggleIcon(
                   onPressed: () async {
                     setState(() => _model.isBooked = !_model.isBooked);
+                    await Future.delayed(const Duration(milliseconds: 1000));
                   },
                   value: _model.isBooked,
                   onIcon: Icon(

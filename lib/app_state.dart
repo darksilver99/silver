@@ -262,6 +262,12 @@ class FFAppState extends ChangeNotifier {
     _transportationCategoryList[_index] =
         updateFn(_transportationCategoryList[_index]);
   }
+
+  bool _isUploading = true;
+  bool get isUploading => _isUploading;
+  set isUploading(bool _value) {
+    _isUploading = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
