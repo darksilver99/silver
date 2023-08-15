@@ -8,6 +8,7 @@ import '/go_trip/component/edit_each_trip_bottom_sheet_view/edit_each_trip_botto
 import '/go_trip/component/invite_trip_dialog_view/invite_trip_dialog_view_widget.dart';
 import '/go_trip/component/preview_trip_bottom_sheet_view/preview_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/save_trip_bottom_sheet_view/save_trip_bottom_sheet_view_widget.dart';
+import '/go_trip/component/search_place_bottom_sheet_view/search_place_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_booking_category_bottom_sheet_view/selected_booking_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_expense_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
@@ -1096,6 +1097,29 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         4.0, 0.0, 4.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController4,
+                                      onFieldSubmitted: (_) async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.95,
+                                                child:
+                                                    SearchPlaceBottomSheetViewWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
