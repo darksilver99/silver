@@ -24,8 +24,7 @@ class TestPageModel extends FlutterFlowModel {
   // State field(s) for RadioButton widget.
   FormFieldController<String>? radioButtonValueController;
   bool isDataUploading = false;
-  FFUploadedFile uploadedLocalFile =
-      FFUploadedFile(bytes: Uint8List.fromList([]));
+  List<FFUploadedFile> uploadedLocalFiles = [];
 
   // State field(s) for TextField widget.
   TextEditingController? textController;

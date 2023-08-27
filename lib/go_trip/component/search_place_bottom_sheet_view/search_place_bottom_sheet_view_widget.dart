@@ -129,7 +129,7 @@ class _SearchPlaceBottomSheetViewWidgetState
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          setState(() {});
+                          Navigator.pop(context);
                         },
                         child: Container(
                           width: double.infinity,

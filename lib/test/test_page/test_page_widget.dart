@@ -199,10 +199,9 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    final selectedMedia =
-                        await selectMediaWithSourceBottomSheet(
-                      context: context,
-                      allowPhoto: true,
+                    final selectedMedia = await selectMedia(
+                      mediaSource: MediaSource.photoGallery,
+                      multiImage: true,
                     );
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
@@ -226,8 +225,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       if (selectedUploadedFiles.length ==
                           selectedMedia.length) {
                         setState(() {
-                          _model.uploadedLocalFile =
-                              selectedUploadedFiles.first;
+                          _model.uploadedLocalFiles = selectedUploadedFiles;
                         });
                       } else {
                         setState(() {});
@@ -315,6 +313,10 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [],
                 ),
               ],
             ),

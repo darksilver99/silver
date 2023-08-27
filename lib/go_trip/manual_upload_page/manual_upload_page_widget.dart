@@ -135,6 +135,7 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                             16.0, 4.0, 16.0, 4.0),
                         hidesUnderline: true,
                         isSearchable: false,
+                        isMultiSelect: false,
                       ),
                     ),
                     Padding(
