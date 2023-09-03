@@ -199,9 +199,12 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 ),
                 FFButtonWidget(
                   onPressed: () async {
-                    final selectedMedia = await selectMedia(
-                      mediaSource: MediaSource.photoGallery,
-                      multiImage: true,
+                    final selectedMedia =
+                        await selectMediaWithSourceBottomSheet(
+                      context: context,
+                      maxWidth: 1600.00,
+                      imageQuality: 80,
+                      allowPhoto: true,
                     );
                     if (selectedMedia != null &&
                         selectedMedia.every((m) =>
@@ -225,7 +228,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       if (selectedUploadedFiles.length ==
                           selectedMedia.length) {
                         setState(() {
-                          _model.uploadedLocalFiles = selectedUploadedFiles;
+                          _model.uploadedLocalFile =
+                              selectedUploadedFiles.first;
                         });
                       } else {
                         setState(() {});
@@ -260,7 +264,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                   },
                   value: _model.isBooked,
                   onIcon: Icon(
-                    Icons.bookmark_rounded,
+                    Icons.directions_walk,
                     color: Color(0xFFDE8410),
                     size: 25.0,
                   ),
@@ -317,6 +321,25 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   children: [],
+                ),
+                Wrap(
+                  spacing: 0.0,
+                  runSpacing: 0.0,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      width: MediaQuery.sizeOf(context).width * 0.5,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

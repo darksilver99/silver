@@ -48,6 +48,18 @@ class FFAppState extends ChangeNotifier {
               }).toList() ??
               _tripCreatedMapList;
     });
+    _safeInit(() {
+      _homeOfflineDataList =
+          prefs.getStringList('ff_homeOfflineDataList')?.map((x) {
+                try {
+                  return jsonDecode(x);
+                } catch (e) {
+                  print("Can't decode persisted json. Error: $e.");
+                  return {};
+                }
+              }).toList() ??
+              _homeOfflineDataList;
+    });
   }
 
   void update(VoidCallback callback) {
@@ -267,6 +279,41 @@ class FFAppState extends ChangeNotifier {
   bool get isUploading => _isUploading;
   set isUploading(bool _value) {
     _isUploading = _value;
+  }
+
+  List<dynamic> _homeOfflineDataList = [];
+  List<dynamic> get homeOfflineDataList => _homeOfflineDataList;
+  set homeOfflineDataList(List<dynamic> _value) {
+    _homeOfflineDataList = _value;
+    prefs.setStringList(
+        'ff_homeOfflineDataList', _value.map((x) => jsonEncode(x)).toList());
+  }
+
+  void addToHomeOfflineDataList(dynamic _value) {
+    _homeOfflineDataList.add(_value);
+    prefs.setStringList('ff_homeOfflineDataList',
+        _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeFromHomeOfflineDataList(dynamic _value) {
+    _homeOfflineDataList.remove(_value);
+    prefs.setStringList('ff_homeOfflineDataList',
+        _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromHomeOfflineDataList(int _index) {
+    _homeOfflineDataList.removeAt(_index);
+    prefs.setStringList('ff_homeOfflineDataList',
+        _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void updateHomeOfflineDataListAtIndex(
+    int _index,
+    dynamic Function(dynamic) updateFn,
+  ) {
+    _homeOfflineDataList[_index] = updateFn(_homeOfflineDataList[_index]);
+    prefs.setStringList('ff_homeOfflineDataList',
+        _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 }
 
