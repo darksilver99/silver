@@ -64,7 +64,7 @@ class _HomePageCustomWidgetState extends State<HomePageCustomWidget> with Ticker
     bool isMultiImage = false,
     bool isMedia = false,
   }) async {
-    if (context.mounted) {
+    /*if (context.mounted) {
       final List<XFile> pickedFileList = await _picker.pickMultiImage(
         maxWidth: null,
         maxHeight: 200,
@@ -90,7 +90,7 @@ class _HomePageCustomWidgetState extends State<HomePageCustomWidget> with Ticker
         //uploadDataIsOK(file, "aaa");
         uploadData(photoFiles, "aaa");
       }
-    }
+    }*/
   }
 
   Future<void> uploadDataIsOK(File photoFile, text) async {
