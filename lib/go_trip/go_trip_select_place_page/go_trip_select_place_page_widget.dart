@@ -365,7 +365,7 @@ class _GoTripSelectPlacePageWidgetState
                               0.0, 0.0, 0.0, 0.0),
                           iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          color: Color(0xFFF79552),
+                          color: FlutterFlowTheme.of(context).tertiary,
                           textStyle:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',

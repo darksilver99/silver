@@ -2,12 +2,14 @@ import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/go_trip/component/add_activity_bottom_sheet_view/add_activity_bottom_sheet_view_widget.dart';
 import '/go_trip/component/edit_budget_dialog_view/edit_budget_dialog_view_widget.dart';
 import '/go_trip/component/edit_each_trip_bottom_sheet_view/edit_each_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/invite_trip_dialog_view/invite_trip_dialog_view_widget.dart';
 import '/go_trip/component/preview_trip_bottom_sheet_view/preview_trip_bottom_sheet_view_widget.dart';
 import '/go_trip/component/save_trip_bottom_sheet_view/save_trip_bottom_sheet_view_widget.dart';
+import '/go_trip/component/search_place_bottom_sheet_view/search_place_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_booking_category_bottom_sheet_view/selected_booking_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_expense_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
@@ -380,43 +382,94 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 16.0, 16.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 4.0, 16.0, 4.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 2.0, 4.0, 0.0),
-                                          child: Icon(
-                                            Icons.photo_camera,
-                                            color: FlutterFlowTheme.of(context)
-                                                .secondaryText,
-                                            size: 14.0,
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    final selectedMedia =
+                                        await selectMediaWithSourceBottomSheet(
+                                      context: context,
+                                      maxWidth: 1600.00,
+                                      imageQuality: 80,
+                                      allowPhoto: true,
+                                    );
+                                    if (selectedMedia != null &&
+                                        selectedMedia.every((m) =>
+                                            validateFileFormat(
+                                                m.storagePath, context))) {
+                                      setState(
+                                          () => _model.isDataUploading = true);
+                                      var selectedUploadedFiles =
+                                          <FFUploadedFile>[];
+
+                                      try {
+                                        selectedUploadedFiles = selectedMedia
+                                            .map((m) => FFUploadedFile(
+                                                  name: m.storagePath
+                                                      .split('/')
+                                                      .last,
+                                                  bytes: m.bytes,
+                                                  height: m.dimensions?.height,
+                                                  width: m.dimensions?.width,
+                                                  blurHash: m.blurHash,
+                                                ))
+                                            .toList();
+                                      } finally {
+                                        _model.isDataUploading = false;
+                                      }
+                                      if (selectedUploadedFiles.length ==
+                                          selectedMedia.length) {
+                                        setState(() {
+                                          _model.uploadedLocalFile =
+                                              selectedUploadedFiles.first;
+                                        });
+                                      } else {
+                                        setState(() {});
+                                        return;
+                                      }
+                                    }
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 4.0, 16.0, 4.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 2.0, 4.0, 0.0),
+                                            child: Icon(
+                                              Icons.photo_camera,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondaryText,
+                                              size: 14.0,
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          'Edit',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Montserrat',
-                                                fontSize: 14.0,
-                                              ),
-                                        ),
-                                      ],
+                                          Text(
+                                            'Edit',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  fontSize: 14.0,
+                                                ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -577,8 +630,9 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             ),
                           ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await Future.delayed(
+                                  const Duration(milliseconds: 1000));
                             },
                             text: 'Save',
                             options: FFButtonOptions(
@@ -1096,6 +1150,29 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         4.0, 0.0, 4.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController4,
+                                      onFieldSubmitted: (_) async {
+                                        await showModalBottomSheet(
+                                          isScrollControlled: true,
+                                          backgroundColor: Colors.transparent,
+                                          enableDrag: false,
+                                          context: context,
+                                          builder: (context) {
+                                            return Padding(
+                                              padding: MediaQuery.viewInsetsOf(
+                                                  context),
+                                              child: Container(
+                                                height:
+                                                    MediaQuery.sizeOf(context)
+                                                            .height *
+                                                        0.95,
+                                                child:
+                                                    SearchPlaceBottomSheetViewWidget(),
+                                              ),
+                                            );
+                                          },
+                                        ).then((value) => setState(() {}));
+                                      },
+                                      readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,

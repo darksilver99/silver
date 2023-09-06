@@ -31,3 +31,6 @@ export '/test/test6_page/test6_page_widget.dart' show Test6PageWidget;
 export '/test/test7_page/test7_page_widget.dart' show Test7PageWidget;
 export '/test/test8_page/test8_page_widget.dart' show Test8PageWidget;
 export '/test/test9_page/test9_page_widget.dart' show Test9PageWidget;
+export '/booking_page/booking_page_widget.dart' show BookingPageWidget;
+export '/go_trip/go_trip_list_picker_page/go_trip_list_picker_page_widget.dart'
+    show GoTripListPickerPageWidget;

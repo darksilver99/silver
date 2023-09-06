@@ -202,6 +202,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     final selectedMedia =
                         await selectMediaWithSourceBottomSheet(
                       context: context,
+                      maxWidth: 1600.00,
+                      imageQuality: 80,
                       allowPhoto: true,
                     );
                     if (selectedMedia != null &&
@@ -262,7 +264,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                   },
                   value: _model.isBooked,
                   onIcon: Icon(
-                    Icons.bookmark_rounded,
+                    Icons.directions_walk,
                     color: Color(0xFFDE8410),
                     size: 25.0,
                   ),
@@ -315,6 +317,29 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [],
+                ),
+                Wrap(
+                  spacing: 0.0,
+                  runSpacing: 0.0,
+                  alignment: WrapAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.start,
+                  direction: Axis.horizontal,
+                  runAlignment: WrapAlignment.start,
+                  verticalDirection: VerticalDirection.down,
+                  clipBehavior: Clip.none,
+                  children: [
+                    Container(
+                      width: MediaQuery.sizeOf(context).width * 0.5,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
