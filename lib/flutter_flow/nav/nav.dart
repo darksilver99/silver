@@ -169,6 +169,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'GoTripListPickerPage',
           path: '/goTripListPickerPage',
           builder: (context, params) => GoTripListPickerPageWidget(),
+        ),
+        FFRoute(
+          name: 'BookingHotelPreviewPage',
+          path: '/bookingHotelPreviewPage',
+          builder: (context, params) => BookingHotelPreviewPageWidget(),
+        ),
+        FFRoute(
+          name: 'BookingHotelPreviewPageCopy',
+          path: '/bookingHotelPreviewPageCopy',
+          builder: (context, params) => BookingHotelPreviewPageCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

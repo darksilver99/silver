@@ -34,3 +34,7 @@ export '/test/test9_page/test9_page_widget.dart' show Test9PageWidget;
 export '/booking_page/booking_page_widget.dart' show BookingPageWidget;
 export '/go_trip/go_trip_list_picker_page/go_trip_list_picker_page_widget.dart'
     show GoTripListPickerPageWidget;
+export '/booking_hotel/booking_hotel_preview_page/booking_hotel_preview_page_widget.dart'
+    show BookingHotelPreviewPageWidget;
+export '/booking_hotel/booking_hotel_preview_page_copy/booking_hotel_preview_page_copy_widget.dart'
+    show BookingHotelPreviewPageCopyWidget;
