@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -43,6 +44,7 @@ class _BookingHotelPreviewPageWidgetState
 
     return Scaffold(
       key: scaffoldKey,
+      resizeToAvoidBottomInset: false,
       backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
       appBar: AppBar(
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -778,13 +780,30 @@ class _BookingHotelPreviewPageWidgetState
                   Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(0.0),
-                      child: Image.network(
-                        'https://picsum.photos/seed/46/600',
-                        width: double.infinity,
-                        height: 100.0,
-                        fit: BoxFit.cover,
+                    child: Container(
+                      width: double.infinity,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                      ),
+                      child: FlutterFlowGoogleMap(
+                        controller: _model.googleMapsController,
+                        onCameraIdle: (latLng) =>
+                            _model.googleMapsCenter = latLng,
+                        initialLocation: _model.googleMapsCenter ??=
+                            LatLng(13.106061, -59.613158),
+                        markerColor: GoogleMarkerColor.violet,
+                        mapType: MapType.normal,
+                        style: GoogleMapStyle.standard,
+                        initialZoom: 14.0,
+                        allowInteraction: false,
+                        allowZoom: false,
+                        showZoomControls: false,
+                        showLocation: false,
+                        showCompass: false,
+                        showMapToolbar: false,
+                        showTraffic: false,
+                        centerMapOnMarkerTap: true,
                       ),
                     ),
                   ),

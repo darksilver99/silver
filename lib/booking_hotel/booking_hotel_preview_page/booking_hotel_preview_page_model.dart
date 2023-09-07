@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_google_map.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,6 +18,9 @@ class BookingHotelPreviewPageModel extends FlutterFlowModel {
 
   // State field(s) for RatingBar widget.
   double? ratingBarValue;
+  // State field(s) for GoogleMap widget.
+  LatLng? googleMapsCenter;
+  final googleMapsController = Completer<GoogleMapController>();
 
   /// Initialization and disposal methods.
 
