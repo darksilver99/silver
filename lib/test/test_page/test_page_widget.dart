@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_toggle_icon.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
@@ -113,6 +114,17 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       shape: BoxShape.rectangle,
                     ),
                   ),
+                ),
+                FlutterFlowVideoPlayer(
+                  path:
+                      'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
+                  videoType: VideoType.network,
+                  autoPlay: false,
+                  looping: true,
+                  showControls: false,
+                  allowFullScreen: true,
+                  allowPlaybackSpeedMenu: false,
+                  lazyLoad: true,
                 ),
                 Icon(
                   Icons.settings_outlined,

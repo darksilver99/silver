@@ -176,11 +176,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => BookingHotelPreviewPageWidget(),
         ),
         FFRoute(
-          name: 'BookingHotelPreviewPageCopy',
-          path: '/bookingHotelPreviewPageCopy',
-          builder: (context, params) => BookingHotelPreviewPageCopyWidget(),
+          name: 'TestHotelPage',
+          path: '/testHotelPage',
+          builder: (context, params) => TestHotelPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
