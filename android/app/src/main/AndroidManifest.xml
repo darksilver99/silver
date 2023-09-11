@@ -59,6 +59,11 @@
             android:value="2" />
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyC-oEqqV_yGbxKu93tbIoU_3rIb_aPh0xM"/>
 
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            tools:ignore="MissingClass" />
 
     </application>
 </manifest>
