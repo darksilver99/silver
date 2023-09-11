@@ -23,6 +23,8 @@ import 'package:provider/provider.dart';
 import 'test_page_model.dart';
 export 'test_page_model.dart';
 
+// crop
+
 class TestPageCustomWidget extends StatefulWidget {
   const TestPageCustomWidget({Key? key}) : super(key: key);
 
@@ -125,18 +127,18 @@ class _TestPageCustomWidgetState extends State<TestPageCustomWidget> {
           tooltip: 'Delete',
           child: const Icon(Icons.delete),
         ),
-        if (_croppedFile == null)
-          Padding(
-            padding: const EdgeInsets.only(left: 32.0),
-            child: FloatingActionButton(
-              onPressed: () {
-                _cropImage();
-              },
-              backgroundColor: const Color(0xFFBC764A),
-              tooltip: 'Crop',
-              child: const Icon(Icons.crop),
-            ),
-          )
+        //if (_croppedFile == null)
+        Padding(
+          padding: const EdgeInsets.only(left: 32.0),
+          child: FloatingActionButton(
+            onPressed: () {
+              _cropImage();
+            },
+            backgroundColor: const Color(0xFFBC764A),
+            tooltip: 'Crop',
+            child: const Icon(Icons.crop),
+          ),
+        )
       ],
     );
   }
@@ -204,6 +206,46 @@ class _TestPageCustomWidgetState extends State<TestPageCustomWidget> {
   }
 
   Future<void> _cropImage() async {
+
+    if (_croppedFile != null) {
+      final croppedFile = await ImageCropper().cropImage(
+        sourcePath: _pickedFile!.path,
+        compressFormat: ImageCompressFormat.jpg,
+        compressQuality: 100,
+        uiSettings: [
+          AndroidUiSettings(
+              toolbarTitle: 'Cropper',
+              toolbarColor: Colors.deepOrange,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              lockAspectRatio: true,
+              hideBottomControls: true
+          ),
+          IOSUiSettings(
+            title: 'Cropper',
+          ),
+          WebUiSettings(
+            context: context,
+            presentStyle: CropperPresentStyle.dialog,
+            boundary: const CroppieBoundary(
+              width: 520,
+              height: 520,
+            ),
+            viewPort: const CroppieViewPort(width: 480, height: 480, type: 'circle'),
+            enableExif: true,
+            enableZoom: true,
+            showZoomer: true,
+          ),
+        ],
+      );
+      if (croppedFile != null) {
+        setState(() {
+          _croppedFile = croppedFile;
+        });
+      }
+      return;
+    }
+
     if (_pickedFile != null) {
       final croppedFile = await ImageCropper().cropImage(
         sourcePath: _pickedFile!.path,
@@ -211,12 +253,12 @@ class _TestPageCustomWidgetState extends State<TestPageCustomWidget> {
         compressQuality: 100,
         uiSettings: [
           AndroidUiSettings(
-            toolbarTitle: 'Cropper',
-            toolbarColor: Colors.deepOrange,
-            toolbarWidgetColor: Colors.white,
-            initAspectRatio: CropAspectRatioPreset.original,
-            lockAspectRatio: true,
-            hideBottomControls: true
+              toolbarTitle: 'Cropper',
+              toolbarColor: Colors.deepOrange,
+              toolbarWidgetColor: Colors.white,
+              initAspectRatio: CropAspectRatioPreset.original,
+              lockAspectRatio: true,
+              hideBottomControls: true
           ),
           IOSUiSettings(
             title: 'Cropper',
@@ -241,6 +283,9 @@ class _TestPageCustomWidgetState extends State<TestPageCustomWidget> {
         });
       }
     }
+
+
+
   }
 
   Future<void> _uploadImage() async {
