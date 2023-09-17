@@ -39,3 +39,5 @@ export '/booking_hotel/booking_hotel_preview_page/booking_hotel_preview_page_wid
     show BookingHotelPreviewPageWidget;
 export '/booking_hotel/test_hotel_page/test_hotel_page_widget.dart'
     show TestHotelPageWidget;
+export '/go_trip/add_post_page/add_post_page_widget.dart'
+    show AddPostPageWidget;

@@ -119,6 +119,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                   path:
                       'https://assets.mixkit.co/videos/preview/mixkit-forest-stream-in-the-sunlight-529-large.mp4',
                   videoType: VideoType.network,
+                  width: 56.0,
+                  height: 56.0,
                   autoPlay: false,
                   looping: true,
                   showControls: false,
@@ -352,6 +354,19 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       ),
                     ),
                   ],
+                ),
+                Container(
+                  width: 56.0,
+                  height: 56.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primary,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Icon(
+                    Icons.play_circle_outline_sharp,
+                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                    size: 32.0,
+                  ),
                 ),
               ],
             ),

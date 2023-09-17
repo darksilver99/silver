@@ -179,6 +179,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TestHotelPage',
           path: '/testHotelPage',
           builder: (context, params) => TestHotelPageWidget(),
+        ),
+        FFRoute(
+          name: 'AddPostPage',
+          path: '/addPostPage',
+          builder: (context, params) => AddPostPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
