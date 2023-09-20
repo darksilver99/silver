@@ -31,13 +31,17 @@ export '/test/test6_page/test6_page_widget.dart' show Test6PageWidget;
 export '/test/test7_page/test7_page_widget.dart' show Test7PageWidget;
 export '/test/test8_page/test8_page_widget.dart' show Test8PageWidget;
 export '/test/test9_page/test9_page_widget.dart' show Test9PageWidget;
-export '/booking_hotel/booking_page/booking_page_widget.dart'
+export '/go_trip/booking_hotel/booking_page/booking_page_widget.dart'
     show BookingPageWidget;
 export '/go_trip/go_trip_list_picker_page/go_trip_list_picker_page_widget.dart'
     show GoTripListPickerPageWidget;
-export '/booking_hotel/booking_hotel_preview_page/booking_hotel_preview_page_widget.dart'
+export '/go_trip/booking_hotel/booking_hotel_preview_page/booking_hotel_preview_page_widget.dart'
     show BookingHotelPreviewPageWidget;
-export '/booking_hotel/test_hotel_page/test_hotel_page_widget.dart'
+export '/go_trip/booking_hotel/test_hotel_page/test_hotel_page_widget.dart'
     show TestHotelPageWidget;
 export '/go_trip/add_post_page/add_post_page_widget.dart'
     show AddPostPageWidget;
+export '/go_trip/friend_list_view/friend_list_view_widget.dart'
+    show FriendListViewWidget;
+export '/test/detail_test_page/detail_test_page_widget.dart'
+    show DetailTestPageWidget;

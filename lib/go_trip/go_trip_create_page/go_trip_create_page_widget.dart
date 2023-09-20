@@ -184,7 +184,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                           child: PreviewTripBottomSheetViewWidget(),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: Icon(
                     Icons.keyboard_control_rounded,
@@ -282,7 +282,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       child: SaveTripBottomSheetViewWidget(),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               text: 'Save trip',
                               options: FFButtonOptions(
@@ -1172,7 +1172,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       readOnly: true,
                                       obscureText: false,
@@ -1257,7 +1257,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               EditEachTripBottomSheetViewWidget(),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: Icon(
                                     Icons.more_vert,
@@ -1315,7 +1315,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   SelectedExpenseCategoryBottomSheetViewWidget(),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: ClipRRect(
                                         borderRadius:
@@ -1552,7 +1552,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   SelectedBookingCategoryBottomSheetViewWidget(),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: ClipRRect(
                                         borderRadius:
@@ -2125,7 +2125,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                       SelectedTransportCategoryBottomSheetViewWidget(),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           },
                                           child: ClipRRect(
                                             borderRadius:
@@ -2206,7 +2207,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               AddActivityBottomSheetViewWidget(),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: Icon(
                                     Icons.add_circle,

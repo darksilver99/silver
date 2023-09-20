@@ -150,7 +150,7 @@ class _GoTripListPickerPageWidgetState
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: Icon(
                     Icons.keyboard_control_rounded,

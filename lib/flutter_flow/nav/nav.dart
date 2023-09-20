@@ -184,9 +184,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'AddPostPage',
           path: '/addPostPage',
           builder: (context, params) => AddPostPageWidget(),
+        ),
+        FFRoute(
+          name: 'FriendListView',
+          path: '/friendListView',
+          builder: (context, params) => FriendListViewWidget(),
+        ),
+        FFRoute(
+          name: 'DetailTestPage',
+          path: '/detailTestPage',
+          asyncParams: {
+            'dataParameter':
+                getDoc(['test_photo_list'], TestPhotoListRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetailTestPageWidget(
+            dataParameter: params.getParam('dataParameter', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
-      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
