@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_expanded_image_view.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -409,7 +410,7 @@ class _GoTripDetailPageCopyWidgetState
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.0),
+                              alignment: AlignmentDirectional(0.00, 0.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     32.0, 0.0, 32.0, 0.0),
@@ -557,7 +558,7 @@ class _GoTripDetailPageCopyWidgetState
                   color: Color(0xFFC5C7CB),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -568,7 +569,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
@@ -649,7 +650,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -758,7 +759,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -823,7 +824,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(46.0, 8.0, 32.0, 0.0),
@@ -866,7 +867,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
                                     '1',
                                     style: FlutterFlowTheme.of(context)
@@ -1005,7 +1006,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
                                     '2',
                                     style: FlutterFlowTheme.of(context)
@@ -1170,7 +1171,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
                                     '3',
                                     style: FlutterFlowTheme.of(context)
@@ -1310,7 +1311,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
                                     '4',
                                     style: FlutterFlowTheme.of(context)
@@ -1449,7 +1450,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  alignment: AlignmentDirectional(0.00, 0.00),
                                   child: Text(
                                     '5',
                                     style: FlutterFlowTheme.of(context)
@@ -1593,7 +1594,7 @@ class _GoTripDetailPageCopyWidgetState
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.00, 0.00),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               32.0, 4.0, 0.0, 0.0),
@@ -1823,7 +1824,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -1873,7 +1874,7 @@ class _GoTripDetailPageCopyWidgetState
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.00, 0.00),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -1908,7 +1909,7 @@ class _GoTripDetailPageCopyWidgetState
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.00, 0.00),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2145,7 +2146,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -2191,7 +2192,7 @@ class _GoTripDetailPageCopyWidgetState
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.00, 0.00),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2218,7 +2219,7 @@ class _GoTripDetailPageCopyWidgetState
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.00, 0.00),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2249,7 +2250,7 @@ class _GoTripDetailPageCopyWidgetState
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.0, 0.0),
+                                  alignment: AlignmentDirectional(1.00, 0.00),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2293,7 +2294,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -2304,7 +2305,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
@@ -2350,7 +2351,7 @@ class _GoTripDetailPageCopyWidgetState
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.0, 0.0),
+                  alignment: AlignmentDirectional(-1.00, 0.00),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
@@ -2426,7 +2427,7 @@ class _GoTripDetailPageCopyWidgetState
                                 ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
@@ -2560,7 +2561,7 @@ class _GoTripDetailPageCopyWidgetState
                               color: Color(0xFF343740),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            alignment: AlignmentDirectional(0.0, 0.0),
+                            alignment: AlignmentDirectional(0.00, 0.00),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),

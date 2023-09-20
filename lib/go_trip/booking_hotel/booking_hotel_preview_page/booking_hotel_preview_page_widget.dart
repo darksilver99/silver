@@ -353,7 +353,7 @@ class _BookingHotelPreviewPageWidgetState
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(0.0),
                                 child: Image.asset(
-                                  'assets/images/Vector.png',
+                                  'assets/images/Share.png',
                                   height: 16.0,
                                   fit: BoxFit.cover,
                                 ),
@@ -647,7 +647,7 @@ class _BookingHotelPreviewPageWidgetState
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-1.0, 0.0),
+                        alignment: AlignmentDirectional(-1.00, 0.00),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 8.0, 16.0, 0.0),
@@ -811,7 +811,7 @@ class _BookingHotelPreviewPageWidgetState
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.0, 1.0),
+              alignment: AlignmentDirectional(0.00, 1.00),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(

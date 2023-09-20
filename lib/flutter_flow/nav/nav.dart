@@ -176,9 +176,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => BookingHotelPreviewPageWidget(),
         ),
         FFRoute(
-          name: 'BookingHotelPreviewPageCopy',
-          path: '/bookingHotelPreviewPageCopy',
-          builder: (context, params) => BookingHotelPreviewPageCopyWidget(),
+          name: 'TestHotelPage',
+          path: '/testHotelPage',
+          builder: (context, params) => TestHotelPageWidget(),
+        ),
+        FFRoute(
+          name: 'AddPostPage',
+          path: '/addPostPage',
+          builder: (context, params) => AddPostPageWidget(),
+        ),
+        FFRoute(
+          name: 'FriendListView',
+          path: '/friendListView',
+          builder: (context, params) => FriendListViewWidget(),
+        ),
+        FFRoute(
+          name: 'DetailTestPage',
+          path: '/detailTestPage',
+          asyncParams: {
+            'dataParameter':
+                getDoc(['test_photo_list'], TestPhotoListRecord.fromSnapshot),
+          },
+          builder: (context, params) => DetailTestPageWidget(
+            dataParameter: params.getParam('dataParameter', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

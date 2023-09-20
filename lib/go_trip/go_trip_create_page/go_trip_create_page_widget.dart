@@ -184,7 +184,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                           child: PreviewTripBottomSheetViewWidget(),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    ).then((value) => safeSetState(() {}));
                   },
                   child: Icon(
                     Icons.keyboard_control_rounded,
@@ -282,7 +282,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       child: SaveTripBottomSheetViewWidget(),
                                     );
                                   },
-                                ).then((value) => setState(() {}));
+                                ).then((value) => safeSetState(() {}));
                               },
                               text: 'Save trip',
                               options: FFButtonOptions(
@@ -333,7 +333,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(-1.0, -1.0),
+                              alignment: AlignmentDirectional(-1.00, -1.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 8.0, 0.0, 0.0),
@@ -378,7 +378,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(1.0, 1.0),
+                              alignment: AlignmentDirectional(1.00, 1.00),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 16.0, 16.0),
@@ -486,7 +486,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Text(
                               'Description',
                               style: FlutterFlowTheme.of(context).bodyMedium,
@@ -680,7 +680,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   Align(
-                                    alignment: AlignmentDirectional(-1.0, 0.0),
+                                    alignment:
+                                        AlignmentDirectional(-1.00, 0.00),
                                     child: Text(
                                       'My booking',
                                       style: FlutterFlowTheme.of(context)
@@ -698,7 +699,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             .tertiary,
                                         shape: BoxShape.circle,
                                       ),
-                                      alignment: AlignmentDirectional(0.0, 0.0),
+                                      alignment:
+                                          AlignmentDirectional(0.00, 0.00),
                                       child: Text(
                                         '5',
                                         style: FlutterFlowTheme.of(context)
@@ -713,7 +715,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 ],
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 8.0, 0.0, 0.0),
@@ -944,7 +946,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             children: [
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(-1.0, 0.0),
+                                  alignment: AlignmentDirectional(-1.00, 0.00),
                                   child: Text(
                                     'goTrip',
                                     style:
@@ -1130,7 +1132,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           shape: BoxShape.circle,
                                         ),
                                         alignment:
-                                            AlignmentDirectional(0.0, 0.0),
+                                            AlignmentDirectional(0.00, 0.00),
                                         child: Text(
                                           '0',
                                           style: FlutterFlowTheme.of(context)
@@ -1170,7 +1172,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               ),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       readOnly: true,
                                       obscureText: false,
@@ -1255,7 +1257,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               EditEachTripBottomSheetViewWidget(),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: Icon(
                                     Icons.more_vert,
@@ -1313,7 +1315,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   SelectedExpenseCategoryBottomSheetViewWidget(),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: ClipRRect(
                                         borderRadius:
@@ -1550,7 +1552,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   SelectedBookingCategoryBottomSheetViewWidget(),
                                             );
                                           },
-                                        ).then((value) => setState(() {}));
+                                        ).then((value) => safeSetState(() {}));
                                       },
                                       child: ClipRRect(
                                         borderRadius:
@@ -2123,7 +2125,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                       SelectedTransportCategoryBottomSheetViewWidget(),
                                                 );
                                               },
-                                            ).then((value) => setState(() {}));
+                                            ).then(
+                                                (value) => safeSetState(() {}));
                                           },
                                           child: ClipRRect(
                                             borderRadius:
@@ -2204,7 +2207,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               AddActivityBottomSheetViewWidget(),
                                         );
                                       },
-                                    ).then((value) => setState(() {}));
+                                    ).then((value) => safeSetState(() {}));
                                   },
                                   child: Icon(
                                     Icons.add_circle,
@@ -2262,7 +2265,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Text(
                               'Expenses',
                               style: FlutterFlowTheme.of(context).bodyMedium,
@@ -2308,8 +2311,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
                                             child: Text(
                                               '฿ 50,000.00',
                                               style:
@@ -2350,8 +2353,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
                                             child: Text(
                                               '฿ 50,000.00',
                                               style:
@@ -2766,7 +2769,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                         mainAxisSize: MainAxisSize.max,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Text(
                               'Expenses Summary',
                               style: FlutterFlowTheme.of(context).bodyMedium,
@@ -2808,8 +2811,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
                                             child: Text(
                                               '฿ 50,000.00',
                                               style:
@@ -2837,8 +2840,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
                                             child: Text(
                                               '฿ 50,000.00',
                                               style:
@@ -2871,8 +2874,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         ),
                                         Expanded(
                                           child: Align(
-                                            alignment:
-                                                AlignmentDirectional(1.0, 0.0),
+                                            alignment: AlignmentDirectional(
+                                                1.00, 0.00),
                                             child: Text(
                                               '฿ 50,000.00',
                                               style:
@@ -2929,14 +2932,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Text(
                               'My Gallery',
                               style: FlutterFlowTheme.of(context).bodyMedium,
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 0.0),
@@ -3050,7 +3053,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
@@ -3254,7 +3257,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     ),
                               ),
                               Align(
-                                alignment: AlignmentDirectional(-1.0, 0.0),
+                                alignment: AlignmentDirectional(-1.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 16.0, 0.0, 0.0),
@@ -3391,7 +3394,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                   color: Color(0xFF343740),
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                alignment: AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.00, 0.00),
                                 child: Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 8.0, 0.0, 8.0),

@@ -6,13 +6,17 @@ import 'flutter_flow/flutter_flow_util.dart';
 import 'dart:convert';
 
 class FFAppState extends ChangeNotifier {
-  static final FFAppState _instance = FFAppState._internal();
+  static FFAppState _instance = FFAppState._internal();
 
   factory FFAppState() {
     return _instance;
   }
 
   FFAppState._internal();
+
+  static void reset() {
+    _instance = FFAppState._internal();
+  }
 
   Future initializePersistedState() async {
     prefs = await SharedPreferences.getInstance();
@@ -122,6 +126,12 @@ class FFAppState extends ChangeNotifier {
         'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
   }
 
+  void insertAtIndexInMonthList(int _index, dynamic _value) {
+    _monthList.insert(_index, _value);
+    prefs.setStringList(
+        'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
+  }
+
   dynamic _userData;
   dynamic get userData => _userData;
   set userData(dynamic _value) {
@@ -160,6 +170,12 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     _tripCreatedMapList[_index] = updateFn(_tripCreatedMapList[_index]);
+    prefs.setStringList('ff_tripCreatedMapList',
+        _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void insertAtIndexInTripCreatedMapList(int _index, dynamic _value) {
+    _tripCreatedMapList.insert(_index, _value);
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
@@ -222,6 +238,10 @@ class FFAppState extends ChangeNotifier {
     _expenseCategoryList[_index] = updateFn(_expenseCategoryList[_index]);
   }
 
+  void insertAtIndexInExpenseCategoryList(int _index, dynamic _value) {
+    _expenseCategoryList.insert(_index, _value);
+  }
+
   List<dynamic> _bookingCategoryList = [
     jsonDecode('{\"name\":\"Hotel\",\"image\":\"Booking-Hotel.png\"}'),
     jsonDecode('{\"name\":\"Flight\",\"image\":\"Booking-Flight.png\"}'),
@@ -252,6 +272,10 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     _bookingCategoryList[_index] = updateFn(_bookingCategoryList[_index]);
+  }
+
+  void insertAtIndexInBookingCategoryList(int _index, dynamic _value) {
+    _bookingCategoryList.insert(_index, _value);
   }
 
   List<dynamic> _transportationCategoryList = [
@@ -285,6 +309,10 @@ class FFAppState extends ChangeNotifier {
   ) {
     _transportationCategoryList[_index] =
         updateFn(_transportationCategoryList[_index]);
+  }
+
+  void insertAtIndexInTransportationCategoryList(int _index, dynamic _value) {
+    _transportationCategoryList.insert(_index, _value);
   }
 
   bool _isUploading = true;
@@ -328,6 +356,12 @@ class FFAppState extends ChangeNotifier {
         _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 
+  void insertAtIndexInHomeOfflineDataList(int _index, dynamic _value) {
+    _homeOfflineDataList.insert(_index, _value);
+    prefs.setStringList('ff_homeOfflineDataList',
+        _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
+  }
+
   List<dynamic> _tripOfflineDetail = [];
   List<dynamic> get tripOfflineDetail => _tripOfflineDetail;
   set tripOfflineDetail(List<dynamic> _value) {
@@ -359,6 +393,12 @@ class FFAppState extends ChangeNotifier {
     dynamic Function(dynamic) updateFn,
   ) {
     _tripOfflineDetail[_index] = updateFn(_tripOfflineDetail[_index]);
+    prefs.setStringList('ff_tripOfflineDetail',
+        _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
+  }
+
+  void insertAtIndexInTripOfflineDetail(int _index, dynamic _value) {
+    _tripOfflineDetail.insert(_index, _value);
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
