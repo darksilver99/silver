@@ -107,6 +107,11 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                             image: Image.network(
                               widget.dataParameter!.image,
                               fit: BoxFit.contain,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  Image.asset(
+                                'assets/images/error_image.png',
+                                fit: BoxFit.contain,
+                              ),
                             ),
                             allowRotation: false,
                             tag: widget.dataParameter!.image,
@@ -125,6 +130,13 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                           width: double.infinity,
                           height: 200.0,
                           fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) =>
+                              Image.asset(
+                            'assets/images/error_image.png',
+                            width: double.infinity,
+                            height: 200.0,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ),
                     ),

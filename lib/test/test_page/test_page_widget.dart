@@ -175,113 +175,121 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                             key: ValueKey("ListView_hpp5agqf" +
                                 '_' +
                                 listViewIndex.toString()),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'DetailTestPage',
-                                  queryParameters: {
-                                    'dataParameter': serializeParam(
-                                      listViewTestPhotoListRecord,
-                                      ParamType.Document,
-                                    ),
-                                  }.withoutNulls,
-                                  extra: <String, dynamic>{
-                                    'dataParameter':
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 8.0),
+                              child: InkWell(
+                                splashColor: Colors.transparent,
+                                focusColor: Colors.transparent,
+                                hoverColor: Colors.transparent,
+                                highlightColor: Colors.transparent,
+                                onTap: () async {
+                                  context.pushNamed(
+                                    'DetailTestPage',
+                                    queryParameters: {
+                                      'dataParameter': serializeParam(
                                         listViewTestPhotoListRecord,
-                                  },
-                                );
-                              },
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 3.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(0.0),
-                                ),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 100.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
+                                        ParamType.Document,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      'dataParameter':
+                                          listViewTestPhotoListRecord,
+                                    },
+                                  );
+                                },
+                                child: Material(
+                                  color: Colors.transparent,
+                                  elevation: 3.0,
+                                  shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(0.0),
                                   ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Hero(
-                                        tag: listViewTestPhotoListRecord.image,
-                                        transitionOnUserGestures: true,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(0.0),
-                                          child: CachedNetworkImage(
-                                            fadeInDuration:
-                                                Duration(milliseconds: 200),
-                                            fadeOutDuration:
-                                                Duration(milliseconds: 200),
-                                            imageUrl:
-                                                listViewTestPhotoListRecord
-                                                    .image,
-                                            height: 200.0,
-                                            fit: BoxFit.cover,
-                                            errorWidget:
-                                                (context, error, stackTrace) =>
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 100.0,
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(0.0),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Flexible(
+                                          child: Hero(
+                                            tag: listViewTestPhotoListRecord
+                                                .image,
+                                            transitionOnUserGestures: true,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(0.0),
+                                              child: CachedNetworkImage(
+                                                fadeInDuration:
+                                                    Duration(milliseconds: 200),
+                                                fadeOutDuration:
+                                                    Duration(milliseconds: 200),
+                                                imageUrl:
+                                                    listViewTestPhotoListRecord
+                                                        .image,
+                                                height: 200.0,
+                                                fit: BoxFit.cover,
+                                                errorWidget: (context, error,
+                                                        stackTrace) =>
                                                     Image.asset(
-                                              'assets/images/error_image.png',
-                                              height: 200.0,
-                                              fit: BoxFit.cover,
+                                                  'assets/images/error_image.png',
+                                                  height: 200.0,
+                                                  fit: BoxFit.cover,
+                                                ),
+                                              ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  16.0, 8.0, 8.0, 8.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                '${listViewTestPhotoListRecord.order.toString()} : ${listViewTestPhotoListRecord.title}',
-                                                maxLines: 1,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          fontSize: 22.0,
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 8.0, 0.0, 0.0),
-                                                child: Text(
-                                                  listViewTestPhotoListRecord
-                                                      .detail,
-                                                  maxLines: 2,
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    16.0, 8.0, 8.0, 8.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  '${listViewTestPhotoListRecord.order.toString()} : ${listViewTestPhotoListRecord.title}',
+                                                  maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        fontSize: 22.0,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
                                                 ),
-                                              ),
-                                            ],
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 8.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    listViewTestPhotoListRecord
+                                                        .detail,
+                                                    maxLines: 2,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -291,7 +299,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                         onReorder: (int reorderableOldIndex,
                             int reorderableNewIndex) async {
                           await listViewTestPhotoListRecordList[
-                                  listViewTestPhotoListRecordList.length]
+                                  reorderableOldIndex]
                               .reference
                               .update(createTestPhotoListRecordData(
                                 order: reorderableNewIndex,
