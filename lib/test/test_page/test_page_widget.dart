@@ -215,7 +215,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        Flexible(
+                                        Expanded(
+                                          flex: 1,
                                           child: Hero(
                                             tag: listViewTestPhotoListRecord
                                                 .image,
@@ -245,6 +246,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                                           ),
                                         ),
                                         Expanded(
+                                          flex: 3,
                                           child: Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -303,6 +305,13 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                               .reference
                               .update(createTestPhotoListRecordData(
                                 order: reorderableNewIndex,
+                              ));
+
+                          await listViewTestPhotoListRecordList[
+                                  reorderableNewIndex]
+                              .reference
+                              .update(createTestPhotoListRecordData(
+                                order: reorderableOldIndex,
                               ));
 
                           setState(() {});
