@@ -200,6 +200,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => DetailTestPageWidget(
             dataParameter: params.getParam('dataParameter', ParamType.Document),
           ),
+        ),
+        FFRoute(
+          name: 'TestWidget',
+          path: '/testWidget',
+          builder: (context, params) => TestWidgetWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

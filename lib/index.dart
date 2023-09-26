@@ -45,3 +45,4 @@ export '/go_trip/friend_list_view/friend_list_view_widget.dart'
     show FriendListViewWidget;
 export '/test/detail_test_page/detail_test_page_widget.dart'
     show DetailTestPageWidget;
+export '/test/test_widget/test_widget_widget.dart' show TestWidgetWidget;
