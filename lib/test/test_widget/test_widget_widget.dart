@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -25,6 +27,8 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestWidgetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -39,7 +43,9 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -90,6 +96,23 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ],
+              ),
+              FlutterFlowTimer(
+                initialTime: _model.timerMilliseconds,
+                getDisplayTime: (value) => StopWatchTimer.getDisplayTime(
+                  value,
+                  hours: false,
+                  milliSecond: false,
+                ),
+                controller: _model.timerController,
+                updateStateInterval: Duration(milliseconds: 1000),
+                onChanged: (value, displayTime, shouldUpdate) {
+                  _model.timerMilliseconds = value;
+                  _model.timerValue = displayTime;
+                  if (shouldUpdate) setState(() {});
+                },
+                textAlign: TextAlign.start,
+                style: FlutterFlowTheme.of(context).headlineSmall,
               ),
             ],
           ),

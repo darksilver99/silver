@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/test/compo/list_switch_view/list_switch_view_widget.dart';
 import '/test/compo/loading_view/loading_view_widget.dart';
+import 'test2_page_widget.dart' show Test2PageWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class Test2PageModel extends FlutterFlowModel {
+class Test2PageModel extends FlutterFlowModel<Test2PageWidget> {
   ///  Local state fields for this page.
 
   bool isLoading = true;
