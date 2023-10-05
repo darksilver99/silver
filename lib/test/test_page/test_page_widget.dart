@@ -62,6 +62,17 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       false,
                       false,
                     ),
+                    fieldValues: {
+                      'images': List.generate(
+                          random_data.randomInteger(5, 5),
+                          (index) => random_data.randomString(
+                                5,
+                                5,
+                                true,
+                                false,
+                                false,
+                              )),
+                    },
                     clearUnsetFields: false,
                     create: true,
                   ),
