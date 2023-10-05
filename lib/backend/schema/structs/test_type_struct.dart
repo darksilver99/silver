@@ -12,9 +12,11 @@ class TestTypeStruct extends FFFirebaseStruct {
   TestTypeStruct({
     int? id,
     String? title,
+    List<String>? images,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _id = id,
         _title = title,
+        _images = images,
         super(firestoreUtilData);
 
   // "id" field.
@@ -30,9 +32,18 @@ class TestTypeStruct extends FFFirebaseStruct {
   set title(String? val) => _title = val;
   bool hasTitle() => _title != null;
 
+  // "images" field.
+  List<String>? _images;
+  List<String> get images => _images ?? const [];
+  set images(List<String>? val) => _images = val;
+  void updateImages(Function(List<String>) updateFn) =>
+      updateFn(_images ??= []);
+  bool hasImages() => _images != null;
+
   static TestTypeStruct fromMap(Map<String, dynamic> data) => TestTypeStruct(
         id: castToType<int>(data['id']),
         title: data['title'] as String?,
+        images: getDataList(data['images']),
       );
 
   static TestTypeStruct? maybeFromMap(dynamic data) =>
@@ -41,6 +52,7 @@ class TestTypeStruct extends FFFirebaseStruct {
   Map<String, dynamic> toMap() => {
         'id': _id,
         'title': _title,
+        'images': _images,
       }.withoutNulls;
 
   @override
@@ -52,6 +64,11 @@ class TestTypeStruct extends FFFirebaseStruct {
         'title': serializeParam(
           _title,
           ParamType.String,
+        ),
+        'images': serializeParam(
+          _images,
+          ParamType.String,
+          true,
         ),
       }.withoutNulls;
 
@@ -67,6 +84,11 @@ class TestTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        images: deserializeParam<String>(
+          data['images'],
+          ParamType.String,
+          true,
+        ),
       );
 
   static TestTypeStruct fromAlgoliaData(Map<String, dynamic> data) =>
@@ -81,6 +103,11 @@ class TestTypeStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        images: convertAlgoliaParam<String>(
+          data['images'],
+          ParamType.String,
+          true,
+        ),
         firestoreUtilData: FirestoreUtilData(
           clearUnsetFields: false,
           create: true,
@@ -92,11 +119,15 @@ class TestTypeStruct extends FFFirebaseStruct {
 
   @override
   bool operator ==(Object other) {
-    return other is TestTypeStruct && id == other.id && title == other.title;
+    const listEquality = ListEquality();
+    return other is TestTypeStruct &&
+        id == other.id &&
+        title == other.title &&
+        listEquality.equals(images, other.images);
   }
 
   @override
-  int get hashCode => const ListEquality().hash([id, title]);
+  int get hashCode => const ListEquality().hash([id, title, images]);
 }
 
 TestTypeStruct createTestTypeStruct({
