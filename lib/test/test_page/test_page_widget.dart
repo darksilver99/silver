@@ -1,10 +1,13 @@
 import '/backend/backend.dart';
+import '/backend/custom_cloud_functions/custom_cloud_function_response_manager.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -151,25 +154,76 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                     child: Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            listViewTestDataTypeListRecord.testType.id
-                                .toString(),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                          Text(
-                            listViewTestDataTypeListRecord.testType.title,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ],
+                      child: InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          try {
+                            final result = await FirebaseFunctions.instance
+                                .httpsCallable('testFunctionViaFlutterFlow')
+                                .call({
+                              "value1": 'aaa',
+                            });
+                            _model.cloudFunctionpdn =
+                                TestFunctionViaFlutterFlowCloudFunctionCallResponse(
+                              data: result.data,
+                              succeeded: true,
+                              resultAsString: result.data.toString(),
+                              jsonBody: result.data,
+                            );
+                          } on FirebaseFunctionsException catch (error) {
+                            _model.cloudFunctionpdn =
+                                TestFunctionViaFlutterFlowCloudFunctionCallResponse(
+                              errorCode: error.code,
+                              succeeded: false,
+                            );
+                          }
+
+                          if (_model.cloudFunctionpdn!.succeeded!) {
+                            await showDialog(
+                              context: context,
+                              builder: (alertDialogContext) {
+                                return AlertDialog(
+                                  title: Text(getJsonField(
+                                    _model.cloudFunctionpdn!.jsonBody,
+                                    r'''$.msg''',
+                                  ).toString()),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () =>
+                                          Navigator.pop(alertDialogContext),
+                                      child: Text('Ok'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
+
+                          setState(() {});
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              listViewTestDataTypeListRecord.testType.id
+                                  .toString(),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                            ),
+                            Text(
+                              listViewTestDataTypeListRecord.testType.title,
+                              style: FlutterFlowTheme.of(context).bodyMedium,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
