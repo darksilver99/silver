@@ -1,13 +1,9 @@
-import 'package:silver/flutter_flow/flutter_flow_expanded_image_view.dart';
-import 'package:silver/test/test_page/data_post.dart';
-
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -32,7 +28,6 @@ class _TestPageWidgetState extends State<TestPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestPageModel());
-
   }
 
   @override
@@ -42,23 +37,46 @@ class _TestPageWidgetState extends State<TestPageWidget> {
     super.dispose();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme
-            .of(context)
-            .primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        floatingActionButton: FloatingActionButton(
+          onPressed: () async {
+            await TestDataTypeListRecord.collection
+                .doc()
+                .set(createTestDataTypeListRecordData(
+                  testType: createTestTypeStruct(
+                    id: random_data.randomInteger(100, 999),
+                    title: random_data.randomString(
+                      5,
+                      5,
+                      true,
+                      false,
+                      false,
+                    ),
+                    clearUnsetFields: false,
+                    create: true,
+                  ),
+                ));
+          },
+          backgroundColor: FlutterFlowTheme.of(context).primary,
+          elevation: 8.0,
+          child: Icon(
+            Icons.settings_outlined,
+            color: FlutterFlowTheme.of(context).secondaryText,
+            size: 24.0,
+          ),
+        ),
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme
-              .of(context)
-              .secondaryBackground,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           leading: FlutterFlowIconButton(
             borderColor: Colors.transparent,
@@ -67,9 +85,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
             buttonSize: 60.0,
             icon: Icon(
               Icons.chevron_left_rounded,
-              color: FlutterFlowTheme
-                  .of(context)
-                  .primary,
+              color: FlutterFlowTheme.of(context).primary,
               size: 30.0,
             ),
             onPressed: () async {
@@ -78,16 +94,11 @@ class _TestPageWidgetState extends State<TestPageWidget> {
           ),
           title: Text(
             'TestPage',
-            style: FlutterFlowTheme
-                .of(context)
-                .headlineMedium
-                .override(
-              fontFamily: 'Kanit',
-              color: FlutterFlowTheme
-                  .of(context)
-                  .primary,
-              fontSize: 22.0,
-            ),
+            style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  fontFamily: 'Kanit',
+                  color: FlutterFlowTheme.of(context).primary,
+                  fontSize: 22.0,
+                ),
           ),
           actions: [],
           centerTitle: false,
@@ -95,14 +106,65 @@ class _TestPageWidgetState extends State<TestPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                for(var i = 0; i < 5; i++)
-                  DataPost()
-              ],
-            ),
+          child: StreamBuilder<List<TestDataTypeListRecord>>(
+            stream: queryTestDataTypeListRecord(),
+            builder: (context, snapshot) {
+              // Customize what your widget looks like when it's loading.
+              if (!snapshot.hasData) {
+                return Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: SpinKitChasingDots(
+                      color: FlutterFlowTheme.of(context).tertiary,
+                      size: 50.0,
+                    ),
+                  ),
+                );
+              }
+              List<TestDataTypeListRecord> listViewTestDataTypeListRecordList =
+                  snapshot.data!;
+              return ListView.builder(
+                padding: EdgeInsets.zero,
+                scrollDirection: Axis.vertical,
+                itemCount: listViewTestDataTypeListRecordList.length,
+                itemBuilder: (context, listViewIndex) {
+                  final listViewTestDataTypeListRecord =
+                      listViewTestDataTypeListRecordList[listViewIndex];
+                  return Container(
+                    width: double.infinity,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            listViewTestDataTypeListRecord.testType.id
+                                .toString(),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                          Text(
+                            listViewTestDataTypeListRecord.testType.title,
+                            style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
           ),
         ),
       ),

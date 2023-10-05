@@ -13,6 +13,7 @@ import '/go_trip/component/search_place_bottom_sheet_view/search_place_bottom_sh
 import '/go_trip/component/selected_booking_category_bottom_sheet_view/selected_booking_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_expense_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
+import 'go_trip_create_page_widget.dart' show GoTripCreatePageWidget;
 import 'package:styled_divider/styled_divider.dart';
 import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
-class GoTripCreatePageModel extends FlutterFlowModel {
+class GoTripCreatePageModel extends FlutterFlowModel<GoTripCreatePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for TextField widget.

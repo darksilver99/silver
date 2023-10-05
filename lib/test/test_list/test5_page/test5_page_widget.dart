@@ -133,8 +133,13 @@ class _Test5PageWidgetState extends State<Test5PageWidget> {
                                       onPressed: () async {
                                         await listViewDataListRecord.reference
                                             .update({
-                                          'is_check':
-                                              !listViewDataListRecord.isCheck,
+                                          ...mapToFirestore(
+                                            {
+                                              'is_check':
+                                                  !listViewDataListRecord
+                                                      .isCheck,
+                                            },
+                                          ),
                                         });
                                       },
                                       value: listViewDataListRecord.isCheck,

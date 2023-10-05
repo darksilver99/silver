@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/go_trip/component/select_type_bottom_sheet_view/select_type_bottom_sheet_view_widget.dart';
+import 'go_trip_select_place_page_widget.dart' show GoTripSelectPlacePageWidget;
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class GoTripSelectPlacePageModel extends FlutterFlowModel {
+class GoTripSelectPlacePageModel
+    extends FlutterFlowModel<GoTripSelectPlacePageWidget> {
   ///  Local state fields for this page.
 
   String dateFrom = 'dd/mm/yy';

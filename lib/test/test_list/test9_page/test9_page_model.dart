@@ -5,13 +5,14 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/test/compo/blank_view/blank_view_widget.dart';
 import '/test/compo/toggle_test/toggle_test_widget.dart';
+import 'test9_page_widget.dart' show Test9PageWidget;
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class Test9PageModel extends FlutterFlowModel {
+class Test9PageModel extends FlutterFlowModel<Test9PageWidget> {
   ///  Local state fields for this page.
 
   bool isLoading = true;
