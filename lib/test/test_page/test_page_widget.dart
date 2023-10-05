@@ -162,12 +162,10 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                         onTap: () async {
                           try {
                             final result = await FirebaseFunctions.instance
-                                .httpsCallable('testFunctionViaFlutterFlow')
-                                .call({
-                              "value1": 'aaa',
-                            });
+                                .httpsCallable('testCloudFunction')
+                                .call({});
                             _model.cloudFunctionpdn =
-                                TestFunctionViaFlutterFlowCloudFunctionCallResponse(
+                                TestCloudFunctionCloudFunctionCallResponse(
                               data: result.data,
                               succeeded: true,
                               resultAsString: result.data.toString(),
@@ -175,7 +173,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                             );
                           } on FirebaseFunctionsException catch (error) {
                             _model.cloudFunctionpdn =
-                                TestFunctionViaFlutterFlowCloudFunctionCallResponse(
+                                TestCloudFunctionCloudFunctionCallResponse(
                               errorCode: error.code,
                               succeeded: false,
                             );
@@ -186,10 +184,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return AlertDialog(
-                                  title: Text(getJsonField(
-                                    _model.cloudFunctionpdn!.jsonBody,
-                                    r'''$.msg''',
-                                  ).toString()),
+                                  title: Text(
+                                      _model.cloudFunctionpdn!.resultAsString!),
                                   actions: [
                                     TextButton(
                                       onPressed: () =>
