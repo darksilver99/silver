@@ -18,8 +18,8 @@ class TestPageModel extends FlutterFlowModel<TestPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Cloud Function - testFunctionViaFlutterFlow] action in Column widget.
-  TestFunctionViaFlutterFlowCloudFunctionCallResponse? cloudFunctionpdn;
+  // Stores action output result for [Cloud Function - testCloudFunction] action in Column widget.
+  TestCloudFunctionCloudFunctionCallResponse? cloudFunctionpdn;
 
   /// Initialization and disposal methods.
 
