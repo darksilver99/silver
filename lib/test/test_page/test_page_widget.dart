@@ -106,13 +106,63 @@ class _TestPageWidgetState extends State<TestPageWidget> {
               context.pop();
             },
           ),
-          title: Text(
-            'TestPage',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Kanit',
-                  color: FlutterFlowTheme.of(context).primary,
-                  fontSize: 22.0,
-                ),
+          title: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              try {
+                final result = await FirebaseFunctions.instance
+                    .httpsCallable('testFunctionViaFlutterFlow')
+                    .call({
+                  "value1": 'gggg',
+                });
+                _model.cloudFunctionget =
+                    TestFunctionViaFlutterFlowCloudFunctionCallResponse(
+                  data: result.data,
+                  succeeded: true,
+                  resultAsString: result.data.toString(),
+                  jsonBody: result.data,
+                );
+              } on FirebaseFunctionsException catch (error) {
+                _model.cloudFunctionget =
+                    TestFunctionViaFlutterFlowCloudFunctionCallResponse(
+                  errorCode: error.code,
+                  succeeded: false,
+                );
+              }
+
+              if (_model.cloudFunctionget!.succeeded!) {
+                await showDialog(
+                  context: context,
+                  builder: (alertDialogContext) {
+                    return AlertDialog(
+                      title: Text(getJsonField(
+                        _model.cloudFunctionget!.jsonBody,
+                        r'''$.msg''',
+                      ).toString()),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(alertDialogContext),
+                          child: Text('Ok'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              }
+
+              setState(() {});
+            },
+            child: Text(
+              'TestPage',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Kanit',
+                    color: FlutterFlowTheme.of(context).primary,
+                    fontSize: 22.0,
+                  ),
+            ),
           ),
           actions: [],
           centerTitle: false,
