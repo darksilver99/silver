@@ -23,14 +23,14 @@ export '/go_trip/go_trip_map_picker_page/go_trip_map_picker_page_widget.dart'
     show GoTripMapPickerPageWidget;
 export '/old_ds/go_trip_detail_page_copy/go_trip_detail_page_copy_widget.dart'
     show GoTripDetailPageCopyWidget;
-export '/test/test2_page/test2_page_widget.dart' show Test2PageWidget;
-export '/test/test3_page/test3_page_widget.dart' show Test3PageWidget;
-export '/test/test4_page/test4_page_widget.dart' show Test4PageWidget;
-export '/test/test5_page/test5_page_widget.dart' show Test5PageWidget;
-export '/test/test6_page/test6_page_widget.dart' show Test6PageWidget;
-export '/test/test7_page/test7_page_widget.dart' show Test7PageWidget;
-export '/test/test8_page/test8_page_widget.dart' show Test8PageWidget;
-export '/test/test9_page/test9_page_widget.dart' show Test9PageWidget;
+export '/test/test_list/test2_page/test2_page_widget.dart' show Test2PageWidget;
+export '/test/test_list/test3_page/test3_page_widget.dart' show Test3PageWidget;
+export '/test/test_list/test4_page/test4_page_widget.dart' show Test4PageWidget;
+export '/test/test_list/test5_page/test5_page_widget.dart' show Test5PageWidget;
+export '/test/test_list/test6_page/test6_page_widget.dart' show Test6PageWidget;
+export '/test/test_list/test7_page/test7_page_widget.dart' show Test7PageWidget;
+export '/test/test_list/test8_page/test8_page_widget.dart' show Test8PageWidget;
+export '/test/test_list/test9_page/test9_page_widget.dart' show Test9PageWidget;
 export '/go_trip/booking_hotel/booking_page/booking_page_widget.dart'
     show BookingPageWidget;
 export '/go_trip/go_trip_list_picker_page/go_trip_list_picker_page_widget.dart'
