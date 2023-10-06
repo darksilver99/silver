@@ -42,7 +42,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
       _model.fullListResultCopy = await queryPlaceListRecordOnce();
       _model.resultList2Copy = await actions.sortListByLocation(
         currentUserLocationValue,
-        _model.fullListResult?.toList(),
+        _model.fullListResultCopy?.toList(),
       );
       setState(() {
         _model.placeList = _model.resultList2!.toList().cast<dynamic>();
