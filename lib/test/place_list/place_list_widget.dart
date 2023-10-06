@@ -268,95 +268,113 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                           itemBuilder: (context, placeListResultIndex) {
                             final placeListResultItem =
                                 placeListResult[placeListResultIndex];
-                            return Material(
-                              color: Colors.transparent,
-                              elevation: 3.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'PlaceDetail',
+                                  queryParameters: {
+                                    'placeParameter': serializeParam(
+                                      placeListResultItem,
+                                      ParamType.JSON,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 8.0, 8.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          getJsonField(
-                                            placeListResultItem,
-                                            r'''$.image''',
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                          child: Image.network(
+                                            getJsonField(
+                                              placeListResultItem,
+                                              r'''$.image''',
+                                            ),
+                                            width: double.infinity,
+                                            height: 100.0,
+                                            fit: BoxFit.cover,
                                           ),
-                                          width: double.infinity,
-                                          height: 100.0,
-                                          fit: BoxFit.cover,
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Text(
+                                                    getJsonField(
+                                                      placeListResultItem,
+                                                      r'''$.title''',
+                                                    ).toString(),
+                                                    maxLines: 1,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 0.0),
+                                                  0.0, 0.0, 0.0, 4.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  getJsonField(
+                                                  '${getJsonField(
                                                     placeListResultItem,
-                                                    r'''$.title''',
-                                                  ).toString(),
+                                                    r'''$.distance''',
+                                                  ).toString()} km.',
+                                                  textAlign: TextAlign.end,
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                                      .bodyMedium,
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 4.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                '${getJsonField(
-                                                  placeListResultItem,
-                                                  r'''$.distance''',
-                                                ).toString()} km.',
-                                                textAlign: TextAlign.end,
-                                                maxLines: 1,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -395,95 +413,120 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                           itemBuilder: (context, placeListResultIndex) {
                             final placeListResultItem =
                                 placeListResult[placeListResultIndex];
-                            return Material(
-                              color: Colors.transparent,
-                              elevation: 3.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(16.0),
-                              ),
-                              child: Container(
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                            return InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed(
+                                  'PlaceDetail',
+                                  queryParameters: {
+                                    'placeParameter': serializeParam(
+                                      placeListResultItem,
+                                      ParamType.JSON,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16.0),
                                 ),
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 8.0, 8.0, 0.0),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                        child: Image.network(
-                                          getJsonField(
+                                child: Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(16.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        8.0, 8.0, 8.0, 0.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Hero(
+                                          tag: getJsonField(
                                             placeListResultItem,
                                             r'''$.image''',
                                           ),
-                                          width: double.infinity,
-                                          height: 100.0,
-                                          fit: BoxFit.cover,
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              getJsonField(
+                                                placeListResultItem,
+                                                r'''$.image''',
+                                              ),
+                                              width: double.infinity,
+                                              height: 100.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
                                         ),
-                                      ),
-                                      Expanded(
-                                        child: Padding(
+                                        Expanded(
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 8.0, 0.0, 0.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Text(
+                                                    getJsonField(
+                                                      placeListResultItem,
+                                                      r'''$.title''',
+                                                    ).toString(),
+                                                    maxLines: 1,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 8.0, 0.0, 0.0),
+                                                  0.0, 0.0, 0.0, 4.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
                                             children: [
                                               Expanded(
                                                 child: Text(
-                                                  getJsonField(
+                                                  '${getJsonField(
                                                     placeListResultItem,
-                                                    r'''$.title''',
-                                                  ).toString(),
+                                                    r'''$.distance''',
+                                                  ).toString()} km.',
+                                                  textAlign: TextAlign.end,
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Montserrat',
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
+                                                      .bodyMedium,
                                                 ),
                                               ),
                                             ],
                                           ),
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 4.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Expanded(
-                                              child: Text(
-                                                '${getJsonField(
-                                                  placeListResultItem,
-                                                  r'''$.distance''',
-                                                ).toString()} km.',
-                                                textAlign: TextAlign.end,
-                                                maxLines: 1,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
@@ -495,14 +538,16 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                   ),
                 ),
               if (_model.isLoading)
-                Align(
-                  alignment: AlignmentDirectional(0.00, 0.00),
-                  child: Lottie.network(
-                    'https://assets2.lottiefiles.com/packages/lf20_aZTdD5.json',
-                    width: 150.0,
-                    height: 130.0,
-                    fit: BoxFit.cover,
-                    animate: true,
+                Expanded(
+                  child: Align(
+                    alignment: AlignmentDirectional(0.00, 0.00),
+                    child: Lottie.network(
+                      'https://assets2.lottiefiles.com/packages/lf20_aZTdD5.json',
+                      width: 150.0,
+                      height: 130.0,
+                      fit: BoxFit.cover,
+                      animate: true,
+                    ),
                   ),
                 ),
             ],
