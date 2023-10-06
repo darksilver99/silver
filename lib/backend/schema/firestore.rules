@@ -94,5 +94,12 @@ service cloud.firestore {
       allow write: if true;
       allow delete: if true;
     }
+
+    match /place_list/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
   }
 }

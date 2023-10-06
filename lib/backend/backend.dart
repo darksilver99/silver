@@ -15,6 +15,7 @@ import 'schema/setting_record.dart';
 import 'schema/something_data_record.dart';
 import 'schema/test_photo_list_record.dart';
 import 'schema/test_data_type_list_record.dart';
+import 'schema/place_list_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -34,6 +35,7 @@ export 'schema/setting_record.dart';
 export 'schema/something_data_record.dart';
 export 'schema/test_photo_list_record.dart';
 export 'schema/test_data_type_list_record.dart';
+export 'schema/place_list_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -480,6 +482,43 @@ Future<List<TestDataTypeListRecord>> queryTestDataTypeListRecordOnce({
     queryCollectionOnce(
       TestDataTypeListRecord.collection,
       TestDataTypeListRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query PlaceListRecords (as a Stream and as a Future).
+Future<int> queryPlaceListRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      PlaceListRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<PlaceListRecord>> queryPlaceListRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      PlaceListRecord.collection,
+      PlaceListRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<PlaceListRecord>> queryPlaceListRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      PlaceListRecord.collection,
+      PlaceListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
