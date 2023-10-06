@@ -1,8 +1,5 @@
 import 'dart:async';
 
-import 'package:from_css_color/from_css_color.dart';
-import '/backend/algolia/serialization_util.dart';
-import '/backend/algolia/algolia_manager.dart';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
@@ -66,35 +63,6 @@ class DataListRecord extends FirestoreRecord {
     DocumentReference reference,
   ) =>
       DataListRecord._(reference, mapFromFirestore(data));
-
-  static DataListRecord fromAlgolia(AlgoliaObjectSnapshot snapshot) =>
-      DataListRecord.getDocumentFromData(
-        {
-          'name': snapshot.data['name'],
-          'detail': snapshot.data['detail'],
-          'searchText': snapshot.data['searchText'],
-          'is_check': snapshot.data['is_check'],
-        },
-        DataListRecord.collection.doc(snapshot.objectID),
-      );
-
-  static Future<List<DataListRecord>> search({
-    String? term,
-    FutureOr<LatLng>? location,
-    int? maxResults,
-    double? searchRadiusMeters,
-    bool useCache = false,
-  }) =>
-      FFAlgoliaManager.instance
-          .algoliaQuery(
-            index: 'data_list',
-            term: term,
-            maxResults: maxResults,
-            location: location,
-            searchRadiusMeters: searchRadiusMeters,
-            useCache: useCache,
-          )
-          .then((r) => r.map(fromAlgolia).toList());
 
   @override
   String toString() =>
