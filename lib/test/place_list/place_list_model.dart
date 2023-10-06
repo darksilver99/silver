@@ -17,6 +17,8 @@ class PlaceListModel extends FlutterFlowModel<PlaceListWidget> {
   // State field(s) for TextField widget.
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
+  // Algolia Search Results from action on TextField
+  List<PlaceListRecord>? algoliaSearchResults = [];
 
   /// Initialization and disposal methods.
 

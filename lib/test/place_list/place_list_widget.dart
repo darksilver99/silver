@@ -29,8 +29,6 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
     super.initState();
     _model = createModel(context, () => PlaceListModel());
 
-    getCurrentUserLocation(defaultLocation: LatLng(0.0, 0.0), cached: true)
-        .then((loc) => setState(() => currentUserLocationValue = loc));
     _model.textController ??= TextEditingController();
   }
 
@@ -44,21 +42,6 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-    if (currentUserLocationValue == null) {
-      return Container(
-        color: FlutterFlowTheme.of(context).primaryBackground,
-        child: Center(
-          child: SizedBox(
-            width: 50.0,
-            height: 50.0,
-            child: SpinKitChasingDots(
-              color: FlutterFlowTheme.of(context).tertiary,
-              size: 50.0,
-            ),
-          ),
-        ),
-      );
-    }
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
@@ -108,7 +91,20 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                   onChanged: (_) => EasyDebounce.debounce(
                     '_model.textController',
                     Duration(milliseconds: 2000),
-                    () => setState(() {}),
+                    () async {
+                      currentUserLocationValue = await getCurrentUserLocation(
+                          defaultLocation: LatLng(0.0, 0.0));
+                      safeSetState(() => _model.algoliaSearchResults = null);
+                      await PlaceListRecord.search(
+                        term: _model.textController.text,
+                        location: getCurrentUserLocation(
+                            defaultLocation: LatLng(37.4298229, -122.1735655)),
+                        searchRadiusMeters: 1500.0,
+                      )
+                          .then((r) => _model.algoliaSearchResults = r)
+                          .onError((_, __) => _model.algoliaSearchResults = [])
+                          .whenComplete(() => setState(() {}));
+                    },
                   ),
                   obscureText: false,
                   decoration: InputDecoration(
@@ -149,6 +145,23 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                         ? InkWell(
                             onTap: () async {
                               _model.textController?.clear();
+                              currentUserLocationValue =
+                                  await getCurrentUserLocation(
+                                      defaultLocation: LatLng(0.0, 0.0));
+                              safeSetState(
+                                  () => _model.algoliaSearchResults = null);
+                              await PlaceListRecord.search(
+                                term: _model.textController.text,
+                                location: getCurrentUserLocation(
+                                    defaultLocation:
+                                        LatLng(37.4298229, -122.1735655)),
+                                searchRadiusMeters: 1500.0,
+                              )
+                                  .then((r) => _model.algoliaSearchResults = r)
+                                  .onError((_, __) =>
+                                      _model.algoliaSearchResults = [])
+                                  .whenComplete(() => setState(() {}));
+
                               setState(() {});
                             },
                             child: Icon(
@@ -166,16 +179,9 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
               Expanded(
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
-                  child: FutureBuilder<List<PlaceListRecord>>(
-                    future: PlaceListRecord.search(
-                      term: _model.textController.text,
-                      location: getCurrentUserLocation(
-                          defaultLocation: LatLng(37.4298229, -122.1735655)),
-                      searchRadiusMeters: 1000000.0,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
+                  child: Builder(
+                    builder: (context) {
+                      if (_model.algoliaSearchResults == null) {
                         return Center(
                           child: SizedBox(
                             width: 50.0,
@@ -187,17 +193,8 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                           ),
                         );
                       }
-                      List<PlaceListRecord> gridViewPlaceListRecordList =
-                          snapshot.data!;
-                      // Customize what your widget looks like with no search results.
-                      if (snapshot.data!.isEmpty) {
-                        return Container(
-                          height: 100,
-                          child: Center(
-                            child: Text('No results.'),
-                          ),
-                        );
-                      }
+                      final placeList =
+                          _model.algoliaSearchResults?.toList() ?? [];
                       return GridView.builder(
                         padding: EdgeInsets.zero,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -207,10 +204,9 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                           childAspectRatio: 1.0,
                         ),
                         scrollDirection: Axis.vertical,
-                        itemCount: gridViewPlaceListRecordList.length,
-                        itemBuilder: (context, gridViewIndex) {
-                          final gridViewPlaceListRecord =
-                              gridViewPlaceListRecordList[gridViewIndex];
+                        itemCount: placeList.length,
+                        itemBuilder: (context, placeListIndex) {
+                          final placeListItem = placeList[placeListIndex];
                           return Material(
                             color: Colors.transparent,
                             elevation: 3.0,
@@ -233,7 +229,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
                                       child: Image.network(
-                                        gridViewPlaceListRecord.image,
+                                        placeListItem.image,
                                         width: double.infinity,
                                         height: 100.0,
                                         fit: BoxFit.cover,
@@ -248,16 +244,20 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text(
-                                              gridViewPlaceListRecord.title,
-                                              maxLines: 1,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Montserrat',
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
+                                            Expanded(
+                                              child: Text(
+                                                placeListItem.title,
+                                                maxLines: 1,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -271,12 +271,16 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
-                                          Text(
-                                            gridViewPlaceListRecord.location!
-                                                .toString(),
-                                            maxLines: 1,
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                          Expanded(
+                                            child: Text(
+                                              placeListItem.location!
+                                                  .toString(),
+                                              textAlign: TextAlign.end,
+                                              maxLines: 1,
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
                                           ),
                                         ],
                                       ),
