@@ -303,17 +303,24 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
                                       children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(8.0),
-                                          child: Image.network(
-                                            getJsonField(
-                                              placeListResultItem,
-                                              r'''$.image''',
+                                        Hero(
+                                          tag: getJsonField(
+                                            placeListResultItem,
+                                            r'''$.image''',
+                                          ),
+                                          transitionOnUserGestures: true,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.0),
+                                            child: Image.network(
+                                              getJsonField(
+                                                placeListResultItem,
+                                                r'''$.image''',
+                                              ),
+                                              width: double.infinity,
+                                              height: 100.0,
+                                              fit: BoxFit.cover,
                                             ),
-                                            width: double.infinity,
-                                            height: 100.0,
-                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                         Expanded(
