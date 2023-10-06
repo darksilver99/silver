@@ -47,3 +47,4 @@ export '/test/detail_test_page/detail_test_page_widget.dart'
     show DetailTestPageWidget;
 export '/test/test_widget/test_widget_widget.dart' show TestWidgetWidget;
 export '/test/place_list/place_list_widget.dart' show PlaceListWidget;
+export '/test/place_detail/place_detail_widget.dart' show PlaceDetailWidget;

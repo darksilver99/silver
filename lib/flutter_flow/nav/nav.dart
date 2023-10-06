@@ -212,6 +212,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PlaceList',
           path: '/placeList',
           builder: (context, params) => PlaceListWidget(),
+        ),
+        FFRoute(
+          name: 'PlaceDetail',
+          path: '/placeDetail',
+          builder: (context, params) => PlaceDetailWidget(
+            placeParameter: params.getParam('placeParameter', ParamType.JSON),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
