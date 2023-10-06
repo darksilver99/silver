@@ -45,7 +45,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
         _model.fullListResultCopy?.toList(),
       );
       setState(() {
-        _model.placeList = _model.resultList2!.toList().cast<dynamic>();
+        _model.placeList = _model.resultList2Copy!.toList().cast<dynamic>();
         _model.isLoading = false;
         _model.isFullList = true;
       });
@@ -240,7 +240,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                   ],
                 ),
               ),
-              if (valueOrDefault<bool>(
+              if (!valueOrDefault<bool>(
                     _model.isLoading,
                     true,
                   ) &&
@@ -367,7 +367,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                     ),
                   ),
                 ),
-              if (valueOrDefault<bool>(
+              if (!valueOrDefault<bool>(
                     _model.isLoading,
                     true,
                   ) &&
