@@ -1,3 +1,7 @@
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:silver/backend/backend.dart';
+import 'package:silver/cus_fun/AgoraService.dart';
+
 import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -27,8 +31,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     super.initState();
     _model = createModel(context, () => HomePageModel());
 
+
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
+      AgoraService().listenCalling();
       if (FFAppState().isCallComing) {
         var confirmDialogResponse = await showDialog<bool>(
               context: context,
@@ -49,6 +55,27 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               },
             ) ??
             false;
+        if (confirmDialogResponse) {
+
+
+          var aaaa = await queryUsersRecordOnce(
+            singleRecord: true,
+          ).then((s) => s.firstOrNull);
+
+          context.pushNamed(
+            'CallingPage',
+            queryParameters: {
+              'userParameter': serializeParam(
+                aaaa,
+                ParamType.Document,
+              ),
+            }.withoutNulls,
+            extra: <String, dynamic>{
+              'userParameter': aaaa,
+            },
+          );
+
+        }
       }
     });
   }

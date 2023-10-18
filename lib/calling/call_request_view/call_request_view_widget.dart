@@ -1,3 +1,7 @@
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:silver/cus_fun/AgoraService.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -27,10 +31,15 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  int? _remoteUid;
+  bool _localUserJoined = false;
+  late RtcEngine _engine;
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => CallRequestViewModel());
+    initAgora();
   }
 
   @override
@@ -39,6 +48,59 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
 
     super.dispose();
   }
+
+  Future<void> initAgora() async {
+    // retrieve permissions
+    await [Permission.microphone, Permission.camera].request();
+
+    //create the engine
+    _engine = createAgoraRtcEngine();
+    await _engine.initialize(const RtcEngineContext(
+      appId: "77be9babb28c42728fbc98285dea623a",
+      channelProfile: ChannelProfileType.channelProfileCommunication,
+    ));
+
+    _engine.registerEventHandler(
+      RtcEngineEventHandler(
+        onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
+          debugPrint("local user ${connection.localUid} joined");
+          AgoraService().createCallRoom(widget.userParameter!);
+          setState(() {
+            _localUserJoined = true;
+          });
+        },
+        onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
+          debugPrint("remote user $remoteUid joined");
+          setState(() {
+            _remoteUid = remoteUid;
+          });
+        },
+        onUserOffline: (RtcConnection connection, int remoteUid,
+            UserOfflineReasonType reason) {
+          debugPrint("remote user $remoteUid left channel");
+          setState(() {
+            _remoteUid = null;
+          });
+        },
+        onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
+          debugPrint(
+              '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+        },
+      ),
+    );
+
+    await _engine.setClientRole(role: ClientRoleType.clientRoleBroadcaster);
+    await _engine.enableVideo();
+    await _engine.startPreview();
+
+    await _engine.joinChannel(
+      token: "007eJxTYBBM9HWsrOcL4Z++32PhDeu9gvukSx74tq3mnv1r8tH4RRwKDObmSamWSYlJSUYWySZG5kYWaUnJlhZGFqYpqYlmRsaJjcv1UxsCGRnkD6xiYIRCEJ+RwZCBAQB2Hxy/",
+      channelId: "1",
+      uid: 0,
+      options: const ChannelMediaOptions(),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +177,12 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      setState(() {});
+                      FFAppState().update(() {
+                        FFAppState().isCallComing = false;
+                      });
+                      await _engine.leaveChannel();
+                      await _engine.release();
+                      context.pop();
                     },
                     child: Container(
                       width: 100.0,

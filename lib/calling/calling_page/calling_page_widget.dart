@@ -1,3 +1,5 @@
+import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -29,12 +31,33 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  int? _remoteUid;
+  bool _localUserJoined = false;
+  late RtcEngine _engine;
+
   @override
   void initState() {
     super.initState();
     _model = createModel(context, () => CallingPageModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() async {
+
+      _engine = createAgoraRtcEngine();
+      await _engine.initialize(const RtcEngineContext(
+        appId: "77be9babb28c42728fbc98285dea623a",
+        channelProfile: ChannelProfileType.channelProfileCommunication,
+      ));
+      await _engine.joinChannel(
+        token: "007eJxTYBBM9HWsrOcL4Z++32PhDeu9gvukSx74tq3mnv1r8tH4RRwKDObmSamWSYlJSUYWySZG5kYWaUnJlhZGFqYpqYlmRsaJjcv1UxsCGRnkD6xiYIRCEJ+RwZCBAQB2Hxy/",
+        channelId: "1",
+        uid: 0,
+        options: const ChannelMediaOptions(),
+      );
+
+    }));
+
+
+
   }
 
   @override
@@ -145,7 +168,12 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      setState(() {});
+                      FFAppState().update(() {
+                        FFAppState().isCallComing = false;
+                      });
+                      await _engine.leaveChannel();
+                      await _engine.release();
+                      context.pop();
                     },
                     child: Container(
                       width: 100.0,
