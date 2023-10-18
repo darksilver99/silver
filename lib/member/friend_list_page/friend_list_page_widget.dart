@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -78,7 +79,12 @@ class _FriendListPageWidgetState extends State<FriendListPageWidget> {
         body: SafeArea(
           top: true,
           child: StreamBuilder<List<UsersRecord>>(
-            stream: queryUsersRecord(),
+            stream: queryUsersRecord(
+              queryBuilder: (usersRecord) => usersRecord.where(
+                'uid',
+                isNotEqualTo: currentUserUid,
+              ),
+            ),
             builder: (context, snapshot) {
               // Customize what your widget looks like when it's loading.
               if (!snapshot.hasData) {
