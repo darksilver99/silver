@@ -403,6 +403,12 @@ class FFAppState extends ChangeNotifier {
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
+
+  bool _isCallComing = false;
+  bool get isCallComing => _isCallComing;
+  set isCallComing(bool _value) {
+    _isCallComing = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

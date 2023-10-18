@@ -272,6 +272,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'FriendListPage',
           path: '/friendListPage',
           builder: (context, params) => FriendListPageWidget(),
+        ),
+        FFRoute(
+          name: 'CallRequestView',
+          path: '/callRequestView',
+          asyncParams: {
+            'userParameter': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => CallRequestViewWidget(
+            userParameter: params.getParam('userParameter', ParamType.Document),
+          ),
+        ),
+        FFRoute(
+          name: 'CallingPage',
+          path: '/callingPage',
+          asyncParams: {
+            'userParameter': getDoc(['users'], UsersRecord.fromSnapshot),
+          },
+          builder: (context, params) => CallingPageWidget(
+            userParameter: params.getParam('userParameter', ParamType.Document),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

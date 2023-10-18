@@ -51,3 +51,6 @@ export '/test/place_detail/place_detail_widget.dart' show PlaceDetailWidget;
 export '/member/login_page/login_page_widget.dart' show LoginPageWidget;
 export '/member/friend_list_page/friend_list_page_widget.dart'
     show FriendListPageWidget;
+export '/calling/call_request_view/call_request_view_widget.dart'
+    show CallRequestViewWidget;
+export '/calling/calling_page/calling_page_widget.dart' show CallingPageWidget;

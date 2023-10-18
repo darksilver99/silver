@@ -136,7 +136,18 @@ class _FriendListPageWidgetState extends State<FriendListPageWidget> {
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  setState(() {});
+                                  context.pushNamed(
+                                    'CallRequestView',
+                                    queryParameters: {
+                                      'userParameter': serializeParam(
+                                        listViewUsersRecord,
+                                        ParamType.Document,
+                                      ),
+                                    }.withoutNulls,
+                                    extra: <String, dynamic>{
+                                      'userParameter': listViewUsersRecord,
+                                    },
+                                  );
                                 },
                                 child: Icon(
                                   Icons.phone,
