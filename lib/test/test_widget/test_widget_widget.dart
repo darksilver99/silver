@@ -114,6 +114,20 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
                 textAlign: TextAlign.start,
                 style: FlutterFlowTheme.of(context).headlineSmall,
               ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: Image.network(
+                  'https://picsum.photos/seed/747/600',
+                  width: 300.0,
+                  height: 200.0,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Icon(
+                Icons.location_on,
+                color: Color(0xFFFF0000),
+                size: 24.0,
+              ),
             ],
           ),
         ),
