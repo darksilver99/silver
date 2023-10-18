@@ -3,9 +3,12 @@ import 'package:silver/backend/backend.dart';
 import 'package:silver/cus_fun/AgoraService.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -75,6 +78,24 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             },
           );
 
+        }
+        if (confirmDialogResponse) {
+          _model.aaaa = await queryUsersRecordOnce(
+            singleRecord: true,
+          ).then((s) => s.firstOrNull);
+
+          context.pushNamed(
+            'CallingPage',
+            queryParameters: {
+              'userParameter': serializeParam(
+                _model.aaaa,
+                ParamType.Document,
+              ),
+            }.withoutNulls,
+            extra: <String, dynamic>{
+              'userParameter': _model.aaaa,
+            },
+          );
         }
       }
     });

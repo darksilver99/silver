@@ -409,6 +409,12 @@ class FFAppState extends ChangeNotifier {
   set isCallComing(bool _value) {
     _isCallComing = _value;
   }
+
+  DocumentReference? _receiveUserRef;
+  DocumentReference? get receiveUserRef => _receiveUserRef;
+  set receiveUserRef(DocumentReference? _value) {
+    _receiveUserRef = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
