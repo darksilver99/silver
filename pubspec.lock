@@ -13,10 +13,10 @@ packages:
     dependency: "direct main"
     description:
       name: agora_rtc_engine
-      sha256: "5463ac139a2f79b476352ae1c4565b2548e44185b532c1490b0c91f1a8ac6f70"
+      sha256: "50dd2ce5ed92ac4519db74b912cbb490f212399dfa17046c91296cf9866fc678"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.1"
+    version: "6.2.3"
   agora_token_service:
     dependency: "direct main"
     description:
@@ -313,6 +313,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.9.3+1"
+  firebase_auth:
+    dependency: "direct main"
+    description:
+      name: firebase_auth
+      sha256: "19508428ca37f611ae47067ee6ebb3ba5a27014941177cc224f71bf7d0720cdd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.6.2"
+  firebase_auth_platform_interface:
+    dependency: "direct main"
+    description:
+      name: firebase_auth_platform_interface
+      sha256: e46e136a6f6eec88b30f12445ff7f5b19b23b7ede694921ced4f8eba8eb634f6
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.15.2"
+  firebase_auth_web:
+    dependency: "direct main"
+    description:
+      name: firebase_auth_web
+      sha256: "553bd576d793d05b920971a2c7ab02bd049d4971153702074ea2555877efd392"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.5.2"
   firebase_core:
     dependency: "direct main"
     description:
@@ -350,6 +374,30 @@ packages:
     description:
       name: firebase_crashlytics_platform_interface
       sha256: cefeeeb98abdb9d848581603bd1e33a2a8e6d3ed937586cb84437e606049071b
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.6.2"
+  firebase_storage:
+    dependency: "direct main"
+    description:
+      name: firebase_storage
+      sha256: ba695c4905da360a9daa5ecb12a8c272b2dfd681a12aaf109fa7666abc54f8a5
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.2.2"
+  firebase_storage_platform_interface:
+    dependency: "direct main"
+    description:
+      name: firebase_storage_platform_interface
+      sha256: "81e8498e26c4ba0a88400666e4f6777ebecf0c49e89d54f9f0f989b249c29abb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.4.2"
+  firebase_storage_web:
+    dependency: "direct main"
+    description:
+      name: firebase_storage_web
+      sha256: "4406f263c7a6a53502bde436e0c53ced8385142a2f8ef4005f0781749d87d286"
       url: "https://pub.dev"
     source: hosted
     version: "3.6.2"
@@ -518,6 +566,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.3"
+  google_identity_services_web:
+    dependency: transitive
+    description:
+      name: google_identity_services_web
+      sha256: "000b7a31e1fa17ee04b6c0553a2b2ea18f9f9352e4dcc0c9fcc785cf10f2484e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.2"
   google_maps:
     dependency: "direct main"
     description:
@@ -566,6 +622,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.0+8"
+  google_sign_in:
+    dependency: "direct main"
+    description:
+      name: google_sign_in
+      sha256: "750d08ffb4cd469f13068d15844ffd1d60c7ac1ca3c815918ba4ce4af22a2ddb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.2"
+  google_sign_in_android:
+    dependency: "direct main"
+    description:
+      name: google_sign_in_android
+      sha256: "6a740e8498920ecf5fc2849ae0e4412536d700230bc3169493a1d031fdfe1cca"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.8"
+  google_sign_in_ios:
+    dependency: "direct main"
+    description:
+      name: google_sign_in_ios
+      sha256: "2e1df687b17f7fddcaf9a0c7f994d0d19b5d41e8ce1d943013befd0a0ae67403"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.6.1"
+  google_sign_in_platform_interface:
+    dependency: "direct main"
+    description:
+      name: google_sign_in_platform_interface
+      sha256: "95a9e0a8701b5485f2ca330fd1fc6f918f5ce088042ce1019c5e389d8574ae4c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
+  google_sign_in_web:
+    dependency: "direct main"
+    description:
+      name: google_sign_in_web
+      sha256: "9f883b9b525297663510dfbbe8b04d39715aa0abba430851f501b7d1e4b0f465"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.11.0+2"
   html:
     dependency: transitive
     description:
@@ -698,10 +794,10 @@ packages:
     dependency: transitive
     description:
       name: iris_method_channel
-      sha256: "5bd4f6ca1573744232bed153d30473ec6607cdc5e7ba9a45eaa9ae427cd7cc7d"
+      sha256: "2bcaa69e9a9ac0ca88380f28ef400095fecb3bb3da2faf0c798db6eef8131088"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0-rc.5"
+    version: "2.0.0-dev.3"
   js:
     dependency: transitive
     description:
@@ -1006,6 +1102,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.4"
+  quiver:
+    dependency: transitive
+    description:
+      name: quiver
+      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.1"
   rfc_6901:
     dependency: transitive
     description:
@@ -1015,7 +1119,7 @@ packages:
     source: hosted
     version: "0.1.1"
   rxdart:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: rxdart
       sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
@@ -1094,6 +1198,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.5"
+  sign_in_with_apple:
+    dependency: "direct main"
+    description:
+      name: sign_in_with_apple
+      sha256: ac3b113767dfdd765078c507dad9d4d9fe96b669cc7bd88fc36fc15376fb3400
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.0"
+  sign_in_with_apple_platform_interface:
+    dependency: "direct main"
+    description:
+      name: sign_in_with_apple_platform_interface
+      sha256: a5883edee09ed6be19de19e7d9f618a617fe41a6fa03f76d082dfb787e9ea18d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  sign_in_with_apple_web:
+    dependency: "direct main"
+    description:
+      name: sign_in_with_apple_web
+      sha256: "44b66528f576e77847c14999d5e881e17e7223b7b0625a185417829e5306f47a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   simple_gradient_text:
     dependency: "direct main"
     description:
