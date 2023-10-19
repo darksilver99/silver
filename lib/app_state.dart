@@ -421,6 +421,12 @@ class FFAppState extends ChangeNotifier {
   set callRoomPath(String _value) {
     _callRoomPath = _value;
   }
+
+  bool _isHangUp = false;
+  bool get isHangUp => _isHangUp;
+  set isHangUp(bool _value) {
+    _isHangUp = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

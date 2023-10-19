@@ -28,7 +28,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-    AgoraService().listenCalling();
+
   }
 
   @override
@@ -41,10 +41,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
-
-    if(FFAppState().isCallComing){
-      return CallingWaitngPageWidget();
-    }
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus

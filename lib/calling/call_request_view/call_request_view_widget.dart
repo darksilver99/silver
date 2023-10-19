@@ -1,13 +1,16 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:silver/calling/calling_page/calling_page_widget.dart';
 import 'package:silver/cus_fun/AgoraService.dart';
 
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -39,6 +42,12 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CallRequestViewModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.rsCaller = await UsersRecord.getDocumentOnce(widget.userParameter!.reference);
+    });
+
     initAgora();
   }
 
@@ -64,41 +73,27 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
       RtcEngineEventHandler(
         onJoinChannelSuccess: (RtcConnection connection, int elapsed) {
           debugPrint("local user ${connection.localUid} joined");
-          AgoraService().createCallRoom(widget.userParameter!);
+          AgoraService().createCallRoom(widget.userParameter!, hangUp);
           setState(() {
             _localUserJoined = true;
           });
         },
         onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
           debugPrint("remote user $remoteUid joined");
-
-          /*context.pushNamed(
-            'CallingPage',
-            queryParameters: {
-              'userParameter': serializeParam(
-                _model.rsUser,
-                ParamType.Document,
-              ),
-            }.withoutNulls,
-            extra: <String, dynamic>{
-              'userParameter': _model.rsUser,
-            },
-          );*/
-
+          FFAppState().isHangUp = true;
           setState(() {
             _remoteUid = remoteUid;
           });
         },
-        onUserOffline: (RtcConnection connection, int remoteUid,
-            UserOfflineReasonType reason) {
+        onUserOffline: (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
           debugPrint("remote user $remoteUid left channel");
+          hangUp();
           setState(() {
             _remoteUid = null;
           });
         },
         onTokenPrivilegeWillExpire: (RtcConnection connection, String token) {
-          debugPrint(
-              '[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
+          debugPrint('[onTokenPrivilegeWillExpire] connection: ${connection.toJson()}, token: $token');
         },
       ),
     );
@@ -115,15 +110,32 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
     );
   }
 
+  hangUp() async {
+    FirebaseFirestore.instance.doc(FFAppState().callRoomPath).update({"is_end":true});
+    FFAppState().update(() {
+      FFAppState().isHangUp = false;
+    });
+    await _engine.leaveChannel();
+    await _engine.release();
+    context.pop();
+  }
 
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
 
+    if (FFAppState().isHangUp) {
+      return CallingPageWidget(
+        isCaller: true,
+        userParameter: _model.rsCaller,
+        onHangUp: (value) async {
+          hangUp();
+        },
+      );
+    }
+
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -169,8 +181,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: Text(
                         'calling to ${widget.userParameter?.displayName} ....',
                         textAlign: TextAlign.center,
@@ -191,12 +202,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      FFAppState().update(() {
-                        FFAppState().isCallComing = false;
-                      });
-                      await _engine.leaveChannel();
-                      await _engine.release();
-                      context.pop();
+                      hangUp();
                     },
                     child: Container(
                       width: 100.0,
@@ -206,8 +212,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                         shape: BoxShape.circle,
                       ),
                       child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                         child: Icon(
                           Icons.add_call,
                           color: FlutterFlowTheme.of(context).primaryBackground,

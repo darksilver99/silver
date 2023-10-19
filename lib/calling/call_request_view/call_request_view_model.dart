@@ -13,6 +13,8 @@ class CallRequestViewModel extends FlutterFlowModel<CallRequestViewWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
+  // Stores action output result for [Backend Call - Read Document] action in CallRequestView widget.
+  UsersRecord? rsCaller;
 
   /// Initialization and disposal methods.
 

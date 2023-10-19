@@ -1,4 +1,5 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
+import 'package:silver/cus_fun/AgoraService.dart';
 
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -15,16 +16,20 @@ import 'package:provider/provider.dart';
 import 'calling_page_model.dart';
 export 'calling_page_model.dart';
 
+typedef OnHangUpCallback = void Function(dynamic);
+
 class CallingPageWidget extends StatefulWidget {
   const CallingPageWidget({
     Key? key,
     required this.userParameter,
     bool? isCaller,
+    this.onHangUp
   })  : this.isCaller = isCaller ?? false,
         super(key: key);
 
   final UsersRecord? userParameter;
   final bool isCaller;
+  final OnHangUpCallback? onHangUp;
 
   @override
   _CallingPageWidgetState createState() => _CallingPageWidgetState();
@@ -48,21 +53,35 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.timerController.onStartTimer();
 
-      _engine = createAgoraRtcEngine();
-      await _engine.initialize(const RtcEngineContext(
-        appId: "77be9babb28c42728fbc98285dea623a",
-        channelProfile: ChannelProfileType.channelProfileCommunication,
-      ));
-      await _engine.joinChannel(
-        token: "007eJxTYBBM9HWsrOcL4Z++32PhDeu9gvukSx74tq3mnv1r8tH4RRwKDObmSamWSYlJSUYWySZG5kYWaUnJlhZGFqYpqYlmRsaJjcv1UxsCGRnkD6xiYIRCEJ+RwZCBAQB2Hxy/",
-        channelId: "1",
-        uid: 0,
-        options: const ChannelMediaOptions(),
-      );
+      FFAppState().update(() {
+        FFAppState().isCallComing = false;
+      });
+
+      if(!widget.isCaller){
+        _engine = createAgoraRtcEngine();
+        await _engine.initialize(const RtcEngineContext(
+          appId: "77be9babb28c42728fbc98285dea623a",
+          channelProfile: ChannelProfileType.channelProfileCommunication,
+        ));
+
+        _engine.registerEventHandler(
+          RtcEngineEventHandler(
+            onUserOffline: (RtcConnection connection, int remoteUid, UserOfflineReasonType reason) {
+              debugPrint("aaaaaaaaaaa remote user $remoteUid left channel");
+              hangUp();
+            },
+          ),
+        );
+
+        await _engine.joinChannel(
+          token: "007eJxTYBBM9HWsrOcL4Z++32PhDeu9gvukSx74tq3mnv1r8tH4RRwKDObmSamWSYlJSUYWySZG5kYWaUnJlhZGFqYpqYlmRsaJjcv1UxsCGRnkD6xiYIRCEJ+RwZCBAQB2Hxy/",
+          channelId: "1",
+          uid: 0,
+          options: const ChannelMediaOptions(),
+        );
+      }
 
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -70,6 +89,12 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
     _model.dispose();
 
     super.dispose();
+  }
+
+  hangUp() async {
+    await _engine.leaveChannel();
+    await _engine.release();
+    context.pop();
   }
 
   @override
@@ -174,12 +199,15 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       _model.timerController.onStopTimer();
-                      FFAppState().update(() {
-                        FFAppState().isCallComing = false;
-                      });
-                      await _engine.leaveChannel();
-                      await _engine.release();
-                      context.pop();
+                      FirebaseFirestore.instance.doc(FFAppState().callRoomPath).update({"is_end":true});
+                      if(widget.isCaller){
+                        FFAppState().update(() {
+                          FFAppState().isHangUp = false;
+                        });
+                        widget.onHangUp!(true);
+                      }else{
+                       hangUp();
+                      }
                     },
                     child: Container(
                       width: 100.0,

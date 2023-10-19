@@ -34,9 +34,13 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.rsUser =
           await UsersRecord.getDocumentOnce(FFAppState().callerUserRef!);
-      setState(() {
-        _model.callerName = _model.rsUser!.displayName;
-      });
+          try{
+            setState(() {
+              _model.callerName = _model.rsUser!.displayName;
+            });
+          }catch(e){
+            print("error : $e");
+          }
     });
   }
 
@@ -75,7 +79,7 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                         child: Text(
-                          '${_model.callerName} โทรมา',
+                          '${_model.callerName} โทรมา ${FFAppState().isCallComing}',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -103,6 +107,7 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await FirebaseFirestore.instance.doc(FFAppState().callRoomPath).update({"is_receiver_answer":false});
                               FFAppState().update(() {
                                 FFAppState().isCallComing = false;
                               });
