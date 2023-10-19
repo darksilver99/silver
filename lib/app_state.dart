@@ -415,6 +415,12 @@ class FFAppState extends ChangeNotifier {
   set callerUserRef(DocumentReference? _value) {
     _callerUserRef = _value;
   }
+
+  String _callRoomPath = '';
+  String get callRoomPath => _callRoomPath;
+  set callRoomPath(String _value) {
+    _callRoomPath = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
