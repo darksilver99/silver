@@ -22,10 +22,18 @@ class AgoraService {
       print("listenCalling");
       print(event.docs.length);
       if (event.docs.length != 0) {
-        FFAppState().update(() {
-          FFAppState().isCallComing = true;
-        });
+        updateReceive(event.docs[0].data()!["caller_ref"]);
       }
+    });
+  }
+
+  updateReceive(callerRef) async {
+    print("updateReceive");
+    print(callerRef.path);
+    var rsUser = await FirebaseFirestore.instance.doc(callerRef.path).get();
+    FFAppState().update(() {
+      FFAppState().isCallComing = true;
+      FFAppState().receiveUserRef = rsUser.reference;
     });
   }
 }

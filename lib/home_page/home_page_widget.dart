@@ -39,11 +39,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       AgoraService().listenCalling();
       if (FFAppState().isCallComing) {
+       UsersRecord rsUser = await UsersRecord.getDocumentOnce(FFAppState().receiveUserRef!);
         var confirmDialogResponse = await showDialog<bool>(
               context: context,
               builder: (alertDialogContext) {
                 return AlertDialog(
-                  title: Text('aaaaโทรมา'),
+                  title: Text('${rsUser.displayName} โทรมา'),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(alertDialogContext, false),
@@ -59,41 +60,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             ) ??
             false;
         if (confirmDialogResponse) {
-
-
-          var aaaa = await queryUsersRecordOnce(
-            singleRecord: true,
-          ).then((s) => s.firstOrNull);
-
           context.pushNamed(
             'CallingPage',
             queryParameters: {
               'userParameter': serializeParam(
-                aaaa,
+                rsUser,
                 ParamType.Document,
               ),
             }.withoutNulls,
             extra: <String, dynamic>{
-              'userParameter': aaaa,
-            },
-          );
-
-        }
-        if (confirmDialogResponse) {
-          _model.aaaa = await queryUsersRecordOnce(
-            singleRecord: true,
-          ).then((s) => s.firstOrNull);
-
-          context.pushNamed(
-            'CallingPage',
-            queryParameters: {
-              'userParameter': serializeParam(
-                _model.aaaa,
-                ParamType.Document,
-              ),
-            }.withoutNulls,
-            extra: <String, dynamic>{
-              'userParameter': _model.aaaa,
+              'userParameter': rsUser,
             },
           );
         }
