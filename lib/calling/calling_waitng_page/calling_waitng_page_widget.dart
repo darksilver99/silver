@@ -1,8 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -10,12 +13,7 @@ import 'calling_waitng_page_model.dart';
 export 'calling_waitng_page_model.dart';
 
 class CallingWaitngPageWidget extends StatefulWidget {
-  const CallingWaitngPageWidget({
-    Key? key,
-    required this.callerParameter,
-  }) : super(key: key);
-
-  final UsersRecord? callerParameter;
+  const CallingWaitngPageWidget({Key? key}) : super(key: key);
 
   @override
   _CallingWaitngPageWidgetState createState() =>
@@ -31,6 +29,12 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CallingWaitngPageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      _model.rsUser =
+          await UsersRecord.getDocumentOnce(FFAppState().callerUserRef!);
+    });
   }
 
   @override
@@ -68,7 +72,10 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                         child: Text(
-                          '${widget.callerParameter?.displayName} โทรมา',
+                          '${valueOrDefault<String>(
+                            _model.rsUser?.displayName,
+                            '-',
+                          )} โทรมา',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
