@@ -130,7 +130,18 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              setState(() {});
+                              context.pushNamed(
+                                'CallingPage',
+                                queryParameters: {
+                                  'userParameter': serializeParam(
+                                    _model.rsUser,
+                                    ParamType.Document,
+                                  ),
+                                }.withoutNulls,
+                                extra: <String, dynamic>{
+                                  'userParameter': _model.rsUser,
+                                },
+                              );
                             },
                             child: Container(
                               width: 100.0,
