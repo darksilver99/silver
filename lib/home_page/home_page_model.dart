@@ -18,6 +18,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in HomePage widget.
   UsersRecord? aaaa;
+  // Stores action output result for [Firestore Query - Query a collection] action in HomePage widget.
+  UsersRecord? bbbb;
 
   /// Initialization and disposal methods.
 

@@ -72,6 +72,23 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               'userParameter': rsUser,
             },
           );
+        } else {
+          _model.bbbb = await queryUsersRecordOnce(
+            singleRecord: true,
+          ).then((s) => s.firstOrNull);
+
+          context.pushNamed(
+            'CallingWaitngPage',
+            queryParameters: {
+              'callerParameter': serializeParam(
+                _model.bbbb,
+                ParamType.Document,
+              ),
+            }.withoutNulls,
+            extra: <String, dynamic>{
+              'callerParameter': _model.bbbb,
+            },
+          );
         }
       }
     });
