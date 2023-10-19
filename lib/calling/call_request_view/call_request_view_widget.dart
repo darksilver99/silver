@@ -9,6 +9,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -45,9 +46,9 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.rsCaller = await UsersRecord.getDocumentOnce(widget.userParameter!.reference);
+      _model.rsCaller =
+          await UsersRecord.getDocumentOnce(widget.userParameter!.reference);
     });
-
     initAgora();
   }
 
@@ -135,7 +136,9 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
     }
 
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus ? FocusScope.of(context).requestFocus(_model.unfocusNode) : FocusScope.of(context).unfocus(),
+      onTap: () => _model.unfocusNode.canRequestFocus
+          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+          : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -181,7 +184,8 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: Text(
                         'calling to ${widget.userParameter?.displayName} ....',
                         textAlign: TextAlign.center,
@@ -212,7 +216,8 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                         shape: BoxShape.circle,
                       ),
                       child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 3.0, 0.0, 0.0),
                         child: Icon(
                           Icons.add_call,
                           color: FlutterFlowTheme.of(context).primaryBackground,
