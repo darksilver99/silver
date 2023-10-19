@@ -1,12 +1,8 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -29,66 +25,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      if (FFAppState().isCallComing) {
-        var confirmDialogResponse = await showDialog<bool>(
-              context: context,
-              builder: (alertDialogContext) {
-                return AlertDialog(
-                  title: Text('aaaaโทรมา'),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext, false),
-                      child: Text('ไม่รับ'),
-                    ),
-                    TextButton(
-                      onPressed: () => Navigator.pop(alertDialogContext, true),
-                      child: Text('รับสาย'),
-                    ),
-                  ],
-                );
-              },
-            ) ??
-            false;
-        if (confirmDialogResponse) {
-          _model.aaaa = await queryUsersRecordOnce(
-            singleRecord: true,
-          ).then((s) => s.firstOrNull);
-
-          context.pushNamed(
-            'CallingPage',
-            queryParameters: {
-              'userParameter': serializeParam(
-                _model.aaaa,
-                ParamType.Document,
-              ),
-            }.withoutNulls,
-            extra: <String, dynamic>{
-              'userParameter': _model.aaaa,
-            },
-          );
-        } else {
-          _model.bbbb = await queryUsersRecordOnce(
-            singleRecord: true,
-          ).then((s) => s.firstOrNull);
-
-          context.pushNamed(
-            'CallingWaitngPage',
-            queryParameters: {
-              'callerParameter': serializeParam(
-                _model.bbbb,
-                ParamType.Document,
-              ),
-            }.withoutNulls,
-            extra: <String, dynamic>{
-              'callerParameter': _model.bbbb,
-            },
-          );
-        }
-      }
-    });
   }
 
   @override

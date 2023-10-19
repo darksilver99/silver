@@ -296,13 +296,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'CallingWaitngPage',
           path: '/callingWaitngPage',
-          asyncParams: {
-            'callerParameter': getDoc(['users'], UsersRecord.fromSnapshot),
-          },
-          builder: (context, params) => CallingWaitngPageWidget(
-            callerParameter:
-                params.getParam('callerParameter', ParamType.Document),
-          ),
+          builder: (context, params) => CallingWaitngPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
