@@ -56,3 +56,9 @@ export '/calling/call_request_view/call_request_view_widget.dart'
 export '/calling/calling_page/calling_page_widget.dart' show CallingPageWidget;
 export '/calling/calling_waitng_page/calling_waitng_page_widget.dart'
     show CallingWaitngPageWidget;
+export '/broadcast/broadcast_list/broadcast_list_widget.dart'
+    show BroadcastListWidget;
+export '/broadcast/broadcast_view/broadcast_view_widget.dart'
+    show BroadcastViewWidget;
+export '/broadcast/broadcast_detail/broadcast_detail_widget.dart'
+    show BroadcastDetailWidget;

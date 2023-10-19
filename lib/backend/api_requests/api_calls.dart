@@ -225,6 +225,62 @@ class DataListCheckCall {
       );
 }
 
+class GetLiveStreamIdCall {
+  static Future<ApiCallResponse> call({
+    String? playbackId = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getLiveStreamId',
+      apiUrl: 'https://api.mux.com/video/v1/playback-ids/',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Basic Yjk4N2E5MmYtZjY2ZS00YmEwLTlmNDgtNGIwMzE5OGZjYTQ2OndxQVRZclA0SEV2VUJhUVM2NlFQMk8xNUtRMFozY3B5KzgyclJjcHhEd1BNUi8ra2xJa3FvSjZqU2xhd3RZWmZUc081ZWJZb000dg==',
+      },
+      params: {
+        'PLAYBACK_ID': playbackId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic streamId(dynamic response) => getJsonField(
+        response,
+        r'''$.data.object.id''',
+      );
+}
+
+class GetPastLiveStreamCall {
+  static Future<ApiCallResponse> call({
+    String? streamId = '',
+  }) {
+    return ApiManager.instance.makeApiCall(
+      callName: 'getPastLiveStream',
+      apiUrl: 'https://api.mux.com/video/v1/assets',
+      callType: ApiCallType.GET,
+      headers: {
+        'Authorization':
+            'Basic Yjk4N2E5MmYtZjY2ZS00YmEwLTlmNDgtNGIwMzE5OGZjYTQ2OndxQVRZclA0SEV2VUJhUVM2NlFQMk8xNUtRMFozY3B5KzgyclJjcHhEd1BNUi8ra2xJa3FvSjZqU2xhd3RZWmZUc081ZWJZb000dg==',
+      },
+      params: {
+        'stream_id': streamId,
+      },
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+    );
+  }
+
+  static dynamic playbackId(dynamic response) => getJsonField(
+        response,
+        r'''$.data[0].playback_ids[0].id''',
+      );
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;
