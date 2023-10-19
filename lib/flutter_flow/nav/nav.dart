@@ -291,6 +291,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           },
           builder: (context, params) => CallingPageWidget(
             userParameter: params.getParam('userParameter', ParamType.Document),
+            isCaller: params.getParam('isCaller', ParamType.bool),
           ),
         ),
         FFRoute(

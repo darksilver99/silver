@@ -34,6 +34,9 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.rsUser =
           await UsersRecord.getDocumentOnce(FFAppState().callerUserRef!);
+      setState(() {
+        _model.callerName = _model.rsUser!.displayName;
+      });
     });
   }
 
@@ -72,10 +75,7 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                         child: Text(
-                          '${valueOrDefault<String>(
-                            _model.rsUser?.displayName,
-                            '-',
-                          )} โทรมา',
+                          '${_model.callerName} โทรมา',
                           textAlign: TextAlign.center,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -103,7 +103,9 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              setState(() {});
+                              FFAppState().update(() {
+                                FFAppState().isCallComing = false;
+                              });
                             },
                             child: Container(
                               width: 100.0,
@@ -136,6 +138,10 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                                   'userParameter': serializeParam(
                                     _model.rsUser,
                                     ParamType.Document,
+                                  ),
+                                  'isCaller': serializeParam(
+                                    false,
+                                    ParamType.bool,
                                   ),
                                 }.withoutNulls,
                                 extra: <String, dynamic>{
