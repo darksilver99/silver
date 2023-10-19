@@ -231,14 +231,14 @@ class GetLiveStreamIdCall {
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'getLiveStreamId',
-      apiUrl: 'https://api.mux.com/video/v1/playback-ids/',
+      apiUrl: 'https://api.mux.com/video/v1/playback-ids/${playbackId}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
             'Basic Yjk4N2E5MmYtZjY2ZS00YmEwLTlmNDgtNGIwMzE5OGZjYTQ2OndxQVRZclA0SEV2VUJhUVM2NlFQMk8xNUtRMFozY3B5KzgyclJjcHhEd1BNUi8ra2xJa3FvSjZqU2xhd3RZWmZUc081ZWJZb000dg==',
       },
       params: {
-        'PLAYBACK_ID': playbackId,
+        'PLAYBACK_ID': "PLAYBACK_ID",
       },
       returnBody: true,
       encodeBodyUtf8: false,
@@ -259,7 +259,7 @@ class GetPastLiveStreamCall {
   }) {
     return ApiManager.instance.makeApiCall(
       callName: 'getPastLiveStream',
-      apiUrl: 'https://api.mux.com/video/v1/assets',
+      apiUrl: 'https://api.mux.com/video/v1/assets?live_stream_id=${streamId}',
       callType: ApiCallType.GET,
       headers: {
         'Authorization':
