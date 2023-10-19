@@ -8,6 +8,7 @@ import 'package:silver/flutter_flow/flutter_flow_util.dart';
 
 class AgoraService {
   createCallRoom(UsersRecord receiveUser) {
+    print("createCallRoom");
     var data = {
       "caller_ref": currentUserReference,
       "receive_ref": receiveUser.reference,
