@@ -276,8 +276,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
     if (liveStreamController == null) return;
     const streamBaseURL = 'rtmps://global-live.mux.com:443/app/';
     final callName = 'createLiveStream';
-    final response =
-        await makeCloudCall(callName, {'latency_mode': 'standard'});
+    final response = await makeCloudCall(callName, {'latency_mode': 'low'});
     final streamKey = response['stream_key'];
     final playbackId = response['playback_ids'][0]['id'];
     muxBroadcastPlaybackUrl = 'https://stream.mux.com/$playbackId.m3u8';
