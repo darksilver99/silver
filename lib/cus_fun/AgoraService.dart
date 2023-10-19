@@ -32,7 +32,7 @@ class AgoraService {
       }
     });
   }
-  
+
   updateReceive(callerRef) async {
     print("updateReceive");
     print(callerRef.path);
