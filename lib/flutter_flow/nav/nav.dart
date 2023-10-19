@@ -299,8 +299,28 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CallingWaitngPage',
           path: '/callingWaitngPage',
           builder: (context, params) => CallingWaitngPageWidget(),
+        ),
+        FFRoute(
+          name: 'BroadcastList',
+          path: '/broadcastList',
+          builder: (context, params) => BroadcastListWidget(),
+        ),
+        FFRoute(
+          name: 'BroadcastView',
+          path: '/broadcastView',
+          builder: (context, params) => BroadcastViewWidget(
+            broadcastName: params.getParam('broadcastName', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'BroadcastDetail',
+          path: '/broadcastDetail',
+          builder: (context, params) => BroadcastDetailWidget(
+            url: params.getParam('url', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
+      observers: [routeObserver],
     );
 
 extension NavParamExtensions on Map<String, String?> {
