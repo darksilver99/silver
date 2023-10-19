@@ -74,7 +74,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
         );
 
         await _engine.joinChannel(
-          token: "007eJxTYBBM9HWsrOcL4Z++32PhDeu9gvukSx74tq3mnv1r8tH4RRwKDObmSamWSYlJSUYWySZG5kYWaUnJlhZGFqYpqYlmRsaJjcv1UxsCGRnkD6xiYIRCEJ+RwZCBAQB2Hxy/",
+          token: "007eJxTYKiSXJLwfdJ8zbrHJ9gT/Cola0WvHT55uj+srPXL1fl717IrMJibJ6VaJiUmJRlZJJsYmRtZpCUlW1oYWZimpCaaGRkn6vw1SG0IZGRY1RHPzMgAgSA+I4MhAwMAUGUfZw==",
           channelId: "1",
           uid: 0,
           options: const ChannelMediaOptions(),
