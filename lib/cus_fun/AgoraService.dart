@@ -7,15 +7,19 @@ import 'package:silver/backend/schema/users_record.dart';
 import 'package:silver/flutter_flow/flutter_flow_util.dart';
 
 class AgoraService {
-  createCallRoom(UsersRecord receiveUser) {
+  createCallRoom(UsersRecord receiveUser) async {
     print("createCallRoom");
-    var data = {
+
+    DocumentReference docRef = FirebaseFirestore.instance.collection('call_room_list').doc();
+    await docRef.set({
       "caller_ref": currentUserReference,
       "receive_ref": receiveUser.reference,
       "create_date": getCurrentTimestamp,
       "is_end": false,
-    };
-    FirebaseFirestore.instance.collection("call_room_list").doc().set(data);
+    });
+
+    FFAppState().callRoomPath = docRef.path;
+
   }
 
   listenCalling() {
@@ -24,10 +28,11 @@ class AgoraService {
       print(event.docs.length);
       if (event.docs.length != 0) {
         updateReceive(event.docs[0].data()!["caller_ref"]);
+        FFAppState().callRoomPath = event.docs[0].reference.path;
       }
     });
   }
-
+  
   updateReceive(callerRef) async {
     print("updateReceive");
     print(callerRef.path);

@@ -71,6 +71,20 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
         },
         onUserJoined: (RtcConnection connection, int remoteUid, int elapsed) {
           debugPrint("remote user $remoteUid joined");
+
+          /*context.pushNamed(
+            'CallingPage',
+            queryParameters: {
+              'userParameter': serializeParam(
+                _model.rsUser,
+                ParamType.Document,
+              ),
+            }.withoutNulls,
+            extra: <String, dynamic>{
+              'userParameter': _model.rsUser,
+            },
+          );*/
+
           setState(() {
             _remoteUid = remoteUid;
           });

@@ -132,6 +132,7 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
+                              await FirebaseFirestore.instance.doc(FFAppState().callRoomPath).update({"is_receiver_answer":true});
                               context.pushNamed(
                                 'CallingPage',
                                 queryParameters: {
