@@ -54,3 +54,5 @@ export '/member/friend_list_page/friend_list_page_widget.dart'
 export '/calling/call_request_view/call_request_view_widget.dart'
     show CallRequestViewWidget;
 export '/calling/calling_page/calling_page_widget.dart' show CallingPageWidget;
+export '/calling/calling_waitng_page/calling_waitng_page_widget.dart'
+    show CallingWaitngPageWidget;

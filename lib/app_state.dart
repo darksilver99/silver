@@ -410,10 +410,10 @@ class FFAppState extends ChangeNotifier {
     _isCallComing = _value;
   }
 
-  DocumentReference? _receiveUserRef;
-  DocumentReference? get receiveUserRef => _receiveUserRef;
-  set receiveUserRef(DocumentReference? _value) {
-    _receiveUserRef = _value;
+  DocumentReference? _callerUserRef;
+  DocumentReference? get callerUserRef => _callerUserRef;
+  set callerUserRef(DocumentReference? _value) {
+    _callerUserRef = _value;
   }
 }
 
