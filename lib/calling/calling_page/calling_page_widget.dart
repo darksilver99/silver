@@ -19,9 +19,12 @@ class CallingPageWidget extends StatefulWidget {
   const CallingPageWidget({
     Key? key,
     required this.userParameter,
-  }) : super(key: key);
+    bool? isCaller,
+  })  : this.isCaller = isCaller ?? false,
+        super(key: key);
 
   final UsersRecord? userParameter;
+  final bool isCaller;
 
   @override
   _CallingPageWidgetState createState() => _CallingPageWidgetState();
