@@ -33,7 +33,7 @@ class AgoraService {
     var rsUser = await FirebaseFirestore.instance.doc(callerRef.path).get();
     FFAppState().update(() {
       FFAppState().isCallComing = true;
-      FFAppState().receiveUserRef = rsUser.reference;
+      FFAppState().callerUserRef = rsUser.reference;
     });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:silver/backend/backend.dart';
+import 'package:silver/calling/calling_waitng_page/calling_waitng_page_widget.dart';
 import 'package:silver/cus_fun/AgoraService.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
@@ -39,7 +40,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       AgoraService().listenCalling();
       if (FFAppState().isCallComing) {
-       UsersRecord rsUser = await UsersRecord.getDocumentOnce(FFAppState().receiveUserRef!);
+       UsersRecord rsUser = await UsersRecord.getDocumentOnce(FFAppState().callerUserRef!);
         var confirmDialogResponse = await showDialog<bool>(
               context: context,
               builder: (alertDialogContext) {
@@ -104,6 +105,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     context.watch<FFAppState>();
+
+    if(FFAppState().isCallComing){
+      return CallingWaitngPageWidget();
+    }
 
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
