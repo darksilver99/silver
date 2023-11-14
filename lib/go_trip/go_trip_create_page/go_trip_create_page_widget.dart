@@ -42,16 +42,37 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
     _model = createModel(context, () => GoTripCreatePageModel());
 
     _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
     _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
+
     _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
+
     _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
+
     _model.textController5 ??= TextEditingController();
+    _model.textFieldFocusNode5 ??= FocusNode();
+
     _model.textController6 ??= TextEditingController();
+    _model.textFieldFocusNode6 ??= FocusNode();
+
     _model.textController7 ??= TextEditingController();
+    _model.textFieldFocusNode7 ??= FocusNode();
+
     _model.textController8 ??= TextEditingController();
+    _model.textFieldFocusNode8 ??= FocusNode();
+
     _model.textController9 ??= TextEditingController();
+    _model.textFieldFocusNode9 ??= FocusNode();
+
     _model.textController10 ??= TextEditingController();
+    _model.textFieldFocusNode10 ??= FocusNode();
+
     _model.textController11 ??= TextEditingController();
+    _model.textFieldFocusNode11 ??= FocusNode();
   }
 
   @override
@@ -63,6 +84,15 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -109,6 +139,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                   Expanded(
                     child: TextFormField(
                       controller: _model.textController1,
+                      focusNode: _model.textFieldFocusNode1,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle:
@@ -497,6 +528,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 0.0, 16.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController2,
+                              focusNode: _model.textFieldFocusNode2,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelStyle: FlutterFlowTheme.of(context)
@@ -1053,6 +1085,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 0.0, 16.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController3,
+                              focusNode: _model.textFieldFocusNode3,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelStyle: FlutterFlowTheme.of(context)
@@ -1152,6 +1185,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         4.0, 0.0, 4.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController4,
+                                      focusNode: _model.textFieldFocusNode4,
                                       onFieldSubmitted: (_) async {
                                         await showModalBottomSheet(
                                           isScrollControlled: true,
@@ -1334,6 +1368,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             8.0, 0.0, 4.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController5,
+                                          focusNode: _model.textFieldFocusNode5,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1417,6 +1452,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             4.0, 0.0, 4.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController6,
+                                          focusNode: _model.textFieldFocusNode6,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1571,6 +1607,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             8.0, 0.0, 4.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController7,
+                                          focusNode: _model.textFieldFocusNode7,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1702,6 +1739,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             4.0, 0.0, 4.0, 0.0),
                                         child: TextFormField(
                                           controller: _model.textController8,
+                                          focusNode: _model.textFieldFocusNode8,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1850,6 +1888,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   4.0, 0.0, 4.0, 0.0),
                                           child: TextFormField(
                                             controller: _model.textController9,
+                                            focusNode:
+                                                _model.textFieldFocusNode9,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
@@ -2982,6 +3022,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         4.0, 0.0, 4.0, 0.0),
                                     child: TextFormField(
                                       controller: _model.textController10,
+                                      focusNode: _model.textFieldFocusNode10,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
@@ -3134,6 +3175,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 0.0, 16.0, 0.0, 0.0),
                             child: TextFormField(
                               controller: _model.textController11,
+                              focusNode: _model.textFieldFocusNode11,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelStyle: FlutterFlowTheme.of(context)

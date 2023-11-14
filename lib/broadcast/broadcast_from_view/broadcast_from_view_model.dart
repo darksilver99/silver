@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'broadcast_from_view_widget.dart' show BroadcastFromViewWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -12,6 +13,7 @@ class BroadcastFromViewModel extends FlutterFlowModel<BroadcastFromViewWidget> {
 
   final formKey = GlobalKey<FormState>();
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   String? _textControllerValidator(BuildContext context, String? val) {
@@ -29,6 +31,7 @@ class BroadcastFromViewModel extends FlutterFlowModel<BroadcastFromViewWidget> {
   }
 
   void dispose() {
+    textFieldFocusNode?.dispose();
     textController?.dispose();
   }
 
