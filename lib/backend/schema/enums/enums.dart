@@ -5,6 +5,11 @@ enum Status {
   invisible,
 }
 
+enum Type {
+  aaa,
+  bbb,
+}
+
 extension FFEnumExtensions<T extends Enum> on T {
   String serialize() => name;
 }
@@ -18,6 +23,8 @@ T? deserializeEnum<T>(String? value) {
   switch (T) {
     case (Status):
       return Status.values.deserialize(value) as T?;
+    case (Type):
+      return Type.values.deserialize(value) as T?;
     default:
       return null;
   }
