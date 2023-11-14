@@ -27,15 +27,15 @@ class SettingRecord extends FirestoreRecord {
   String get type => _type ?? '';
   bool hasType() => _type != null;
 
-  // "status" field.
-  Status? _status;
-  Status? get status => _status;
-  bool hasStatus() => _status != null;
+  // "type2" field.
+  Type? _type2;
+  Type? get type2 => _type2;
+  bool hasType2() => _type2 != null;
 
   void _initializeFields() {
     _text = snapshotData['text'] as String?;
     _type = snapshotData['type'] as String?;
-    _status = deserializeEnum<Status>(snapshotData['status']);
+    _type2 = deserializeEnum<Type>(snapshotData['type2']);
   }
 
   static CollectionReference get collection =>
@@ -75,13 +75,13 @@ class SettingRecord extends FirestoreRecord {
 Map<String, dynamic> createSettingRecordData({
   String? text,
   String? type,
-  Status? status,
+  Type? type2,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'text': text,
       'type': type,
-      'status': status,
+      'type2': type2,
     }.withoutNulls,
   );
 
@@ -95,12 +95,12 @@ class SettingRecordDocumentEquality implements Equality<SettingRecord> {
   bool equals(SettingRecord? e1, SettingRecord? e2) {
     return e1?.text == e2?.text &&
         e1?.type == e2?.type &&
-        e1?.status == e2?.status;
+        e1?.type2 == e2?.type2;
   }
 
   @override
   int hash(SettingRecord? e) =>
-      const ListEquality().hash([e?.text, e?.type, e?.status]);
+      const ListEquality().hash([e?.text, e?.type, e?.type2]);
 
   @override
   bool isValidKey(Object? o) => o is SettingRecord;
