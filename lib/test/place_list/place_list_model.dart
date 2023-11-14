@@ -12,6 +12,7 @@ import 'package:collection/collection.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -41,6 +42,7 @@ class PlaceListModel extends FlutterFlowModel<PlaceListWidget> {
   // Stores action output result for [Custom Action - sortListByLocation] action in PlaceList widget.
   List<dynamic>? resultList2Copy;
   // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
   TextEditingController? textController;
   String? Function(BuildContext, String?)? textControllerValidator;
   // Algolia Search Results from action on Icon
@@ -58,6 +60,7 @@ class PlaceListModel extends FlutterFlowModel<PlaceListWidget> {
 
   void dispose() {
     unfocusNode.dispose();
+    textFieldFocusNode?.dispose();
     textController?.dispose();
   }
 

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,10 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
     _model = createModel(context, () => LoginPageModel());
 
     _model.emailTextController ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
     _model.passwordTextController ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
   }
 
   @override
@@ -39,6 +43,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -65,6 +78,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
                         child: TextFormField(
                           controller: _model.emailTextController,
+                          focusNode: _model.textFieldFocusNode1,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'E-mail',
@@ -110,6 +124,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 0.0),
                         child: TextFormField(
                           controller: _model.passwordTextController,
+                          focusNode: _model.textFieldFocusNode2,
                           obscureText: !_model.passwordVisibility,
                           decoration: InputDecoration(
                             labelText: 'Password',

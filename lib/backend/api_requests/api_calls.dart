@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
-import '../../flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
@@ -9,7 +9,7 @@ export 'api_manager.dart' show ApiCallResponse;
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 class GetProvinceListCall {
-  static Future<ApiCallResponse> call() {
+  static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'getProvinceList',
       apiUrl:
@@ -54,7 +54,7 @@ class AddProvinceCall {
   static Future<ApiCallResponse> call({
     String? name = '',
     String? postCode = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'addProvince',
       apiUrl: 'https://asia-east2-silver-65166.cloudfunctions.net/addProvince',
@@ -84,7 +84,7 @@ class AddProvinceCall {
 class DeleteProvinceCall {
   static Future<ApiCallResponse> call({
     String? id = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'deleteProvince',
       apiUrl:
@@ -112,7 +112,7 @@ class DeleteProvinceCall {
 }
 
 class DataListCall {
-  static Future<ApiCallResponse> call() {
+  static Future<ApiCallResponse> call() async {
     return ApiManager.instance.makeApiCall(
       callName: 'dataList',
       apiUrl: 'https://asia-east2-silver-65166.cloudfunctions.net/dataList',
@@ -169,7 +169,7 @@ class DataListCall {
 class DataListDelCall {
   static Future<ApiCallResponse> call({
     String? docID = 'test',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'dataListDel',
       apiUrl: 'https://asia-east2-silver-65166.cloudfunctions.net/dataListDel',
@@ -198,7 +198,7 @@ class DataListDelCall {
 class DataListCheckCall {
   static Future<ApiCallResponse> call({
     String? docID = 'test',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'dataListCheck',
       apiUrl:
@@ -228,7 +228,7 @@ class DataListCheckCall {
 class GetLiveStreamIdCall {
   static Future<ApiCallResponse> call({
     String? playbackId = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getLiveStreamId',
       apiUrl: 'https://api.mux.com/video/v1/playback-ids/${playbackId}',
@@ -237,9 +237,7 @@ class GetLiveStreamIdCall {
         'Authorization':
             'Basic Yjk4N2E5MmYtZjY2ZS00YmEwLTlmNDgtNGIwMzE5OGZjYTQ2OndxQVRZclA0SEV2VUJhUVM2NlFQMk8xNUtRMFozY3B5KzgyclJjcHhEd1BNUi8ra2xJa3FvSjZqU2xhd3RZWmZUc081ZWJZb000dg==',
       },
-      params: {
-        'PLAYBACK_ID': "PLAYBACK_ID",
-      },
+      params: {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
@@ -256,7 +254,7 @@ class GetLiveStreamIdCall {
 class GetPastLiveStreamCall {
   static Future<ApiCallResponse> call({
     String? streamId = '',
-  }) {
+  }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'getPastLiveStream',
       apiUrl: 'https://api.mux.com/video/v1/assets?live_stream_id=${streamId}',
@@ -265,9 +263,7 @@ class GetPastLiveStreamCall {
         'Authorization':
             'Basic Yjk4N2E5MmYtZjY2ZS00YmEwLTlmNDgtNGIwMzE5OGZjYTQ2OndxQVRZclA0SEV2VUJhUVM2NlFQMk8xNUtRMFozY3B5KzgyclJjcHhEd1BNUi8ra2xJa3FvSjZqU2xhd3RZWmZUc081ZWJZb000dg==',
       },
-      params: {
-        'stream_id': streamId,
-      },
+      params: {},
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,

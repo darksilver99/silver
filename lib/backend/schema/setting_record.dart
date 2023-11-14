@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
 import '/backend/schema/util/schema_util.dart';
+import '/backend/schema/enums/enums.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -26,9 +27,15 @@ class SettingRecord extends FirestoreRecord {
   String get type => _type ?? '';
   bool hasType() => _type != null;
 
+  // "status" field.
+  Status? _status;
+  Status? get status => _status;
+  bool hasStatus() => _status != null;
+
   void _initializeFields() {
     _text = snapshotData['text'] as String?;
     _type = snapshotData['type'] as String?;
+    _status = deserializeEnum<Status>(snapshotData['status']);
   }
 
   static CollectionReference get collection =>
@@ -68,11 +75,13 @@ class SettingRecord extends FirestoreRecord {
 Map<String, dynamic> createSettingRecordData({
   String? text,
   String? type,
+  Status? status,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'text': text,
       'type': type,
+      'status': status,
     }.withoutNulls,
   );
 
@@ -84,11 +93,14 @@ class SettingRecordDocumentEquality implements Equality<SettingRecord> {
 
   @override
   bool equals(SettingRecord? e1, SettingRecord? e2) {
-    return e1?.text == e2?.text && e1?.type == e2?.type;
+    return e1?.text == e2?.text &&
+        e1?.type == e2?.type &&
+        e1?.status == e2?.status;
   }
 
   @override
-  int hash(SettingRecord? e) => const ListEquality().hash([e?.text, e?.type]);
+  int hash(SettingRecord? e) =>
+      const ListEquality().hash([e?.text, e?.type, e?.status]);
 
   @override
   bool isValidKey(Object? o) => o is SettingRecord;

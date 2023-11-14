@@ -30,7 +30,10 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
     _model = createModel(context, () => ManualUploadPageModel());
 
     _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
     _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
   }
 
   @override
@@ -42,6 +45,15 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return Scaffold(
@@ -154,6 +166,7 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController1,
+                        focusNode: _model.textFieldFocusNode1,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelStyle: FlutterFlowTheme.of(context).labelMedium,
@@ -218,6 +231,7 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                           EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
                       child: TextFormField(
                         controller: _model.textController2,
+                        focusNode: _model.textFieldFocusNode2,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelStyle: FlutterFlowTheme.of(context).labelMedium,

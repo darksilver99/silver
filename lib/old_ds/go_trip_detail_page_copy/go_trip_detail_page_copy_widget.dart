@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:styled_divider/styled_divider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -31,6 +32,7 @@ class _GoTripDetailPageCopyWidgetState
     _model = createModel(context, () => GoTripDetailPageCopyModel());
 
     _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -42,6 +44,15 @@ class _GoTripDetailPageCopyWidgetState
 
   @override
   Widget build(BuildContext context) {
+    if (isiOS) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          statusBarBrightness: Theme.of(context).brightness,
+          systemStatusBarContrastEnforced: true,
+        ),
+      );
+    }
+
     context.watch<FFAppState>();
 
     return GestureDetector(
@@ -697,6 +708,7 @@ class _GoTripDetailPageCopyWidgetState
                               8.0, 0.0, 8.0, 0.0),
                           child: TextFormField(
                             controller: _model.textController,
+                            focusNode: _model.textFieldFocusNode,
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(

@@ -32,6 +32,7 @@ class _EditBudgetDialogViewWidgetState
     _model = createModel(context, () => EditBudgetDialogViewModel());
 
     _model.textController ??= TextEditingController();
+    _model.textFieldFocusNode ??= FocusNode();
   }
 
   @override
@@ -102,6 +103,7 @@ class _EditBudgetDialogViewWidgetState
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 0.0),
                   child: TextFormField(
                     controller: _model.textController,
+                    focusNode: _model.textFieldFocusNode,
                     autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
