@@ -1,6 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/schema/enums/enums.dart';
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -234,7 +234,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           .set(createSettingRecordData(
                             text: 'test',
                             type: 'test2',
-                            type2: Type.aaa,
+                            testMap: updateTestTypeStruct(
+                              TestTypeStruct(
+                                id: 1,
+                                title: 'aaa',
+                                images: ['bbb', 'ccc'],
+                              ),
+                              clearUnsetFields: false,
+                              create: true,
+                            ),
                           ));
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(

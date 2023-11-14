@@ -27,15 +27,15 @@ class SettingRecord extends FirestoreRecord {
   String get type => _type ?? '';
   bool hasType() => _type != null;
 
-  // "type2" field.
-  Type? _type2;
-  Type? get type2 => _type2;
-  bool hasType2() => _type2 != null;
+  // "test_map" field.
+  TestTypeStruct? _testMap;
+  TestTypeStruct get testMap => _testMap ?? TestTypeStruct();
+  bool hasTestMap() => _testMap != null;
 
   void _initializeFields() {
     _text = snapshotData['text'] as String?;
     _type = snapshotData['type'] as String?;
-    _type2 = deserializeEnum<Type>(snapshotData['type2']);
+    _testMap = TestTypeStruct.maybeFromMap(snapshotData['test_map']);
   }
 
   static CollectionReference get collection =>
@@ -75,15 +75,18 @@ class SettingRecord extends FirestoreRecord {
 Map<String, dynamic> createSettingRecordData({
   String? text,
   String? type,
-  Type? type2,
+  TestTypeStruct? testMap,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'text': text,
       'type': type,
-      'type2': type2,
+      'test_map': TestTypeStruct().toMap(),
     }.withoutNulls,
   );
+
+  // Handle nested data for "test_map" field.
+  addTestTypeStructData(firestoreData, testMap, 'test_map');
 
   return firestoreData;
 }
@@ -95,12 +98,12 @@ class SettingRecordDocumentEquality implements Equality<SettingRecord> {
   bool equals(SettingRecord? e1, SettingRecord? e2) {
     return e1?.text == e2?.text &&
         e1?.type == e2?.type &&
-        e1?.type2 == e2?.type2;
+        e1?.testMap == e2?.testMap;
   }
 
   @override
   int hash(SettingRecord? e) =>
-      const ListEquality().hash([e?.text, e?.type, e?.type2]);
+      const ListEquality().hash([e?.text, e?.type, e?.testMap]);
 
   @override
   bool isValidKey(Object? o) => o is SettingRecord;
