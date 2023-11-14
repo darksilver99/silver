@@ -238,7 +238,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           .set(createSettingRecordData(
                             text: 'test',
                             type: 'test2',
-                            status: Status.visible,
+                            status: Status.invisible,
                           ));
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
