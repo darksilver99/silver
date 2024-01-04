@@ -318,6 +318,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => BroadcastDetailWidget(
             url: params.getParam('url', ParamType.String),
           ),
+        ),
+        FFRoute(
+          name: 'OmiseTestPage',
+          path: '/omiseTestPage',
+          builder: (context, params) => OmiseTestPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

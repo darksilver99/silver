@@ -62,3 +62,5 @@ export '/broadcast/broadcast_view/broadcast_view_widget.dart'
     show BroadcastViewWidget;
 export '/broadcast/broadcast_detail/broadcast_detail_widget.dart'
     show BroadcastDetailWidget;
+export '/test/omise_test_page/omise_test_page_widget.dart'
+    show OmiseTestPageWidget;
