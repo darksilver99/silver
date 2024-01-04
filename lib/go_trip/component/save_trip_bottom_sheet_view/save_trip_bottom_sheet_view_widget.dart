@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'save_trip_bottom_sheet_view_model.dart';
 export 'save_trip_bottom_sheet_view_model.dart';
 
@@ -82,7 +83,8 @@ class _SaveTripBottomSheetViewWidgetState
                       builder: (dialogContext) {
                         return Material(
                           color: Colors.transparent,
-                          child: CreateTripSuccessDialogViewWidget(),
+                          child: WebViewAware(
+                              child: CreateTripSuccessDialogViewWidget()),
                         );
                       },
                     ).then((value) => setState(() {}));
