@@ -10,7 +10,7 @@ import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:apivideo_live_stream/apivideo_live_stream.dart';
 import 'package:flutter/services.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -71,7 +71,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
 
     _stopwatch.stop();
     _timer?.cancel();
-    Wakelock.disable();
+    WakelockPlus.disable();
 
     super.dispose();
   }
@@ -292,7 +292,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
     muxBroadcastPlaybackUrl = 'https://stream.mux.com/$playbackId.m3u8';
     if (streamKey != null) {
       try {
-        Wakelock.enable();
+        WakelockPlus.enable();
         await liveStreamController.startStreaming(
           streamKey: streamKey,
           url: streamBaseURL,
@@ -311,7 +311,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
     final LiveStreamController? liveStreamController = muxBroadcastController;
     if (liveStreamController == null) return;
     try {
-      Wakelock.disable();
+      WakelockPlus.disable();
       liveStreamController.stopStreaming();
       if (mounted) setState(() => muxBroadcastIsLive = false);
       _stopTimer();

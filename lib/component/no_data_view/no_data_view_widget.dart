@@ -42,7 +42,7 @@ class _NoDataViewWidgetState extends State<NoDataViewWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Text(
         'No Data!',
         style: FlutterFlowTheme.of(context).bodyMedium,

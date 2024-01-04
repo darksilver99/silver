@@ -291,8 +291,7 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                           ),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
+                          padding: EdgeInsets.all(16.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -382,7 +381,7 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                   options: FFButtonOptions(
                     width: double.infinity,
                     height: 40.0,
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    padding: EdgeInsets.all(0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     color: FlutterFlowTheme.of(context).tertiary,

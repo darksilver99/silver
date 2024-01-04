@@ -320,7 +320,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                           tag: getJsonField(
                                             placeListResultItem,
                                             r'''$.image''',
-                                          ),
+                                          ).toString(),
                                           transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
@@ -329,7 +329,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                               getJsonField(
                                                 placeListResultItem,
                                                 r'''$.image''',
-                                              ),
+                                              ).toString(),
                                               width: double.infinity,
                                               height: 100.0,
                                               fit: BoxFit.cover,
@@ -472,7 +472,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                           tag: getJsonField(
                                             placeListResultItem,
                                             r'''$.image''',
-                                          ),
+                                          ).toString(),
                                           transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
@@ -481,7 +481,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                               getJsonField(
                                                 placeListResultItem,
                                                 r'''$.image''',
-                                              ),
+                                              ).toString(),
                                               width: double.infinity,
                                               height: 100.0,
                                               fit: BoxFit.cover,
@@ -560,7 +560,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
               if (_model.isLoading)
                 Expanded(
                   child: Align(
-                    alignment: AlignmentDirectional(0.00, 0.00),
+                    alignment: AlignmentDirectional(0.0, 0.0),
                     child: Lottie.network(
                       'https://assets2.lottiefiles.com/packages/lf20_aZTdD5.json',
                       width: 150.0,

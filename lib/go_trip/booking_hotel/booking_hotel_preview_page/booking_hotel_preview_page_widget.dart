@@ -657,7 +657,7 @@ class _BookingHotelPreviewPageWidgetState
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               16.0, 8.0, 16.0, 0.0),
@@ -821,7 +821,7 @@ class _BookingHotelPreviewPageWidgetState
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.00, 1.00),
+              alignment: AlignmentDirectional(0.0, 1.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(

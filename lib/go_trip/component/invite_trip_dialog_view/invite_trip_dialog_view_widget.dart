@@ -46,7 +46,7 @@ class _InviteTripDialogViewWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.95,
         decoration: BoxDecoration(
@@ -54,7 +54,7 @@ class _InviteTripDialogViewWidgetState
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+          padding: EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -250,7 +250,7 @@ class _InviteTripDialogViewWidgetState
                             ),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 0.0, 0.0),
@@ -308,8 +308,7 @@ class _InviteTripDialogViewWidgetState
                             ),
                           ),
                           child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                14.0, 14.0, 14.0, 14.0),
+                            padding: EdgeInsets.all(14.0),
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(0.0),
                               child: Image.asset(
@@ -324,8 +323,7 @@ class _InviteTripDialogViewWidgetState
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -336,7 +334,7 @@ class _InviteTripDialogViewWidgetState
                                 .secondaryBackground,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
@@ -370,7 +368,7 @@ class _InviteTripDialogViewWidgetState
                               color: FlutterFlowTheme.of(context).tertiary,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),

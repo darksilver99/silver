@@ -119,7 +119,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                               getJsonField(
                                 widget.placeParameter,
                                 r'''$.image''',
-                              ),
+                              ).toString(),
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) =>
                                   Image.asset(
@@ -131,7 +131,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                             tag: getJsonField(
                               widget.placeParameter,
                               r'''$.image''',
-                            ),
+                            ).toString(),
                             useHeroAnimation: true,
                           ),
                         ),
@@ -141,7 +141,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                       tag: getJsonField(
                         widget.placeParameter,
                         r'''$.image''',
-                      ),
+                      ).toString(),
                       transitionOnUserGestures: true,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
@@ -149,7 +149,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                           getJsonField(
                             widget.placeParameter,
                             r'''$.image''',
-                          ),
+                          ).toString(),
                           width: double.infinity,
                           height: 200.0,
                           fit: BoxFit.contain,

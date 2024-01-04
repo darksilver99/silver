@@ -1,9 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
-import '/flutter_flow/flutter_flow_timer.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -28,8 +26,6 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestWidgetModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -90,73 +86,53 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Hello World',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                  Text(
-                    'Hello World',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                ],
-              ),
-              FlutterFlowTimer(
-                initialTime: _model.timerMilliseconds,
-                getDisplayTime: (value) => StopWatchTimer.getDisplayTime(
-                  value,
-                  hours: false,
-                  milliSecond: false,
-                ),
-                controller: _model.timerController,
-                updateStateInterval: Duration(milliseconds: 1000),
-                onChanged: (value, displayTime, shouldUpdate) {
-                  _model.timerMilliseconds = value;
-                  _model.timerValue = displayTime;
-                  if (shouldUpdate) setState(() {});
-                },
-                textAlign: TextAlign.start,
-                style: FlutterFlowTheme.of(context).headlineSmall,
-              ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  'https://picsum.photos/seed/747/600',
-                  width: 300.0,
-                  height: 200.0,
-                  fit: BoxFit.cover,
+              Container(
+                width: double.infinity,
+                height: 100.0,
+                decoration: BoxDecoration(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),
               ),
-              Icon(
-                Icons.location_on,
-                color: Color(0xFFFF0000),
-                size: 24.0,
-              ),
-              FFButtonWidget(
-                onPressed: () async {},
-                text: 'Button',
-                options: FFButtonOptions(
-                  height: 40.0,
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
-                  iconPadding:
-                      EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                  color: FlutterFlowTheme.of(context).primary,
-                  textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                        fontFamily: 'Montserrat',
-                        color: Colors.white,
-                      ),
-                  elevation: 3.0,
-                  borderSide: BorderSide(
-                    color: Colors.transparent,
-                    width: 1.0,
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 100.0,
+                  decoration: BoxDecoration(),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Text(
+                          'ยกเลิก',
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    fontSize: 24.0,
+                                  ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.flash_on,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 36.0,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
             ],

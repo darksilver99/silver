@@ -11,7 +11,7 @@ import 'dart:async';
 import 'dart:io' show Platform;
 import 'package:apivideo_live_stream/apivideo_live_stream.dart';
 import 'package:flutter/services.dart';
-import 'package:wakelock/wakelock.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

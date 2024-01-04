@@ -184,7 +184,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                                     functions.createUrlFromPlaybackId(
                                         GetPastLiveStreamCall.playbackId(
                                       (_model.apiResultaaf?.jsonBody ?? ''),
-                                    ).toString()),
+                                    ).toString()!),
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,
@@ -203,8 +203,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              16.0, 16.0, 16.0, 16.0),
+                          padding: EdgeInsets.all(16.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             children: [

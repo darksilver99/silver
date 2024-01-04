@@ -48,7 +48,7 @@ class TestTypeStruct extends FFFirebaseStruct {
       );
 
   static TestTypeStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? TestTypeStruct.fromMap(data) : null;
+      data is Map ? TestTypeStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'id': _id,
