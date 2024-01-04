@@ -1,4 +1,6 @@
 // Automatic FlutterFlow imports
+import 'package:firebase_core/firebase_core.dart';
+
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
@@ -20,6 +22,10 @@ Future gbPrimePayment(
   String? type,
 ) async {
   // Add your function code here!
+  await FirebaseFirestore.instance.collection('payment_list').doc().set({
+    'create_date': getCurrentTimestamp,
+    'type': type,
+  });
   if (type == "true") {
     var url = 'https://api.globalprimepay.com/v2/trueWallet';
 
@@ -55,7 +61,8 @@ Future gbPrimePayment(
       //'customerTelephone': customerTelephone
     };
     var response = await http.post(Uri.parse(url), body: jsonEncode(requestBody), headers: header);
-    print(response.body);
+    //print(response.body);
+    FFAppState().htmlContent = response.body;
   }
 }
 
