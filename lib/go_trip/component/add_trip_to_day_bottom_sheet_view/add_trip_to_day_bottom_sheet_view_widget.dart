@@ -96,7 +96,7 @@ class _AddTripToDayBottomSheetViewWidgetState
                                       .secondaryBackground,
                                   shape: BoxShape.circle,
                                 ),
-                                alignment: AlignmentDirectional(0.00, 0.00),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   '0',
                                   style: FlutterFlowTheme.of(context)

@@ -182,7 +182,7 @@ class _CreateTripDrawerViewWidgetState
                                   shape: BoxShape.circle,
                                 ),
                                 child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '5',
                                     style: FlutterFlowTheme.of(context)

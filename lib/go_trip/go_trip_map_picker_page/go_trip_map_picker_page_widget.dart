@@ -86,8 +86,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                             width: double.infinity,
                             decoration: BoxDecoration(),
                             child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 16.0),
+                              padding: EdgeInsets.all(16.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -259,8 +258,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
                               child: Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    8.0, 8.0, 8.0, 8.0),
+                                padding: EdgeInsets.all(8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
@@ -482,7 +480,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(0.00, 1.00),
+                  alignment: AlignmentDirectional(0.0, 1.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 32.0),

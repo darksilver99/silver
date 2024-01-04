@@ -163,8 +163,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                     ),
                     child: Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(6.0, 6.0, 6.0, 6.0),
+                      padding: EdgeInsets.all(6.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,

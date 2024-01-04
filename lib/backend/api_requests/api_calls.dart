@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import '../schema/structs/index.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -21,33 +22,46 @@ class GetProvinceListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static bool? status(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic dataList(dynamic response) => getJsonField(
+      ));
+  static List? dataList(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
-  static dynamic dataID(dynamic response) => getJsonField(
+      ) as List?;
+  static List<int>? dataID(dynamic response) => (getJsonField(
         response,
         r'''$.data[?(@)].id''',
         true,
-      );
-  static dynamic dataName(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataName(dynamic response) => (getJsonField(
         response,
         r'''$.data[?(@)].name''',
         true,
-      );
-  static dynamic dataPostCode(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dataPostCode(dynamic response) => (getJsonField(
         response,
         r'''$.data[?(@)].postCode''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class AddProvinceCall {
@@ -68,6 +82,7 @@ class AddProvinceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -98,17 +113,18 @@ class DeleteProvinceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static bool? status(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic msg(dynamic response) => getJsonField(
+      ));
+  static String? msg(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.msg''',
-      );
+      ));
 }
 
 class DataListCall {
@@ -123,47 +139,68 @@ class DataListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static bool? status(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic msg(dynamic response) => getJsonField(
+      ));
+  static String? msg(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.msg''',
-      );
-  static dynamic data(dynamic response) => getJsonField(
+      ));
+  static List? data(dynamic response) => getJsonField(
         response,
         r'''$.data''',
         true,
-      );
-  static dynamic name(dynamic response) => getJsonField(
+      ) as List?;
+  static List<String>? name(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].name''',
         true,
-      );
-  static dynamic detail(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? detail(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].detail''',
         true,
-      );
-  static dynamic searchText(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? searchText(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].searchText''',
         true,
-      );
-  static dynamic ischeck(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<bool>? ischeck(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].is_check''',
         true,
-      );
-  static dynamic id(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? id(dynamic response) => (getJsonField(
         response,
         r'''$.data[:].id''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class DataListDelCall {
@@ -182,17 +219,18 @@ class DataListDelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static bool? status(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic msg(dynamic response) => getJsonField(
+      ));
+  static String? msg(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.msg''',
-      );
+      ));
 }
 
 class DataListCheckCall {
@@ -212,17 +250,18 @@ class DataListCheckCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic status(dynamic response) => getJsonField(
+  static bool? status(dynamic response) => castToType<bool>(getJsonField(
         response,
         r'''$.status''',
-      );
-  static dynamic msg(dynamic response) => getJsonField(
+      ));
+  static String? msg(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.msg''',
-      );
+      ));
 }
 
 class GetLiveStreamIdCall {
@@ -242,13 +281,14 @@ class GetLiveStreamIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic streamId(dynamic response) => getJsonField(
+  static String? streamId(dynamic response) => castToType<String>(getJsonField(
         response,
         r'''$.data.object.id''',
-      );
+      ));
 }
 
 class GetPastLiveStreamCall {
@@ -268,13 +308,15 @@ class GetPastLiveStreamCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic playbackId(dynamic response) => getJsonField(
+  static String? playbackId(dynamic response) =>
+      castToType<String>(getJsonField(
         response,
         r'''$.data[0].playback_ids[0].id''',
-      );
+      ));
 }
 
 class ApiPagingParams {

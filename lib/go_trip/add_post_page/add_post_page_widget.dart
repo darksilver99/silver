@@ -404,7 +404,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                 ),
               ),
               Align(
-                alignment: AlignmentDirectional(0.00, 1.00),
+                alignment: AlignmentDirectional(0.0, 1.0),
                 child: Material(
                   color: Colors.transparent,
                   elevation: 3.0,

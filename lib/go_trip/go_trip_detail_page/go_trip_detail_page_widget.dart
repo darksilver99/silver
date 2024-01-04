@@ -415,7 +415,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           child: Align(
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   32.0, 0.0, 32.0, 0.0),
@@ -558,7 +558,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -569,7 +569,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
@@ -650,7 +650,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -760,7 +760,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -825,7 +825,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(46.0, 8.0, 32.0, 0.0),
@@ -868,7 +868,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '1',
                                     style: FlutterFlowTheme.of(context)
@@ -1007,7 +1007,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '2',
                                     style: FlutterFlowTheme.of(context)
@@ -1172,7 +1172,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '3',
                                     style: FlutterFlowTheme.of(context)
@@ -1312,7 +1312,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '4',
                                     style: FlutterFlowTheme.of(context)
@@ -1451,7 +1451,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                         .secondaryBackground,
                                     shape: BoxShape.circle,
                                   ),
-                                  alignment: AlignmentDirectional(0.00, 0.00),
+                                  alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     '5',
                                     style: FlutterFlowTheme.of(context)
@@ -1595,7 +1595,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                         ),
                       ),
                       Align(
-                        alignment: AlignmentDirectional(-1.00, 0.00),
+                        alignment: AlignmentDirectional(-1.0, 0.0),
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               32.0, 4.0, 0.0, 0.0),
@@ -1626,24 +1626,24 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                               child:
                                                   FlutterFlowExpandedImageView(
                                                 image: Image.network(
-                                                  testList2Item,
+                                                  testList2Item.toString(),
                                                   fit: BoxFit.contain,
                                                 ),
                                                 allowRotation: false,
-                                                tag: testList2Item,
+                                                tag: testList2Item.toString(),
                                                 useHeroAnimation: true,
                                               ),
                                             ),
                                           );
                                         },
                                         child: Hero(
-                                          tag: testList2Item,
+                                          tag: testList2Item.toString(),
                                           transitionOnUserGestures: true,
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                             child: Image.network(
-                                              testList2Item,
+                                              testList2Item.toString(),
                                               width: 56.0,
                                               height: 56.0,
                                               fit: BoxFit.cover,
@@ -1825,7 +1825,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -1848,8 +1848,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
+                      padding: EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1875,7 +1874,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -1910,7 +1909,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2147,7 +2146,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -2170,8 +2169,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                       ),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
+                      padding: EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -2193,7 +2191,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2220,7 +2218,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2251,7 +2249,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               ),
                               Expanded(
                                 child: Align(
-                                  alignment: AlignmentDirectional(1.00, 0.00),
+                                  alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
                                     style:
@@ -2295,7 +2293,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
@@ -2306,7 +2304,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
@@ -2352,7 +2350,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                   ),
                 ),
                 Align(
-                  alignment: AlignmentDirectional(-1.00, 0.00),
+                  alignment: AlignmentDirectional(-1.0, 0.0),
                   child: Padding(
                     padding:
                         EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
@@ -2407,8 +2405,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                       color: Color(0xFFF4F8FB),
                     ),
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(
-                          16.0, 16.0, 16.0, 16.0),
+                      padding: EdgeInsets.all(16.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
                         children: [
@@ -2428,7 +2425,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                                 ),
                           ),
                           Align(
-                            alignment: AlignmentDirectional(-1.00, 0.00),
+                            alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 16.0, 0.0, 0.0),
@@ -2562,7 +2559,7 @@ class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {
                               color: Color(0xFF343740),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),

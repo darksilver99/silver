@@ -7,7 +7,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -86,8 +86,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.all(0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -116,8 +115,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.all(0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -146,8 +144,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.all(0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -176,8 +173,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.all(0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -210,8 +206,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.all(0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -267,8 +262,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: EdgeInsets.all(0.0),
                       iconPadding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).primary,
@@ -286,15 +280,35 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     ),
                   ),
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: CachedNetworkImage(
-                    fadeInDuration: Duration(milliseconds: 500),
-                    fadeOutDuration: Duration(milliseconds: 500),
-                    imageUrl: 'https://picsum.photos/seed/37/600',
-                    width: 300.0,
-                    height: 200.0,
-                    fit: BoxFit.cover,
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await actions.gbPrimePayment(
+                        context,
+                      );
+                    },
+                    text: 'test gp prime',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding: EdgeInsets.all(0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
               ],

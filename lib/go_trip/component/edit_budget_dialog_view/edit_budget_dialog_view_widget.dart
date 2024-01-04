@@ -47,7 +47,7 @@ class _EditBudgetDialogViewWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: AlignmentDirectional(0.00, 0.00),
+      alignment: AlignmentDirectional(0.0, 0.0),
       child: Container(
         width: MediaQuery.sizeOf(context).width * 0.95,
         decoration: BoxDecoration(
@@ -55,7 +55,7 @@ class _EditBudgetDialogViewWidgetState
           borderRadius: BorderRadius.circular(8.0),
         ),
         child: Padding(
-          padding: EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+          padding: EdgeInsets.all(16.0),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -154,8 +154,7 @@ class _EditBudgetDialogViewWidgetState
                   ),
                 ),
                 Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -166,7 +165,7 @@ class _EditBudgetDialogViewWidgetState
                                 .secondaryBackground,
                             borderRadius: BorderRadius.circular(8.0),
                           ),
-                          alignment: AlignmentDirectional(0.00, 0.00),
+                          alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 8.0),
@@ -200,7 +199,7 @@ class _EditBudgetDialogViewWidgetState
                               color: FlutterFlowTheme.of(context).tertiary,
                               borderRadius: BorderRadius.circular(8.0),
                             ),
-                            alignment: AlignmentDirectional(0.00, 0.00),
+                            alignment: AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 8.0, 0.0, 8.0),
