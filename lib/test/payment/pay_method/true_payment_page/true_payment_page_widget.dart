@@ -92,11 +92,12 @@ class _TruePaymentPageWidgetState extends State<TruePaymentPageWidget> {
             children: [
               Expanded(
                 child: FlutterFlowWebView(
-                  content: 'https://flutter.dev',
+                  content: '<h1>aaaaa</h1>',
                   bypass: false,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   verticalScroll: true,
                   horizontalScroll: false,
+                  html: true,
                 ),
               ),
             ],
