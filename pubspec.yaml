@@ -134,6 +134,7 @@ dependencies:
   dotted_border: ^2.0.0+3
   agora_rtc_engine: ^6.2.3
   #image_picker: ^1.0.1
+  #flutter_gbprimepay_qrcode: ^0.0.7
 
 
   # The following adds the Cupertino Icons font to your application.
