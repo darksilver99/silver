@@ -22,3 +22,7 @@ String? getPlaybackIdFromUrl(String url) {
 String createUrlFromPlaybackId(String playbackId) {
   return "https://stream.mux.com/$playbackId.m3u8";
 }
+
+String? removeDoctype(String? html) {
+  return html!.replaceAll('<!DOCTYPE html>', '');
+}

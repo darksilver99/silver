@@ -422,6 +422,12 @@ class FFAppState extends ChangeNotifier {
   set callRoomPath(String _value) {
     _callRoomPath = _value;
   }
+
+  String _htmlContent = '';
+  String get htmlContent => _htmlContent;
+  set htmlContent(String _value) {
+    _htmlContent = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {

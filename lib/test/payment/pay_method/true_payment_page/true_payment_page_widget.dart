@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -92,11 +93,11 @@ class _TruePaymentPageWidgetState extends State<TruePaymentPageWidget> {
             children: [
               Expanded(
                 child: FlutterFlowWebView(
-                  content: 'https://flutter.dev',
-                  bypass: false,
+                  content: functions.removeDoctype(FFAppState().htmlContent)!,
                   height: MediaQuery.sizeOf(context).height * 1.0,
                   verticalScroll: true,
                   horizontalScroll: false,
+                  html: true,
                 ),
               ),
             ],
