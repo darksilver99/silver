@@ -62,5 +62,13 @@ export '/broadcast/broadcast_view/broadcast_view_widget.dart'
     show BroadcastViewWidget;
 export '/broadcast/broadcast_detail/broadcast_detail_widget.dart'
     show BroadcastDetailWidget;
-export '/test/omise_test_page/omise_test_page_widget.dart'
+export '/test/payment/omise_test_page/omise_test_page_widget.dart'
     show OmiseTestPageWidget;
+export '/test/payment/g_b_prime_test_page/g_b_prime_test_page_widget.dart'
+    show GBPrimeTestPageWidget;
+export '/test/payment/pay_method/true_payment_page/true_payment_page_widget.dart'
+    show TruePaymentPageWidget;
+export '/test/payment/pay_method/q_r_code_page/q_r_code_page_widget.dart'
+    show QRCodePageWidget;
+export '/test/payment/pay_method/credit_card_page/credit_card_page_widget.dart'
+    show CreditCardPageWidget;

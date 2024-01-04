@@ -324,6 +324,26 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'OmiseTestPage',
           path: '/omiseTestPage',
           builder: (context, params) => OmiseTestPageWidget(),
+        ),
+        FFRoute(
+          name: 'GBPrimeTestPage',
+          path: '/gBPrimeTestPage',
+          builder: (context, params) => GBPrimeTestPageWidget(),
+        ),
+        FFRoute(
+          name: 'TruePaymentPage',
+          path: '/truePaymentPage',
+          builder: (context, params) => TruePaymentPageWidget(),
+        ),
+        FFRoute(
+          name: 'QRCodePage',
+          path: '/qRCodePage',
+          builder: (context, params) => QRCodePageWidget(),
+        ),
+        FFRoute(
+          name: 'CreditCardPage',
+          path: '/creditCardPage',
+          builder: (context, params) => CreditCardPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

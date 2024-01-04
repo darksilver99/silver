@@ -9,6 +9,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pointer_interceptor/pointer_interceptor.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'go_trip_list_picker_page_model.dart';
 export 'go_trip_list_picker_page_model.dart';
 
@@ -158,7 +159,8 @@ class _GoTripListPickerPageWidgetState
                       enableDrag: false,
                       context: context,
                       builder: (context) {
-                        return GestureDetector(
+                        return WebViewAware(
+                            child: GestureDetector(
                           onTap: () => _model.unfocusNode.canRequestFocus
                               ? FocusScope.of(context)
                                   .requestFocus(_model.unfocusNode)
@@ -167,7 +169,7 @@ class _GoTripListPickerPageWidgetState
                             padding: MediaQuery.viewInsetsOf(context),
                             child: PreviewTripBottomSheetViewWidget(),
                           ),
-                        );
+                        ));
                       },
                     ).then((value) => safeSetState(() {}));
                   },

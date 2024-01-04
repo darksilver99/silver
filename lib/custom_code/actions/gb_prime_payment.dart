@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 // Begin custom action code
 // DO NOT REMOVE OR MODIFY THE CODE ABOVE!
 
-Future gbPrimePayment(BuildContext context) async {
+Future gbPrimePayment(
+  BuildContext context,
+  String? type,
+) async {
   // Add your function code here!
 }

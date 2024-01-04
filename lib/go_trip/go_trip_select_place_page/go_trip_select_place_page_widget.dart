@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'go_trip_select_place_page_model.dart';
 export 'go_trip_select_place_page_model.dart';
 
@@ -48,10 +49,11 @@ class _GoTripSelectPlacePageWidgetState
         enableDrag: false,
         context: context,
         builder: (context) {
-          return Padding(
+          return WebViewAware(
+              child: Padding(
             padding: MediaQuery.viewInsetsOf(context),
             child: SelectTypeBottomSheetViewWidget(),
-          );
+          ));
         },
       ).then((value) => safeSetState(() {}));
     });

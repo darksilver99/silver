@@ -14,6 +14,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:webviewx_plus/webviewx_plus.dart';
 import 'test_page_model.dart';
 export 'test_page_model.dart';
 
@@ -193,7 +194,8 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                             await showDialog(
                               context: context,
                               builder: (alertDialogContext) {
-                                return AlertDialog(
+                                return WebViewAware(
+                                    child: AlertDialog(
                                   title: Text(
                                       _model.cloudFunctionpdn!.resultAsString!),
                                   actions: [
@@ -203,7 +205,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                                       child: Text('Ok'),
                                     ),
                                   ],
-                                );
+                                ));
                               },
                             );
                           }
