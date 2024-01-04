@@ -428,6 +428,12 @@ class FFAppState extends ChangeNotifier {
   set isHangUp(bool _value) {
     _isHangUp = _value;
   }
+
+  String _htmlContent = '';
+  String get htmlContent => _htmlContent;
+  set htmlContent(String _value) {
+    _htmlContent = _value;
+  }
 }
 
 LatLng? _latLngFromString(String? val) {
