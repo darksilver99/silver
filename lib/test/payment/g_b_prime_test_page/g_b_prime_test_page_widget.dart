@@ -100,6 +100,7 @@ class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
                       onPressed: () async {
                         await actions.gbPrimePayment(
                           context,
+                          'true',
                         );
 
                         context.pushNamed('TruePaymentPage');
