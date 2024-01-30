@@ -13,10 +13,10 @@ import 'true_payment_page_model.dart';
 export 'true_payment_page_model.dart';
 
 class TruePaymentPageWidget extends StatefulWidget {
-  const TruePaymentPageWidget({Key? key}) : super(key: key);
+  const TruePaymentPageWidget({super.key});
 
   @override
-  _TruePaymentPageWidgetState createState() => _TruePaymentPageWidgetState();
+  State<TruePaymentPageWidget> createState() => _TruePaymentPageWidgetState();
 }
 
 class _TruePaymentPageWidgetState extends State<TruePaymentPageWidget> {

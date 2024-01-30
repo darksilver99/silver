@@ -15,7 +15,6 @@ import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_
 import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
 import 'go_trip_create_page_widget.dart' show GoTripCreatePageWidget;
 import 'package:styled_divider/styled_divider.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

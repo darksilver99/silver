@@ -11,10 +11,10 @@ import 'credit_card_page_model.dart';
 export 'credit_card_page_model.dart';
 
 class CreditCardPageWidget extends StatefulWidget {
-  const CreditCardPageWidget({Key? key}) : super(key: key);
+  const CreditCardPageWidget({super.key});
 
   @override
-  _CreditCardPageWidgetState createState() => _CreditCardPageWidgetState();
+  State<CreditCardPageWidget> createState() => _CreditCardPageWidgetState();
 }
 
 class _CreditCardPageWidgetState extends State<CreditCardPageWidget> {

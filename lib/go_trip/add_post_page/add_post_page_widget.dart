@@ -11,10 +11,10 @@ import 'add_post_page_model.dart';
 export 'add_post_page_model.dart';
 
 class AddPostPageWidget extends StatefulWidget {
-  const AddPostPageWidget({Key? key}) : super(key: key);
+  const AddPostPageWidget({super.key});
 
   @override
-  _AddPostPageWidgetState createState() => _AddPostPageWidgetState();
+  State<AddPostPageWidget> createState() => _AddPostPageWidgetState();
 }
 
 class _AddPostPageWidgetState extends State<AddPostPageWidget> {

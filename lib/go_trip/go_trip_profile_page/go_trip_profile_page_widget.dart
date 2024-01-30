@@ -11,10 +11,10 @@ import 'go_trip_profile_page_model.dart';
 export 'go_trip_profile_page_model.dart';
 
 class GoTripProfilePageWidget extends StatefulWidget {
-  const GoTripProfilePageWidget({Key? key}) : super(key: key);
+  const GoTripProfilePageWidget({super.key});
 
   @override
-  _GoTripProfilePageWidgetState createState() =>
+  State<GoTripProfilePageWidget> createState() =>
       _GoTripProfilePageWidgetState();
 }
 

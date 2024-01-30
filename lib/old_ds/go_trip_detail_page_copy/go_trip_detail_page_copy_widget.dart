@@ -13,10 +13,10 @@ import 'go_trip_detail_page_copy_model.dart';
 export 'go_trip_detail_page_copy_model.dart';
 
 class GoTripDetailPageCopyWidget extends StatefulWidget {
-  const GoTripDetailPageCopyWidget({Key? key}) : super(key: key);
+  const GoTripDetailPageCopyWidget({super.key});
 
   @override
-  _GoTripDetailPageCopyWidgetState createState() =>
+  State<GoTripDetailPageCopyWidget> createState() =>
       _GoTripDetailPageCopyWidgetState();
 }
 

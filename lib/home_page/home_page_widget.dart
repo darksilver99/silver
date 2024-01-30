@@ -3,6 +3,7 @@ import 'package:silver/cus_fun/AgoraService.dart';
 
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/cloud_functions/cloud_functions.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -17,10 +18,10 @@ import 'home_page_model.dart';
 export 'home_page_model.dart';
 
 class HomePageWidget extends StatefulWidget {
-  const HomePageWidget({Key? key}) : super(key: key);
+  const HomePageWidget({super.key});
 
   @override
-  _HomePageWidgetState createState() => _HomePageWidgetState();
+  State<HomePageWidget> createState() => _HomePageWidgetState();
 }
 
 class _HomePageWidgetState extends State<HomePageWidget> {
@@ -316,6 +317,50 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       context.pushNamed('OmiseTestPage');
                     },
                     text: 'test omise',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding: EdgeInsets.all(0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await makeCloudCall(
+                        'addUser',
+                        {
+                          'user_id': currentUserUid,
+                          'subscriptions': [
+                            {
+                              'type': 'Email',
+                              'token': 'darksilver99@hotmail.com',
+                            },
+                            {
+                              'type': 'SMS',
+                              'token': '0997966384',
+                            },
+                          ],
+                        },
+                      );
+                    },
+                    text: 'test one signal',
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,

@@ -14,14 +14,14 @@ export 'place_detail_model.dart';
 
 class PlaceDetailWidget extends StatefulWidget {
   const PlaceDetailWidget({
-    Key? key,
+    super.key,
     required this.placeParameter,
-  }) : super(key: key);
+  });
 
   final dynamic placeParameter;
 
   @override
-  _PlaceDetailWidgetState createState() => _PlaceDetailWidgetState();
+  State<PlaceDetailWidget> createState() => _PlaceDetailWidgetState();
 }
 
 class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {

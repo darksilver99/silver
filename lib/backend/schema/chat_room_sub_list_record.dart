@@ -51,8 +51,8 @@ class ChatRoomSubListRecord extends FirestoreRecord {
           ? parent.collection('chat_room_sub_list')
           : FirebaseFirestore.instance.collectionGroup('chat_room_sub_list');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('chat_room_sub_list').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('chat_room_sub_list').doc(id);
 
   static Stream<ChatRoomSubListRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => ChatRoomSubListRecord.fromSnapshot(s));

@@ -21,14 +21,14 @@ export 'call_request_view_model.dart';
 
 class CallRequestViewWidget extends StatefulWidget {
   const CallRequestViewWidget({
-    Key? key,
+    super.key,
     required this.userParameter,
-  }) : super(key: key);
+  });
 
   final UsersRecord? userParameter;
 
   @override
-  _CallRequestViewWidgetState createState() => _CallRequestViewWidgetState();
+  State<CallRequestViewWidget> createState() => _CallRequestViewWidgetState();
 }
 
 class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {

@@ -11,10 +11,10 @@ import 'invite_trip_dialog_view_model.dart';
 export 'invite_trip_dialog_view_model.dart';
 
 class InviteTripDialogViewWidget extends StatefulWidget {
-  const InviteTripDialogViewWidget({Key? key}) : super(key: key);
+  const InviteTripDialogViewWidget({super.key});
 
   @override
-  _InviteTripDialogViewWidgetState createState() =>
+  State<InviteTripDialogViewWidget> createState() =>
       _InviteTripDialogViewWidgetState();
 }
 

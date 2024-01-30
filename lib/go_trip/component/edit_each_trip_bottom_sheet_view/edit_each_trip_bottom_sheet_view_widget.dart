@@ -9,10 +9,10 @@ import 'edit_each_trip_bottom_sheet_view_model.dart';
 export 'edit_each_trip_bottom_sheet_view_model.dart';
 
 class EditEachTripBottomSheetViewWidget extends StatefulWidget {
-  const EditEachTripBottomSheetViewWidget({Key? key}) : super(key: key);
+  const EditEachTripBottomSheetViewWidget({super.key});
 
   @override
-  _EditEachTripBottomSheetViewWidgetState createState() =>
+  State<EditEachTripBottomSheetViewWidget> createState() =>
       _EditEachTripBottomSheetViewWidgetState();
 }
 

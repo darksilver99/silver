@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/go_trip/component/create_trip_success_dialog_view/create_trip_success_dialog_view_widget.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -12,10 +11,10 @@ import 'save_trip_bottom_sheet_view_model.dart';
 export 'save_trip_bottom_sheet_view_model.dart';
 
 class SaveTripBottomSheetViewWidget extends StatefulWidget {
-  const SaveTripBottomSheetViewWidget({Key? key}) : super(key: key);
+  const SaveTripBottomSheetViewWidget({super.key});
 
   @override
-  _SaveTripBottomSheetViewWidgetState createState() =>
+  State<SaveTripBottomSheetViewWidget> createState() =>
       _SaveTripBottomSheetViewWidgetState();
 }
 
@@ -72,19 +71,18 @@ class _SaveTripBottomSheetViewWidgetState
                   onTap: () async {
                     Navigator.pop(context);
                     await Future.delayed(const Duration(milliseconds: 1000));
-                    await showAlignedDialog(
+                    await showDialog(
                       context: context,
-                      isGlobal: true,
-                      avoidOverflow: false,
-                      targetAnchor: AlignmentDirectional(0.0, 0.0)
-                          .resolve(Directionality.of(context)),
-                      followerAnchor: AlignmentDirectional(0.0, 0.0)
-                          .resolve(Directionality.of(context)),
                       builder: (dialogContext) {
-                        return Material(
-                          color: Colors.transparent,
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
                           child: WebViewAware(
-                              child: CreateTripSuccessDialogViewWidget()),
+                            child: CreateTripSuccessDialogViewWidget(),
+                          ),
                         );
                       },
                     ).then((value) => setState(() {}));

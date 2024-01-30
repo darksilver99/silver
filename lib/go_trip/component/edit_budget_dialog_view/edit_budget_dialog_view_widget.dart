@@ -9,10 +9,10 @@ import 'edit_budget_dialog_view_model.dart';
 export 'edit_budget_dialog_view_model.dart';
 
 class EditBudgetDialogViewWidget extends StatefulWidget {
-  const EditBudgetDialogViewWidget({Key? key}) : super(key: key);
+  const EditBudgetDialogViewWidget({super.key});
 
   @override
-  _EditBudgetDialogViewWidgetState createState() =>
+  State<EditBudgetDialogViewWidget> createState() =>
       _EditBudgetDialogViewWidgetState();
 }
 

@@ -23,14 +23,14 @@ export 'broadcast_view_model.dart';
 
 class BroadcastViewWidget extends StatefulWidget {
   const BroadcastViewWidget({
-    Key? key,
+    super.key,
     required this.broadcastName,
-  }) : super(key: key);
+  });
 
   final String? broadcastName;
 
   @override
-  _BroadcastViewWidgetState createState() => _BroadcastViewWidgetState();
+  State<BroadcastViewWidget> createState() => _BroadcastViewWidgetState();
 }
 
 class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {

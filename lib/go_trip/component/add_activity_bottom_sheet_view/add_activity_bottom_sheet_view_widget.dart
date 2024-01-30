@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/go_trip/component/add_booking_dialog_view/add_booking_dialog_view_widget.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -12,10 +11,10 @@ import 'add_activity_bottom_sheet_view_model.dart';
 export 'add_activity_bottom_sheet_view_model.dart';
 
 class AddActivityBottomSheetViewWidget extends StatefulWidget {
-  const AddActivityBottomSheetViewWidget({Key? key}) : super(key: key);
+  const AddActivityBottomSheetViewWidget({super.key});
 
   @override
-  _AddActivityBottomSheetViewWidgetState createState() =>
+  State<AddActivityBottomSheetViewWidget> createState() =>
       _AddActivityBottomSheetViewWidgetState();
 }
 
@@ -71,19 +70,18 @@ class _AddActivityBottomSheetViewWidgetState
                   highlightColor: Colors.transparent,
                   onTap: () async {
                     Navigator.pop(context);
-                    await showAlignedDialog(
+                    await showDialog(
                       context: context,
-                      isGlobal: true,
-                      avoidOverflow: false,
-                      targetAnchor: AlignmentDirectional(0.0, 0.0)
-                          .resolve(Directionality.of(context)),
-                      followerAnchor: AlignmentDirectional(0.0, 0.0)
-                          .resolve(Directionality.of(context)),
                       builder: (dialogContext) {
-                        return Material(
-                          color: Colors.transparent,
-                          child:
-                              WebViewAware(child: AddBookingDialogViewWidget()),
+                        return Dialog(
+                          elevation: 0,
+                          insetPadding: EdgeInsets.zero,
+                          backgroundColor: Colors.transparent,
+                          alignment: AlignmentDirectional(0.0, 0.0)
+                              .resolve(Directionality.of(context)),
+                          child: WebViewAware(
+                            child: AddBookingDialogViewWidget(),
+                          ),
                         );
                       },
                     ).then((value) => setState(() {}));

@@ -14,10 +14,10 @@ import 'add_expense_page_model.dart';
 export 'add_expense_page_model.dart';
 
 class AddExpensePageWidget extends StatefulWidget {
-  const AddExpensePageWidget({Key? key}) : super(key: key);
+  const AddExpensePageWidget({super.key});
 
   @override
-  _AddExpensePageWidgetState createState() => _AddExpensePageWidgetState();
+  State<AddExpensePageWidget> createState() => _AddExpensePageWidgetState();
 }
 
 class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {

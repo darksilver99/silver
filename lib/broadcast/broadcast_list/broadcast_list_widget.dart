@@ -16,10 +16,10 @@ import 'broadcast_list_model.dart';
 export 'broadcast_list_model.dart';
 
 class BroadcastListWidget extends StatefulWidget {
-  const BroadcastListWidget({Key? key}) : super(key: key);
+  const BroadcastListWidget({super.key});
 
   @override
-  _BroadcastListWidgetState createState() => _BroadcastListWidgetState();
+  State<BroadcastListWidget> createState() => _BroadcastListWidgetState();
 }
 
 class _BroadcastListWidgetState extends State<BroadcastListWidget> {
@@ -69,15 +69,17 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
               context: context,
               builder: (context) {
                 return WebViewAware(
-                    child: GestureDetector(
-                  onTap: () => _model.unfocusNode.canRequestFocus
-                      ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-                      : FocusScope.of(context).unfocus(),
-                  child: Padding(
-                    padding: MediaQuery.viewInsetsOf(context),
-                    child: BroadcastFromViewWidget(),
+                  child: GestureDetector(
+                    onTap: () => _model.unfocusNode.canRequestFocus
+                        ? FocusScope.of(context)
+                            .requestFocus(_model.unfocusNode)
+                        : FocusScope.of(context).unfocus(),
+                    child: Padding(
+                      padding: MediaQuery.viewInsetsOf(context),
+                      child: BroadcastFromViewWidget(),
+                    ),
                   ),
-                ));
+                );
               },
             ).then((value) => safeSetState(() {}));
           },
@@ -176,7 +178,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                                 await GetPastLiveStreamCall.call(
                               streamId: GetLiveStreamIdCall.streamId(
                                 (_model.apiResultk31?.jsonBody ?? ''),
-                              ).toString(),
+                              ),
                             );
                             if ((_model.apiResultaaf?.succeeded ?? true)) {
                               context.pushNamed(
@@ -186,7 +188,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                                     functions.createUrlFromPlaybackId(
                                         GetPastLiveStreamCall.playbackId(
                                       (_model.apiResultaaf?.jsonBody ?? ''),
-                                    ).toString()!),
+                                    )!),
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,

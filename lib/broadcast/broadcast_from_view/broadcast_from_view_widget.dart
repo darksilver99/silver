@@ -10,10 +10,10 @@ import 'broadcast_from_view_model.dart';
 export 'broadcast_from_view_model.dart';
 
 class BroadcastFromViewWidget extends StatefulWidget {
-  const BroadcastFromViewWidget({Key? key}) : super(key: key);
+  const BroadcastFromViewWidget({super.key});
 
   @override
-  _BroadcastFromViewWidgetState createState() =>
+  State<BroadcastFromViewWidget> createState() =>
       _BroadcastFromViewWidgetState();
 }
 

@@ -11,10 +11,10 @@ import 'friend_list_view_model.dart';
 export 'friend_list_view_model.dart';
 
 class FriendListViewWidget extends StatefulWidget {
-  const FriendListViewWidget({Key? key}) : super(key: key);
+  const FriendListViewWidget({super.key});
 
   @override
-  _FriendListViewWidgetState createState() => _FriendListViewWidgetState();
+  State<FriendListViewWidget> createState() => _FriendListViewWidgetState();
 }
 
 class _FriendListViewWidgetState extends State<FriendListViewWidget> {

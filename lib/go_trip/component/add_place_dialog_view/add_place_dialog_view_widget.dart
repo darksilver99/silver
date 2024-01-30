@@ -9,10 +9,10 @@ import 'add_place_dialog_view_model.dart';
 export 'add_place_dialog_view_model.dart';
 
 class AddPlaceDialogViewWidget extends StatefulWidget {
-  const AddPlaceDialogViewWidget({Key? key}) : super(key: key);
+  const AddPlaceDialogViewWidget({super.key});
 
   @override
-  _AddPlaceDialogViewWidgetState createState() =>
+  State<AddPlaceDialogViewWidget> createState() =>
       _AddPlaceDialogViewWidgetState();
 }
 

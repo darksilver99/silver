@@ -9,10 +9,10 @@ import 'blank_view_model.dart';
 export 'blank_view_model.dart';
 
 class BlankViewWidget extends StatefulWidget {
-  const BlankViewWidget({Key? key}) : super(key: key);
+  const BlankViewWidget({super.key});
 
   @override
-  _BlankViewWidgetState createState() => _BlankViewWidgetState();
+  State<BlankViewWidget> createState() => _BlankViewWidgetState();
 }
 
 class _BlankViewWidgetState extends State<BlankViewWidget> {

@@ -9,10 +9,10 @@ import 'add_location_dialog_view_model.dart';
 export 'add_location_dialog_view_model.dart';
 
 class AddLocationDialogViewWidget extends StatefulWidget {
-  const AddLocationDialogViewWidget({Key? key}) : super(key: key);
+  const AddLocationDialogViewWidget({super.key});
 
   @override
-  _AddLocationDialogViewWidgetState createState() =>
+  State<AddLocationDialogViewWidget> createState() =>
       _AddLocationDialogViewWidgetState();
 }
 

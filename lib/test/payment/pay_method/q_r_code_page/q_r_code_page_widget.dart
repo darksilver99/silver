@@ -11,10 +11,10 @@ import 'q_r_code_page_model.dart';
 export 'q_r_code_page_model.dart';
 
 class QRCodePageWidget extends StatefulWidget {
-  const QRCodePageWidget({Key? key}) : super(key: key);
+  const QRCodePageWidget({super.key});
 
   @override
-  _QRCodePageWidgetState createState() => _QRCodePageWidgetState();
+  State<QRCodePageWidget> createState() => _QRCodePageWidgetState();
 }
 
 class _QRCodePageWidgetState extends State<QRCodePageWidget> {

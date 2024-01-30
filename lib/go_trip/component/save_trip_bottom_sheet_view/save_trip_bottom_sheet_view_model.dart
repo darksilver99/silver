@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/go_trip/component/create_trip_success_dialog_view/create_trip_success_dialog_view_widget.dart';
 import 'save_trip_bottom_sheet_view_widget.dart'
     show SaveTripBottomSheetViewWidget;
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';

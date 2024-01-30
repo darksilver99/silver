@@ -9,10 +9,10 @@ import 'add_trip_to_day_bottom_sheet_view_model.dart';
 export 'add_trip_to_day_bottom_sheet_view_model.dart';
 
 class AddTripToDayBottomSheetViewWidget extends StatefulWidget {
-  const AddTripToDayBottomSheetViewWidget({Key? key}) : super(key: key);
+  const AddTripToDayBottomSheetViewWidget({super.key});
 
   @override
-  _AddTripToDayBottomSheetViewWidgetState createState() =>
+  State<AddTripToDayBottomSheetViewWidget> createState() =>
       _AddTripToDayBottomSheetViewWidgetState();
 }
 

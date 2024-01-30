@@ -13,18 +13,18 @@ export 'list_switch_view_model.dart';
 
 class ListSwitchViewWidget extends StatefulWidget {
   const ListSwitchViewWidget({
-    Key? key,
+    super.key,
     this.parameter1,
     this.parameter2,
     this.parameter3,
-  }) : super(key: key);
+  });
 
   final String? parameter1;
   final bool? parameter2;
   final DocumentReference? parameter3;
 
   @override
-  _ListSwitchViewWidgetState createState() => _ListSwitchViewWidgetState();
+  State<ListSwitchViewWidget> createState() => _ListSwitchViewWidgetState();
 }
 
 class _ListSwitchViewWidgetState extends State<ListSwitchViewWidget> {

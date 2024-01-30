@@ -14,10 +14,10 @@ import 'test8_page_model.dart';
 export 'test8_page_model.dart';
 
 class Test8PageWidget extends StatefulWidget {
-  const Test8PageWidget({Key? key}) : super(key: key);
+  const Test8PageWidget({super.key});
 
   @override
-  _Test8PageWidgetState createState() => _Test8PageWidgetState();
+  State<Test8PageWidget> createState() => _Test8PageWidgetState();
 }
 
 class _Test8PageWidgetState extends State<Test8PageWidget> {

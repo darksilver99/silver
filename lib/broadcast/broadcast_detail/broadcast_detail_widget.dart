@@ -13,14 +13,14 @@ export 'broadcast_detail_model.dart';
 
 class BroadcastDetailWidget extends StatefulWidget {
   const BroadcastDetailWidget({
-    Key? key,
+    super.key,
     required this.url,
-  }) : super(key: key);
+  });
 
   final String? url;
 
   @override
-  _BroadcastDetailWidgetState createState() => _BroadcastDetailWidgetState();
+  State<BroadcastDetailWidget> createState() => _BroadcastDetailWidgetState();
 }
 
 class _BroadcastDetailWidgetState extends State<BroadcastDetailWidget> {

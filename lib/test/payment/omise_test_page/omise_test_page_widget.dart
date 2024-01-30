@@ -17,10 +17,10 @@ export 'omise_test_page_model.dart';
 import 'package:http/http.dart' as http;
 
 class OmiseTestPageWidget extends StatefulWidget {
-  const OmiseTestPageWidget({Key? key}) : super(key: key);
+  const OmiseTestPageWidget({super.key});
 
   @override
-  _OmiseTestPageWidgetState createState() => _OmiseTestPageWidgetState();
+  State<OmiseTestPageWidget> createState() => _OmiseTestPageWidgetState();
 }
 
 class _OmiseTestPageWidgetState extends State<OmiseTestPageWidget> {

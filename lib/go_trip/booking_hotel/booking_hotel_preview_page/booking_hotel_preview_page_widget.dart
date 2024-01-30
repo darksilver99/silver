@@ -13,10 +13,10 @@ import 'booking_hotel_preview_page_model.dart';
 export 'booking_hotel_preview_page_model.dart';
 
 class BookingHotelPreviewPageWidget extends StatefulWidget {
-  const BookingHotelPreviewPageWidget({Key? key}) : super(key: key);
+  const BookingHotelPreviewPageWidget({super.key});
 
   @override
-  _BookingHotelPreviewPageWidgetState createState() =>
+  State<BookingHotelPreviewPageWidget> createState() =>
       _BookingHotelPreviewPageWidgetState();
 }
 

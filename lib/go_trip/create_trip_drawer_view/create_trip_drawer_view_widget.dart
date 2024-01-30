@@ -10,10 +10,10 @@ import 'create_trip_drawer_view_model.dart';
 export 'create_trip_drawer_view_model.dart';
 
 class CreateTripDrawerViewWidget extends StatefulWidget {
-  const CreateTripDrawerViewWidget({Key? key}) : super(key: key);
+  const CreateTripDrawerViewWidget({super.key});
 
   @override
-  _CreateTripDrawerViewWidgetState createState() =>
+  State<CreateTripDrawerViewWidget> createState() =>
       _CreateTripDrawerViewWidgetState();
 }
 

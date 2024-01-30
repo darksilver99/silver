@@ -12,10 +12,10 @@ import 'g_b_prime_test_page_model.dart';
 export 'g_b_prime_test_page_model.dart';
 
 class GBPrimeTestPageWidget extends StatefulWidget {
-  const GBPrimeTestPageWidget({Key? key}) : super(key: key);
+  const GBPrimeTestPageWidget({super.key});
 
   @override
-  _GBPrimeTestPageWidgetState createState() => _GBPrimeTestPageWidgetState();
+  State<GBPrimeTestPageWidget> createState() => _GBPrimeTestPageWidgetState();
 }
 
 class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
