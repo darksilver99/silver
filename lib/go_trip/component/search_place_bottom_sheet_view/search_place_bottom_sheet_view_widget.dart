@@ -9,10 +9,10 @@ import 'search_place_bottom_sheet_view_model.dart';
 export 'search_place_bottom_sheet_view_model.dart';
 
 class SearchPlaceBottomSheetViewWidget extends StatefulWidget {
-  const SearchPlaceBottomSheetViewWidget({Key? key}) : super(key: key);
+  const SearchPlaceBottomSheetViewWidget({super.key});
 
   @override
-  _SearchPlaceBottomSheetViewWidgetState createState() =>
+  State<SearchPlaceBottomSheetViewWidget> createState() =>
       _SearchPlaceBottomSheetViewWidgetState();
 }
 

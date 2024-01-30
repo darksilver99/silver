@@ -16,17 +16,16 @@ export 'calling_page_model.dart';
 
 class CallingPageWidget extends StatefulWidget {
   const CallingPageWidget({
-    Key? key,
+    super.key,
     required this.userParameter,
     bool? isCaller,
-  })  : this.isCaller = isCaller ?? false,
-        super(key: key);
+  }) : this.isCaller = isCaller ?? false;
 
   final UsersRecord? userParameter;
   final bool isCaller;
 
   @override
-  _CallingPageWidgetState createState() => _CallingPageWidgetState();
+  State<CallingPageWidget> createState() => _CallingPageWidgetState();
 }
 
 class _CallingPageWidgetState extends State<CallingPageWidget> {

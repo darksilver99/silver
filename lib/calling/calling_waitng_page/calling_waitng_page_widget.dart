@@ -14,10 +14,10 @@ import 'calling_waitng_page_model.dart';
 export 'calling_waitng_page_model.dart';
 
 class CallingWaitngPageWidget extends StatefulWidget {
-  const CallingWaitngPageWidget({Key? key}) : super(key: key);
+  const CallingWaitngPageWidget({super.key});
 
   @override
-  _CallingWaitngPageWidgetState createState() =>
+  State<CallingWaitngPageWidget> createState() =>
       _CallingWaitngPageWidgetState();
 }
 

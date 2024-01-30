@@ -9,10 +9,10 @@ import 'create_trip_success_dialog_view_model.dart';
 export 'create_trip_success_dialog_view_model.dart';
 
 class CreateTripSuccessDialogViewWidget extends StatefulWidget {
-  const CreateTripSuccessDialogViewWidget({Key? key}) : super(key: key);
+  const CreateTripSuccessDialogViewWidget({super.key});
 
   @override
-  _CreateTripSuccessDialogViewWidgetState createState() =>
+  State<CreateTripSuccessDialogViewWidget> createState() =>
       _CreateTripSuccessDialogViewWidgetState();
 }
 

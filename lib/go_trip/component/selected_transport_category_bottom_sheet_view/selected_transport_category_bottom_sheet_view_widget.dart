@@ -9,11 +9,10 @@ import 'selected_transport_category_bottom_sheet_view_model.dart';
 export 'selected_transport_category_bottom_sheet_view_model.dart';
 
 class SelectedTransportCategoryBottomSheetViewWidget extends StatefulWidget {
-  const SelectedTransportCategoryBottomSheetViewWidget({Key? key})
-      : super(key: key);
+  const SelectedTransportCategoryBottomSheetViewWidget({super.key});
 
   @override
-  _SelectedTransportCategoryBottomSheetViewWidgetState createState() =>
+  State<SelectedTransportCategoryBottomSheetViewWidget> createState() =>
       _SelectedTransportCategoryBottomSheetViewWidgetState();
 }
 

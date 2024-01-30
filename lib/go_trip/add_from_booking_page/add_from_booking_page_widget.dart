@@ -11,10 +11,10 @@ import 'add_from_booking_page_model.dart';
 export 'add_from_booking_page_model.dart';
 
 class AddFromBookingPageWidget extends StatefulWidget {
-  const AddFromBookingPageWidget({Key? key}) : super(key: key);
+  const AddFromBookingPageWidget({super.key});
 
   @override
-  _AddFromBookingPageWidgetState createState() =>
+  State<AddFromBookingPageWidget> createState() =>
       _AddFromBookingPageWidgetState();
 }
 
@@ -91,6 +91,9 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
             children: [
               Container(
                 width: double.infinity,
+                constraints: BoxConstraints(
+                  minHeight: MediaQuery.sizeOf(context).height * 0.8,
+                ),
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
                 ),

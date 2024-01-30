@@ -69,8 +69,8 @@ class TopicSubListRecord extends FirestoreRecord {
           ? parent.collection('topic_sub_list')
           : FirebaseFirestore.instance.collectionGroup('topic_sub_list');
 
-  static DocumentReference createDoc(DocumentReference parent) =>
-      parent.collection('topic_sub_list').doc();
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('topic_sub_list').doc(id);
 
   static Stream<TopicSubListRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => TopicSubListRecord.fromSnapshot(s));

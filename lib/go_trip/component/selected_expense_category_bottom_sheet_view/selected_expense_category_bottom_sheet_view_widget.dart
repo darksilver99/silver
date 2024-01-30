@@ -9,11 +9,10 @@ import 'selected_expense_category_bottom_sheet_view_model.dart';
 export 'selected_expense_category_bottom_sheet_view_model.dart';
 
 class SelectedExpenseCategoryBottomSheetViewWidget extends StatefulWidget {
-  const SelectedExpenseCategoryBottomSheetViewWidget({Key? key})
-      : super(key: key);
+  const SelectedExpenseCategoryBottomSheetViewWidget({super.key});
 
   @override
-  _SelectedExpenseCategoryBottomSheetViewWidgetState createState() =>
+  State<SelectedExpenseCategoryBottomSheetViewWidget> createState() =>
       _SelectedExpenseCategoryBottomSheetViewWidgetState();
 }
 

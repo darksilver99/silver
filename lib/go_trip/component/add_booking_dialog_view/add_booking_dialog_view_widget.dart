@@ -9,10 +9,10 @@ import 'add_booking_dialog_view_model.dart';
 export 'add_booking_dialog_view_model.dart';
 
 class AddBookingDialogViewWidget extends StatefulWidget {
-  const AddBookingDialogViewWidget({Key? key}) : super(key: key);
+  const AddBookingDialogViewWidget({super.key});
 
   @override
-  _AddBookingDialogViewWidgetState createState() =>
+  State<AddBookingDialogViewWidget> createState() =>
       _AddBookingDialogViewWidgetState();
 }
 

@@ -15,10 +15,10 @@ import 'go_trip_select_place_page_model.dart';
 export 'go_trip_select_place_page_model.dart';
 
 class GoTripSelectPlacePageWidget extends StatefulWidget {
-  const GoTripSelectPlacePageWidget({Key? key}) : super(key: key);
+  const GoTripSelectPlacePageWidget({super.key});
 
   @override
-  _GoTripSelectPlacePageWidgetState createState() =>
+  State<GoTripSelectPlacePageWidget> createState() =>
       _GoTripSelectPlacePageWidgetState();
 }
 
@@ -50,10 +50,11 @@ class _GoTripSelectPlacePageWidgetState
         context: context,
         builder: (context) {
           return WebViewAware(
-              child: Padding(
-            padding: MediaQuery.viewInsetsOf(context),
-            child: SelectTypeBottomSheetViewWidget(),
-          ));
+            child: Padding(
+              padding: MediaQuery.viewInsetsOf(context),
+              child: SelectTypeBottomSheetViewWidget(),
+            ),
+          );
         },
       ).then((value) => safeSetState(() {}));
     });

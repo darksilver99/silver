@@ -9,10 +9,10 @@ import 'select_photo_type_bottom_sheet_view_model.dart';
 export 'select_photo_type_bottom_sheet_view_model.dart';
 
 class SelectPhotoTypeBottomSheetViewWidget extends StatefulWidget {
-  const SelectPhotoTypeBottomSheetViewWidget({Key? key}) : super(key: key);
+  const SelectPhotoTypeBottomSheetViewWidget({super.key});
 
   @override
-  _SelectPhotoTypeBottomSheetViewWidgetState createState() =>
+  State<SelectPhotoTypeBottomSheetViewWidget> createState() =>
       _SelectPhotoTypeBottomSheetViewWidgetState();
 }
 

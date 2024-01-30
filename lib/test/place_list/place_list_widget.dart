@@ -20,10 +20,10 @@ import 'place_list_model.dart';
 export 'place_list_model.dart';
 
 class PlaceListWidget extends StatefulWidget {
-  const PlaceListWidget({Key? key}) : super(key: key);
+  const PlaceListWidget({super.key});
 
   @override
-  _PlaceListWidgetState createState() => _PlaceListWidgetState();
+  State<PlaceListWidget> createState() => _PlaceListWidgetState();
 }
 
 class _PlaceListWidgetState extends State<PlaceListWidget> {

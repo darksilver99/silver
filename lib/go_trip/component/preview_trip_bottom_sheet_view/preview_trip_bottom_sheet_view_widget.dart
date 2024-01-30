@@ -9,10 +9,10 @@ import 'preview_trip_bottom_sheet_view_model.dart';
 export 'preview_trip_bottom_sheet_view_model.dart';
 
 class PreviewTripBottomSheetViewWidget extends StatefulWidget {
-  const PreviewTripBottomSheetViewWidget({Key? key}) : super(key: key);
+  const PreviewTripBottomSheetViewWidget({super.key});
 
   @override
-  _PreviewTripBottomSheetViewWidgetState createState() =>
+  State<PreviewTripBottomSheetViewWidget> createState() =>
       _PreviewTripBottomSheetViewWidgetState();
 }
 

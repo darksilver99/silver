@@ -13,10 +13,10 @@ import 'go_trip_detail_page_model.dart';
 export 'go_trip_detail_page_model.dart';
 
 class GoTripDetailPageWidget extends StatefulWidget {
-  const GoTripDetailPageWidget({Key? key}) : super(key: key);
+  const GoTripDetailPageWidget({super.key});
 
   @override
-  _GoTripDetailPageWidgetState createState() => _GoTripDetailPageWidgetState();
+  State<GoTripDetailPageWidget> createState() => _GoTripDetailPageWidgetState();
 }
 
 class _GoTripDetailPageWidgetState extends State<GoTripDetailPageWidget> {

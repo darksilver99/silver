@@ -13,10 +13,10 @@ import 'manual_upload_page_model.dart';
 export 'manual_upload_page_model.dart';
 
 class ManualUploadPageWidget extends StatefulWidget {
-  const ManualUploadPageWidget({Key? key}) : super(key: key);
+  const ManualUploadPageWidget({super.key});
 
   @override
-  _ManualUploadPageWidgetState createState() => _ManualUploadPageWidgetState();
+  State<ManualUploadPageWidget> createState() => _ManualUploadPageWidgetState();
 }
 
 class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {

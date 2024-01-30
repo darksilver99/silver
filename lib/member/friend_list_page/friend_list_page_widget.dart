@@ -13,10 +13,10 @@ import 'friend_list_page_model.dart';
 export 'friend_list_page_model.dart';
 
 class FriendListPageWidget extends StatefulWidget {
-  const FriendListPageWidget({Key? key}) : super(key: key);
+  const FriendListPageWidget({super.key});
 
   @override
-  _FriendListPageWidgetState createState() => _FriendListPageWidgetState();
+  State<FriendListPageWidget> createState() => _FriendListPageWidgetState();
 }
 
 class _FriendListPageWidgetState extends State<FriendListPageWidget> {

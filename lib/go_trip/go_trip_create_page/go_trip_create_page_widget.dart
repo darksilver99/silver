@@ -14,7 +14,6 @@ import '/go_trip/component/selected_booking_category_bottom_sheet_view/selected_
 import '/go_trip/component/selected_expense_category_bottom_sheet_view/selected_expense_category_bottom_sheet_view_widget.dart';
 import '/go_trip/component/selected_transport_category_bottom_sheet_view/selected_transport_category_bottom_sheet_view_widget.dart';
 import 'package:styled_divider/styled_divider.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -26,10 +25,10 @@ import 'go_trip_create_page_model.dart';
 export 'go_trip_create_page_model.dart';
 
 class GoTripCreatePageWidget extends StatefulWidget {
-  const GoTripCreatePageWidget({Key? key}) : super(key: key);
+  const GoTripCreatePageWidget({super.key});
 
   @override
-  _GoTripCreatePageWidgetState createState() => _GoTripCreatePageWidgetState();
+  State<GoTripCreatePageWidget> createState() => _GoTripCreatePageWidgetState();
 }
 
 class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
@@ -212,10 +211,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: Padding(
-                          padding: MediaQuery.viewInsetsOf(context),
-                          child: PreviewTripBottomSheetViewWidget(),
-                        ));
+                          child: Padding(
+                            padding: MediaQuery.viewInsetsOf(context),
+                            child: PreviewTripBottomSheetViewWidget(),
+                          ),
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   },
@@ -311,10 +311,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                   context: context,
                                   builder: (context) {
                                     return WebViewAware(
-                                        child: Padding(
-                                      padding: MediaQuery.viewInsetsOf(context),
-                                      child: SaveTripBottomSheetViewWidget(),
-                                    ));
+                                      child: Padding(
+                                        padding:
+                                            MediaQuery.viewInsetsOf(context),
+                                        child: SaveTripBottomSheetViewWidget(),
+                                      ),
+                                    );
                                   },
                                 ).then((value) => safeSetState(() {}));
                               },
@@ -617,24 +619,21 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      await showAlignedDialog(
+                                      await showDialog(
                                         context: context,
-                                        isGlobal: true,
-                                        avoidOverflow: false,
-                                        targetAnchor:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
-                                        followerAnchor:
-                                            AlignmentDirectional(0.0, 0.0)
-                                                .resolve(
-                                                    Directionality.of(context)),
                                         builder: (dialogContext) {
-                                          return Material(
-                                            color: Colors.transparent,
+                                          return Dialog(
+                                            elevation: 0,
+                                            insetPadding: EdgeInsets.zero,
+                                            backgroundColor: Colors.transparent,
+                                            alignment: AlignmentDirectional(
+                                                    0.0, 0.0)
+                                                .resolve(
+                                                    Directionality.of(context)),
                                             child: WebViewAware(
-                                                child:
-                                                    InviteTripDialogViewWidget()),
+                                              child:
+                                                  InviteTripDialogViewWidget(),
+                                            ),
                                           );
                                         },
                                       ).then((value) => setState(() {}));
@@ -1195,18 +1194,20 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child: Container(
-                                                height:
-                                                    MediaQuery.sizeOf(context)
-                                                            .height *
-                                                        0.95,
-                                                child:
-                                                    SearchPlaceBottomSheetViewWidget(),
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child: Container(
+                                                  height:
+                                                      MediaQuery.sizeOf(context)
+                                                              .height *
+                                                          0.95,
+                                                  child:
+                                                      SearchPlaceBottomSheetViewWidget(),
+                                                ),
                                               ),
-                                            ));
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -1287,12 +1288,13 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              EditEachTripBottomSheetViewWidget(),
-                                        ));
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child:
+                                                EditEachTripBottomSheetViewWidget(),
+                                          ),
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
                                   },
@@ -1346,12 +1348,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  SelectedExpenseCategoryBottomSheetViewWidget(),
-                                            ));
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    SelectedExpenseCategoryBottomSheetViewWidget(),
+                                              ),
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -1586,12 +1590,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           context: context,
                                           builder: (context) {
                                             return WebViewAware(
-                                                child: Padding(
-                                              padding: MediaQuery.viewInsetsOf(
-                                                  context),
-                                              child:
-                                                  SelectedBookingCategoryBottomSheetViewWidget(),
-                                            ));
+                                              child: Padding(
+                                                padding:
+                                                    MediaQuery.viewInsetsOf(
+                                                        context),
+                                                child:
+                                                    SelectedBookingCategoryBottomSheetViewWidget(),
+                                              ),
+                                            );
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
@@ -2165,13 +2171,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               context: context,
                                               builder: (context) {
                                                 return WebViewAware(
-                                                    child: Padding(
-                                                  padding:
-                                                      MediaQuery.viewInsetsOf(
-                                                          context),
-                                                  child:
-                                                      SelectedTransportCategoryBottomSheetViewWidget(),
-                                                ));
+                                                  child: Padding(
+                                                    padding:
+                                                        MediaQuery.viewInsetsOf(
+                                                            context),
+                                                    child:
+                                                        SelectedTransportCategoryBottomSheetViewWidget(),
+                                                  ),
+                                                );
                                               },
                                             ).then(
                                                 (value) => safeSetState(() {}));
@@ -2249,12 +2256,13 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       context: context,
                                       builder: (context) {
                                         return WebViewAware(
-                                            child: Padding(
-                                          padding:
-                                              MediaQuery.viewInsetsOf(context),
-                                          child:
-                                              AddActivityBottomSheetViewWidget(),
-                                        ));
+                                          child: Padding(
+                                            padding: MediaQuery.viewInsetsOf(
+                                                context),
+                                            child:
+                                                AddActivityBottomSheetViewWidget(),
+                                          ),
+                                        );
                                       },
                                     ).then((value) => safeSetState(() {}));
                                   },
@@ -2427,29 +2435,25 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                         0.0, 0.0, 4.0, 0.0),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
-                                                    await showAlignedDialog(
+                                                    await showDialog(
                                                       context: context,
-                                                      isGlobal: true,
-                                                      avoidOverflow: false,
-                                                      targetAnchor:
-                                                          AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
-                                                      followerAnchor:
-                                                          AlignmentDirectional(
-                                                                  0.0, 0.0)
-                                                              .resolve(
-                                                                  Directionality.of(
-                                                                      context)),
                                                       builder: (dialogContext) {
-                                                        return Material(
-                                                          color: Colors
-                                                              .transparent,
+                                                        return Dialog(
+                                                          elevation: 0,
+                                                          insetPadding:
+                                                              EdgeInsets.zero,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                          alignment: AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
                                                           child: WebViewAware(
-                                                              child:
-                                                                  EditBudgetDialogViewWidget()),
+                                                            child:
+                                                                EditBudgetDialogViewWidget(),
+                                                          ),
                                                         );
                                                       },
                                                     ).then((value) =>

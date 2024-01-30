@@ -10,10 +10,10 @@ import 'go_trip_map_picker_page_model.dart';
 export 'go_trip_map_picker_page_model.dart';
 
 class GoTripMapPickerPageWidget extends StatefulWidget {
-  const GoTripMapPickerPageWidget({Key? key}) : super(key: key);
+  const GoTripMapPickerPageWidget({super.key});
 
   @override
-  _GoTripMapPickerPageWidgetState createState() =>
+  State<GoTripMapPickerPageWidget> createState() =>
       _GoTripMapPickerPageWidgetState();
 }
 

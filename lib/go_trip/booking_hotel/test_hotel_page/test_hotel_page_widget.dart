@@ -11,10 +11,10 @@ import 'test_hotel_page_model.dart';
 export 'test_hotel_page_model.dart';
 
 class TestHotelPageWidget extends StatefulWidget {
-  const TestHotelPageWidget({Key? key}) : super(key: key);
+  const TestHotelPageWidget({super.key});
 
   @override
-  _TestHotelPageWidgetState createState() => _TestHotelPageWidgetState();
+  State<TestHotelPageWidget> createState() => _TestHotelPageWidgetState();
 }
 
 class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {

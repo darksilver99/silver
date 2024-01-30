@@ -9,11 +9,10 @@ import 'selected_booking_category_bottom_sheet_view_model.dart';
 export 'selected_booking_category_bottom_sheet_view_model.dart';
 
 class SelectedBookingCategoryBottomSheetViewWidget extends StatefulWidget {
-  const SelectedBookingCategoryBottomSheetViewWidget({Key? key})
-      : super(key: key);
+  const SelectedBookingCategoryBottomSheetViewWidget({super.key});
 
   @override
-  _SelectedBookingCategoryBottomSheetViewWidgetState createState() =>
+  State<SelectedBookingCategoryBottomSheetViewWidget> createState() =>
       _SelectedBookingCategoryBottomSheetViewWidgetState();
 }
 

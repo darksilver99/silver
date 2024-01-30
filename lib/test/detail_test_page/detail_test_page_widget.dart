@@ -15,14 +15,14 @@ export 'detail_test_page_model.dart';
 
 class DetailTestPageWidget extends StatefulWidget {
   const DetailTestPageWidget({
-    Key? key,
+    super.key,
     required this.dataParameter,
-  }) : super(key: key);
+  });
 
   final TestPhotoListRecord? dataParameter;
 
   @override
-  _DetailTestPageWidgetState createState() => _DetailTestPageWidgetState();
+  State<DetailTestPageWidget> createState() => _DetailTestPageWidgetState();
 }
 
 class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {

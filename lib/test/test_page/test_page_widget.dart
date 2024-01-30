@@ -19,10 +19,10 @@ import 'test_page_model.dart';
 export 'test_page_model.dart';
 
 class TestPageWidget extends StatefulWidget {
-  const TestPageWidget({Key? key}) : super(key: key);
+  const TestPageWidget({super.key});
 
   @override
-  _TestPageWidgetState createState() => _TestPageWidgetState();
+  State<TestPageWidget> createState() => _TestPageWidgetState();
 }
 
 class _TestPageWidgetState extends State<TestPageWidget> {
@@ -195,17 +195,18 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                               context: context,
                               builder: (alertDialogContext) {
                                 return WebViewAware(
-                                    child: AlertDialog(
-                                  title: Text(
-                                      _model.cloudFunctionpdn!.resultAsString!),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () =>
-                                          Navigator.pop(alertDialogContext),
-                                      child: Text('Ok'),
-                                    ),
-                                  ],
-                                ));
+                                  child: AlertDialog(
+                                    title: Text(_model
+                                        .cloudFunctionpdn!.resultAsString!),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () =>
+                                            Navigator.pop(alertDialogContext),
+                                        child: Text('Ok'),
+                                      ),
+                                    ],
+                                  ),
+                                );
                               },
                             );
                           }

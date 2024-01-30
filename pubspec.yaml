@@ -26,7 +26,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   algolia: 1.1.1
-  aligned_dialog: 0.0.6
   apivideo_live_stream: 1.0.7
   auto_size_text: 3.0.0
   cached_network_image: 3.2.1
@@ -37,6 +36,7 @@ dependencies:
   cloud_functions: 4.5.8
   cloud_functions_platform_interface: 5.5.11
   cloud_functions_web: 4.6.11
+  collection: 1.17.2
   dropdown_button2: 2.3.9
   easy_debounce: 2.0.1
   equatable: 2.0.5

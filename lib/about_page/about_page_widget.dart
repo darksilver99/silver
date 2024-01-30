@@ -12,10 +12,10 @@ import 'about_page_model.dart';
 export 'about_page_model.dart';
 
 class AboutPageWidget extends StatefulWidget {
-  const AboutPageWidget({Key? key}) : super(key: key);
+  const AboutPageWidget({super.key});
 
   @override
-  _AboutPageWidgetState createState() => _AboutPageWidgetState();
+  State<AboutPageWidget> createState() => _AboutPageWidgetState();
 }
 
 class _AboutPageWidgetState extends State<AboutPageWidget> {

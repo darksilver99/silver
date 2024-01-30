@@ -14,10 +14,10 @@ import 'go_trip_list_picker_page_model.dart';
 export 'go_trip_list_picker_page_model.dart';
 
 class GoTripListPickerPageWidget extends StatefulWidget {
-  const GoTripListPickerPageWidget({Key? key}) : super(key: key);
+  const GoTripListPickerPageWidget({super.key});
 
   @override
-  _GoTripListPickerPageWidgetState createState() =>
+  State<GoTripListPickerPageWidget> createState() =>
       _GoTripListPickerPageWidgetState();
 }
 
@@ -160,16 +160,17 @@ class _GoTripListPickerPageWidgetState
                       context: context,
                       builder: (context) {
                         return WebViewAware(
-                            child: GestureDetector(
-                          onTap: () => _model.unfocusNode.canRequestFocus
-                              ? FocusScope.of(context)
-                                  .requestFocus(_model.unfocusNode)
-                              : FocusScope.of(context).unfocus(),
-                          child: Padding(
-                            padding: MediaQuery.viewInsetsOf(context),
-                            child: PreviewTripBottomSheetViewWidget(),
+                          child: GestureDetector(
+                            onTap: () => _model.unfocusNode.canRequestFocus
+                                ? FocusScope.of(context)
+                                    .requestFocus(_model.unfocusNode)
+                                : FocusScope.of(context).unfocus(),
+                            child: Padding(
+                              padding: MediaQuery.viewInsetsOf(context),
+                              child: PreviewTripBottomSheetViewWidget(),
+                            ),
                           ),
-                        ));
+                        );
                       },
                     ).then((value) => safeSetState(() {}));
                   },

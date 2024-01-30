@@ -13,16 +13,16 @@ export 'toggle_test_model.dart';
 
 class ToggleTestWidget extends StatefulWidget {
   const ToggleTestWidget({
-    Key? key,
+    super.key,
     required this.isCheck,
     required this.docID,
-  }) : super(key: key);
+  });
 
   final bool? isCheck;
   final String? docID;
 
   @override
-  _ToggleTestWidgetState createState() => _ToggleTestWidgetState();
+  State<ToggleTestWidget> createState() => _ToggleTestWidgetState();
 }
 
 class _ToggleTestWidgetState extends State<ToggleTestWidget> {

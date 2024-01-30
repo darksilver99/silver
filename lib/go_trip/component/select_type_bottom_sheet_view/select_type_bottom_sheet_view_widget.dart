@@ -10,10 +10,10 @@ import 'select_type_bottom_sheet_view_model.dart';
 export 'select_type_bottom_sheet_view_model.dart';
 
 class SelectTypeBottomSheetViewWidget extends StatefulWidget {
-  const SelectTypeBottomSheetViewWidget({Key? key}) : super(key: key);
+  const SelectTypeBottomSheetViewWidget({super.key});
 
   @override
-  _SelectTypeBottomSheetViewWidgetState createState() =>
+  State<SelectTypeBottomSheetViewWidget> createState() =>
       _SelectTypeBottomSheetViewWidgetState();
 }
 
