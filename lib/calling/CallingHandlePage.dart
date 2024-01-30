@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:silver/app_state.dart';
+import 'package:silver/auth/base_auth_user_provider.dart';
 import 'package:silver/calling/calling_waitng_page/calling_waitng_page_widget.dart';
 import 'package:silver/cus_fun/AgoraService.dart';
 import 'package:silver/main.dart';
@@ -19,7 +20,9 @@ class _CallingHandlePageState extends State<CallingHandlePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    AgoraService().listenCalling();
+    if(loggedIn){
+      AgoraService().listenCalling();
+    }
   }
 
   @override

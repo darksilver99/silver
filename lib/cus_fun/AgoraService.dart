@@ -38,6 +38,7 @@ class AgoraService {
 
   updateReceive(callerRef) async {
     print("updateReceive");
+    print(callerRef.path);
     var rsUser = await FirebaseFirestore.instance.doc(callerRef.path).get();
     FFAppState().update(() {
       FFAppState().isCallComing = true;

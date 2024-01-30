@@ -25,8 +25,7 @@ class CallingPageWidget extends StatefulWidget {
     required this.userParameter,
     bool? isCaller,
     this.onHangUp
-  })  : this.isCaller = isCaller ?? false,
-        super(key: key);
+  })  : this.isCaller = isCaller ?? false;
 
   final UsersRecord? userParameter;
   final bool isCaller;
