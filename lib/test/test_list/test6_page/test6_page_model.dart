@@ -18,8 +18,10 @@ class Test6PageModel extends FlutterFlowModel<Test6PageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {}
 
   /// Action blocks are added here.

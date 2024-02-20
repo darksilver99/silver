@@ -1,18 +1,17 @@
-import 'package:silver/calling/calling_waitng_page/calling_waitng_page_widget.dart';
-import 'package:silver/cus_fun/AgoraService.dart';
-
+import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
-import '/backend/cloud_functions/cloud_functions.dart';
 import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'home_page_model.dart';
 export 'home_page_model.dart';
@@ -33,7 +32,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
-
   }
 
   @override
@@ -75,35 +73,36 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     style: FlutterFlowTheme.of(context).bodyMedium,
                   ),
                 ),
-                Padding(
-                  padding:
-                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      context.pushNamed('PlaceList');
-                    },
-                    text: 'place List',
-                    options: FFButtonOptions(
-                      width: double.infinity,
-                      height: 40.0,
-                      padding: EdgeInsets.all(0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Montserrat',
-                                color: Colors.white,
-                              ),
-                      elevation: 3.0,
-                      borderSide: BorderSide(
-                        color: Colors.transparent,
-                        width: 1.0,
+                if (loggedIn)
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('PlaceList');
+                      },
+                      text: 'place List',
+                      options: FFButtonOptions(
+                        width: double.infinity,
+                        height: 40.0,
+                        padding: EdgeInsets.all(0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Montserrat',
+                                  color: Colors.white,
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
-                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
-                ),
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
@@ -342,24 +341,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: FFButtonWidget(
-                    onPressed: () async {
-                      await makeCloudCall(
-                        'addUser',
-                        {
-                          'user_id': currentUserUid,
-                          'subscriptions': [
-                            {
-                              'type': 'Email',
-                              'token': 'darksilver99@hotmail.com',
-                            },
-                            {
-                              'type': 'SMS',
-                              'token': '0997966384',
-                            },
-                          ],
-                        },
-                      );
-                    },
+                    onPressed: () async {},
                     text: 'test one signal',
                     options: FFButtonOptions(
                       width: double.infinity,
@@ -381,6 +363,51 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      await actions.testCallBack(
+                        () async {
+                          await actions.snackSum(
+                            context,
+                            2,
+                          );
+                        },
+                        1,
+                        '2',
+                      );
+                    },
+                    text: 'test callback',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding: EdgeInsets.all(0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                Lottie.network(
+                  'https://assets2.lottiefiles.com/packages/lf20_aZTdD5.json',
+                  width: 150.0,
+                  height: 130.0,
+                  fit: BoxFit.cover,
+                  animate: true,
                 ),
               ],
             ),
