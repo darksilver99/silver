@@ -45,8 +45,6 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
         _model.isCheck = widget.isCheck!;
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

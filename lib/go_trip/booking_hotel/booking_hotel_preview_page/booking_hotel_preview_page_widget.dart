@@ -30,8 +30,6 @@ class _BookingHotelPreviewPageWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => BookingHotelPreviewPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -32,8 +32,6 @@ class _SaveTripBottomSheetViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SaveTripBottomSheetViewModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

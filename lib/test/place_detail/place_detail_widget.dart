@@ -33,8 +33,6 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => PlaceDetailModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

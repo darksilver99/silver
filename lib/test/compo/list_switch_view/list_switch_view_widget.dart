@@ -40,8 +40,6 @@ class _ListSwitchViewWidgetState extends State<ListSwitchViewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => ListSwitchViewModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

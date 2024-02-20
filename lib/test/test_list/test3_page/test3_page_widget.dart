@@ -31,8 +31,6 @@ class _Test3PageWidgetState extends State<Test3PageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Test3PageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

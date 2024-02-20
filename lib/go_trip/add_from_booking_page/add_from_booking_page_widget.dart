@@ -27,8 +27,6 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AddFromBookingPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

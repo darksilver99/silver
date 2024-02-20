@@ -63,8 +63,6 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
       _isSupportedPlatform = true;
       _initCamera();
     }
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

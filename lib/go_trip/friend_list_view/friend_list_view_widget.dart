@@ -26,8 +26,6 @@ class _FriendListViewWidgetState extends State<FriendListViewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => FriendListViewModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

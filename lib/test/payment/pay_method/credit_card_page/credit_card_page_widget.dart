@@ -26,8 +26,6 @@ class _CreditCardPageWidgetState extends State<CreditCardPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => CreditCardPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

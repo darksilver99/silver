@@ -41,8 +41,6 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
       _model.rsCaller =
           await UsersRecord.getDocumentOnce(widget.userParameter!.reference);
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

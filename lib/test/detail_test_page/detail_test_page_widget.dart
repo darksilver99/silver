@@ -34,8 +34,6 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => DetailTestPageModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -39,8 +39,6 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
         _model.callerName = _model.rsUser!.displayName;
       });
     });
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -30,8 +30,6 @@ class _AddBookingDialogViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AddBookingDialogViewModel());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
