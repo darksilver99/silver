@@ -30,6 +30,8 @@ class _EditEachTripBottomSheetViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => EditEachTripBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

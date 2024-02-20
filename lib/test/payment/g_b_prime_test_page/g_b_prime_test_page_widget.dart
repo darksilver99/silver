@@ -27,6 +27,8 @@ class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GBPrimeTestPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

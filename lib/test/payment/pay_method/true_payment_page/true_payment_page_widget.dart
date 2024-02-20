@@ -28,6 +28,8 @@ class _TruePaymentPageWidgetState extends State<TruePaymentPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TruePaymentPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

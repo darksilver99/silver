@@ -31,6 +31,8 @@ class _SelectedExpenseCategoryBottomSheetViewWidgetState
     super.initState();
     _model = createModel(
         context, () => SelectedExpenseCategoryBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

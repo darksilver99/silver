@@ -29,6 +29,8 @@ class _LoadingViewWidgetState extends State<LoadingViewWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => LoadingViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

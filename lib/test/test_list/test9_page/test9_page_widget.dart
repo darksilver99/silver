@@ -30,6 +30,8 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => Test9PageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

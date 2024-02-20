@@ -27,6 +27,8 @@ class _CreateTripDrawerViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateTripDrawerViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

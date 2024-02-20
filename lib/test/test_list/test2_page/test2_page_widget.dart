@@ -42,6 +42,8 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
         _model.isLoading = false;
       });
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

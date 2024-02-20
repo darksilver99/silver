@@ -26,6 +26,8 @@ class _TestWidgetWidgetState extends State<TestWidgetWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestWidgetModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -32,6 +32,8 @@ class _AddActivityBottomSheetViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => AddActivityBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -30,6 +30,8 @@ class _CreateTripSuccessDialogViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CreateTripSuccessDialogViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

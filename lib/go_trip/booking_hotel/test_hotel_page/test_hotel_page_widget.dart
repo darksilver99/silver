@@ -26,6 +26,8 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => TestHotelPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

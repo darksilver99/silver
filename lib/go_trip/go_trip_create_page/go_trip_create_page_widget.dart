@@ -73,6 +73,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
 
     _model.textController11 ??= TextEditingController();
     _model.textFieldFocusNode11 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -26,6 +26,8 @@ class _QRCodePageWidgetState extends State<QRCodePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => QRCodePageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

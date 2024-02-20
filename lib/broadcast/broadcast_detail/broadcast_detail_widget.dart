@@ -32,6 +32,8 @@ class _BroadcastDetailWidgetState extends State<BroadcastDetailWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BroadcastDetailModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

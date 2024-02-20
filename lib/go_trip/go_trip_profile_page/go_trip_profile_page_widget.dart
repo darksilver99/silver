@@ -27,6 +27,8 @@ class _GoTripProfilePageWidgetState extends State<GoTripProfilePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => GoTripProfilePageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

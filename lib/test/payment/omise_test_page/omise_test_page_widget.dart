@@ -26,6 +26,8 @@ class _OmiseTestPageWidgetState extends State<OmiseTestPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OmiseTestPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -27,6 +27,8 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AboutPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

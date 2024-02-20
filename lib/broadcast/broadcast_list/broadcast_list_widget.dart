@@ -31,6 +31,8 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BroadcastListModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

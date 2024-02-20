@@ -31,6 +31,8 @@ class _SelectedBookingCategoryBottomSheetViewWidgetState
     super.initState();
     _model = createModel(
         context, () => SelectedBookingCategoryBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

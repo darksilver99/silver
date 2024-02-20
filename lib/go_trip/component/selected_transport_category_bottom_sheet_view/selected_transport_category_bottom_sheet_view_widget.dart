@@ -31,6 +31,8 @@ class _SelectedTransportCategoryBottomSheetViewWidgetState
     super.initState();
     _model = createModel(
         context, () => SelectedTransportCategoryBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

@@ -30,6 +30,8 @@ class _PreviewTripBottomSheetViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => PreviewTripBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

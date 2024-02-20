@@ -25,6 +25,8 @@ class _BookingPageWidgetState extends State<BookingPageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => BookingPageModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

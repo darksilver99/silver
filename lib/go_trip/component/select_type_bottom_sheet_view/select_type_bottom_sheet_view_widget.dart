@@ -31,6 +31,8 @@ class _SelectTypeBottomSheetViewWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SelectTypeBottomSheetViewModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
