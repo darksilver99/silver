@@ -1,8 +1,8 @@
-import '/backend/backend.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'dart:async';
+import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -58,72 +58,41 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: FutureBuilder<List<DataListRecord>>(
-            future: (_model.firestoreRequestCompleter ??=
-                    Completer<List<DataListRecord>>()
-                      ..complete(queryDataListRecordOnce()))
-                .future,
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitChasingDots(
-                      color: FlutterFlowTheme.of(context).tertiary,
-                      size: 50.0,
-                    ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                FlutterFlowDropDown<String>(
+                  controller: _model.dropDownValueController ??=
+                      FormFieldController<String>(null),
+                  options: ['Option 1', 'option2'],
+                  onChanged: (val) =>
+                      setState(() => _model.dropDownValue = val),
+                  width: 300.0,
+                  height: 50.0,
+                  searchHintTextStyle: FlutterFlowTheme.of(context).labelMedium,
+                  searchTextStyle: FlutterFlowTheme.of(context).bodyMedium,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                  hintText: 'Please select...',
+                  searchHintText: 'Search for an item...',
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
                   ),
-                );
-              }
-              List<DataListRecord> listViewDataListRecordList = snapshot.data!;
-              return RefreshIndicator(
-                onRefresh: () async {
-                  setState(() => _model.firestoreRequestCompleter = null);
-                  await _model.waitForFirestoreRequestCompleted(
-                      minWait: 1000, maxWait: 3000);
-                },
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  scrollDirection: Axis.vertical,
-                  itemCount: listViewDataListRecordList.length,
-                  itemBuilder: (context, listViewIndex) {
-                    final listViewDataListRecord =
-                        listViewDataListRecordList[listViewIndex];
-                    return Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
-                      child: FFButtonWidget(
-                        onPressed: () async {
-                          context.pushNamed('Test2Page');
-                        },
-                        text: listViewDataListRecord.name,
-                        options: FFButtonOptions(
-                          width: double.infinity,
-                          height: 40.0,
-                          padding: EdgeInsets.all(0.0),
-                          iconPadding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 0.0, 0.0),
-                          color: FlutterFlowTheme.of(context).primary,
-                          textStyle:
-                              FlutterFlowTheme.of(context).titleSmall.override(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.white,
-                                  ),
-                          elevation: 3.0,
-                          borderSide: BorderSide(
-                            color: Colors.transparent,
-                            width: 1.0,
-                          ),
-                          borderRadius: BorderRadius.circular(8.0),
-                        ),
-                      ),
-                    );
-                  },
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  elevation: 2.0,
+                  borderColor: FlutterFlowTheme.of(context).alternate,
+                  borderWidth: 2.0,
+                  borderRadius: 8.0,
+                  margin: EdgeInsetsDirectional.fromSTEB(16.0, 4.0, 16.0, 4.0),
+                  hidesUnderline: true,
+                  isOverButton: true,
+                  isSearchable: true,
+                  isMultiSelect: false,
                 ),
-              );
-            },
+              ],
+            ),
           ),
         ),
       ),

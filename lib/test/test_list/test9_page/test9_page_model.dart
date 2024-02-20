@@ -27,10 +27,12 @@ class Test9PageModel extends FlutterFlowModel<Test9PageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     toggleTestModels = FlutterFlowDynamicModels(() => ToggleTestModel());
   }
 
+  @override
   void dispose() {
     toggleTestModels.dispose();
   }

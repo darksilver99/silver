@@ -25,8 +25,10 @@ class BroadcastListModel extends FlutterFlowModel<BroadcastListWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

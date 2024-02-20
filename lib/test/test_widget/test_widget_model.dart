@@ -26,8 +26,10 @@ class TestWidgetModel extends FlutterFlowModel<TestWidgetWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {}
 
+  @override
   void dispose() {
     unfocusNode.dispose();
   }

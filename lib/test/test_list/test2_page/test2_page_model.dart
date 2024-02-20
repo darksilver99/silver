@@ -32,12 +32,14 @@ class Test2PageModel extends FlutterFlowModel<Test2PageWidget> {
 
   /// Initialization and disposal methods.
 
+  @override
   void initState(BuildContext context) {
     listSwitchViewModels =
         FlutterFlowDynamicModels(() => ListSwitchViewModel());
     loadingViewModel = createModel(context, () => LoadingViewModel());
   }
 
+  @override
   void dispose() {
     listSwitchViewModels.dispose();
     loadingViewModel.dispose();
