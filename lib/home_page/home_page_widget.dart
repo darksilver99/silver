@@ -5,7 +5,6 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/actions/index.dart' as actions;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -356,17 +355,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                   child: FFButtonWidget(
-                    onPressed: () async {
-                      await actions.testCallBack(
-                        () async {
-                          await actions.snackSum(
-                            context,
-                            2,
-                          );
-                        },
-                        1,
-                        '2',
-                      );
+                    onPressed: () {
+                      print('Button pressed ...');
                     },
                     text: 'test callback',
                     options: FFButtonOptions(

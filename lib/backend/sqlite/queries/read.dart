@@ -13,7 +13,7 @@ Future<List<PlayListRow>> performPlayList(
   Database database,
 ) {
   final query = '''
-SELECT * FROM playlist
+SELECT * FROM playlists
 ''';
   return _readQuery(database, query, (d) => PlayListRow(d));
 }
@@ -21,7 +21,7 @@ SELECT * FROM playlist
 class PlayListRow extends SqliteRow {
   PlayListRow(Map<String, dynamic> data) : super(data);
 
-  String? get name => data['name'] as String?;
+  String? get name => data['Name'] as String?;
 }
 
 /// END PLAYLIST
