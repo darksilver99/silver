@@ -46,10 +46,12 @@ class SQLiteManager {
       );
 
   Future insertPlaylist({
+    int? id,
     String? name,
   }) =>
       performInsertPlaylist(
         _database,
+        id: id,
         name: name,
       );
 

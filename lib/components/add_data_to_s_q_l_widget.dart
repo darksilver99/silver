@@ -10,7 +10,12 @@ import 'add_data_to_s_q_l_model.dart';
 export 'add_data_to_s_q_l_model.dart';
 
 class AddDataToSQLWidget extends StatefulWidget {
-  const AddDataToSQLWidget({super.key});
+  const AddDataToSQLWidget({
+    super.key,
+    required this.lastID,
+  });
+
+  final int? lastID;
 
   @override
   State<AddDataToSQLWidget> createState() => _AddDataToSQLWidgetState();
@@ -139,6 +144,7 @@ class _AddDataToSQLWidgetState extends State<AddDataToSQLWidget> {
                           return;
                         }
                         await SQLiteManager.instance.insertPlaylist(
+                          id: (widget.lastID!) + 1,
                           name: _model.textController.text,
                         );
                         Navigator.pop(context);
