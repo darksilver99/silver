@@ -45,5 +45,15 @@ class SQLiteManager {
         id: id,
       );
 
+  Future insertPlaylist({
+    int? id,
+    String? name,
+  }) =>
+      performInsertPlaylist(
+        _database,
+        id: id,
+        name: name,
+      );
+
   /// END UPDATE QUERY CALLS
 }
