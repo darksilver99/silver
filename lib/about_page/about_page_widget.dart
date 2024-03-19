@@ -102,7 +102,12 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
               }
               final listViewPlayListRowList = snapshot.data!;
               return ListView.builder(
-                padding: EdgeInsets.zero,
+                padding: EdgeInsets.fromLTRB(
+                  0,
+                  0,
+                  0,
+                  128.0,
+                ),
                 scrollDirection: Axis.vertical,
                 itemCount: listViewPlayListRowList.length,
                 itemBuilder: (context, listViewIndex) {
