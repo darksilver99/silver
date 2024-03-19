@@ -12,3 +12,17 @@ DELETE  FROM playlists WHERE  PlaylistId = ${id}
 }
 
 /// END DELPLAILIST
+
+/// BEGIN INSERTPLAYLIST
+Future performInsertPlaylist(
+  Database database, {
+  int? id,
+  String? name,
+}) {
+  final query = '''
+INSERT INTO playlists (PlaylistId, Name) VALUES (${id}, ${name})
+''';
+  return database.rawQuery(query);
+}
+
+/// END INSERTPLAYLIST
