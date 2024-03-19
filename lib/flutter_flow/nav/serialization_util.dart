@@ -7,6 +7,8 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 
+import '/backend/sqlite/queries/sqlite_row.dart';
+import '/backend/sqlite/queries/read.dart';
 import '../../flutter_flow/lat_lng.dart';
 import '../../flutter_flow/place.dart';
 import '../../flutter_flow/uploaded_file.dart';
@@ -96,6 +98,9 @@ String? serializeParam(
 
       case ParamType.Enum:
         return (param is Enum) ? param.serialize() : null;
+
+      case ParamType.SqliteRow:
+        return json.encode((param as SqliteRow).data);
 
       default:
         return null;
@@ -187,6 +192,8 @@ enum ParamType {
   DocumentReference,
   DataStruct,
   Enum,
+
+  SqliteRow,
 }
 
 dynamic deserializeParam<T>(
@@ -254,6 +261,15 @@ dynamic deserializeParam<T>(
 
       case ParamType.Enum:
         return deserializeEnum<T>(param);
+
+      case ParamType.SqliteRow:
+        final data = json.decode(param) as Map<String, dynamic>;
+        switch (T) {
+          case PlayListRow:
+            return PlayListRow(data);
+          default:
+            return null;
+        }
 
       default:
         return null;
