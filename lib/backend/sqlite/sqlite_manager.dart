@@ -37,5 +37,13 @@ class SQLiteManager {
 
   /// START UPDATE QUERY CALLS
 
+  Future delPlaiList({
+    int? id,
+  }) =>
+      performDelPlaiList(
+        _database,
+        id: id,
+      );
+
   /// END UPDATE QUERY CALLS
 }

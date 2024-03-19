@@ -74,6 +74,22 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 8.0, 0.0),
+                          child: Text(
+                            valueOrDefault<String>(
+                              listViewPlayListRow.id?.toString(),
+                              '-',
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  fontWeight: FontWeight.bold,
+                                ),
+                          ),
+                        ),
                         Expanded(
                           child: Text(
                             valueOrDefault<String>(
@@ -81,6 +97,23 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                               '-',
                             ),
                             style: FlutterFlowTheme.of(context).bodyMedium,
+                          ),
+                        ),
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            await SQLiteManager.instance.delPlaiList(
+                              id: listViewPlayListRow.id,
+                            );
+                            setState(() {});
+                          },
+                          child: Icon(
+                            Icons.delete_rounded,
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            size: 24.0,
                           ),
                         ),
                       ],

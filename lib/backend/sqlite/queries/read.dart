@@ -22,6 +22,7 @@ class PlayListRow extends SqliteRow {
   PlayListRow(Map<String, dynamic> data) : super(data);
 
   String? get name => data['Name'] as String?;
+  int? get id => data['id'] as int?;
 }
 
 /// END PLAYLIST
