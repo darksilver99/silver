@@ -6,7 +6,7 @@ Future performDelPlaiList(
   int? id,
 }) {
   final query = '''
-DELETE  FROM playlists WHERE  id = ${id}
+DELETE  FROM playlists WHERE  PlaylistId = ${id}
 ''';
   return database.rawQuery(query);
 }
