@@ -50,7 +50,6 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
             child: FloatingActionButton(
               onPressed: () async {
-                _model.total = await SQLiteManager.instance.playList();
                 await showDialog(
                   context: context,
                   builder: (dialogContext) {
@@ -66,16 +65,12 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                               ? FocusScope.of(context)
                                   .requestFocus(_model.unfocusNode)
                               : FocusScope.of(context).unfocus(),
-                          child: AddDataToSQLWidget(
-                            lastID: _model.total!.length + 1,
-                          ),
+                          child: AddDataToSQLWidget(),
                         ),
                       ),
                     );
                   },
                 ).then((value) => setState(() {}));
-
-                setState(() {});
               },
               backgroundColor: FlutterFlowTheme.of(context).primary,
               elevation: 8.0,
@@ -122,10 +117,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 8.0, 0.0),
                           child: Text(
-                            valueOrDefault<String>(
-                              listViewPlayListRow.playlistId?.toString(),
-                              '-',
-                            ),
+                            (listViewIndex + 1).toString(),
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -136,10 +128,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                         ),
                         Expanded(
                           child: Text(
-                            valueOrDefault<String>(
-                              listViewPlayListRow.name,
-                              '-',
-                            ),
+                            '${listViewPlayListRow.name} : ${listViewPlayListRow.playlistId?.toString()}',
                             style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
