@@ -79,7 +79,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                               0.0, 0.0, 8.0, 0.0),
                           child: Text(
                             valueOrDefault<String>(
-                              listViewPlayListRow.id?.toString(),
+                              listViewPlayListRow.playlistId?.toString(),
                               '-',
                             ),
                             style: FlutterFlowTheme.of(context)
@@ -106,7 +106,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                           highlightColor: Colors.transparent,
                           onTap: () async {
                             await SQLiteManager.instance.delPlaiList(
-                              id: listViewPlayListRow.id,
+                              id: listViewPlayListRow.playlistId,
                             );
                             setState(() {});
                           },
