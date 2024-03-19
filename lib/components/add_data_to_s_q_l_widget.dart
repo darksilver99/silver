@@ -144,7 +144,7 @@ class _AddDataToSQLWidgetState extends State<AddDataToSQLWidget> {
                           return;
                         }
                         await SQLiteManager.instance.insertPlaylist(
-                          id: (widget.lastID!) + 1,
+                          id: widget.lastID,
                           name: _model.textController.text,
                         );
                         Navigator.pop(context);

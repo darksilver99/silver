@@ -50,6 +50,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
             padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 64.0),
             child: FloatingActionButton(
               onPressed: () async {
+                _model.total = await SQLiteManager.instance.playList();
                 await showDialog(
                   context: context,
                   builder: (dialogContext) {
@@ -65,12 +66,16 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                               ? FocusScope.of(context)
                                   .requestFocus(_model.unfocusNode)
                               : FocusScope.of(context).unfocus(),
-                          child: AddDataToSQLWidget(),
+                          child: AddDataToSQLWidget(
+                            lastID: _model.total!.length + 1,
+                          ),
                         ),
                       ),
                     );
                   },
                 ).then((value) => setState(() {}));
+
+                setState(() {});
               },
               backgroundColor: FlutterFlowTheme.of(context).primary,
               elevation: 8.0,
