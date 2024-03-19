@@ -14,8 +14,6 @@ class AboutPageModel extends FlutterFlowModel<AboutPageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // Stores action output result for [Backend Call - SQLite (playList)] action in FloatingActionButton widget.
-  List<PlayListRow>? total;
 
   /// Initialization and disposal methods.
 
