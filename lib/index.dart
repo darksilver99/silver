@@ -72,3 +72,5 @@ export '/test/payment/pay_method/q_r_code_page/q_r_code_page_widget.dart'
     show QRCodePageWidget;
 export '/test/payment/pay_method/credit_card_page/credit_card_page_widget.dart'
     show CreditCardPageWidget;
+export '/test_s_q_l_lite_page/test_s_q_l_lite_page_widget.dart'
+    show TestSQLLitePageWidget;

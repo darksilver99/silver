@@ -265,8 +265,8 @@ dynamic deserializeParam<T>(
       case ParamType.SqliteRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
-          case PlayListRow:
-            return PlayListRow(data);
+          case GetUserListRow:
+            return GetUserListRow(data);
           default:
             return null;
         }

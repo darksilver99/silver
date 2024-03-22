@@ -22,14 +22,14 @@ class SQLiteManager {
       return;
     }
     _database = await initializeDatabaseFromDbFile(
-      'test_data_base_name',
-      'chinook.db',
+      'test_silver',
+      'test_silver.db',
     );
   }
 
   /// START READ QUERY CALLS
 
-  Future<List<PlayListRow>> playList() => performPlayList(
+  Future<List<GetUserListRow>> getUserList() => performGetUserList(
         _database,
       );
 
@@ -37,20 +37,20 @@ class SQLiteManager {
 
   /// START UPDATE QUERY CALLS
 
-  Future delPlaiList({
-    int? id,
-  }) =>
-      performDelPlaiList(
-        _database,
-        id: id,
-      );
-
-  Future insertPlaylist({
+  Future insertUserName({
     String? name,
   }) =>
-      performInsertPlaylist(
+      performInsertUserName(
         _database,
         name: name,
+      );
+
+  Future deleteUser({
+    int? id,
+  }) =>
+      performDeleteUser(
+        _database,
+        id: id,
       );
 
   /// END UPDATE QUERY CALLS

@@ -138,7 +138,7 @@ class _AddDataToSQLWidgetState extends State<AddDataToSQLWidget> {
                             !_model.formKey.currentState!.validate()) {
                           return;
                         }
-                        await SQLiteManager.instance.insertPlaylist(
+                        await SQLiteManager.instance.insertUserName(
                           name: _model.textController.text,
                         );
                         Navigator.pop(context);
