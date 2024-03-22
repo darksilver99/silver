@@ -23,7 +23,7 @@ class SQLiteManager {
     }
     _database = await initializeDatabaseFromDbFile(
       'test_silver',
-      'test_db.db',
+      'bmt4t_db.db',
     );
   }
 
