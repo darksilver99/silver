@@ -13,7 +13,7 @@ Future<List<GetUserListRow>> performGetUserList(
   Database database,
 ) {
   final query = '''
-SELECT * FROM users ORDER BY display_name ASC
+SELECT * FROM users ORDER BY displayName ASC
 ''';
   return _readQuery(database, query, (d) => GetUserListRow(d));
 }
