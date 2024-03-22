@@ -8,21 +8,21 @@ Future<List<T>> _readQuery<T>(
 ) =>
     database.rawQuery(query).then((r) => r.map((e) => create(e)).toList());
 
-/// BEGIN PLAYLIST
-Future<List<PlayListRow>> performPlayList(
+/// BEGIN GETUSERLIST
+Future<List<GetUserListRow>> performGetUserList(
   Database database,
 ) {
   final query = '''
-SELECT * FROM playlists
+SELECT * FROM users ORDER BY display_name ASC
 ''';
-  return _readQuery(database, query, (d) => PlayListRow(d));
+  return _readQuery(database, query, (d) => GetUserListRow(d));
 }
 
-class PlayListRow extends SqliteRow {
-  PlayListRow(Map<String, dynamic> data) : super(data);
+class GetUserListRow extends SqliteRow {
+  GetUserListRow(Map<String, dynamic> data) : super(data);
 
-  String? get name => data['Name'] as String?;
-  int? get playlistId => data['PlaylistId'] as int?;
+  int? get id => data['id'] as int?;
+  String? get displayName => data['displayName'] as String?;
 }
 
-/// END PLAYLIST
+/// END GETUSERLIST

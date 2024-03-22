@@ -344,6 +344,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'CreditCardPage',
           path: '/creditCardPage',
           builder: (context, params) => CreditCardPageWidget(),
+        ),
+        FFRoute(
+          name: 'TestSQLLitePage',
+          path: '/testSQLLitePage',
+          builder: (context, params) => TestSQLLitePageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

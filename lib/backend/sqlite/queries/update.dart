@@ -1,27 +1,27 @@
 import 'package:sqflite/sqflite.dart';
 
-/// BEGIN DELPLAILIST
-Future performDelPlaiList(
-  Database database, {
-  int? id,
-}) {
-  final query = '''
-DELETE  FROM playlists WHERE  PlaylistId = ${id}
-''';
-  return database.rawQuery(query);
-}
-
-/// END DELPLAILIST
-
-/// BEGIN INSERTPLAYLIST
-Future performInsertPlaylist(
+/// BEGIN INSERTUSERNAME
+Future performInsertUserName(
   Database database, {
   String? name,
 }) {
   final query = '''
-INSERT INTO playlists (Name) VALUES ('${name}')
+INSERT INTO users  (display_name) VALUES ('${name}')
 ''';
   return database.rawQuery(query);
 }
 
-/// END INSERTPLAYLIST
+/// END INSERTUSERNAME
+
+/// BEGIN DELETEUSER
+Future performDeleteUser(
+  Database database, {
+  int? id,
+}) {
+  final query = '''
+DELETE FROM users WHERE id = ${id};
+''';
+  return database.rawQuery(query);
+}
+
+/// END DELETEUSER
