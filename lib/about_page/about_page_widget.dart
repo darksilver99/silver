@@ -1,4 +1,3 @@
-import '/backend/sqlite/sqlite_manager.dart';
 import '/components/add_data_to_s_q_l_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -84,82 +83,30 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: FutureBuilder<List<PlayListRow>>(
-            future: SQLiteManager.instance.playList(),
-            builder: (context, snapshot) {
-              // Customize what your widget looks like when it's loading.
-              if (!snapshot.hasData) {
-                return Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitChasingDots(
-                      color: FlutterFlowTheme.of(context).tertiary,
-                      size: 50.0,
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Container(
+                  width: double.infinity,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(0.0),
+                      bottomRight: Radius.circular(0.0),
+                      topLeft: Radius.circular(0.0),
+                      topRight: Radius.circular(0.0),
+                    ),
+                    border: Border.all(
+                      color: FlutterFlowTheme.of(context).secondary,
+                      width: 1.0,
                     ),
                   ),
-                );
-              }
-              final listViewPlayListRowList = snapshot.data!;
-              return ListView.builder(
-                padding: EdgeInsets.fromLTRB(
-                  0,
-                  0,
-                  0,
-                  128.0,
                 ),
-                scrollDirection: Axis.vertical,
-                itemCount: listViewPlayListRowList.length,
-                itemBuilder: (context, listViewIndex) {
-                  final listViewPlayListRow =
-                      listViewPlayListRowList[listViewIndex];
-                  return Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              0.0, 0.0, 8.0, 0.0),
-                          child: Text(
-                            (listViewIndex + 1).toString(),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  fontWeight: FontWeight.bold,
-                                ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Text(
-                            '${listViewPlayListRow.name} : ${listViewPlayListRow.playlistId?.toString()}',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
-                          ),
-                        ),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            await SQLiteManager.instance.delPlaiList(
-                              id: listViewPlayListRow.playlistId,
-                            );
-                            setState(() {});
-                          },
-                          child: Icon(
-                            Icons.delete_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              );
-            },
+              ),
+            ],
           ),
         ),
       ),

@@ -5,8 +5,12 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/walkthroughs/home_step.dart';
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -30,6 +34,13 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => HomePageModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      safeSetState(
+          () => _model.homeStepController = createPageWalkthrough(context));
+      _model.homeStepController?.show(context: context);
+    });
   }
 
   @override
@@ -88,6 +99,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
+                    ).addWalkthrough(
+                      buttonM64rcv1s,
+                      _model.homeStepController,
                     ),
                   ),
                 Padding(
@@ -378,6 +392,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       ),
                       borderRadius: BorderRadius.circular(8.0),
                     ),
+                  ).addWalkthrough(
+                    buttonSeieiq47,
+                    _model.homeStepController,
                   ),
                 ),
                 Lottie.network(
@@ -386,6 +403,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   height: 130.0,
                   fit: BoxFit.cover,
                   animate: true,
+                ).addWalkthrough(
+                  lottieAnimation5xrn9ktv,
+                  _model.homeStepController,
                 ),
               ],
             ),
@@ -394,4 +414,41 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       ),
     );
   }
+
+  TutorialCoachMark createPageWalkthrough(BuildContext context) =>
+      TutorialCoachMark(
+        targets: createWalkthroughTargets(context),
+        onFinish: () async {
+          safeSetState(() => _model.homeStepController = null);
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                'Walkthrough Done',
+                style: TextStyle(
+                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                ),
+              ),
+              duration: Duration(milliseconds: 2000),
+              backgroundColor: FlutterFlowTheme.of(context).secondary,
+            ),
+          );
+        },
+        onSkip: () {
+          () async {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  'Walkthrough skip!',
+                  style: TextStyle(
+                    color: FlutterFlowTheme.of(context).primaryBackground,
+                  ),
+                ),
+                duration: Duration(milliseconds: 2000),
+                backgroundColor: FlutterFlowTheme.of(context).alternate,
+              ),
+            );
+          }();
+          return true;
+        },
+      );
 }
