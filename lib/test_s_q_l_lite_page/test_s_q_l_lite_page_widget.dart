@@ -165,6 +165,7 @@ class _TestSQLLitePageWidgetState extends State<TestSQLLitePageWidget> {
                               await SQLiteManager.instance.deleteUser(
                                 id: listViewGetUserListRow.id,
                               );
+                              setState(() {});
                             },
                             child: Icon(
                               Icons.settings_outlined,

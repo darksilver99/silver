@@ -6,7 +6,7 @@ Future performInsertUserName(
   String? name,
 }) {
   final query = '''
-INSERT INTO users  (display_name) VALUES ('${name}')
+INSERT INTO users  (displayName) VALUES ('${name}')
 ''';
   return database.rawQuery(query);
 }
