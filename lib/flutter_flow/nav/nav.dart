@@ -348,6 +348,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TestSQLLitePage',
           path: '/testSQLLitePage',
           builder: (context, params) => TestSQLLitePageWidget(),
+        ),
+        FFRoute(
+          name: 'ScanQRCode',
+          path: '/scanQRCode',
+          builder: (context, params) => ScanQRCodeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
