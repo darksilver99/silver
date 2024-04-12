@@ -79,6 +79,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Draggable<String>(
+                                    childWhenDragging: Container(),
                                     data: '1',
                                     feedback: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
@@ -129,6 +130,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Draggable<String>(
+                                    childWhenDragging: Container(),
                                     data: '1',
                                     feedback: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
@@ -188,6 +190,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Draggable<String>(
+                                    childWhenDragging: Container(),
                                     data: '1',
                                     feedback: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
@@ -238,6 +241,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 child: Align(
                                   alignment: AlignmentDirectional(0.0, 0.0),
                                   child: Draggable<String>(
+                                    childWhenDragging: Container(),
                                     data: '1',
                                     feedback: ClipRRect(
                                       borderRadius: BorderRadius.circular(8.0),
