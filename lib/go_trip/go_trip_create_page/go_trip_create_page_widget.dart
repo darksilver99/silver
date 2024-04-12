@@ -131,11 +131,13 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                     child: TextFormField(
                       controller: _model.textController1,
                       focusNode: _model.textFieldFocusNode1,
+                      autofocus: false,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                         hintText: '4 days in Phuket...',
@@ -143,6 +145,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).accent2,
+                                  letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -178,6 +181,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             fontSize: 12.0,
+                            letterSpacing: 0.0,
                           ),
                       validator:
                           _model.textController1Validator.asValidator(context),
@@ -248,12 +252,18 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).accent2,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                               ),
                               Text(
                                 '4',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ],
                           ),
@@ -279,13 +289,18 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         fontFamily: 'Montserrat',
                                         color: FlutterFlowTheme.of(context)
                                             .accent2,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),
                                 Text(
                                   '19 Jul 2022 - 22 Jul 2022',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ],
                             ),
@@ -324,6 +339,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Colors.white,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 elevation: 3.0,
@@ -492,6 +508,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ],
@@ -515,7 +532,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               'Description',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Padding(
@@ -524,12 +546,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             child: TextFormField(
                               controller: _model.textController2,
                               focusNode: _model.textFieldFocusNode2,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 hintText: 'What’s on your mind ?',
@@ -539,6 +563,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).accent2,
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -571,7 +596,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 filled: true,
                                 fillColor: Color(0xFFF4F8FB),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                               maxLines: 3,
                               minLines: 3,
                               validator: _model.textController2Validator
@@ -646,7 +676,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         Text(
                                           'Invite',
                                           style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Montserrat',
+                                                letterSpacing: 0.0,
+                                              ),
                                         ),
                                       ],
                                     ),
@@ -674,6 +708,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                               elevation: 3.0,
@@ -709,7 +744,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     child: Text(
                                       'My booking',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Padding(
@@ -731,6 +770,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             .override(
                                               fontFamily: 'Montserrat',
                                               color: Colors.white,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ),
@@ -754,7 +794,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           child: Text(
                                             'All',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Padding(
@@ -768,6 +812,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFFC5C7CB),
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -782,6 +827,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFFC5C7CB),
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -796,6 +842,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFFC5C7CB),
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -810,6 +857,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFFC5C7CB),
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                         ),
@@ -882,6 +930,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                             color: Color(
                                                                 0xFF8D919D),
                                                             fontSize: 14.0,
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w200,
                                                           ),
@@ -894,6 +943,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                           .override(
                                                             fontFamily:
                                                                 'Montserrat',
+                                                            letterSpacing: 0.0,
                                                             fontWeight:
                                                                 FontWeight.w300,
                                                           ),
@@ -972,8 +1022,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                   alignment: AlignmentDirectional(-1.0, 0.0),
                                   child: Text(
                                     'goTrip',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -993,6 +1047,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFF1DBEC8),
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -1026,7 +1081,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     child: Text(
                                       'Day 1',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -1058,6 +1117,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w200,
                                           ),
                                     ),
@@ -1077,12 +1137,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             child: TextFormField(
                               controller: _model.textController3,
                               focusNode: _model.textFieldFocusNode3,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 hintText: 'Description of the day...',
@@ -1092,6 +1154,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).accent2,
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -1124,7 +1187,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 filled: true,
                                 fillColor: Color(0xFFF4F8FB),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                               validator: _model.textController3Validator
                                   .asValidator(context),
                             ),
@@ -1164,6 +1232,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 10.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ),
@@ -1202,6 +1271,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           },
                                         ).then((value) => safeSetState(() {}));
                                       },
+                                      autofocus: false,
                                       readOnly: true,
                                       obscureText: false,
                                       decoration: InputDecoration(
@@ -1210,6 +1280,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Montserrat',
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                             ),
                                         hintText: 'Add place',
@@ -1220,6 +1291,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent2,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -1260,7 +1332,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         ),
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
                                       validator: _model.textController4Validator
                                           .asValidator(context),
                                     ),
@@ -1368,6 +1444,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         child: TextFormField(
                                           controller: _model.textController5,
                                           focusNode: _model.textFieldFocusNode5,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1376,6 +1453,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     .labelMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w300,
                                                     ),
@@ -1388,6 +1466,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
@@ -1431,6 +1510,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                           validator: _model
@@ -1442,7 +1522,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     Text(
                                       '฿',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                     Expanded(
                                       flex: 2,
@@ -1452,6 +1536,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         child: TextFormField(
                                           controller: _model.textController6,
                                           focusNode: _model.textFieldFocusNode6,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1461,6 +1546,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       fontSize: 12.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w300,
                                                     ),
@@ -1473,6 +1559,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
@@ -1516,6 +1603,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                           keyboardType: TextInputType.number,
@@ -1610,6 +1698,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         child: TextFormField(
                                           controller: _model.textController7,
                                           focusNode: _model.textFieldFocusNode7,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1618,6 +1707,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     .labelMedium
                                                     .override(
                                                       fontFamily: 'Montserrat',
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w300,
                                                     ),
@@ -1630,6 +1720,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
@@ -1673,6 +1764,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                           validator: _model
@@ -1719,6 +1811,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                         fontFamily:
                                                             'Montserrat',
                                                         fontSize: 8.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                                 ),
                                               ),
@@ -1730,7 +1823,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     Text(
                                       '฿',
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                     Expanded(
                                       flex: 2,
@@ -1740,6 +1837,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         child: TextFormField(
                                           controller: _model.textController8,
                                           focusNode: _model.textFieldFocusNode8,
+                                          autofocus: false,
                                           obscureText: false,
                                           decoration: InputDecoration(
                                             isDense: true,
@@ -1749,6 +1847,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     .override(
                                                       fontFamily: 'Montserrat',
                                                       fontSize: 12.0,
+                                                      letterSpacing: 0.0,
                                                       fontWeight:
                                                           FontWeight.w300,
                                                     ),
@@ -1761,6 +1860,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .accent2,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             enabledBorder: OutlineInputBorder(
@@ -1804,6 +1904,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w300,
                                               ),
                                           keyboardType: TextInputType.number,
@@ -1890,6 +1991,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             controller: _model.textController9,
                                             focusNode:
                                                 _model.textFieldFocusNode9,
+                                            autofocus: false,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               isDense: true,
@@ -1898,6 +2000,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   .labelMedium
                                                   .override(
                                                     fontFamily: 'Montserrat',
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                               hintText: 'Add note',
@@ -1909,6 +2012,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     color: FlutterFlowTheme.of(
                                                             context)
                                                         .accent2,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                               enabledBorder: OutlineInputBorder(
@@ -1952,6 +2056,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   fontSize: 12.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                             validator: _model
@@ -2193,6 +2298,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
                                               ),
                                         ),
@@ -2292,6 +2398,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color: Colors.white,
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 elevation: 3.0,
@@ -2316,7 +2423,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               'Expenses',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Padding(
@@ -2343,6 +2455,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w200,
                                           ),
                                     ),
@@ -2353,7 +2466,11 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           child: Text(
                                             '4 Days',
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                         Expanded(
@@ -2364,7 +2481,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               '฿ 50,000.00',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -2376,6 +2498,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w200,
                                           ),
                                     ),
@@ -2394,6 +2517,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Montserrat',
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w200,
                                                 ),
                                           ),
@@ -2406,7 +2530,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               '฿ 50,000.00',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -2481,6 +2610,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                                   .of(context)
                                                               .primary,
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w300,
                                                         ),
@@ -2536,6 +2666,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                                     context)
                                                                 .primary,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -2587,6 +2718,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           fontFamily: 'Montserrat',
                                           color: Colors.white,
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),
@@ -2611,6 +2743,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             fontFamily: 'Montserrat',
                                             color: Colors.black,
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                           ),
                                     ),
@@ -2633,6 +2766,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           fontFamily: 'Montserrat',
                                           color: Colors.black,
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),
@@ -2651,6 +2785,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             fontFamily: 'Montserrat',
                                             color: Color(0xFF8D919D),
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w200,
                                           ),
                                     ),
@@ -2710,6 +2845,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     fontFamily: 'Montserrat',
                                                     color: Color(0xFF8D919D),
                                                     fontSize: 12.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                             ),
@@ -2721,6 +2857,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   .override(
                                                     fontFamily: 'Montserrat',
                                                     fontSize: 14.0,
+                                                    letterSpacing: 0.0,
                                                     fontWeight: FontWeight.w300,
                                                   ),
                                             ),
@@ -2738,6 +2875,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                         color:
                                                             Color(0xFF8D919D),
                                                         fontSize: 12.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -2794,6 +2932,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             .override(
                                               fontFamily: 'Montserrat',
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                       ),
@@ -2816,7 +2955,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               'Expenses Summary',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Padding(
@@ -2848,6 +2992,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFF343740),
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -2860,7 +3005,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               '฿ 50,000.00',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -2877,6 +3027,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFF343740),
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -2889,7 +3040,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               '฿ 50,000.00',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -2911,6 +3067,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                 .override(
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFF343740),
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -2923,7 +3080,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               '฿ 50,000.00',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -2953,6 +3115,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                   fontFamily: 'Montserrat',
                                                   color: Color(0xFFF79552),
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.w300,
                                                 ),
                                           ),
@@ -2978,7 +3141,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             alignment: AlignmentDirectional(-1.0, 0.0),
                             child: Text(
                               'My Gallery',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                           Align(
@@ -2994,6 +3162,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF343740),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                               ),
@@ -3026,6 +3195,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     child: TextFormField(
                                       controller: _model.textController10,
                                       focusNode: _model.textFieldFocusNode10,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
                                         isDense: true,
@@ -3033,6 +3203,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             .labelMedium
                                             .override(
                                               fontFamily: 'Montserrat',
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                         hintText: 'Album name',
@@ -3043,6 +3214,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .accent2,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                         enabledBorder: OutlineInputBorder(
@@ -3085,6 +3257,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w300,
                                           ),
                                       validator: _model
@@ -3162,6 +3335,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       color:
                                           FlutterFlowTheme.of(context).primary,
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 elevation: 3.0,
@@ -3179,12 +3353,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             child: TextFormField(
                               controller: _model.textController11,
                               focusNode: _model.textFieldFocusNode11,
+                              autofocus: false,
                               obscureText: false,
                               decoration: InputDecoration(
                                 labelStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                                 hintText: 'What’s on your mind ?',
@@ -3194,6 +3370,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color:
                                           FlutterFlowTheme.of(context).accent2,
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: OutlineInputBorder(
                                   borderSide: BorderSide(
@@ -3226,7 +3403,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 filled: true,
                                 fillColor: Color(0xFFF4F8FB),
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                               maxLines: 3,
                               minLines: 3,
                               validator: _model.textController11Validator
@@ -3258,6 +3440,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color: Colors.white,
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                                 elevation: 3.0,
@@ -3287,7 +3470,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                             children: [
                               Text(
                                 'Still no idea ?',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Text(
                                 'Let’s discover your inspiration other',
@@ -3297,6 +3485,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF343740),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                               ),
@@ -3345,10 +3534,14 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                     Text(
                                                       'Thailand with my favorites',
                                                       maxLines: 2,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Montserrat',
+                                                            letterSpacing: 0.0,
+                                                          ),
                                                     ),
                                                     Row(
                                                       mainAxisSize:
@@ -3395,6 +3588,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                                       .override(
                                                                         fontFamily:
                                                                             'Montserrat',
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w300,
                                                                       ),
@@ -3411,6 +3606,8 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                                             0xFF8D919D),
                                                                         fontSize:
                                                                             12.0,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         fontWeight:
                                                                             FontWeight.w300,
                                                                       ),
@@ -3449,6 +3646,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         .override(
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFFFDFCFF),
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),

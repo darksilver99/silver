@@ -77,11 +77,13 @@ class _GoTripListPickerPageWidgetState
                     child: TextFormField(
                       controller: _model.textController1,
                       focusNode: _model.textFieldFocusNode1,
+                      autofocus: false,
                       obscureText: false,
                       decoration: InputDecoration(
                         labelStyle:
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.normal,
                                 ),
                         hintText: '4 days in Phuket...',
@@ -89,6 +91,7 @@ class _GoTripListPickerPageWidgetState
                             FlutterFlowTheme.of(context).labelMedium.override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).accent2,
+                                  letterSpacing: 0.0,
                                 ),
                         enabledBorder: OutlineInputBorder(
                           borderSide: BorderSide(
@@ -124,6 +127,7 @@ class _GoTripListPickerPageWidgetState
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
                             fontSize: 12.0,
+                            letterSpacing: 0.0,
                           ),
                       validator:
                           _model.textController1Validator.asValidator(context),
@@ -277,11 +281,17 @@ class _GoTripListPickerPageWidgetState
                                       child: TextFormField(
                                         controller: _model.textController2,
                                         focusNode: _model.textFieldFocusNode2,
+                                        autofocus: false,
                                         obscureText: false,
                                         decoration: InputDecoration(
+                                          isDense: false,
                                           labelStyle:
                                               FlutterFlowTheme.of(context)
-                                                  .labelMedium,
+                                                  .labelMedium
+                                                  .override(
+                                                    fontFamily: 'Montserrat',
+                                                    letterSpacing: 0.0,
+                                                  ),
                                           hintText: 'Location search',
                                           hintStyle: FlutterFlowTheme.of(
                                                   context)
@@ -292,6 +302,7 @@ class _GoTripListPickerPageWidgetState
                                                     FlutterFlowTheme.of(context)
                                                         .accent2,
                                                 fontSize: 12.0,
+                                                letterSpacing: 0.0,
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -337,6 +348,7 @@ class _GoTripListPickerPageWidgetState
                                             .override(
                                               fontFamily: 'Montserrat',
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         textAlign: TextAlign.start,
                                         maxLines: null,
@@ -494,6 +506,11 @@ class _GoTripListPickerPageWidgetState
                                         setState(() =>
                                             _model.checkboxValue = newValue!);
                                       },
+                                      side: BorderSide(
+                                        width: 2,
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryText,
+                                      ),
                                       activeColor: FlutterFlowTheme.of(context)
                                           .secondary,
                                       checkColor: FlutterFlowTheme.of(context)
@@ -507,6 +524,7 @@ class _GoTripListPickerPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),

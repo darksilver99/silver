@@ -35,8 +35,6 @@ class GoTripSelectPlacePageModel
   DateTime? datePicked1;
   DateTime? datePicked2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -45,8 +43,4 @@ class GoTripSelectPlacePageModel
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

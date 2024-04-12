@@ -75,8 +75,6 @@ class GoTripCreatePageModel extends FlutterFlowModel<GoTripCreatePageWidget> {
   TextEditingController? textController11;
   String? Function(BuildContext, String?)? textController11Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -115,8 +113,4 @@ class GoTripCreatePageModel extends FlutterFlowModel<GoTripCreatePageWidget> {
     textFieldFocusNode11?.dispose();
     textController11?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -91,7 +91,12 @@ class _SelectedBookingCategoryBottomSheetViewWidgetState
                               categoryListItem,
                               r'''$.name''',
                             ).toString(),
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ],

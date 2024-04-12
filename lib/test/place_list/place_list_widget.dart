@@ -95,6 +95,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -123,12 +124,22 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                             Duration(milliseconds: 2000),
                             () => setState(() {}),
                           ),
+                          autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'Search here...',
-                            labelStyle:
-                                FlutterFlowTheme.of(context).labelMedium,
-                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).accent3,
@@ -173,7 +184,11 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                   )
                                 : null,
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           validator: _model.textControllerValidator
                               .asValidator(context),
                         ),
@@ -347,6 +362,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -375,7 +391,12 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],
@@ -499,6 +520,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                                         .override(
                                                           fontFamily:
                                                               'Montserrat',
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.bold,
                                                         ),
@@ -527,7 +549,12 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                                   maxLines: 1,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                               ),
                                             ],

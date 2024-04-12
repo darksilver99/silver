@@ -21,8 +21,6 @@ class FriendListViewModel extends FlutterFlowModel<FriendListViewWidget> {
           .map((e) => e.key)
           .toList();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -30,8 +28,4 @@ class FriendListViewModel extends FlutterFlowModel<FriendListViewWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

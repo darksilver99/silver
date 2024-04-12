@@ -65,6 +65,7 @@ class _AddPlaceDialogViewWidgetState extends State<AddPlaceDialogViewWidget> {
                         'Add a place',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -90,15 +91,21 @@ class _AddPlaceDialogViewWidgetState extends State<AddPlaceDialogViewWidget> {
                   child: TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
+                    autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Montserrat',
+                                letterSpacing: 0.0,
+                              ),
                       hintText: 'Expenses name',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).accent2,
                                 fontSize: 16.0,
+                                letterSpacing: 0.0,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -129,7 +136,10 @@ class _AddPlaceDialogViewWidgetState extends State<AddPlaceDialogViewWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),
@@ -160,7 +170,12 @@ class _AddPlaceDialogViewWidgetState extends State<AddPlaceDialogViewWidget> {
                             },
                             child: Text(
                               'Cancel',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ),
@@ -193,6 +208,7 @@ class _AddPlaceDialogViewWidgetState extends State<AddPlaceDialogViewWidget> {
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),

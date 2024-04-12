@@ -70,6 +70,7 @@ class _SelectPhotoTypeBottomSheetViewWidgetState
                             fontFamily: 'Montserrat',
                             color: FlutterFlowTheme.of(context).secondaryText,
                             fontSize: 20.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w600,
                           ),
                     ),
@@ -94,7 +95,10 @@ class _SelectPhotoTypeBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Add expenses',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -118,7 +122,10 @@ class _SelectPhotoTypeBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Add photo',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],

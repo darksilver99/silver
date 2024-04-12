@@ -19,15 +19,9 @@ class ToggleTestModel extends FlutterFlowModel<ToggleTestWidget> {
   // Stores action output result for [Backend Call - API (dataListCheck)] action in ToggleIcon widget.
   ApiCallResponse? apiResultjjc;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

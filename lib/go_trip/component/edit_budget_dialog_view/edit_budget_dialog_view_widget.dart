@@ -67,6 +67,7 @@ class _EditBudgetDialogViewWidgetState
                         'Edit budget',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -94,6 +95,7 @@ class _EditBudgetDialogViewWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -105,13 +107,18 @@ class _EditBudgetDialogViewWidgetState
                     autofocus: true,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Montserrat',
+                                letterSpacing: 0.0,
+                              ),
                       hintText: '฿ 0.00',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).accent2,
                                 fontSize: 16.0,
+                                letterSpacing: 0.0,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -142,7 +149,10 @@ class _EditBudgetDialogViewWidgetState
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                     keyboardType: TextInputType.number,
                     validator:
                         _model.textControllerValidator.asValidator(context),
@@ -177,7 +187,12 @@ class _EditBudgetDialogViewWidgetState
                               },
                               child: Text(
                                 'Cancel',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ),
@@ -209,6 +224,7 @@ class _EditBudgetDialogViewWidgetState
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),

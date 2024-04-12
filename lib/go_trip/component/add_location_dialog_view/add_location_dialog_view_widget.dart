@@ -66,6 +66,7 @@ class _AddLocationDialogViewWidgetState
                         'Location Name',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -91,15 +92,21 @@ class _AddLocationDialogViewWidgetState
                   child: TextFormField(
                     controller: _model.textController,
                     focusNode: _model.textFieldFocusNode,
+                    autofocus: false,
                     obscureText: false,
                     decoration: InputDecoration(
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      labelStyle:
+                          FlutterFlowTheme.of(context).labelMedium.override(
+                                fontFamily: 'Montserrat',
+                                letterSpacing: 0.0,
+                              ),
                       hintText: 'Name this location',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Montserrat',
                                 color: FlutterFlowTheme.of(context).accent2,
                                 fontSize: 16.0,
+                                letterSpacing: 0.0,
                               ),
                       enabledBorder: OutlineInputBorder(
                         borderSide: BorderSide(
@@ -130,7 +137,10 @@ class _AddLocationDialogViewWidgetState
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                     validator:
                         _model.textControllerValidator.asValidator(context),
                   ),

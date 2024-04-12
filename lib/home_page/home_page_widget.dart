@@ -68,7 +68,10 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                 AuthUserStreamWidget(
                   builder: (context) => Text(
                     currentUserDisplayName,
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 if (loggedIn)
@@ -91,6 +94,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: BorderSide(
@@ -123,6 +127,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -152,6 +157,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -181,6 +187,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -214,6 +221,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -270,6 +278,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -299,6 +308,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -328,6 +338,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -355,6 +366,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -384,6 +396,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(
@@ -416,6 +429,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                               ),
                       elevation: 3.0,
                       borderSide: BorderSide(

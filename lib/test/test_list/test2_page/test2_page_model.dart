@@ -29,8 +29,6 @@ class Test2PageModel extends FlutterFlowModel<Test2PageWidget> {
   // Model for loadingView component.
   late LoadingViewModel loadingViewModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     listSwitchViewModels =
@@ -43,8 +41,4 @@ class Test2PageModel extends FlutterFlowModel<Test2PageWidget> {
     listSwitchViewModels.dispose();
     loadingViewModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -81,6 +81,7 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 24.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),

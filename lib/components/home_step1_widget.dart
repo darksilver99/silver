@@ -49,7 +49,10 @@ class _HomeStep1WidgetState extends State<HomeStep1Widget> {
           padding: EdgeInsets.all(12.0),
           child: Text(
             'Hello World',
-            style: FlutterFlowTheme.of(context).bodyMedium,
+            style: FlutterFlowTheme.of(context).bodyMedium.override(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 0.0,
+                ),
           ),
         ),
       ),

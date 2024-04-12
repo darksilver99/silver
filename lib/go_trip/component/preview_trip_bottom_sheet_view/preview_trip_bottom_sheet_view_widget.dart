@@ -80,7 +80,10 @@ class _PreviewTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Pin setting',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -112,7 +115,10 @@ class _PreviewTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'View only mode',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -144,7 +150,10 @@ class _PreviewTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Print this trip',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -176,7 +185,10 @@ class _PreviewTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Delete plan',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],

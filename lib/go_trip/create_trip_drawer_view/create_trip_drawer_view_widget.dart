@@ -65,7 +65,11 @@ class _CreateTripDrawerViewWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Back to goTrip',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ],
@@ -93,6 +97,7 @@ class _CreateTripDrawerViewWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -117,6 +122,7 @@ class _CreateTripDrawerViewWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -137,6 +143,7 @@ class _CreateTripDrawerViewWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -156,6 +163,7 @@ class _CreateTripDrawerViewWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -180,6 +188,7 @@ class _CreateTripDrawerViewWidgetState
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -211,6 +220,7 @@ class _CreateTripDrawerViewWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -235,6 +245,7 @@ class _CreateTripDrawerViewWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -263,6 +274,7 @@ class _CreateTripDrawerViewWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),
@@ -298,6 +310,7 @@ class _CreateTripDrawerViewWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -331,6 +344,7 @@ class _CreateTripDrawerViewWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -355,6 +369,7 @@ class _CreateTripDrawerViewWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.normal,
                                     ),
                               ),
@@ -383,6 +398,7 @@ class _CreateTripDrawerViewWidgetState
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                       ),
                                 ),

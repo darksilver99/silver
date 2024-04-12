@@ -90,6 +90,7 @@ class _SelectTypeBottomSheetViewWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF22242A),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.bold,
                                       ),
                                 ),
@@ -120,6 +121,7 @@ class _SelectTypeBottomSheetViewWidgetState
                                               fontFamily: 'Montserrat',
                                               color: Colors.white,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.bold,
                                             ),
                                       ),
@@ -139,6 +141,7 @@ class _SelectTypeBottomSheetViewWidgetState
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF22242A),
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -187,6 +190,7 @@ class _SelectTypeBottomSheetViewWidgetState
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: Color(0xFF22242A),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
@@ -201,6 +205,7 @@ class _SelectTypeBottomSheetViewWidgetState
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFF22242A),
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                     ),
                               ),
@@ -229,6 +234,7 @@ class _SelectTypeBottomSheetViewWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 12.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w600,
                         ),
                     colors: [Color(0xFF1DBEC8), Color(0xFF330867)],

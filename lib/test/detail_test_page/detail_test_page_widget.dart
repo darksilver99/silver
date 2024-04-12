@@ -74,6 +74,7 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -155,6 +156,7 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 22.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -170,7 +172,11 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                       Expanded(
                         child: Text(
                           widget.dataParameter!.detail,
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ],

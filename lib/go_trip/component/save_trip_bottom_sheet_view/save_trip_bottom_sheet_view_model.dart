@@ -11,15 +11,9 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 
 class SaveTripBottomSheetViewModel
     extends FlutterFlowModel<SaveTripBottomSheetViewWidget> {
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

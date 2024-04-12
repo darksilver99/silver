@@ -67,12 +67,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         child: TextFormField(
                           controller: _model.emailTextController,
                           focusNode: _model.textFieldFocusNode1,
+                          autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
                             labelText: 'E-mail',
-                            labelStyle:
-                                FlutterFlowTheme.of(context).labelMedium,
-                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).accent3,
@@ -102,7 +112,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           validator: _model.emailTextControllerValidator
                               .asValidator(context),
                         ),
@@ -113,12 +127,22 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         child: TextFormField(
                           controller: _model.passwordTextController,
                           focusNode: _model.textFieldFocusNode2,
+                          autofocus: false,
                           obscureText: !_model.passwordVisibility,
                           decoration: InputDecoration(
                             labelText: 'Password',
-                            labelStyle:
-                                FlutterFlowTheme.of(context).labelMedium,
-                            hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
+                            hintStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).accent3,
@@ -161,7 +185,11 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           validator: _model.passwordTextControllerValidator
                               .asValidator(context),
                         ),
@@ -202,6 +230,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(

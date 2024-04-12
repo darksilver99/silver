@@ -82,6 +82,7 @@ class _CreateTripSuccessDialogViewWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -101,6 +102,7 @@ class _CreateTripSuccessDialogViewWidgetState
                               fontFamily: 'Montserrat',
                               color: FlutterFlowTheme.of(context).accent1,
                               fontSize: 14.0,
+                              letterSpacing: 0.0,
                             ),
                       ),
                     ],
@@ -137,6 +139,7 @@ class _CreateTripSuccessDialogViewWidgetState
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -171,6 +174,7 @@ class _CreateTripSuccessDialogViewWidgetState
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).primary,
                                   fontSize: 14.0,
+                                  letterSpacing: 0.0,
                                 ),
                           ),
                         ),

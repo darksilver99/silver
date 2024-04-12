@@ -107,6 +107,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -143,6 +144,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Montserrat',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                         ),
                     elevation: 0.0,
                     borderSide: BorderSide(
@@ -161,12 +163,14 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                       FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Montserrat',
                             color: Colors.red,
+                            letterSpacing: 0.0,
                           ),
                   liveTextBackgroundColor: Color(0x8A000000),
                   durationTextStyle:
                       FlutterFlowTheme.of(context).titleSmall.override(
                             fontFamily: 'Montserrat',
                             color: Colors.red,
+                            letterSpacing: 0.0,
                           ),
                   durationTextBackgroundColor: Color(0x8A000000),
                   liveContainerBorderRadius: BorderRadius.circular(8.0),

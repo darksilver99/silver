@@ -67,6 +67,7 @@ class _BookingHotelPreviewPageWidgetState
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 20.0,
+                letterSpacing: 0.0,
                 fontWeight: FontWeight.w300,
               ),
         ),
@@ -116,8 +117,12 @@ class _BookingHotelPreviewPageWidgetState
                                 children: [
                                   Text(
                                     'Phuket',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
@@ -129,6 +134,7 @@ class _BookingHotelPreviewPageWidgetState
                                             .override(
                                               fontFamily: 'Montserrat',
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                       SizedBox(
@@ -160,6 +166,7 @@ class _BookingHotelPreviewPageWidgetState
                                                         fontFamily:
                                                             'Montserrat',
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                       ),
                                             ),
                                           ),
@@ -179,6 +186,7 @@ class _BookingHotelPreviewPageWidgetState
                                             .override(
                                               fontFamily: 'Montserrat',
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                             ),
                                       ),
                                     ],
@@ -341,6 +349,7 @@ class _BookingHotelPreviewPageWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
@@ -374,6 +383,7 @@ class _BookingHotelPreviewPageWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -404,6 +414,7 @@ class _BookingHotelPreviewPageWidgetState
                                   .override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                             ),
                           ],
@@ -438,6 +449,7 @@ class _BookingHotelPreviewPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                         ),
                                   ),
@@ -478,6 +490,7 @@ class _BookingHotelPreviewPageWidgetState
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFF1DBEC8),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
@@ -524,6 +537,7 @@ class _BookingHotelPreviewPageWidgetState
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -536,6 +550,7 @@ class _BookingHotelPreviewPageWidgetState
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -565,6 +580,7 @@ class _BookingHotelPreviewPageWidgetState
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                           ),
                                     ),
@@ -577,6 +593,7 @@ class _BookingHotelPreviewPageWidgetState
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
@@ -613,6 +630,7 @@ class _BookingHotelPreviewPageWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                     ),
                               ),
@@ -630,6 +648,7 @@ class _BookingHotelPreviewPageWidgetState
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFF1DBEC8),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                         ),
                                   ),
@@ -677,6 +696,7 @@ class _BookingHotelPreviewPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -699,6 +719,7 @@ class _BookingHotelPreviewPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -721,6 +742,7 @@ class _BookingHotelPreviewPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -743,6 +765,7 @@ class _BookingHotelPreviewPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -765,6 +788,7 @@ class _BookingHotelPreviewPageWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ],
@@ -833,6 +857,7 @@ class _BookingHotelPreviewPageWidgetState
                                   .override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.normal,
                                   ),
                             ),
@@ -842,6 +867,7 @@ class _BookingHotelPreviewPageWidgetState
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
@@ -864,6 +890,7 @@ class _BookingHotelPreviewPageWidgetState
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(

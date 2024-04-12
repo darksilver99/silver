@@ -69,6 +69,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -98,6 +99,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -127,6 +129,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -156,6 +159,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -185,6 +189,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -214,6 +219,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -243,6 +249,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(
@@ -272,6 +279,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Montserrat',
                                     color: Colors.white,
+                                    letterSpacing: 0.0,
                                   ),
                           elevation: 3.0,
                           borderSide: BorderSide(

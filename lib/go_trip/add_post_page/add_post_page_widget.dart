@@ -71,6 +71,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                   fontFamily: 'Kanit',
                   color: Color(0xFF22242A),
                   fontSize: 14.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w600,
                 ),
           ),
@@ -119,6 +120,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.black,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                       ),
                                 ),
@@ -153,6 +155,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                                   fontFamily: 'Montserrat',
                                                   color: Colors.black,
                                                   fontSize: 10.0,
+                                                  letterSpacing: 0.0,
                                                 ),
                                           ),
                                           Icon(
@@ -186,8 +189,12 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                               autofocus: true,
                               obscureText: false,
                               decoration: InputDecoration(
-                                labelStyle:
-                                    FlutterFlowTheme.of(context).labelMedium,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .labelMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                                 hintText: 'Description of the day',
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .labelMedium
@@ -195,13 +202,19 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFFC5C7CB),
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
                                 errorBorder: InputBorder.none,
                                 focusedErrorBorder: InputBorder.none,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                               maxLines: 4,
                               validator: _model.textControllerValidator
                                   .asValidator(context),
@@ -231,6 +244,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                   fontFamily: 'Montserrat',
                                   color: Colors.black,
                                   fontSize: 14.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),
@@ -333,6 +347,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                     fontFamily: 'Montserrat',
                                     color: Colors.black,
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
@@ -366,6 +381,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                     fontFamily: 'Montserrat',
                                     color: Colors.black,
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                   ),
                             ),
@@ -406,7 +422,10 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                         BoxShadow(
                           blurRadius: 4.0,
                           color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
+                          offset: Offset(
+                            0.0,
+                            2.0,
+                          ),
                           spreadRadius: 2.0,
                         )
                       ],
@@ -431,6 +450,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w600,
                                 ),
                           ),

@@ -81,6 +81,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -108,6 +109,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               fontSize: 24.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),

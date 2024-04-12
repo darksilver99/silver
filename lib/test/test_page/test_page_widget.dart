@@ -112,6 +112,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -212,12 +213,18 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                             ),
                             Text(
                               listViewTestDataTypeListRecord.testType.title,
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ],
                         ),

@@ -23,8 +23,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   TutorialCoachMark? homeStepController;
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -33,8 +31,4 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
     homeStepController?.finish();
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

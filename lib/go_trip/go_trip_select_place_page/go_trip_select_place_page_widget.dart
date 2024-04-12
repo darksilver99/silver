@@ -89,6 +89,7 @@ class _GoTripSelectPlacePageWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 20.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -102,6 +103,7 @@ class _GoTripSelectPlacePageWidgetState
                         'Where to ?',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.w300,
                             ),
                       ),
@@ -117,6 +119,7 @@ class _GoTripSelectPlacePageWidgetState
                                 const Duration(milliseconds: 1000));
                           },
                         ),
+                        autofocus: false,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText:
@@ -125,8 +128,13 @@ class _GoTripSelectPlacePageWidgetState
                               FlutterFlowTheme.of(context).labelMedium.override(
                                     fontFamily: 'Montserrat',
                                     color: Color(0xFFC8C8C8),
+                                    letterSpacing: 0.0,
                                   ),
-                          hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                          hintStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Color(0xFFE0E0E0),
@@ -159,7 +167,10 @@ class _GoTripSelectPlacePageWidgetState
                             Icons.location_on,
                           ),
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                         validator:
                             _model.textControllerValidator.asValidator(context),
                       ),
@@ -171,6 +182,7 @@ class _GoTripSelectPlacePageWidgetState
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                         ),
@@ -254,6 +266,7 @@ class _GoTripSelectPlacePageWidgetState
                                                       fontFamily: 'Montserrat',
                                                       color: Color(0xFFC8C8C8),
                                                       fontSize: 14.0,
+                                                      letterSpacing: 0.0,
                                                     ),
                                               ),
                                               Text(
@@ -266,6 +279,7 @@ class _GoTripSelectPlacePageWidgetState
                                                           fontFamily:
                                                               'Montserrat',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ],
@@ -333,6 +347,7 @@ class _GoTripSelectPlacePageWidgetState
                                                 fontFamily: 'Montserrat',
                                                 color: Color(0xFFC8C8C8),
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                         Text(
@@ -343,6 +358,7 @@ class _GoTripSelectPlacePageWidgetState
                                               .override(
                                                 fontFamily: 'Montserrat',
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                               ),
                                         ),
                                       ],
@@ -371,6 +387,7 @@ class _GoTripSelectPlacePageWidgetState
                                           fontFamily: 'Montserrat',
                                           color: FlutterFlowTheme.of(context)
                                               .primaryText,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                   duration: Duration(milliseconds: 2000),
@@ -392,6 +409,7 @@ class _GoTripSelectPlacePageWidgetState
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                             elevation: 3.0,
                             borderSide: BorderSide(

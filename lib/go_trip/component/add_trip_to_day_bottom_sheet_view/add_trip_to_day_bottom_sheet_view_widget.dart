@@ -103,6 +103,7 @@ class _AddTripToDayBottomSheetViewWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         fontSize: 10.0,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -112,7 +113,12 @@ class _AddTripToDayBottomSheetViewWidgetState
                         Expanded(
                           child: Text(
                             'Day 1 (15  Aug)',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ],

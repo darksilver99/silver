@@ -15,15 +15,9 @@ class Test6PageModel extends FlutterFlowModel<Test6PageWidget> {
 
   bool isLoading = true;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

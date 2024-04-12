@@ -42,6 +42,127 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        body: SafeArea(
+          top: true,
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Expanded(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          DragTarget<String>(
+                            builder: (context, _, __) {
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                child: Container(
+                                  width: 150.0,
+                                  height: 150.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                          DragTarget<String>(
+                            builder: (context, _, __) {
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                child: Container(
+                                  width: 150.0,
+                                  height: 150.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          DragTarget<String>(
+                            builder: (context, _, __) {
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                child: Container(
+                                  width: 150.0,
+                                  height: 150.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                          DragTarget<String>(
+                            builder: (context, _, __) {
+                              return Material(
+                                color: Colors.transparent,
+                                elevation: 3.0,
+                                child: Container(
+                                  width: 150.0,
+                                  height: 150.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 0.0),
+                child: Draggable<String>(
+                  data: '111',
+                  feedback: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.network(
+                      'https://picsum.photos/seed/906/600',
+                      width: 150.0,
+                      height: 150.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8.0),
+                    child: Image.network(
+                      'https://picsum.photos/seed/906/600',
+                      width: 150.0,
+                      height: 150.0,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

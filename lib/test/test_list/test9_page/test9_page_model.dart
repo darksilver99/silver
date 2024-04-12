@@ -24,8 +24,6 @@ class Test9PageModel extends FlutterFlowModel<Test9PageWidget> {
   // Stores action output result for [Backend Call - API (dataListDel)] action in SlidableActionWidget widget.
   ApiCallResponse? apiResultcj9;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     toggleTestModels = FlutterFlowDynamicModels(() => ToggleTestModel());
@@ -35,8 +33,4 @@ class Test9PageModel extends FlutterFlowModel<Test9PageWidget> {
   void dispose() {
     toggleTestModels.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

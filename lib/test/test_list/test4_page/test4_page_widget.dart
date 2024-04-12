@@ -64,6 +64,7 @@ class _Test4PageWidgetState extends State<Test4PageWidget> {
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 22.0,
+                letterSpacing: 0.0,
               ),
         ),
         actions: [],

@@ -99,7 +99,11 @@ class _SaveTripBottomSheetViewWidgetState
                       Expanded(
                         child: Text(
                           'Public',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ],
@@ -132,7 +136,10 @@ class _SaveTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Friends',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -164,7 +171,10 @@ class _SaveTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Private',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],

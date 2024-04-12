@@ -33,8 +33,6 @@ class AddExpensePageModel extends FlutterFlowModel<AddExpensePageWidget> {
   String? Function(BuildContext, String?)? textController2Validator;
   DateTime? datePicked;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -47,8 +45,4 @@ class AddExpensePageModel extends FlutterFlowModel<AddExpensePageWidget> {
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

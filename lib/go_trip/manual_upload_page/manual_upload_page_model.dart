@@ -30,8 +30,6 @@ class ManualUploadPageModel extends FlutterFlowModel<ManualUploadPageWidget> {
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -43,8 +41,4 @@ class ManualUploadPageModel extends FlutterFlowModel<ManualUploadPageWidget> {
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }
