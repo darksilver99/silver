@@ -56,6 +56,13 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       DragTarget<String>(
+                        onAcceptWithDetails: (details) async {
+                          setState(() {
+                            _model.slot = '1';
+                          });
+
+                          setState(() {});
+                        },
                         builder: (context, _, __) {
                           return Material(
                             color: Colors.transparent,
@@ -67,26 +74,29 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
-                              child: Align(
-                                alignment: AlignmentDirectional(0.0, 0.0),
-                                child: Draggable<String>(
-                                  data: '111',
-                                  feedback: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/906/600',
-                                      width: 150.0,
-                                      height: 150.0,
-                                      fit: BoxFit.cover,
+                              child: Visibility(
+                                visible: _model.slot == '1',
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Draggable<String>(
+                                    data: '1',
+                                    feedback: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    child: Image.network(
-                                      'https://picsum.photos/seed/906/600',
-                                      width: 150.0,
-                                      height: 150.0,
-                                      fit: BoxFit.cover,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -96,6 +106,13 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                         },
                       ),
                       DragTarget<String>(
+                        onAcceptWithDetails: (details) async {
+                          setState(() {
+                            _model.slot = '2';
+                          });
+
+                          setState(() {});
+                        },
                         builder: (context, _, __) {
                           return Material(
                             color: Colors.transparent,
@@ -106,6 +123,33 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
+                              ),
+                              child: Visibility(
+                                visible: _model.slot == '2',
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Draggable<String>(
+                                    data: '1',
+                                    feedback: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           );
@@ -121,6 +165,13 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       DragTarget<String>(
+                        onAcceptWithDetails: (details) async {
+                          setState(() {
+                            _model.slot = '3';
+                          });
+
+                          setState(() {});
+                        },
                         builder: (context, _, __) {
                           return Material(
                             color: Colors.transparent,
@@ -132,11 +183,45 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
                               ),
+                              child: Visibility(
+                                visible: _model.slot == '3',
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Draggable<String>(
+                                    data: '1',
+                                    feedback: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ),
                           );
                         },
                       ),
                       DragTarget<String>(
+                        onAcceptWithDetails: (details) async {
+                          setState(() {
+                            _model.slot = '4';
+                          });
+
+                          setState(() {});
+                        },
                         builder: (context, _, __) {
                           return Material(
                             color: Colors.transparent,
@@ -147,6 +232,33 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                               decoration: BoxDecoration(
                                 color: FlutterFlowTheme.of(context)
                                     .secondaryBackground,
+                              ),
+                              child: Visibility(
+                                visible: _model.slot == '4',
+                                child: Align(
+                                  alignment: AlignmentDirectional(0.0, 0.0),
+                                  child: Draggable<String>(
+                                    data: '1',
+                                    feedback: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        'https://picsum.photos/seed/906/600',
+                                        width: 150.0,
+                                        height: 150.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           );
