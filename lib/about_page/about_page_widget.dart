@@ -139,7 +139,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
               Align(
                 alignment: AlignmentDirectional(0.0, 0.0),
                 child: Draggable<String>(
-                  data: '111',
+                  data: '',
                   feedback: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Image.network(
