@@ -98,7 +98,11 @@ class _AddActivityBottomSheetViewWidgetState
                       Expanded(
                         child: Text(
                           'Add booking',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                       Icon(
@@ -136,7 +140,10 @@ class _AddActivityBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Add note',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -168,7 +175,10 @@ class _AddActivityBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Add transportation',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -200,7 +210,10 @@ class _AddActivityBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Add expenses',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -232,7 +245,10 @@ class _AddActivityBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Add photo',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],

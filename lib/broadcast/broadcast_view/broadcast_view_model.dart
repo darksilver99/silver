@@ -26,8 +26,6 @@ class BroadcastViewModel extends FlutterFlowModel<BroadcastViewWidget> {
   // Stores action output result for [Backend Call - Create Document] action in MuxBroadcast widget.
   BroadcastListRecord? rsBroadcast;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -35,8 +33,4 @@ class BroadcastViewModel extends FlutterFlowModel<BroadcastViewWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

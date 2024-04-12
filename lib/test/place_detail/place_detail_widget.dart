@@ -73,6 +73,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -169,6 +170,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 22.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                         ),
@@ -187,7 +189,11 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                             widget.placeParameter,
                             r'''$.distance''',
                           ).toString()} km.',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ],

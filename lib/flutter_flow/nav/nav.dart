@@ -10,6 +10,7 @@ import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 
+import '/backend/sqlite/sqlite_manager.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
@@ -245,7 +246,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 getDoc(['test_photo_list'], TestPhotoListRecord.fromSnapshot),
           },
           builder: (context, params) => DetailTestPageWidget(
-            dataParameter: params.getParam('dataParameter', ParamType.Document),
+            dataParameter: params.getParam(
+              'dataParameter',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
@@ -262,7 +266,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PlaceDetail',
           path: '/placeDetail',
           builder: (context, params) => PlaceDetailWidget(
-            placeParameter: params.getParam('placeParameter', ParamType.JSON),
+            placeParameter: params.getParam(
+              'placeParameter',
+              ParamType.JSON,
+            ),
           ),
         ),
         FFRoute(
@@ -282,7 +289,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             'userParameter': getDoc(['users'], UsersRecord.fromSnapshot),
           },
           builder: (context, params) => CallRequestViewWidget(
-            userParameter: params.getParam('userParameter', ParamType.Document),
+            userParameter: params.getParam(
+              'userParameter',
+              ParamType.Document,
+            ),
           ),
         ),
         FFRoute(
@@ -292,8 +302,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             'userParameter': getDoc(['users'], UsersRecord.fromSnapshot),
           },
           builder: (context, params) => CallingPageWidget(
-            userParameter: params.getParam('userParameter', ParamType.Document),
-            isCaller: params.getParam('isCaller', ParamType.bool),
+            userParameter: params.getParam(
+              'userParameter',
+              ParamType.Document,
+            ),
+            isCaller: params.getParam(
+              'isCaller',
+              ParamType.bool,
+            ),
           ),
         ),
         FFRoute(
@@ -310,14 +326,20 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'BroadcastView',
           path: '/broadcastView',
           builder: (context, params) => BroadcastViewWidget(
-            broadcastName: params.getParam('broadcastName', ParamType.String),
+            broadcastName: params.getParam(
+              'broadcastName',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
           name: 'BroadcastDetail',
           path: '/broadcastDetail',
           builder: (context, params) => BroadcastDetailWidget(
-            url: params.getParam('url', ParamType.String),
+            url: params.getParam(
+              'url',
+              ParamType.String,
+            ),
           ),
         ),
         FFRoute(
@@ -349,6 +371,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TestSQLLitePage',
           path: '/testSQLLitePage',
           builder: (context, params) => TestSQLLitePageWidget(),
+        ),
+        FFRoute(
+          name: 'ScanQRCode',
+          path: '/scanQRCode',
+          builder: (context, params) => ScanQRCodeWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -469,6 +496,7 @@ class FFParameters {
     ParamType type, [
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   ]) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -482,8 +510,13 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList,
-        collectionNamePath: collectionNamePath);
+    return deserializeParam<T>(
+      param,
+      type,
+      isList,
+      collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
+    );
   }
 }
 

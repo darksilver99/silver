@@ -63,6 +63,7 @@ class _AddBookingDialogViewWidgetState
                         'Add booking',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -88,14 +89,20 @@ class _AddBookingDialogViewWidgetState
                       EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 0.0, 16.0),
                   child: Text(
                     'Add from booking',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 16.0),
                   child: Text(
                     'Add new item',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
               ],

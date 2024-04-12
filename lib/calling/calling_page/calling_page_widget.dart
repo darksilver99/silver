@@ -128,6 +128,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -154,6 +155,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               fontSize: 24.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -182,7 +184,11 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                           if (shouldUpdate) setState(() {});
                         },
                         textAlign: TextAlign.start,
-                        style: FlutterFlowTheme.of(context).headlineSmall,
+                        style:
+                            FlutterFlowTheme.of(context).headlineSmall.override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                       ),
                     ],
                   ),

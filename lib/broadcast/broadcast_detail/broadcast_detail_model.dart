@@ -14,8 +14,6 @@ class BroadcastDetailModel extends FlutterFlowModel<BroadcastDetailWidget> {
 
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -23,8 +21,4 @@ class BroadcastDetailModel extends FlutterFlowModel<BroadcastDetailWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

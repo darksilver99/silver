@@ -63,6 +63,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 20.0,
+                letterSpacing: 0.0,
                 fontWeight: FontWeight.w300,
               ),
         ),
@@ -97,6 +98,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
                               fontSize: 14.0,
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.w600,
                             ),
                       ),
@@ -127,6 +129,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -150,6 +153,10 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                 setState(
                                     () => _model.checkboxValue1 = newValue!);
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color: FlutterFlowTheme.of(context).accent1,
+                              ),
                               activeColor: Color(0xFF1DBEC8),
                               checkColor:
                                   FlutterFlowTheme.of(context).primaryBtnText,
@@ -184,6 +191,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -207,6 +215,10 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                 setState(
                                     () => _model.checkboxValue2 = newValue!);
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color: FlutterFlowTheme.of(context).accent1,
+                              ),
                               activeColor: Color(0xFF1DBEC8),
                               checkColor:
                                   FlutterFlowTheme.of(context).primaryBtnText,
@@ -241,6 +253,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -264,6 +277,10 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                 setState(
                                     () => _model.checkboxValue3 = newValue!);
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color: FlutterFlowTheme.of(context).accent1,
+                              ),
                               activeColor: Color(0xFF1DBEC8),
                               checkColor:
                                   FlutterFlowTheme.of(context).primaryBtnText,
@@ -298,6 +315,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -321,6 +339,10 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                 setState(
                                     () => _model.checkboxValue4 = newValue!);
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color: FlutterFlowTheme.of(context).accent1,
+                              ),
                               activeColor: Color(0xFF1DBEC8),
                               checkColor:
                                   FlutterFlowTheme.of(context).primaryBtnText,
@@ -355,6 +377,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -378,6 +401,10 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                                 setState(
                                     () => _model.checkboxValue5 = newValue!);
                               },
+                              side: BorderSide(
+                                width: 2,
+                                color: FlutterFlowTheme.of(context).accent1,
+                              ),
                               activeColor: Color(0xFF1DBEC8),
                               checkColor:
                                   FlutterFlowTheme.of(context).primaryBtnText,
@@ -406,6 +433,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                     textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                           fontFamily: 'Montserrat',
                           color: Colors.white,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.normal,
                         ),
                     elevation: 0.0,

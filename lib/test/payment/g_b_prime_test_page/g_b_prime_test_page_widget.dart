@@ -67,6 +67,7 @@ class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -106,6 +107,7 @@ class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: BorderSide(
@@ -136,6 +138,7 @@ class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: BorderSide(
@@ -166,6 +169,7 @@ class _GBPrimeTestPageWidgetState extends State<GBPrimeTestPageWidget> {
                             FlutterFlowTheme.of(context).titleSmall.override(
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
+                                  letterSpacing: 0.0,
                                 ),
                         elevation: 3.0,
                         borderSide: BorderSide(

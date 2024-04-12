@@ -62,6 +62,7 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 20.0,
+                letterSpacing: 0.0,
                 fontWeight: FontWeight.w300,
               ),
         ),
@@ -94,7 +95,12 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
                             children: [
                               Text(
                                 'Overview',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Container(
                                 width: 100.0,
@@ -117,7 +123,12 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
                             children: [
                               Text(
                                 'Deals',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Container(
                                 width: 100.0,
@@ -141,7 +152,12 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
                             children: [
                               Text(
                                 'Reviews',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Container(
                                 width: 100.0,
@@ -165,7 +181,12 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
                             children: [
                               Text(
                                 'Facilities',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Container(
                                 width: 100.0,
@@ -189,7 +210,12 @@ class _TestHotelPageWidgetState extends State<TestHotelPageWidget> {
                             children: [
                               Text(
                                 'Description',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Container(
                                 width: 100.0,

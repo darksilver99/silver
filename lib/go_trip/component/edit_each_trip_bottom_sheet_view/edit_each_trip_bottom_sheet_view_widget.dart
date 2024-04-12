@@ -80,7 +80,10 @@ class _EditEachTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Change Place',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],
@@ -119,7 +122,11 @@ class _EditEachTripBottomSheetViewWidgetState
                             EdgeInsetsDirectional.fromSTEB(4.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Favorite',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ),
@@ -156,7 +163,10 @@ class _EditEachTripBottomSheetViewWidgetState
                     Expanded(
                       child: Text(
                         'Delete',
-                        style: FlutterFlowTheme.of(context).bodyMedium,
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
                       ),
                     ),
                   ],

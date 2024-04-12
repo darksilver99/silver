@@ -64,6 +64,7 @@ class _Test6PageWidgetState extends State<Test6PageWidget> {
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 22.0,
+                letterSpacing: 0.0,
               ),
         ),
         actions: [],
@@ -127,13 +128,21 @@ class _Test6PageWidgetState extends State<Test6PageWidget> {
                               child: ListTile(
                                 title: Text(
                                   listViewDataListRecord.name,
-                                  style:
-                                      FlutterFlowTheme.of(context).titleLarge,
+                                  style: FlutterFlowTheme.of(context)
+                                      .titleLarge
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 subtitle: Text(
                                   listViewDataListRecord.detail,
-                                  style:
-                                      FlutterFlowTheme.of(context).labelMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .labelMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 tileColor: FlutterFlowTheme.of(context)
                                     .secondaryBackground,

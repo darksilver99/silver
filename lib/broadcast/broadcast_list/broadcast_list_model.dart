@@ -22,8 +22,6 @@ class BroadcastListModel extends FlutterFlowModel<BroadcastListWidget> {
   // Stores action output result for [Backend Call - API (getPastLiveStream)] action in Card widget.
   ApiCallResponse? apiResultaaf;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -31,8 +29,4 @@ class BroadcastListModel extends FlutterFlowModel<BroadcastListWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

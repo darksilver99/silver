@@ -68,6 +68,7 @@ class _FriendListViewWidgetState extends State<FriendListViewWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 22.0,
+                  letterSpacing: 0.0,
                 ),
           ),
           actions: [],
@@ -112,11 +113,21 @@ class _FriendListViewWidgetState extends State<FriendListViewWidget> {
                           },
                           title: Text(
                             'Title',
-                            style: FlutterFlowTheme.of(context).titleLarge,
+                            style: FlutterFlowTheme.of(context)
+                                .titleLarge
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           subtitle: Text(
                             'Subtitle goes here...',
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           tileColor:
                               FlutterFlowTheme.of(context).secondaryBackground,

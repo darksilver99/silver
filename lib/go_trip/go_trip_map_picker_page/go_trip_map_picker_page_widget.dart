@@ -106,6 +106,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                                           fontFamily:
                                                               'Montserrat',
                                                           fontSize: 14.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
                                                         ),
@@ -143,6 +144,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                                         color:
                                                             Color(0xFF343740),
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.w300,
                                                       ),
@@ -298,10 +300,16 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                     child: TextFormField(
                                       controller: _model.textController,
                                       focusNode: _model.textFieldFocusNode,
+                                      autofocus: false,
                                       obscureText: false,
                                       decoration: InputDecoration(
+                                        isDense: false,
                                         labelStyle: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              letterSpacing: 0.0,
+                                            ),
                                         hintText: 'Location search',
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -311,6 +319,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .accent2,
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -355,6 +364,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                           .override(
                                             fontFamily: 'Montserrat',
                                             fontSize: 12.0,
+                                            letterSpacing: 0.0,
                                           ),
                                       textAlign: TextAlign.start,
                                       maxLines: null,
@@ -508,6 +518,11 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                       setState(() =>
                                           _model.checkboxValue = newValue!);
                                     },
+                                    side: BorderSide(
+                                      width: 2,
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                    ),
                                     activeColor:
                                         FlutterFlowTheme.of(context).secondary,
                                     checkColor: FlutterFlowTheme.of(context)
@@ -521,6 +536,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                       .override(
                                         fontFamily: 'Montserrat',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),

@@ -53,8 +53,6 @@ class PlaceListModel extends FlutterFlowModel<PlaceListWidget> {
   // Stores action output result for [Custom Action - sortListByLocation] action in Icon widget.
   List<dynamic>? resultList2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -64,8 +62,4 @@ class PlaceListModel extends FlutterFlowModel<PlaceListWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

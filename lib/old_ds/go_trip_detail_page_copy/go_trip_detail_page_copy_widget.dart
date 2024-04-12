@@ -101,8 +101,12 @@ class _GoTripDetailPageCopyWidgetState
                                 ),
                                 Text(
                                   '16',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -114,6 +118,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -145,8 +150,12 @@ class _GoTripDetailPageCopyWidgetState
                                 ),
                                 Text(
                                   '16',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -158,6 +167,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -189,8 +199,12 @@ class _GoTripDetailPageCopyWidgetState
                                 ),
                                 Text(
                                   '16',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -202,6 +216,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -233,8 +248,12 @@ class _GoTripDetailPageCopyWidgetState
                                 ),
                                 Text(
                                   '16',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
@@ -246,6 +265,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -294,7 +314,12 @@ class _GoTripDetailPageCopyWidgetState
                             children: [
                               Text(
                                 '4 Days in Phuket',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                               Row(
                                 mainAxisSize: MainAxisSize.max,
@@ -314,7 +339,11 @@ class _GoTripDetailPageCopyWidgetState
                                             '4 Days in Phuket',
                                             maxLines: 1,
                                             style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Montserrat',
+                                                  letterSpacing: 0.0,
+                                                ),
                                           ),
                                         ),
                                       ],
@@ -339,7 +368,12 @@ class _GoTripDetailPageCopyWidgetState
                                               maxLines: 1,
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                             ),
                                           ),
                                         ],
@@ -354,7 +388,11 @@ class _GoTripDetailPageCopyWidgetState
                                         'View profile',
                                         maxLines: 1,
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Montserrat',
+                                              letterSpacing: 0.0,
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -424,6 +462,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                       ),
                                 ),
                               ),
@@ -439,7 +478,10 @@ class _GoTripDetailPageCopyWidgetState
                       EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 0.0),
                   child: Text(
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum in pretium purus. Risus in id sed purus orci, non id vulputate. Vulputate purus, morbi quis in. ',
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Padding(
@@ -467,7 +509,12 @@ class _GoTripDetailPageCopyWidgetState
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 '28.3k Likes',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ],
@@ -489,7 +536,12 @@ class _GoTripDetailPageCopyWidgetState
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               '28.3k Likes',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -524,7 +576,12 @@ class _GoTripDetailPageCopyWidgetState
                                   16.0, 0.0, 0.0, 0.0),
                               child: Text(
                                 '28.3k Likes',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ],
@@ -546,7 +603,12 @@ class _GoTripDetailPageCopyWidgetState
                                 16.0, 0.0, 0.0, 0.0),
                             child: Text(
                               '28.3k Likes',
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                             ),
                           ),
                         ],
@@ -567,7 +629,10 @@ class _GoTripDetailPageCopyWidgetState
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
                     child: Text(
                       'Highlight places',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -635,6 +700,7 @@ class _GoTripDetailPageCopyWidgetState
                                                           fontFamily:
                                                               'Montserrat',
                                                           fontSize: 10.0,
+                                                          letterSpacing: 0.0,
                                                         ),
                                               ),
                                             ),
@@ -659,7 +725,10 @@ class _GoTripDetailPageCopyWidgetState
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
                     child: Text(
                       'Comments',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -671,7 +740,10 @@ class _GoTripDetailPageCopyWidgetState
                   child: Text(
                     'emoji',
                     textAlign: TextAlign.center,
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
                 Padding(
@@ -703,14 +775,19 @@ class _GoTripDetailPageCopyWidgetState
                             obscureText: false,
                             decoration: InputDecoration(
                               isDense: true,
-                              labelStyle:
-                                  FlutterFlowTheme.of(context).labelMedium,
+                              labelStyle: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                               hintText: 'Write a comment by natasha...',
                               hintStyle: FlutterFlowTheme.of(context)
                                   .labelMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     color: Color(0xFF7B7B7B),
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                               enabledBorder: OutlineInputBorder(
@@ -753,6 +830,7 @@ class _GoTripDetailPageCopyWidgetState
                                 .override(
                                   fontFamily: 'Montserrat',
                                   fontSize: 12.0,
+                                  letterSpacing: 0.0,
                                 ),
                             validator: _model.textControllerValidator
                                 .asValidator(context),
@@ -769,7 +847,10 @@ class _GoTripDetailPageCopyWidgetState
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
                     child: Text(
                       'goTrip',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -798,7 +879,12 @@ class _GoTripDetailPageCopyWidgetState
                               8.0, 0.0, 8.0, 0.0),
                           child: Text(
                             'Day 1',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -820,7 +906,12 @@ class _GoTripDetailPageCopyWidgetState
                           ),
                           Text(
                             '19 Apr 2023',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ],
                       ),
@@ -838,6 +929,7 @@ class _GoTripDetailPageCopyWidgetState
                             fontFamily: 'Montserrat',
                             color: Color(0xFF343740),
                             fontSize: 12.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w100,
                           ),
                     ),
@@ -879,6 +971,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -896,6 +989,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -949,6 +1043,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
                                       ),
                                 ),
@@ -964,6 +1059,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1018,6 +1114,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1035,6 +1132,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1088,6 +1186,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
                                       ),
                                 ),
@@ -1103,6 +1202,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1146,6 +1246,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w100,
                                     ),
                               ),
@@ -1183,6 +1284,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1200,6 +1302,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1243,6 +1346,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w100,
                                     ),
                               ),
@@ -1286,6 +1390,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w100,
                                     ),
                               ),
@@ -1323,6 +1428,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1340,6 +1446,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1393,6 +1500,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
                                       ),
                                 ),
@@ -1408,6 +1516,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1462,6 +1571,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 10.0,
+                                          letterSpacing: 0.0,
                                         ),
                                   ),
                                 ),
@@ -1479,6 +1589,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1532,6 +1643,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w200,
                                       ),
                                 ),
@@ -1547,6 +1659,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w200,
                                     ),
                               ),
@@ -1590,6 +1703,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 10.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w100,
                                     ),
                               ),
@@ -1690,7 +1804,12 @@ class _GoTripDetailPageCopyWidgetState
                               8.0, 0.0, 8.0, 0.0),
                           child: Text(
                             'Day 2',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -1712,7 +1831,12 @@ class _GoTripDetailPageCopyWidgetState
                           ),
                           Text(
                             '19 Apr 2023',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ],
                       ),
@@ -1744,7 +1868,12 @@ class _GoTripDetailPageCopyWidgetState
                               8.0, 0.0, 8.0, 0.0),
                           child: Text(
                             'Day 3',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -1766,7 +1895,12 @@ class _GoTripDetailPageCopyWidgetState
                           ),
                           Text(
                             '19 Apr 2023',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ],
                       ),
@@ -1798,7 +1932,12 @@ class _GoTripDetailPageCopyWidgetState
                               8.0, 0.0, 8.0, 0.0),
                           child: Text(
                             'Day 4',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),
@@ -1820,7 +1959,12 @@ class _GoTripDetailPageCopyWidgetState
                           ),
                           Text(
                             '19 Apr 2023',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ],
                       ),
@@ -1834,7 +1978,10 @@ class _GoTripDetailPageCopyWidgetState
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
                     child: Text(
                       'Expenses',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -1862,6 +2009,7 @@ class _GoTripDetailPageCopyWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w200,
                                 ),
                           ),
@@ -1871,8 +2019,12 @@ class _GoTripDetailPageCopyWidgetState
                               Expanded(
                                 child: Text(
                                   '4 Days',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Expanded(
@@ -1880,8 +2032,12 @@ class _GoTripDetailPageCopyWidgetState
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -1893,6 +2049,7 @@ class _GoTripDetailPageCopyWidgetState
                                 .bodyMedium
                                 .override(
                                   fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w200,
                                 ),
                           ),
@@ -1906,8 +2063,12 @@ class _GoTripDetailPageCopyWidgetState
                               Expanded(
                                 child: Text(
                                   '4 Days',
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                               Expanded(
@@ -1915,8 +2076,12 @@ class _GoTripDetailPageCopyWidgetState
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -1949,6 +2114,7 @@ class _GoTripDetailPageCopyWidgetState
                                   fontFamily: 'Montserrat',
                                   color: Colors.white,
                                   fontSize: 12.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
@@ -1973,6 +2139,7 @@ class _GoTripDetailPageCopyWidgetState
                                     fontFamily: 'Montserrat',
                                     color: Colors.black,
                                     fontSize: 12.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                             ),
@@ -1995,6 +2162,7 @@ class _GoTripDetailPageCopyWidgetState
                                   fontFamily: 'Montserrat',
                                   color: Colors.black,
                                   fontSize: 12.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
@@ -2013,6 +2181,7 @@ class _GoTripDetailPageCopyWidgetState
                                     fontFamily: 'Montserrat',
                                     color: Color(0xFF8D919D),
                                     fontSize: 12.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w200,
                                   ),
                             ),
@@ -2069,6 +2238,7 @@ class _GoTripDetailPageCopyWidgetState
                                           fontFamily: 'Montserrat',
                                           color: Color(0xFF8D919D),
                                           fontSize: 12.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),
@@ -2079,6 +2249,7 @@ class _GoTripDetailPageCopyWidgetState
                                         .override(
                                           fontFamily: 'Montserrat',
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w300,
                                         ),
                                   ),
@@ -2093,6 +2264,7 @@ class _GoTripDetailPageCopyWidgetState
                                               fontFamily: 'Montserrat',
                                               color: Color(0xFF8D919D),
                                               fontSize: 12.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w300,
                                             ),
                                       ),
@@ -2139,6 +2311,7 @@ class _GoTripDetailPageCopyWidgetState
                                   .override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                     fontWeight: FontWeight.w300,
                                   ),
                             ),
@@ -2155,7 +2328,10 @@ class _GoTripDetailPageCopyWidgetState
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
                     child: Text(
                       'Expenses Summary',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -2188,6 +2364,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF343740),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),
@@ -2197,8 +2374,12 @@ class _GoTripDetailPageCopyWidgetState
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -2215,6 +2396,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF343740),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),
@@ -2224,8 +2406,12 @@ class _GoTripDetailPageCopyWidgetState
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -2246,6 +2432,7 @@ class _GoTripDetailPageCopyWidgetState
                                       .override(
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFF343740),
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),
@@ -2255,8 +2442,12 @@ class _GoTripDetailPageCopyWidgetState
                                   alignment: AlignmentDirectional(1.0, 0.0),
                                   child: Text(
                                     '฿ 50,000.00',
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
                                   ),
                                 ),
                               ),
@@ -2284,6 +2475,7 @@ class _GoTripDetailPageCopyWidgetState
                                         fontFamily: 'Montserrat',
                                         color: Color(0xFFF79552),
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
                                       ),
                                 ),
@@ -2302,7 +2494,10 @@ class _GoTripDetailPageCopyWidgetState
                         EdgeInsetsDirectional.fromSTEB(16.0, 32.0, 0.0, 0.0),
                     child: Text(
                       'My Gallery',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Montserrat',
+                            letterSpacing: 0.0,
+                          ),
                     ),
                   ),
                 ),
@@ -2317,6 +2512,7 @@ class _GoTripDetailPageCopyWidgetState
                             fontFamily: 'Montserrat',
                             color: Color(0xFF343740),
                             fontSize: 14.0,
+                            letterSpacing: 0.0,
                             fontWeight: FontWeight.w300,
                           ),
                     ),
@@ -2346,7 +2542,11 @@ class _GoTripDetailPageCopyWidgetState
                             EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'Vocation time',
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                         ),
                       ),
                     ],
@@ -2396,6 +2596,7 @@ class _GoTripDetailPageCopyWidgetState
                           fontFamily: 'Montserrat',
                           color: Color(0xFF343740),
                           fontSize: 12.0,
+                          letterSpacing: 0.0,
                           fontWeight: FontWeight.w300,
                         ),
                   ),
@@ -2414,7 +2615,12 @@ class _GoTripDetailPageCopyWidgetState
                         children: [
                           Text(
                             'Still no idea ?',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                           Text(
                             'Let’s discover your inspiration other',
@@ -2424,6 +2630,7 @@ class _GoTripDetailPageCopyWidgetState
                                   fontFamily: 'Montserrat',
                                   color: Color(0xFF343740),
                                   fontSize: 14.0,
+                                  letterSpacing: 0.0,
                                   fontWeight: FontWeight.w300,
                                 ),
                           ),
@@ -2473,7 +2680,12 @@ class _GoTripDetailPageCopyWidgetState
                                                   maxLines: 2,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
                                                 ),
                                                 Row(
                                                   mainAxisSize:
@@ -2517,6 +2729,8 @@ class _GoTripDetailPageCopyWidgetState
                                                                   .override(
                                                                     fontFamily:
                                                                         'Montserrat',
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -2534,6 +2748,8 @@ class _GoTripDetailPageCopyWidgetState
                                                                         0xFF8D919D),
                                                                     fontSize:
                                                                         12.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w300,
@@ -2573,6 +2789,7 @@ class _GoTripDetailPageCopyWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       color: Color(0xFFFDFCFF),
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w300,
                                     ),
                               ),

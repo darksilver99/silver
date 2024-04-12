@@ -66,6 +66,7 @@ class _InviteTripDialogViewWidgetState
                         'Invite',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -93,6 +94,7 @@ class _InviteTripDialogViewWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -106,7 +108,10 @@ class _InviteTripDialogViewWidgetState
                         setState(() => _model.dropDownValue = val),
                     width: 300.0,
                     height: 50.0,
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                     hintText: 'Select friends',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -155,8 +160,12 @@ class _InviteTripDialogViewWidgetState
                                 child: Text(
                                   'Willie Tanner',
                                   maxLines: 1,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ),
@@ -196,8 +205,12 @@ class _InviteTripDialogViewWidgetState
                                 child: Text(
                                   'Willie Tanner',
                                   maxLines: 1,
-                                  style:
-                                      FlutterFlowTheme.of(context).bodyMedium,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Montserrat',
+                                        letterSpacing: 0.0,
+                                      ),
                                 ),
                               ),
                             ),
@@ -222,6 +235,7 @@ class _InviteTripDialogViewWidgetState
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                         ),
                   ),
                 ),
@@ -260,6 +274,7 @@ class _InviteTripDialogViewWidgetState
                                     .override(
                                       fontFamily: 'Montserrat',
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),
@@ -285,6 +300,7 @@ class _InviteTripDialogViewWidgetState
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBackground,
                                       fontSize: 12.0,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                               duration: Duration(milliseconds: 4000),
@@ -346,7 +362,12 @@ class _InviteTripDialogViewWidgetState
                               },
                               child: Text(
                                 'Cancel',
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Montserrat',
+                                      letterSpacing: 0.0,
+                                    ),
                               ),
                             ),
                           ),
@@ -378,6 +399,7 @@ class _InviteTripDialogViewWidgetState
                                       fontFamily: 'Montserrat',
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryBackground,
+                                      letterSpacing: 0.0,
                                     ),
                               ),
                             ),

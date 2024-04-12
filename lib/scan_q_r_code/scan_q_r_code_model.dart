@@ -2,24 +2,19 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import 'friend_list_view_widget.dart' show FriendListViewWidget;
+import 'scan_q_r_code_widget.dart' show ScanQRCodeWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-class FriendListViewModel extends FlutterFlowModel<FriendListViewWidget> {
+class ScanQRCodeModel extends FlutterFlowModel<ScanQRCodeWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for CheckboxListTile widget.
-
-  Map<dynamic, bool> checkboxListTileValueMap = {};
-  List<dynamic> get checkboxListTileCheckedItems =>
-      checkboxListTileValueMap.entries
-          .where((e) => e.value)
-          .map((e) => e.key)
-          .toList();
+  var rs = '';
 
   @override
   void initState(BuildContext context) {}

@@ -66,6 +66,7 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                 fontFamily: 'Kanit',
                 color: FlutterFlowTheme.of(context).primary,
                 fontSize: 12.0,
+                letterSpacing: 0.0,
               ),
         ),
         actions: [],
@@ -181,7 +182,12 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                                 ).toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleLarge,
+                                                        .titleLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               subtitle: Text(
                                                 getJsonField(
@@ -190,7 +196,12 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                                 ).toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Montserrat',
+                                                          letterSpacing: 0.0,
+                                                        ),
                                               ),
                                               tileColor:
                                                   FlutterFlowTheme.of(context)

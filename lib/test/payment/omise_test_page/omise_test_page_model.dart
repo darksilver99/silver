@@ -13,8 +13,6 @@ class OmiseTestPageModel extends FlutterFlowModel<OmiseTestPageWidget> {
 
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -22,8 +20,4 @@ class OmiseTestPageModel extends FlutterFlowModel<OmiseTestPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

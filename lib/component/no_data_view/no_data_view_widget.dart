@@ -42,7 +42,10 @@ class _NoDataViewWidgetState extends State<NoDataViewWidget> {
       alignment: AlignmentDirectional(0.0, 0.0),
       child: Text(
         'No Data!',
-        style: FlutterFlowTheme.of(context).bodyMedium,
+        style: FlutterFlowTheme.of(context).bodyMedium.override(
+              fontFamily: 'Montserrat',
+              letterSpacing: 0.0,
+            ),
       ),
     );
   }

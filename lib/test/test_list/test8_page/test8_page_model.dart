@@ -20,18 +20,13 @@ class Test8PageModel extends FlutterFlowModel<Test8PageWidget> {
 
   Completer<List<DataListRecord>>? firestoreRequestCompleter;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
 
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
-
+  /// Additional helper methods.
   Future waitForFirestoreRequestCompleted({
     double minWait = 0,
     double maxWait = double.infinity,

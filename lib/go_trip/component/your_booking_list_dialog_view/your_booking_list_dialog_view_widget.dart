@@ -63,6 +63,7 @@ class _YourBookingListDialogViewWidgetState
                         'My booking',
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
                               fontWeight: FontWeight.bold,
                             ),
                       ),
@@ -89,7 +90,10 @@ class _YourBookingListDialogViewWidgetState
                   child: Text(
                     'No booking information',
                     textAlign: TextAlign.start,
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily: 'Montserrat',
+                          letterSpacing: 0.0,
+                        ),
                   ),
                 ),
               ],

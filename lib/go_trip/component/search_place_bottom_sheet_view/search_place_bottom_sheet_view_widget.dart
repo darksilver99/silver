@@ -71,8 +71,12 @@ class _SearchPlaceBottomSheetViewWidgetState
                 labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Montserrat',
                       color: FlutterFlowTheme.of(context).accent2,
+                      letterSpacing: 0.0,
                     ),
-                hintStyle: FlutterFlowTheme.of(context).labelMedium,
+                hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                      fontFamily: 'Montserrat',
+                      letterSpacing: 0.0,
+                    ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: FlutterFlowTheme.of(context).accent3,
@@ -102,7 +106,10 @@ class _SearchPlaceBottomSheetViewWidgetState
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              style: FlutterFlowTheme.of(context).bodyMedium,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Montserrat',
+                    letterSpacing: 0.0,
+                  ),
               validator: _model.textControllerValidator.asValidator(context),
             ),
           ),
@@ -142,7 +149,12 @@ class _SearchPlaceBottomSheetViewWidgetState
                           child: Text(
                             'Hello WorldHello WorldHello WorldHello World',
                             maxLines: 1,
-                            style: FlutterFlowTheme.of(context).bodyMedium,
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                           ),
                         ),
                       ),

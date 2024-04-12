@@ -12,8 +12,6 @@ class BookingPageModel extends FlutterFlowModel<BookingPageWidget> {
 
   final unfocusNode = FocusNode();
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -21,8 +19,4 @@ class BookingPageModel extends FlutterFlowModel<BookingPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

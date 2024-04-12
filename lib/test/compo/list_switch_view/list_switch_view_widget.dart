@@ -68,11 +68,17 @@ class _ListSwitchViewWidgetState extends State<ListSwitchViewWidget> {
         },
         title: Text(
           widget.parameter1!,
-          style: FlutterFlowTheme.of(context).titleLarge,
+          style: FlutterFlowTheme.of(context).titleLarge.override(
+                fontFamily: 'Montserrat',
+                letterSpacing: 0.0,
+              ),
         ),
         subtitle: Text(
           'Subtitle goes here...',
-          style: FlutterFlowTheme.of(context).labelMedium,
+          style: FlutterFlowTheme.of(context).labelMedium.override(
+                fontFamily: 'Montserrat',
+                letterSpacing: 0.0,
+              ),
         ),
         tileColor: FlutterFlowTheme.of(context).secondaryBackground,
         activeColor: FlutterFlowTheme.of(context).primary,

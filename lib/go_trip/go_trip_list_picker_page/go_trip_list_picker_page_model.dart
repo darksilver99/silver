@@ -30,8 +30,6 @@ class GoTripListPickerPageModel
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -44,8 +42,4 @@ class GoTripListPickerPageModel
     textFieldFocusNode2?.dispose();
     textController2?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

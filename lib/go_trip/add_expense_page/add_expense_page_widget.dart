@@ -76,6 +76,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
                   fontSize: 20.0,
+                  letterSpacing: 0.0,
                   fontWeight: FontWeight.w300,
                 ),
           ),
@@ -112,6 +113,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -126,7 +128,11 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               setState(() => _model.dropDownValue = val),
                           width: double.infinity,
                           height: 50.0,
-                          textStyle: FlutterFlowTheme.of(context).bodyMedium,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           hintText: 'Please select...',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
@@ -155,6 +161,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -164,16 +171,22 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                         child: TextFormField(
                           controller: _model.textController1,
                           focusNode: _model.textFieldFocusNode1,
+                          autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelStyle:
-                                FlutterFlowTheme.of(context).labelMedium,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                             hintText: '฿ 0.00',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).accent2,
+                                  letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -204,7 +217,11 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           keyboardType: TextInputType.number,
                           validator: _model.textController1Validator
                               .asValidator(context),
@@ -223,6 +240,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -232,16 +250,22 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                         child: TextFormField(
                           controller: _model.textController2,
                           focusNode: _model.textFieldFocusNode2,
+                          autofocus: false,
                           obscureText: false,
                           decoration: InputDecoration(
-                            labelStyle:
-                                FlutterFlowTheme.of(context).labelMedium,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .labelMedium
+                                .override(
+                                  fontFamily: 'Montserrat',
+                                  letterSpacing: 0.0,
+                                ),
                             hintText: 'Description',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(
                                   fontFamily: 'Montserrat',
                                   color: FlutterFlowTheme.of(context).accent2,
+                                  letterSpacing: 0.0,
                                 ),
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -272,7 +296,11 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               borderRadius: BorderRadius.circular(8.0),
                             ),
                           ),
-                          style: FlutterFlowTheme.of(context).bodyMedium,
+                          style:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
                           maxLines: 3,
                           validator: _model.textController2Validator
                               .asValidator(context),
@@ -287,6 +315,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
                                     fontSize: 14.0,
+                                    letterSpacing: 0.0,
                                   ),
                         ),
                       ),
@@ -345,7 +374,11 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                                     child: Text(
                                       _model.dateTimeTextSelected,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
                                     ),
                                   ),
                                   Icon(
@@ -382,6 +415,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                           FlutterFlowTheme.of(context).titleSmall.override(
                                 fontFamily: 'Montserrat',
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                                 fontWeight: FontWeight.normal,
                               ),
                       elevation: 0.0,

@@ -8,11 +8,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class AboutPageModel extends FlutterFlowModel<AboutPageWidget> {
+  ///  Local state fields for this page.
+
+  String slot = '1';
+
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-
-  /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {}
@@ -21,8 +23,4 @@ class AboutPageModel extends FlutterFlowModel<AboutPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

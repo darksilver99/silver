@@ -23,8 +23,6 @@ class TestPageModel extends FlutterFlowModel<TestPageWidget> {
   // Stores action output result for [Cloud Function - testCloudFunction] action in Column widget.
   TestCloudFunctionCloudFunctionCallResponse? cloudFunctionpdn;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -32,8 +30,4 @@ class TestPageModel extends FlutterFlowModel<TestPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

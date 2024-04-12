@@ -26,8 +26,6 @@ class CallingPageModel extends FlutterFlowModel<CallingPageWidget> {
   FlutterFlowTimerController timerController =
       FlutterFlowTimerController(StopWatchTimer(mode: StopWatchMode.countUp));
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -36,8 +34,4 @@ class CallingPageModel extends FlutterFlowModel<CallingPageWidget> {
     unfocusNode.dispose();
     timerController.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

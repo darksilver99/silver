@@ -22,8 +22,6 @@ class CallingWaitngPageModel extends FlutterFlowModel<CallingWaitngPageWidget> {
   // Stores action output result for [Backend Call - Read Document] action in CallingWaitngPage widget.
   UsersRecord? rsUser;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
@@ -31,8 +29,4 @@ class CallingWaitngPageModel extends FlutterFlowModel<CallingWaitngPageWidget> {
   void dispose() {
     unfocusNode.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

@@ -24,8 +24,6 @@ class AddDataToSQLModel extends FlutterFlowModel<AddDataToSQLWidget> {
     return null;
   }
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     textControllerValidator = _textControllerValidator;
@@ -36,8 +34,4 @@ class AddDataToSQLModel extends FlutterFlowModel<AddDataToSQLWidget> {
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }
