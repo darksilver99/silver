@@ -125,7 +125,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       FlutterFlowTimer(
-                        initialTime: _model.timerMilliseconds,
+                        initialTime: _model.timerInitialTimeMs,
                         getDisplayTime: (value) =>
                             StopWatchTimer.getDisplayTime(
                           value,

@@ -75,3 +75,4 @@ export '/test/payment/pay_method/credit_card_page/credit_card_page_widget.dart'
 export '/test_s_q_l_lite_page/test_s_q_l_lite_page_widget.dart'
     show TestSQLLitePageWidget;
 export '/scan_q_r_code/scan_q_r_code_widget.dart' show ScanQRCodeWidget;
+export '/tmp_widget/tmp_widget/tmp_widget_widget.dart' show TmpWidgetWidget;
