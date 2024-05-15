@@ -81,13 +81,17 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                   child: Draggable<String>(
                                     childWhenDragging: Container(),
                                     data: '1',
-                                    feedback: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/906/600',
-                                        width: 150.0,
-                                        height: 150.0,
-                                        fit: BoxFit.cover,
+                                    feedback: Material(
+                                      type: MaterialType.transparency,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/906/600',
+                                          width: 150.0,
+                                          height: 150.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     child: ClipRRect(
@@ -132,13 +136,17 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                   child: Draggable<String>(
                                     childWhenDragging: Container(),
                                     data: '1',
-                                    feedback: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/906/600',
-                                        width: 150.0,
-                                        height: 150.0,
-                                        fit: BoxFit.cover,
+                                    feedback: Material(
+                                      type: MaterialType.transparency,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/906/600',
+                                          width: 150.0,
+                                          height: 150.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     child: ClipRRect(
@@ -192,13 +200,17 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                   child: Draggable<String>(
                                     childWhenDragging: Container(),
                                     data: '1',
-                                    feedback: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/906/600',
-                                        width: 150.0,
-                                        height: 150.0,
-                                        fit: BoxFit.cover,
+                                    feedback: Material(
+                                      type: MaterialType.transparency,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/906/600',
+                                          width: 150.0,
+                                          height: 150.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     child: ClipRRect(
@@ -243,13 +255,17 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                                   child: Draggable<String>(
                                     childWhenDragging: Container(),
                                     data: '1',
-                                    feedback: ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.network(
-                                        'https://picsum.photos/seed/906/600',
-                                        width: 150.0,
-                                        height: 150.0,
-                                        fit: BoxFit.cover,
+                                    feedback: Material(
+                                      type: MaterialType.transparency,
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
+                                        child: Image.network(
+                                          'https://picsum.photos/seed/906/600',
+                                          width: 150.0,
+                                          height: 150.0,
+                                          fit: BoxFit.cover,
+                                        ),
                                       ),
                                     ),
                                     child: ClipRRect(

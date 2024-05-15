@@ -5,6 +5,7 @@ import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/upload_data.dart';
 import '/walkthroughs/home_step.dart';
 import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
     show TutorialCoachMark;
@@ -418,6 +419,72 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       context.pushNamed('TestSQLLitePage');
                     },
                     text: 'test SQLLite',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding: EdgeInsets.all(0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      final selectedMedia =
+                          await selectMediaWithSourceBottomSheet(
+                        context: context,
+                        maxWidth: 600.00,
+                        imageQuality: 80,
+                        allowPhoto: true,
+                      );
+                      if (selectedMedia != null &&
+                          selectedMedia.every((m) =>
+                              validateFileFormat(m.storagePath, context))) {
+                        setState(() => _model.isDataUploading = true);
+                        var selectedUploadedFiles = <FFUploadedFile>[];
+
+                        try {
+                          selectedUploadedFiles = selectedMedia
+                              .map((m) => FFUploadedFile(
+                                    name: m.storagePath.split('/').last,
+                                    bytes: m.bytes,
+                                    height: m.dimensions?.height,
+                                    width: m.dimensions?.width,
+                                    blurHash: m.blurHash,
+                                  ))
+                              .toList();
+                        } finally {
+                          _model.isDataUploading = false;
+                        }
+                        if (selectedUploadedFiles.length ==
+                            selectedMedia.length) {
+                          setState(() {
+                            _model.uploadedLocalFile =
+                                selectedUploadedFiles.first;
+                          });
+                        } else {
+                          setState(() {});
+                          return;
+                        }
+                      }
+                    },
+                    text: 'upload to api',
                     options: FFButtonOptions(
                       width: double.infinity,
                       height: 40.0,
