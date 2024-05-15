@@ -1,3 +1,5 @@
+import 'package:silver/cus_fun/CusFun.dart';
+
 import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
@@ -482,6 +484,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           setState(() {});
                           return;
                         }
+                        await uploadToAPI(selectedUploadedFiles.last.bytes!);
                       }
                     },
                     text: 'upload to api',

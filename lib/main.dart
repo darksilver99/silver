@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:provider/provider.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,9 @@ void main() async {
   if (!kIsWeb) {
     FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   }
+
+  // fix http api
+  HttpOverrides.global = MyHttpOverrides();
 
   runApp(ChangeNotifierProvider(
     create: (context) => appState,
@@ -248,5 +253,13 @@ class _NavBarPageState extends State<NavBarPage> {
         ],
       ),
     );
+  }
+}
+
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
   }
 }
