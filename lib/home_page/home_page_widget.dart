@@ -38,9 +38,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      safeSetState(
-          () => _model.homeStepController = createPageWalkthrough(context));
-      _model.homeStepController?.show(context: context);
+      await Future.delayed(const Duration(milliseconds: 1000));
     });
   }
 
@@ -530,34 +528,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
         targets: createWalkthroughTargets(context),
         onFinish: () async {
           safeSetState(() => _model.homeStepController = null);
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                'Walkthrough Done',
-                style: TextStyle(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-              ),
-              duration: Duration(milliseconds: 2000),
-              backgroundColor: FlutterFlowTheme.of(context).secondary,
-            ),
-          );
         },
         onSkip: () {
-          () async {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'Walkthrough skip!',
-                  style: TextStyle(
-                    color: FlutterFlowTheme.of(context).primaryBackground,
-                  ),
-                ),
-                duration: Duration(milliseconds: 2000),
-                backgroundColor: FlutterFlowTheme.of(context).alternate,
-              ),
-            );
-          }();
           return true;
         },
       );
