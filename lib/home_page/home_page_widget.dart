@@ -1,3 +1,5 @@
+import 'dart:isolate';
+
 import 'package:silver/cus_fun/CusFun.dart';
 
 import '/auth/base_auth_user_provider.dart';
@@ -40,7 +42,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      await Future.delayed(const Duration(milliseconds: 1000));
+      //await Future.delayed(const Duration(milliseconds: 1000));
+      print('Start calculating...');
+      final receivePort = ReceivePort();
+      print("receivePort.sendPort");
+      print(receivePort.sendPort);
+      await Isolate.spawn(heavyComputation, receivePort.sendPort);
+      final result = await receivePort.first;
+      //var result = heavyComputation(1000000000);
+      print('Result: $result');
+      print('Done');
     });
   }
 

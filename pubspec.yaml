@@ -145,6 +145,7 @@ dependencies:
   #flutter_gbprimepay_qrcode: ^0.0.7
   crypto: ^3.0.3
   flutter_widget_from_html: ^0.10.5
+  workmanager: ^0.5.2
 
 
   # The following adds the Cupertino Icons font to your application.

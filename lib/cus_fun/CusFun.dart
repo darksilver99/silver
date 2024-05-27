@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:isolate';
 import 'dart:typed_data';
 import 'dart:ui';
 import 'package:http/http.dart' as http;
@@ -90,4 +91,13 @@ Future<String> uploadToAPI(Uint8List photoBytes) async {
     print(e);
     return "";
   }
+}
+
+void heavyComputation(SendPort sendPort) {
+  int sum = 0;
+  for (int i = 0; i < 1000000000; i++) {
+    sum += i;
+  }
+  // Send only the result, which is an integer
+  sendPort.send(sum);
 }
