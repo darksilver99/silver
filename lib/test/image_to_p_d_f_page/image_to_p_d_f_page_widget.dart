@@ -82,7 +82,7 @@ class _ImageToPDFPageWidgetState extends State<ImageToPDFPageWidget> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(8.0),
                   child: Image.network(
-                    'https://storage.kd3.dev/photo/33c197374389b44ac1b0fa9b6ffcb713?imgCode=ZcjxBMI&activaite_key=180857855',
+                    _model.url,
                     width: double.infinity,
                     height: MediaQuery.sizeOf(context).height * 0.6,
                     fit: BoxFit.cover,
