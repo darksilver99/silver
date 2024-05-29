@@ -76,3 +76,5 @@ export '/test_s_q_l_lite_page/test_s_q_l_lite_page_widget.dart'
     show TestSQLLitePageWidget;
 export '/scan_q_r_code/scan_q_r_code_widget.dart' show ScanQRCodeWidget;
 export '/tmp_widget/tmp_widget/tmp_widget_widget.dart' show TmpWidgetWidget;
+export '/test/image_to_p_d_f_page/image_to_p_d_f_page_widget.dart'
+    show ImageToPDFPageWidget;

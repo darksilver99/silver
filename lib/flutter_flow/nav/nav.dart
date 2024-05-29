@@ -381,6 +381,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'TmpWidget',
           path: '/tmpWidget',
           builder: (context, params) => TmpWidgetWidget(),
+        ),
+        FFRoute(
+          name: 'ImageToPDFPage',
+          path: '/imageToPDFPage',
+          builder: (context, params) => ImageToPDFPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
