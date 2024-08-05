@@ -96,109 +96,109 @@ class FFAppState extends ChangeNotifier {
     jsonDecode('{\"month\":\"1\"}')
   ];
   List<dynamic> get monthList => _monthList;
-  set monthList(List<dynamic> _value) {
-    _monthList = _value;
+  set monthList(List<dynamic> value) {
+    _monthList = value;
     prefs.setStringList(
-        'ff_monthList', _value.map((x) => jsonEncode(x)).toList());
+        'ff_monthList', value.map((x) => jsonEncode(x)).toList());
   }
 
-  void addToMonthList(dynamic _value) {
-    _monthList.add(_value);
-    prefs.setStringList(
-        'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
-  }
-
-  void removeFromMonthList(dynamic _value) {
-    _monthList.remove(_value);
+  void addToMonthList(dynamic value) {
+    monthList.add(value);
     prefs.setStringList(
         'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeAtIndexFromMonthList(int _index) {
-    _monthList.removeAt(_index);
+  void removeFromMonthList(dynamic value) {
+    monthList.remove(value);
+    prefs.setStringList(
+        'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
+  }
+
+  void removeAtIndexFromMonthList(int index) {
+    monthList.removeAt(index);
     prefs.setStringList(
         'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
   }
 
   void updateMonthListAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _monthList[_index] = updateFn(_monthList[_index]);
+    monthList[index] = updateFn(_monthList[index]);
     prefs.setStringList(
         'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
   }
 
-  void insertAtIndexInMonthList(int _index, dynamic _value) {
-    _monthList.insert(_index, _value);
+  void insertAtIndexInMonthList(int index, dynamic value) {
+    monthList.insert(index, value);
     prefs.setStringList(
         'ff_monthList', _monthList.map((x) => jsonEncode(x)).toList());
   }
 
   dynamic _userData;
   dynamic get userData => _userData;
-  set userData(dynamic _value) {
-    _userData = _value;
-    prefs.setString('ff_userData', jsonEncode(_value));
+  set userData(dynamic value) {
+    _userData = value;
+    prefs.setString('ff_userData', jsonEncode(value));
   }
 
   List<dynamic> _tripCreatedMapList = [];
   List<dynamic> get tripCreatedMapList => _tripCreatedMapList;
-  set tripCreatedMapList(List<dynamic> _value) {
-    _tripCreatedMapList = _value;
+  set tripCreatedMapList(List<dynamic> value) {
+    _tripCreatedMapList = value;
     prefs.setStringList(
-        'ff_tripCreatedMapList', _value.map((x) => jsonEncode(x)).toList());
+        'ff_tripCreatedMapList', value.map((x) => jsonEncode(x)).toList());
   }
 
-  void addToTripCreatedMapList(dynamic _value) {
-    _tripCreatedMapList.add(_value);
+  void addToTripCreatedMapList(dynamic value) {
+    tripCreatedMapList.add(value);
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeFromTripCreatedMapList(dynamic _value) {
-    _tripCreatedMapList.remove(_value);
+  void removeFromTripCreatedMapList(dynamic value) {
+    tripCreatedMapList.remove(value);
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeAtIndexFromTripCreatedMapList(int _index) {
-    _tripCreatedMapList.removeAt(_index);
+  void removeAtIndexFromTripCreatedMapList(int index) {
+    tripCreatedMapList.removeAt(index);
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
 
   void updateTripCreatedMapListAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _tripCreatedMapList[_index] = updateFn(_tripCreatedMapList[_index]);
+    tripCreatedMapList[index] = updateFn(_tripCreatedMapList[index]);
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
 
-  void insertAtIndexInTripCreatedMapList(int _index, dynamic _value) {
-    _tripCreatedMapList.insert(_index, _value);
+  void insertAtIndexInTripCreatedMapList(int index, dynamic value) {
+    tripCreatedMapList.insert(index, value);
     prefs.setStringList('ff_tripCreatedMapList',
         _tripCreatedMapList.map((x) => jsonEncode(x)).toList());
   }
 
   dynamic _tripCreatedMapData;
   dynamic get tripCreatedMapData => _tripCreatedMapData;
-  set tripCreatedMapData(dynamic _value) {
-    _tripCreatedMapData = _value;
+  set tripCreatedMapData(dynamic value) {
+    _tripCreatedMapData = value;
   }
 
   dynamic _selectedLocationPlace;
   dynamic get selectedLocationPlace => _selectedLocationPlace;
-  set selectedLocationPlace(dynamic _value) {
-    _selectedLocationPlace = _value;
+  set selectedLocationPlace(dynamic value) {
+    _selectedLocationPlace = value;
   }
 
   dynamic _manualUploadBooking;
   dynamic get manualUploadBooking => _manualUploadBooking;
-  set manualUploadBooking(dynamic _value) {
-    _manualUploadBooking = _value;
+  set manualUploadBooking(dynamic value) {
+    _manualUploadBooking = value;
   }
 
   List<dynamic> _expenseCategoryList = [
@@ -218,31 +218,31 @@ class FFAppState extends ChangeNotifier {
     jsonDecode('{\"name\":\"Other\",\"image\":\"Booking-Activities.png\"}')
   ];
   List<dynamic> get expenseCategoryList => _expenseCategoryList;
-  set expenseCategoryList(List<dynamic> _value) {
-    _expenseCategoryList = _value;
+  set expenseCategoryList(List<dynamic> value) {
+    _expenseCategoryList = value;
   }
 
-  void addToExpenseCategoryList(dynamic _value) {
-    _expenseCategoryList.add(_value);
+  void addToExpenseCategoryList(dynamic value) {
+    expenseCategoryList.add(value);
   }
 
-  void removeFromExpenseCategoryList(dynamic _value) {
-    _expenseCategoryList.remove(_value);
+  void removeFromExpenseCategoryList(dynamic value) {
+    expenseCategoryList.remove(value);
   }
 
-  void removeAtIndexFromExpenseCategoryList(int _index) {
-    _expenseCategoryList.removeAt(_index);
+  void removeAtIndexFromExpenseCategoryList(int index) {
+    expenseCategoryList.removeAt(index);
   }
 
   void updateExpenseCategoryListAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _expenseCategoryList[_index] = updateFn(_expenseCategoryList[_index]);
+    expenseCategoryList[index] = updateFn(_expenseCategoryList[index]);
   }
 
-  void insertAtIndexInExpenseCategoryList(int _index, dynamic _value) {
-    _expenseCategoryList.insert(_index, _value);
+  void insertAtIndexInExpenseCategoryList(int index, dynamic value) {
+    expenseCategoryList.insert(index, value);
   }
 
   List<dynamic> _bookingCategoryList = [
@@ -254,31 +254,31 @@ class FFAppState extends ChangeNotifier {
     jsonDecode('{\"name\":\"Activity\",\"image\":\"Booking-Activities.png\"}')
   ];
   List<dynamic> get bookingCategoryList => _bookingCategoryList;
-  set bookingCategoryList(List<dynamic> _value) {
-    _bookingCategoryList = _value;
+  set bookingCategoryList(List<dynamic> value) {
+    _bookingCategoryList = value;
   }
 
-  void addToBookingCategoryList(dynamic _value) {
-    _bookingCategoryList.add(_value);
+  void addToBookingCategoryList(dynamic value) {
+    bookingCategoryList.add(value);
   }
 
-  void removeFromBookingCategoryList(dynamic _value) {
-    _bookingCategoryList.remove(_value);
+  void removeFromBookingCategoryList(dynamic value) {
+    bookingCategoryList.remove(value);
   }
 
-  void removeAtIndexFromBookingCategoryList(int _index) {
-    _bookingCategoryList.removeAt(_index);
+  void removeAtIndexFromBookingCategoryList(int index) {
+    bookingCategoryList.removeAt(index);
   }
 
   void updateBookingCategoryListAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _bookingCategoryList[_index] = updateFn(_bookingCategoryList[_index]);
+    bookingCategoryList[index] = updateFn(_bookingCategoryList[index]);
   }
 
-  void insertAtIndexInBookingCategoryList(int _index, dynamic _value) {
-    _bookingCategoryList.insert(_index, _value);
+  void insertAtIndexInBookingCategoryList(int index, dynamic value) {
+    bookingCategoryList.insert(index, value);
   }
 
   List<dynamic> _transportationCategoryList = [
@@ -290,138 +290,138 @@ class FFAppState extends ChangeNotifier {
     jsonDecode('{\"name\":\"Boat\",\"image\":\"Transport-boat.png\"}')
   ];
   List<dynamic> get transportationCategoryList => _transportationCategoryList;
-  set transportationCategoryList(List<dynamic> _value) {
-    _transportationCategoryList = _value;
+  set transportationCategoryList(List<dynamic> value) {
+    _transportationCategoryList = value;
   }
 
-  void addToTransportationCategoryList(dynamic _value) {
-    _transportationCategoryList.add(_value);
+  void addToTransportationCategoryList(dynamic value) {
+    transportationCategoryList.add(value);
   }
 
-  void removeFromTransportationCategoryList(dynamic _value) {
-    _transportationCategoryList.remove(_value);
+  void removeFromTransportationCategoryList(dynamic value) {
+    transportationCategoryList.remove(value);
   }
 
-  void removeAtIndexFromTransportationCategoryList(int _index) {
-    _transportationCategoryList.removeAt(_index);
+  void removeAtIndexFromTransportationCategoryList(int index) {
+    transportationCategoryList.removeAt(index);
   }
 
   void updateTransportationCategoryListAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _transportationCategoryList[_index] =
-        updateFn(_transportationCategoryList[_index]);
+    transportationCategoryList[index] =
+        updateFn(_transportationCategoryList[index]);
   }
 
-  void insertAtIndexInTransportationCategoryList(int _index, dynamic _value) {
-    _transportationCategoryList.insert(_index, _value);
+  void insertAtIndexInTransportationCategoryList(int index, dynamic value) {
+    transportationCategoryList.insert(index, value);
   }
 
   bool _isUploading = true;
   bool get isUploading => _isUploading;
-  set isUploading(bool _value) {
-    _isUploading = _value;
+  set isUploading(bool value) {
+    _isUploading = value;
   }
 
   List<dynamic> _homeOfflineDataList = [];
   List<dynamic> get homeOfflineDataList => _homeOfflineDataList;
-  set homeOfflineDataList(List<dynamic> _value) {
-    _homeOfflineDataList = _value;
+  set homeOfflineDataList(List<dynamic> value) {
+    _homeOfflineDataList = value;
     prefs.setStringList(
-        'ff_homeOfflineDataList', _value.map((x) => jsonEncode(x)).toList());
+        'ff_homeOfflineDataList', value.map((x) => jsonEncode(x)).toList());
   }
 
-  void addToHomeOfflineDataList(dynamic _value) {
-    _homeOfflineDataList.add(_value);
+  void addToHomeOfflineDataList(dynamic value) {
+    homeOfflineDataList.add(value);
     prefs.setStringList('ff_homeOfflineDataList',
         _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeFromHomeOfflineDataList(dynamic _value) {
-    _homeOfflineDataList.remove(_value);
+  void removeFromHomeOfflineDataList(dynamic value) {
+    homeOfflineDataList.remove(value);
     prefs.setStringList('ff_homeOfflineDataList',
         _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeAtIndexFromHomeOfflineDataList(int _index) {
-    _homeOfflineDataList.removeAt(_index);
+  void removeAtIndexFromHomeOfflineDataList(int index) {
+    homeOfflineDataList.removeAt(index);
     prefs.setStringList('ff_homeOfflineDataList',
         _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 
   void updateHomeOfflineDataListAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _homeOfflineDataList[_index] = updateFn(_homeOfflineDataList[_index]);
+    homeOfflineDataList[index] = updateFn(_homeOfflineDataList[index]);
     prefs.setStringList('ff_homeOfflineDataList',
         _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 
-  void insertAtIndexInHomeOfflineDataList(int _index, dynamic _value) {
-    _homeOfflineDataList.insert(_index, _value);
+  void insertAtIndexInHomeOfflineDataList(int index, dynamic value) {
+    homeOfflineDataList.insert(index, value);
     prefs.setStringList('ff_homeOfflineDataList',
         _homeOfflineDataList.map((x) => jsonEncode(x)).toList());
   }
 
   List<dynamic> _tripOfflineDetail = [];
   List<dynamic> get tripOfflineDetail => _tripOfflineDetail;
-  set tripOfflineDetail(List<dynamic> _value) {
-    _tripOfflineDetail = _value;
+  set tripOfflineDetail(List<dynamic> value) {
+    _tripOfflineDetail = value;
     prefs.setStringList(
-        'ff_tripOfflineDetail', _value.map((x) => jsonEncode(x)).toList());
+        'ff_tripOfflineDetail', value.map((x) => jsonEncode(x)).toList());
   }
 
-  void addToTripOfflineDetail(dynamic _value) {
-    _tripOfflineDetail.add(_value);
+  void addToTripOfflineDetail(dynamic value) {
+    tripOfflineDetail.add(value);
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeFromTripOfflineDetail(dynamic _value) {
-    _tripOfflineDetail.remove(_value);
+  void removeFromTripOfflineDetail(dynamic value) {
+    tripOfflineDetail.remove(value);
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
 
-  void removeAtIndexFromTripOfflineDetail(int _index) {
-    _tripOfflineDetail.removeAt(_index);
+  void removeAtIndexFromTripOfflineDetail(int index) {
+    tripOfflineDetail.removeAt(index);
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
 
   void updateTripOfflineDetailAtIndex(
-    int _index,
+    int index,
     dynamic Function(dynamic) updateFn,
   ) {
-    _tripOfflineDetail[_index] = updateFn(_tripOfflineDetail[_index]);
+    tripOfflineDetail[index] = updateFn(_tripOfflineDetail[index]);
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
 
-  void insertAtIndexInTripOfflineDetail(int _index, dynamic _value) {
-    _tripOfflineDetail.insert(_index, _value);
+  void insertAtIndexInTripOfflineDetail(int index, dynamic value) {
+    tripOfflineDetail.insert(index, value);
     prefs.setStringList('ff_tripOfflineDetail',
         _tripOfflineDetail.map((x) => jsonEncode(x)).toList());
   }
 
   bool _isCallComing = false;
   bool get isCallComing => _isCallComing;
-  set isCallComing(bool _value) {
-    _isCallComing = _value;
+  set isCallComing(bool value) {
+    _isCallComing = value;
   }
 
   DocumentReference? _callerUserRef;
   DocumentReference? get callerUserRef => _callerUserRef;
-  set callerUserRef(DocumentReference? _value) {
-    _callerUserRef = _value;
+  set callerUserRef(DocumentReference? value) {
+    _callerUserRef = value;
   }
 
   String _callRoomPath = '';
   String get callRoomPath => _callRoomPath;
-  set callRoomPath(String _value) {
-    _callRoomPath = _value;
+  set callRoomPath(String value) {
+    _callRoomPath = value;
   }
 
   bool _isHangUp = false;
@@ -432,8 +432,8 @@ class FFAppState extends ChangeNotifier {
 
   String _htmlContent = '';
   String get htmlContent => _htmlContent;
-  set htmlContent(String _value) {
-    _htmlContent = _value;
+  set htmlContent(String value) {
+    _htmlContent = value;
   }
 }
 

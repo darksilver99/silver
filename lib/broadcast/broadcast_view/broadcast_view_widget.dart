@@ -45,7 +45,6 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
   final _initialVideoConfig = VideoConfig.withDefaultBitrate(
     resolution: Resolution.RESOLUTION_720,
   );
-  bool _isSupportedPlatform = false;
   // variables for managing camera states
   bool _isCameraInitialized = false;
   bool _isFrontCamSelected = false;
@@ -59,7 +58,6 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
     _model = createModel(context, () => BroadcastViewModel());
 
     if (Platform.isAndroid || Platform.isIOS) {
-      _isSupportedPlatform = true;
       _initCamera();
     }
   }
@@ -197,7 +195,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                       createDate: getCurrentTimestamp,
                       createBy: currentUserReference,
                       isLive: true,
-                      name: widget.broadcastName,
+                      name: widget!.broadcastName,
                       url: muxBroadcastPlaybackUrl,
                     ));
                     _model.rsBroadcast =
@@ -206,7 +204,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                               createDate: getCurrentTimestamp,
                               createBy: currentUserReference,
                               isLive: true,
-                              name: widget.broadcastName,
+                              name: widget!.broadcastName,
                               url: muxBroadcastPlaybackUrl,
                             ),
                             broadcastListRecordReference);

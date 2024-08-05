@@ -150,7 +150,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: Text(
-                        widget.userParameter!.displayName,
+                        widget!.userParameter!.displayName,
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',

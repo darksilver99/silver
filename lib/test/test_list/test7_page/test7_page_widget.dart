@@ -115,6 +115,7 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
                       }
                       List<DataListRecord> listViewDataListRecordList =
                           snapshot.data!;
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,

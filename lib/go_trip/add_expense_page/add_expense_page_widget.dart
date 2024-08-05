@@ -344,14 +344,12 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                                 );
                               });
                             }
-                            setState(() {
-                              _model.dateTimeTextSelected = dateTimeFormat(
-                                'd/M/y',
-                                _model.datePicked,
-                                locale:
-                                    FFLocalizations.of(context).languageCode,
-                              );
-                            });
+                            _model.dateTimeTextSelected = dateTimeFormat(
+                              'd/M/y',
+                              _model.datePicked,
+                              locale: FFLocalizations.of(context).languageCode,
+                            );
+                            setState(() {});
                           },
                           child: Container(
                             width: double.infinity,

@@ -85,7 +85,7 @@ class _BroadcastDetailWidgetState extends State<BroadcastDetailWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               FlutterFlowVideoPlayer(
-                path: widget.url!,
+                path: widget!.url!,
                 videoType: VideoType.network,
                 autoPlay: false,
                 looping: true,

@@ -45,11 +45,10 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
         currentUserLocationValue,
         _model.fullListResultCopy?.toList(),
       );
-      setState(() {
-        _model.placeList = _model.resultList2Copy!.toList().cast<dynamic>();
-        _model.isLoading = false;
-        _model.isFullList = true;
-      });
+      _model.placeList = _model.resultList2Copy!.toList().cast<dynamic>();
+      _model.isLoading = false;
+      _model.isFullList = true;
+      setState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -204,9 +203,8 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                             defaultLocation: LatLng(0.0, 0.0));
                         if (_model.textController.text != null &&
                             _model.textController.text != '') {
-                          setState(() {
-                            _model.isLoading = true;
-                          });
+                          _model.isLoading = true;
+                          setState(() {});
                           safeSetState(
                               () => _model.algoliaSearchResults = null);
                           await PlaceListRecord.search(
@@ -221,28 +219,25 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                             currentUserLocationValue,
                             _model.algoliaSearchResults?.toList(),
                           );
-                          setState(() {
-                            _model.placeList =
-                                _model.resultList!.toList().cast<dynamic>();
-                            _model.isLoading = false;
-                            _model.isFullList = false;
-                          });
+                          _model.placeList =
+                              _model.resultList!.toList().cast<dynamic>();
+                          _model.isLoading = false;
+                          _model.isFullList = false;
+                          setState(() {});
                         } else {
-                          setState(() {
-                            _model.isLoading = true;
-                          });
+                          _model.isLoading = true;
+                          setState(() {});
                           _model.fullListResult =
                               await queryPlaceListRecordOnce();
                           _model.resultList2 = await actions.sortListByLocation(
                             currentUserLocationValue,
                             _model.fullListResult?.toList(),
                           );
-                          setState(() {
-                            _model.placeList =
-                                _model.resultList2!.toList().cast<dynamic>();
-                            _model.isLoading = false;
-                            _model.isFullList = true;
-                          });
+                          _model.placeList =
+                              _model.resultList2!.toList().cast<dynamic>();
+                          _model.isLoading = false;
+                          _model.isFullList = true;
+                          setState(() {});
                         }
 
                         setState(() {});
@@ -270,6 +265,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                         if (placeListResult.isEmpty) {
                           return NoDataViewWidget();
                         }
+
                         return GridView.builder(
                           padding: EdgeInsets.zero,
                           gridDelegate:
@@ -428,6 +424,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                         if (placeListResult.isEmpty) {
                           return NoDataViewWidget();
                         }
+
                         return GridView.builder(
                           padding: EdgeInsets.zero,
                           gridDelegate:

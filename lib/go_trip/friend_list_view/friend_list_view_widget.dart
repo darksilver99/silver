@@ -82,6 +82,7 @@ class _FriendListViewWidgetState extends State<FriendListViewWidget> {
               Builder(
                 builder: (context) {
                   final list = FFAppState().monthList.toList();
+
                   return ListView.builder(
                     padding: EdgeInsets.fromLTRB(
                       0,

@@ -24,21 +24,27 @@ class TestTypeStruct extends FFFirebaseStruct {
   int? _id;
   int get id => _id ?? 0;
   set id(int? val) => _id = val;
-  void incrementId(int amount) => _id = id + amount;
+
+  void incrementId(int amount) => id = id + amount;
+
   bool hasId() => _id != null;
 
   // "title" field.
   String? _title;
   String get title => _title ?? '';
   set title(String? val) => _title = val;
+
   bool hasTitle() => _title != null;
 
   // "images" field.
   List<String>? _images;
   List<String> get images => _images ?? const [];
   set images(List<String>? val) => _images = val;
-  void updateImages(Function(List<String>) updateFn) =>
-      updateFn(_images ??= []);
+
+  void updateImages(Function(List<String>) updateFn) {
+    updateFn(_images ??= []);
+  }
+
   bool hasImages() => _images != null;
 
   static TestTypeStruct fromMap(Map<String, dynamic> data) => TestTypeStruct(
@@ -69,7 +75,7 @@ class TestTypeStruct extends FFFirebaseStruct {
         'images': serializeParam(
           _images,
           ParamType.String,
-          true,
+          isList: true,
         ),
       }.withoutNulls;
 

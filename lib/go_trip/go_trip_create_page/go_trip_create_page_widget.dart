@@ -2122,6 +2122,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                           builder: (context) {
                                             final testList =
                                                 FFAppState().monthList.toList();
+
                                             return SingleChildScrollView(
                                               scrollDirection: Axis.horizontal,
                                               child: Row(
@@ -2890,6 +2891,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                           FFAppState()
                                                               .monthList
                                                               .toList();
+
                                                       return Row(
                                                         mainAxisSize:
                                                             MainAxisSize.max,
@@ -3278,6 +3280,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                 builder: (context) {
                                   final testList5 =
                                       FFAppState().monthList.toList();
+
                                   return SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
@@ -3498,6 +3501,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                     builder: (context) {
                                       final testList5 =
                                           FFAppState().monthList.toList();
+
                                       return SingleChildScrollView(
                                         scrollDirection: Axis.horizontal,
                                         child: Row(

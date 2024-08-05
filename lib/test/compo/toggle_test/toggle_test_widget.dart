@@ -40,9 +40,8 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
 
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.isCheck = widget.isCheck!;
-      });
+      _model.isCheck = widget!.isCheck!;
+      setState(() {});
     });
   }
 
@@ -60,7 +59,7 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
         setState(() => _model.isCheck = !_model.isCheck);
         await Future.delayed(const Duration(milliseconds: 1000));
         _model.apiResultjjc = await DataListCheckCall.call(
-          docID: widget.docID,
+          docID: widget!.docID,
         );
 
         setState(() {});

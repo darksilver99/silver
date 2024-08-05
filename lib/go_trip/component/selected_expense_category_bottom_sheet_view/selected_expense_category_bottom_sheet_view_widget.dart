@@ -57,6 +57,7 @@ class _SelectedExpenseCategoryBottomSheetViewWidgetState
       child: Builder(
         builder: (context) {
           final categoryList = FFAppState().expenseCategoryList.toList();
+
           return SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

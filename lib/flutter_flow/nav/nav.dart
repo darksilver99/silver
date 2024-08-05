@@ -386,6 +386,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ImageToPDFPage',
           path: '/imageToPDFPage',
           builder: (context, params) => ImageToPDFPageWidget(),
+        ),
+        FFRoute(
+          name: 'OCRReaderListPage',
+          path: '/oCRReaderListPage',
+          builder: (context, params) => OCRReaderListPageWidget(),
+        ),
+        FFRoute(
+          name: 'OCRReaderPage',
+          path: '/oCRReaderPage',
+          builder: (context, params) => OCRReaderPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],

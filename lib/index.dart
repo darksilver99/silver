@@ -78,3 +78,7 @@ export '/scan_q_r_code/scan_q_r_code_widget.dart' show ScanQRCodeWidget;
 export '/tmp_widget/tmp_widget/tmp_widget_widget.dart' show TmpWidgetWidget;
 export '/test/image_to_p_d_f_page/image_to_p_d_f_page_widget.dart'
     show ImageToPDFPageWidget;
+export '/test/ocr/o_c_r_reader_list_page/o_c_r_reader_list_page_widget.dart'
+    show OCRReaderListPageWidget;
+export '/test/ocr/o_c_r_reader_page/o_c_r_reader_page_widget.dart'
+    show OCRReaderPageWidget;

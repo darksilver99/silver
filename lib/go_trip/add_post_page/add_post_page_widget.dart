@@ -260,6 +260,7 @@ class _AddPostPageWidgetState extends State<AddPostPageWidget> {
                                     builder: (context) {
                                       final listItem =
                                           FFAppState().monthList.toList();
+
                                       return Row(
                                         mainAxisSize: MainAxisSize.max,
                                         children: List.generate(listItem.length,

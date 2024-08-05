@@ -37,9 +37,8 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.dataListResult = await queryDataListRecordOnce();
       await Future.delayed(const Duration(milliseconds: 3000));
-      setState(() {
-        _model.isLoading = false;
-      });
+      _model.isLoading = false;
+      setState(() {});
     });
   }
 
@@ -96,6 +95,7 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                   child: Builder(
                     builder: (context) {
                       final dataList = _model.dataListResult?.toList() ?? [];
+
                       return ListView.builder(
                         padding: EdgeInsets.zero,
                         shrinkWrap: true,
