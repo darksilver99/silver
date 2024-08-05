@@ -38,7 +38,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.rsCaller =
-          await UsersRecord.getDocumentOnce(widget.userParameter!.reference);
+          await UsersRecord.getDocumentOnce(widget!.userParameter!.reference);
     });
   }
 
@@ -104,7 +104,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 32.0, 0.0, 0.0),
                       child: Text(
-                        'calling to ${widget.userParameter?.displayName} ....',
+                        'calling to ${widget!.userParameter?.displayName} ....',
                         textAlign: TextAlign.center,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
                               fontFamily: 'Montserrat',

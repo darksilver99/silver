@@ -57,9 +57,8 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     children: [
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
-                          setState(() {
-                            _model.slot = '1';
-                          });
+                          _model.slot = '1';
+                          setState(() {});
 
                           setState(() {});
                         },
@@ -111,9 +110,8 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       ),
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
-                          setState(() {
-                            _model.slot = '2';
-                          });
+                          _model.slot = '2';
+                          setState(() {});
 
                           setState(() {});
                         },
@@ -174,9 +172,8 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                     children: [
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
-                          setState(() {
-                            _model.slot = '3';
-                          });
+                          _model.slot = '3';
+                          setState(() {});
 
                           setState(() {});
                         },
@@ -228,9 +225,8 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       ),
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
-                          setState(() {
-                            _model.slot = '4';
-                          });
+                          _model.slot = '4';
+                          setState(() {});
 
                           setState(() {});
                         },

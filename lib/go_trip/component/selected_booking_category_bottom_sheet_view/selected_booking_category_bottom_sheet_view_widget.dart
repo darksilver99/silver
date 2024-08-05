@@ -57,6 +57,7 @@ class _SelectedBookingCategoryBottomSheetViewWidgetState
       child: Builder(
         builder: (context) {
           final categoryList = FFAppState().bookingCategoryList.toList();
+
           return SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

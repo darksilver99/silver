@@ -99,6 +99,7 @@ class _FriendListPageWidgetState extends State<FriendListPageWidget> {
                 );
               }
               List<UsersRecord> listViewUsersRecordList = snapshot.data!;
+
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,

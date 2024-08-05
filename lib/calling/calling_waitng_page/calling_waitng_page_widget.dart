@@ -34,9 +34,8 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.rsUser =
           await UsersRecord.getDocumentOnce(FFAppState().callerUserRef!);
-      setState(() {
-        _model.callerName = _model.rsUser!.displayName;
-      });
+      _model.callerName = _model.rsUser!.displayName;
+      setState(() {});
     });
   }
 
@@ -104,9 +103,8 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
                             hoverColor: Colors.transparent,
                             highlightColor: Colors.transparent,
                             onTap: () async {
-                              FFAppState().update(() {
-                                FFAppState().isCallComing = false;
-                              });
+                              FFAppState().isCallComing = false;
+                              FFAppState().update(() {});
                             },
                             child: Container(
                               width: 100.0,

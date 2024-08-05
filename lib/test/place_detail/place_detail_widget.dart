@@ -106,7 +106,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                           child: FlutterFlowExpandedImageView(
                             image: Image.network(
                               getJsonField(
-                                widget.placeParameter,
+                                widget!.placeParameter,
                                 r'''$.image''',
                               ).toString(),
                               fit: BoxFit.contain,
@@ -118,7 +118,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                             ),
                             allowRotation: false,
                             tag: getJsonField(
-                              widget.placeParameter,
+                              widget!.placeParameter,
                               r'''$.image''',
                             ).toString(),
                             useHeroAnimation: true,
@@ -128,7 +128,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                     },
                     child: Hero(
                       tag: getJsonField(
-                        widget.placeParameter,
+                        widget!.placeParameter,
                         r'''$.image''',
                       ).toString(),
                       transitionOnUserGestures: true,
@@ -136,7 +136,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                         borderRadius: BorderRadius.circular(0.0),
                         child: Image.network(
                           getJsonField(
-                            widget.placeParameter,
+                            widget!.placeParameter,
                             r'''$.image''',
                           ).toString(),
                           width: double.infinity,
@@ -163,7 +163,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                       Expanded(
                         child: Text(
                           getJsonField(
-                            widget.placeParameter,
+                            widget!.placeParameter,
                             r'''$.title''',
                           ).toString(),
                           style:
@@ -186,7 +186,7 @@ class _PlaceDetailWidgetState extends State<PlaceDetailWidget> {
                       Expanded(
                         child: Text(
                           '${getJsonField(
-                            widget.placeParameter,
+                            widget!.placeParameter,
                             r'''$.distance''',
                           ).toString()} km.',
                           style:

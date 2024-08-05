@@ -106,7 +106,7 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                           type: PageTransitionType.fade,
                           child: FlutterFlowExpandedImageView(
                             image: Image.network(
-                              widget.dataParameter!.image,
+                              widget!.dataParameter!.image,
                               fit: BoxFit.contain,
                               errorBuilder: (context, error, stackTrace) =>
                                   Image.asset(
@@ -115,19 +115,19 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                               ),
                             ),
                             allowRotation: false,
-                            tag: widget.dataParameter!.image,
+                            tag: widget!.dataParameter!.image,
                             useHeroAnimation: true,
                           ),
                         ),
                       );
                     },
                     child: Hero(
-                      tag: widget.dataParameter!.image,
+                      tag: widget!.dataParameter!.image,
                       transitionOnUserGestures: true,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(0.0),
                         child: Image.network(
-                          widget.dataParameter!.image,
+                          widget!.dataParameter!.image,
                           width: double.infinity,
                           height: 200.0,
                           fit: BoxFit.contain,
@@ -151,7 +151,7 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          widget.dataParameter!.title,
+                          widget!.dataParameter!.title,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',
@@ -171,7 +171,7 @@ class _DetailTestPageWidgetState extends State<DetailTestPageWidget> {
                     children: [
                       Expanded(
                         child: Text(
-                          widget.dataParameter!.detail,
+                          widget!.dataParameter!.detail,
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     fontFamily: 'Montserrat',

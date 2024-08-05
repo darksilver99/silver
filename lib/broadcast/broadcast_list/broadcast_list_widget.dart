@@ -132,6 +132,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
               }
               List<BroadcastListRecord> listViewBroadcastListRecordList =
                   snapshot.data!;
+
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,
@@ -162,6 +163,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                             playbackId: functions.getPlaybackIdFromUrl(
                                 listViewBroadcastListRecord.url),
                           );
+
                           if ((_model.apiResultk31?.succeeded ?? true)) {
                             _model.apiResultaaf =
                                 await GetPastLiveStreamCall.call(
@@ -169,6 +171,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                                 (_model.apiResultk31?.jsonBody ?? ''),
                               ),
                             );
+
                             if ((_model.apiResultaaf?.succeeded ?? true)) {
                               context.pushNamed(
                                 'BroadcastDetail',

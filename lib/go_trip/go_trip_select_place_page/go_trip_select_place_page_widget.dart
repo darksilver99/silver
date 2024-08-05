@@ -34,13 +34,12 @@ class _GoTripSelectPlacePageWidgetState
 
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
-      setState(() {
-        _model.dateFrom = dateTimeFormat(
-          'y/M/d',
-          getCurrentTimestamp,
-          locale: FFLocalizations.of(context).languageCode,
-        );
-      });
+      _model.dateFrom = dateTimeFormat(
+        'y/M/d',
+        getCurrentTimestamp,
+        locale: FFLocalizations.of(context).languageCode,
+      );
+      setState(() {});
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -239,15 +238,14 @@ class _GoTripSelectPlacePageWidgetState
                                                 );
                                               });
                                             }
-                                            setState(() {
-                                              _model.dateFrom = dateTimeFormat(
-                                                'y/M/d',
-                                                _model.datePicked1,
-                                                locale:
-                                                    FFLocalizations.of(context)
-                                                        .languageCode,
-                                              );
-                                            });
+                                            _model.dateFrom = dateTimeFormat(
+                                              'y/M/d',
+                                              _model.datePicked1,
+                                              locale:
+                                                  FFLocalizations.of(context)
+                                                      .languageCode,
+                                            );
+                                            setState(() {});
                                           },
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -322,14 +320,13 @@ class _GoTripSelectPlacePageWidgetState
                                           );
                                         });
                                       }
-                                      setState(() {
-                                        _model.dateTo = dateTimeFormat(
-                                          'y/M/d',
-                                          _model.datePicked2,
-                                          locale: FFLocalizations.of(context)
-                                              .languageCode,
-                                        );
-                                      });
+                                      _model.dateTo = dateTimeFormat(
+                                        'y/M/d',
+                                        _model.datePicked2,
+                                        locale: FFLocalizations.of(context)
+                                            .languageCode,
+                                      );
+                                      setState(() {});
                                     },
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,

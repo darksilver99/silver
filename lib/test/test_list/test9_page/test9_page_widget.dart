@@ -89,12 +89,14 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                         return BlankViewWidget();
                       }
                       final listViewDataListResponse = snapshot.data!;
+
                       return Builder(
                         builder: (context) {
                           final dataList = DataListCall.data(
                                 listViewDataListResponse.jsonBody,
                               )?.toList() ??
                               [];
+
                           return ListView.builder(
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
@@ -163,6 +165,7 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                                         r'''$.id''',
                                                       ).toString(),
                                                     );
+
                                                     if ((_model.apiResultcj9
                                                             ?.succeeded ??
                                                         true)) {

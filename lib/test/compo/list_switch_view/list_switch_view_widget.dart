@@ -53,21 +53,21 @@ class _ListSwitchViewWidgetState extends State<ListSwitchViewWidget> {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
       child: SwitchListTile.adaptive(
-        value: _model.switchListTileValue ??= widget.parameter2!,
+        value: _model.switchListTileValue ??= widget!.parameter2!,
         onChanged: (newValue) async {
           setState(() => _model.switchListTileValue = newValue!);
           if (newValue!) {
-            await widget.parameter3!.update(createDataListRecordData(
+            await widget!.parameter3!.update(createDataListRecordData(
               isCheck: true,
             ));
           } else {
-            await widget.parameter3!.update(createDataListRecordData(
+            await widget!.parameter3!.update(createDataListRecordData(
               isCheck: false,
             ));
           }
         },
         title: Text(
-          widget.parameter1!,
+          widget!.parameter1!,
           style: FlutterFlowTheme.of(context).titleLarge.override(
                 fontFamily: 'Montserrat',
                 letterSpacing: 0.0,

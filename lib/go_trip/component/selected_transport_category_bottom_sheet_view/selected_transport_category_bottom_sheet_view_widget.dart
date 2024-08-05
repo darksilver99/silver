@@ -57,6 +57,7 @@ class _SelectedTransportCategoryBottomSheetViewWidgetState
       child: Builder(
         builder: (context) {
           final categoryList = FFAppState().transportationCategoryList.toList();
+
           return SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

@@ -6,25 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'tmp_widget_model.dart';
-export 'tmp_widget_model.dart';
+import 'o_c_r_reader_page_model.dart';
+export 'o_c_r_reader_page_model.dart';
 
-class TmpWidgetWidget extends StatefulWidget {
-  const TmpWidgetWidget({super.key});
+class OCRReaderPageWidget extends StatefulWidget {
+  const OCRReaderPageWidget({super.key});
 
   @override
-  State<TmpWidgetWidget> createState() => _TmpWidgetWidgetState();
+  State<OCRReaderPageWidget> createState() => _OCRReaderPageWidgetState();
 }
 
-class _TmpWidgetWidgetState extends State<TmpWidgetWidget> {
-  late TmpWidgetModel _model;
+class _OCRReaderPageWidgetState extends State<OCRReaderPageWidget> {
+  late OCRReaderPageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => TmpWidgetModel());
+    _model = createModel(context, () => OCRReaderPageModel());
   }
 
   @override
@@ -61,7 +61,7 @@ class _TmpWidgetWidgetState extends State<TmpWidgetWidget> {
             },
           ),
           title: Text(
-            'Page Title',
+            'OCR Reader',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Kanit',
                   color: FlutterFlowTheme.of(context).primary,
@@ -77,43 +77,7 @@ class _TmpWidgetWidgetState extends State<TmpWidgetWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primary,
-                      ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 0.5,
-                        decoration: BoxDecoration(),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 0.0, 0.0),
-                          child: Text(
-                            'QR Version : 1',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            children: [],
           ),
         ),
       ),

@@ -129,6 +129,7 @@ class _TestSQLLitePageWidgetState extends State<TestSQLLitePageWidget> {
                 );
               }
               final listViewGetUserListRowList = snapshot.data!;
+
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,
@@ -171,6 +172,7 @@ class _TestSQLLitePageWidgetState extends State<TestSQLLitePageWidget> {
                               await SQLiteManager.instance.deleteUser(
                                 id: listViewGetUserListRow.id,
                               );
+
                               setState(() {});
                             },
                             child: Icon(

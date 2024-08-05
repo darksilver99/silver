@@ -139,6 +139,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
               }
               List<TestDataTypeListRecord> listViewTestDataTypeListRecordList =
                   snapshot.data!;
+
               return ListView.builder(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,

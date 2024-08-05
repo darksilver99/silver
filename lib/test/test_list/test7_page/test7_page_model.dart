@@ -29,7 +29,6 @@ class Test7PageModel extends FlutterFlowModel<Test7PageWidget> {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for CheckboxListTile widget.
-
   Map<DataListRecord, bool> checkboxListTileValueMap = {};
   List<DataListRecord> get checkboxListTileCheckedItems =>
       checkboxListTileValueMap.entries

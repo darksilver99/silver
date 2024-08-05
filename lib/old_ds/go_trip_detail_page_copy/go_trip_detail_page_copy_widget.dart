@@ -644,6 +644,7 @@ class _GoTripDetailPageCopyWidgetState
                     child: Builder(
                       builder: (context) {
                         final testList1 = FFAppState().monthList.toList();
+
                         return SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
@@ -1719,6 +1720,7 @@ class _GoTripDetailPageCopyWidgetState
                           child: Builder(
                             builder: (context) {
                               final testList2 = FFAppState().monthList.toList();
+
                               return SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
@@ -2275,6 +2277,7 @@ class _GoTripDetailPageCopyWidgetState
                                           builder: (context) {
                                             final testList3 =
                                                 FFAppState().monthList.toList();
+
                                             return Row(
                                               mainAxisSize: MainAxisSize.max,
                                               children: List.generate(
@@ -2560,6 +2563,7 @@ class _GoTripDetailPageCopyWidgetState
                     child: Builder(
                       builder: (context) {
                         final testList5 = FFAppState().monthList.toList();
+
                         return SingleChildScrollView(
                           scrollDirection: Axis.horizontal,
                           child: Row(
@@ -2643,6 +2647,7 @@ class _GoTripDetailPageCopyWidgetState
                                 builder: (context) {
                                   final testList5 =
                                       FFAppState().monthList.toList();
+
                                   return SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
