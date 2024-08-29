@@ -18,7 +18,5 @@ class BroadcastDetailModel extends FlutterFlowModel<BroadcastDetailWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

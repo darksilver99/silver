@@ -17,7 +17,5 @@ class QRCodePageModel extends FlutterFlowModel<QRCodePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

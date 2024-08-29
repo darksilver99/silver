@@ -18,7 +18,5 @@ class GBPrimeTestPageModel extends FlutterFlowModel<GBPrimeTestPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

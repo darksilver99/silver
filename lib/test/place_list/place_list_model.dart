@@ -58,7 +58,6 @@ class PlaceListModel extends FlutterFlowModel<PlaceListWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

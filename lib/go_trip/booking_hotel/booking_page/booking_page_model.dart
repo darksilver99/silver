@@ -16,7 +16,5 @@ class BookingPageModel extends FlutterFlowModel<BookingPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

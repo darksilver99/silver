@@ -32,7 +32,6 @@ class CallingPageModel extends FlutterFlowModel<CallingPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     timerController.dispose();
   }
 }

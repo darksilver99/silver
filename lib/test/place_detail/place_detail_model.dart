@@ -19,7 +19,5 @@ class PlaceDetailModel extends FlutterFlowModel<PlaceDetailWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

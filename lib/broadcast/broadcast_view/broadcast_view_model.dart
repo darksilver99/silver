@@ -30,7 +30,5 @@ class BroadcastViewModel extends FlutterFlowModel<BroadcastViewWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

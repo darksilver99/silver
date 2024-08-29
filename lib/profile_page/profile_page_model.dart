@@ -20,7 +20,5 @@ class ProfilePageModel extends FlutterFlowModel<ProfilePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

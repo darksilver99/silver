@@ -23,7 +23,5 @@ class CallRequestViewModel extends FlutterFlowModel<CallRequestViewWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

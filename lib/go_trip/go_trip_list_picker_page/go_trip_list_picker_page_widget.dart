@@ -48,9 +48,7 @@ class _GoTripListPickerPageWidgetState
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         resizeToAvoidBottomInset: false,
@@ -153,10 +151,7 @@ class _GoTripListPickerPageWidgetState
                       builder: (context) {
                         return WebViewAware(
                           child: GestureDetector(
-                            onTap: () => _model.unfocusNode.canRequestFocus
-                                ? FocusScope.of(context)
-                                    .requestFocus(_model.unfocusNode)
-                                : FocusScope.of(context).unfocus(),
+                            onTap: () => FocusScope.of(context).unfocus(),
                             child: Padding(
                               padding: MediaQuery.viewInsetsOf(context),
                               child: PreviewTripBottomSheetViewWidget(),

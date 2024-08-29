@@ -17,7 +17,5 @@ class OCRReaderListPageModel extends FlutterFlowModel<OCRReaderListPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

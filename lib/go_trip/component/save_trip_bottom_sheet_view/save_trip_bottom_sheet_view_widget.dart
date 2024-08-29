@@ -82,7 +82,7 @@ class _SaveTripBottomSheetViewWidgetState
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    );
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.max,

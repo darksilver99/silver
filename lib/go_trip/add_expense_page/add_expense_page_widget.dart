@@ -47,9 +47,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
@@ -345,7 +343,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               });
                             }
                             _model.dateTimeTextSelected = dateTimeFormat(
-                              'd/M/y',
+                              "d/M/y",
                               _model.datePicked,
                               locale: FFLocalizations.of(context).languageCode,
                             );

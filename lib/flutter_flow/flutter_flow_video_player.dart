@@ -20,6 +20,7 @@ Set<VideoPlayerController> _videoPlayers = Set();
 
 class FlutterFlowVideoPlayer extends StatefulWidget {
   const FlutterFlowVideoPlayer({
+    super.key,
     required this.path,
     this.videoType = VideoType.network,
     this.width,
