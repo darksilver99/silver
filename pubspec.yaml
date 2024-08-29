@@ -140,6 +140,18 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
+  #pity
+  agora_token_service: ^0.1.2
+  permission_handler: ^10.2.0
+  omise_flutter: ^0.1.6
+  image_cropper:
+  dotted_border: ^2.0.0+3
+  agora_rtc_engine: ^6.2.3
+  #image_picker: ^1.0.1
+  #flutter_gbprimepay_qrcode: ^0.0.7
+  crypto: ^3.0.3
+  flutter_widget_from_html: ^0.10.5
+
 dependency_overrides:
   http: 1.2.1
   pointer_interceptor: 0.10.1
