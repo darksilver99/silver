@@ -1,6 +1,7 @@
 import '/auth/base_auth_user_provider.dart';
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/backend/schema/structs/index.dart';
 import '/components/upload_image_to_my_profile_web_view_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -121,6 +122,83 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ).addWalkthrough(
                     buttonM64rcv1s,
                     _model.homeStepController,
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      final selectedMedia =
+                          await selectMediaWithSourceBottomSheet(
+                        context: context,
+                        allowPhoto: true,
+                      );
+                      if (selectedMedia != null &&
+                          selectedMedia.every((m) =>
+                              validateFileFormat(m.storagePath, context))) {
+                        setState(() => _model.isDataUploading1 = true);
+                        var selectedUploadedFiles = <FFUploadedFile>[];
+
+                        var downloadUrls = <String>[];
+                        try {
+                          selectedUploadedFiles = selectedMedia
+                              .map((m) => FFUploadedFile(
+                                    name: m.storagePath.split('/').last,
+                                    bytes: m.bytes,
+                                    height: m.dimensions?.height,
+                                    width: m.dimensions?.width,
+                                    blurHash: m.blurHash,
+                                  ))
+                              .toList();
+
+                          downloadUrls = (await Future.wait(
+                            selectedMedia.map(
+                              (m) async =>
+                                  await uploadData(m.storagePath, m.bytes),
+                            ),
+                          ))
+                              .where((u) => u != null)
+                              .map((u) => u!)
+                              .toList();
+                        } finally {
+                          _model.isDataUploading1 = false;
+                        }
+                        if (selectedUploadedFiles.length ==
+                                selectedMedia.length &&
+                            downloadUrls.length == selectedMedia.length) {
+                          setState(() {
+                            _model.uploadedLocalFile1 =
+                                selectedUploadedFiles.first;
+                            _model.uploadedFileUrl1 = downloadUrls.first;
+                          });
+                        } else {
+                          setState(() {});
+                          return;
+                        }
+                      }
+                    },
+                    text: 'add project to myprofile web',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding: EdgeInsets.all(0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
                 if (loggedIn)
@@ -501,7 +579,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       if (selectedMedia != null &&
                           selectedMedia.every((m) =>
                               validateFileFormat(m.storagePath, context))) {
-                        setState(() => _model.isDataUploading = true);
+                        setState(() => _model.isDataUploading2 = true);
                         var selectedUploadedFiles = <FFUploadedFile>[];
 
                         try {
@@ -515,12 +593,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   ))
                               .toList();
                         } finally {
-                          _model.isDataUploading = false;
+                          _model.isDataUploading2 = false;
                         }
                         if (selectedUploadedFiles.length ==
                             selectedMedia.length) {
                           setState(() {
-                            _model.uploadedLocalFile =
+                            _model.uploadedLocalFile2 =
                                 selectedUploadedFiles.first;
                           });
                         } else {
