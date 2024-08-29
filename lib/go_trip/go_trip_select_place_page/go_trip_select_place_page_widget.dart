@@ -35,7 +35,7 @@ class _GoTripSelectPlacePageWidgetState
     // On page load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.dateFrom = dateTimeFormat(
-        'y/M/d',
+        "y/M/d",
         getCurrentTimestamp,
         locale: FFLocalizations.of(context).languageCode,
       );
@@ -239,7 +239,7 @@ class _GoTripSelectPlacePageWidgetState
                                               });
                                             }
                                             _model.dateFrom = dateTimeFormat(
-                                              'y/M/d',
+                                              "y/M/d",
                                               _model.datePicked1,
                                               locale:
                                                   FFLocalizations.of(context)
@@ -321,7 +321,7 @@ class _GoTripSelectPlacePageWidgetState
                                         });
                                       }
                                       _model.dateTo = dateTimeFormat(
-                                        'y/M/d',
+                                        "y/M/d",
                                         _model.datePicked2,
                                         locale: FFLocalizations.of(context)
                                             .languageCode,

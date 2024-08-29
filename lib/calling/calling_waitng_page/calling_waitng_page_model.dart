@@ -26,7 +26,5 @@ class CallingWaitngPageModel extends FlutterFlowModel<CallingWaitngPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

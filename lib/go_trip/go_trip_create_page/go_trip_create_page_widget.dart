@@ -657,7 +657,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                             ),
                                           );
                                         },
-                                      ).then((value) => setState(() {}));
+                                      );
                                     },
                                     child: Row(
                                       mainAxisSize: MainAxisSize.max,
@@ -2577,8 +2577,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                                           ),
                                                         );
                                                       },
-                                                    ).then((value) =>
-                                                        setState(() {}));
+                                                    );
                                                   },
                                                   text: 'Edit Budget',
                                                   icon: Icon(

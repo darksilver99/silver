@@ -24,7 +24,6 @@ class GoTripDetailPageModel extends FlutterFlowModel<GoTripDetailPageWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
   }

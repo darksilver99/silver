@@ -24,7 +24,5 @@ class FriendListViewModel extends FlutterFlowModel<FriendListViewWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

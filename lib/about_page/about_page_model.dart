@@ -20,7 +20,5 @@ class AboutPageModel extends FlutterFlowModel<AboutPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

@@ -19,6 +19,7 @@ import 'schema/test_photo_list_record.dart';
 import 'schema/test_data_type_list_record.dart';
 import 'schema/place_list_record.dart';
 import 'schema/broadcast_list_record.dart';
+import 'schema/project_list_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -41,6 +42,7 @@ export 'schema/test_photo_list_record.dart';
 export 'schema/test_data_type_list_record.dart';
 export 'schema/place_list_record.dart';
 export 'schema/broadcast_list_record.dart';
+export 'schema/project_list_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -561,6 +563,43 @@ Future<List<BroadcastListRecord>> queryBroadcastListRecordOnce({
     queryCollectionOnce(
       BroadcastListRecord.collection,
       BroadcastListRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ProjectListRecords (as a Stream and as a Future).
+Future<int> queryProjectListRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ProjectListRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ProjectListRecord>> queryProjectListRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ProjectListRecord.collection,
+      ProjectListRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ProjectListRecord>> queryProjectListRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ProjectListRecord.collection,
+      ProjectListRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

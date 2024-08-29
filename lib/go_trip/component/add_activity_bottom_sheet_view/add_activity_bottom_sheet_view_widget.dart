@@ -81,7 +81,7 @@ class _AddActivityBottomSheetViewWidgetState
                           ),
                         );
                       },
-                    ).then((value) => setState(() {}));
+                    );
                   },
                   child: Row(
                     mainAxisSize: MainAxisSize.max,

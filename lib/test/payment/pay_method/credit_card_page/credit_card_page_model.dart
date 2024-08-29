@@ -17,7 +17,5 @@ class CreditCardPageModel extends FlutterFlowModel<CreditCardPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

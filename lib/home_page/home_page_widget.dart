@@ -65,9 +65,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
+      onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
@@ -84,6 +82,37 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           fontFamily: 'Montserrat',
                           letterSpacing: 0.0,
                         ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {},
+                    text: 'add project to myprofile web',
+                    options: FFButtonOptions(
+                      width: double.infinity,
+                      height: 40.0,
+                      padding: EdgeInsets.all(0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Montserrat',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ).addWalkthrough(
+                    buttonM64rcv1s,
+                    _model.homeStepController,
                   ),
                 ),
                 if (loggedIn)
@@ -115,9 +144,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                    ).addWalkthrough(
-                      buttonM64rcv1s,
-                      _model.homeStepController,
                     ),
                   ),
                 Padding(

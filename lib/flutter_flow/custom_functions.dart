@@ -27,3 +27,11 @@ String createUrlFromPlaybackId(String playbackId) {
 String? removeDoctype(String? html) {
   return html!.replaceAll('<!DOCTYPE html>', '');
 }
+
+List<FFUploadedFile> addNewImageToCurrentImage(
+  List<FFUploadedFile> currentImageList,
+  List<FFUploadedFile> newImageList,
+) {
+  currentImageList.addAll(newImageList);
+  return currentImageList;
+}

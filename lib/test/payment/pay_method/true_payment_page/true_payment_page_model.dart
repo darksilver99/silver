@@ -19,7 +19,5 @@ class TruePaymentPageModel extends FlutterFlowModel<TruePaymentPageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

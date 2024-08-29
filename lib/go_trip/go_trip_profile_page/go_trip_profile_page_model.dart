@@ -17,7 +17,5 @@ class GoTripProfilePageModel extends FlutterFlowModel<GoTripProfilePageWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }

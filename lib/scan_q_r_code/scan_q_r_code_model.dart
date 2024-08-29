@@ -20,7 +20,5 @@ class ScanQRCodeModel extends FlutterFlowModel<ScanQRCodeWidget> {
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {
-    unfocusNode.dispose();
-  }
+  void dispose() {}
 }
