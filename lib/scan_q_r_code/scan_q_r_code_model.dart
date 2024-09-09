@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 class ScanQRCodeModel extends FlutterFlowModel<ScanQRCodeWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   var rs = '';
 
   @override

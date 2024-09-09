@@ -56,9 +56,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
                           _model.slot = '1';
-                          setState(() {});
+                          safeSetState(() {});
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         builder: (context, _, __) {
                           return Material(
@@ -109,9 +109,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
                           _model.slot = '2';
-                          setState(() {});
+                          safeSetState(() {});
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         builder: (context, _, __) {
                           return Material(
@@ -171,9 +171,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
                           _model.slot = '3';
-                          setState(() {});
+                          safeSetState(() {});
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         builder: (context, _, __) {
                           return Material(
@@ -224,9 +224,9 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
                       DragTarget<String>(
                         onAcceptWithDetails: (details) async {
                           _model.slot = '4';
-                          setState(() {});
+                          safeSetState(() {});
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         builder: (context, _, __) {
                           return Material(

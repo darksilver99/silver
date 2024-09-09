@@ -55,7 +55,7 @@ class _ListSwitchViewWidgetState extends State<ListSwitchViewWidget> {
       child: SwitchListTile.adaptive(
         value: _model.switchListTileValue ??= widget!.parameter2!,
         onChanged: (newValue) async {
-          setState(() => _model.switchListTileValue = newValue!);
+          safeSetState(() => _model.switchListTileValue = newValue!);
           if (newValue!) {
             await widget!.parameter3!.update(createDataListRecordData(
               isCheck: true,

@@ -498,7 +498,7 @@ class _GoTripListPickerPageWidgetState
                                     child: Checkbox(
                                       value: _model.checkboxValue ??= true,
                                       onChanged: (newValue) async {
-                                        setState(() =>
+                                        safeSetState(() =>
                                             _model.checkboxValue = newValue!);
                                       },
                                       side: BorderSide(

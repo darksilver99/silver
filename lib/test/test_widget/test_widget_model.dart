@@ -19,10 +19,6 @@ class TestWidgetModel extends FlutterFlowModel<TestWidgetWidget> {
   void updateTestAtIndex(int index, Function(LatLng) updateFn) =>
       test[index] = updateFn(test[index]);
 
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

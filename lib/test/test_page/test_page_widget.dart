@@ -199,7 +199,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                             );
                           }
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.max,

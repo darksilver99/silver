@@ -42,7 +42,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
       _model.timerController.onStartTimer();
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -135,7 +135,7 @@ class _CallingPageWidgetState extends State<CallingPageWidget> {
                         onChanged: (value, displayTime, shouldUpdate) {
                           _model.timerMilliseconds = value;
                           _model.timerValue = displayTime;
-                          if (shouldUpdate) setState(() {});
+                          if (shouldUpdate) safeSetState(() {});
                         },
                         textAlign: TextAlign.start,
                         style:

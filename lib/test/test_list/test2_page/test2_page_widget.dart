@@ -38,7 +38,7 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
       _model.dataListResult = await queryDataListRecordOnce();
       await Future.delayed(const Duration(milliseconds: 3000));
       _model.isLoading = false;
-      setState(() {});
+      safeSetState(() {});
     });
   }
 
@@ -108,7 +108,7 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
                               dataListIndex.toString(),
                               dataListIndex,
                             ),
-                            updateCallback: () => setState(() {}),
+                            updateCallback: () => safeSetState(() {}),
                             child: ListSwitchViewWidget(
                               key: Key(
                                 'Keyhbe_${dataListIndex.toString()}',
@@ -128,7 +128,7 @@ class _Test2PageWidgetState extends State<Test2PageWidget> {
             if (_model.isLoading)
               wrapWithModel(
                 model: _model.loadingViewModel,
-                updateCallback: () => setState(() {}),
+                updateCallback: () => safeSetState(() {}),
                 child: LoadingViewWidget(),
               ),
           ],

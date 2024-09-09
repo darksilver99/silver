@@ -127,7 +127,7 @@ class _Test8PageWidgetState extends State<Test8PageWidget> {
                                     onPressed: (_) async {
                                       await listViewDataListRecord.reference
                                           .delete();
-                                      setState(() => _model
+                                      safeSetState(() => _model
                                           .firestoreRequestCompleter = null);
                                       await _model
                                           .waitForFirestoreRequestCompleted();

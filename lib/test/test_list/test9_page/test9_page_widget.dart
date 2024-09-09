@@ -117,7 +117,7 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                         dataListIndex.toString(),
                                         dataListIndex,
                                       ),
-                                      updateCallback: () => setState(() {}),
+                                      updateCallback: () => safeSetState(() {}),
                                       updateOnChange: true,
                                       child: ToggleTestWidget(
                                         key: Key(
@@ -169,10 +169,10 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                                     if ((_model.apiResultcj9
                                                             ?.succeeded ??
                                                         true)) {
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     }
 
-                                                    setState(() {});
+                                                    safeSetState(() {});
                                                   },
                                                 ),
                                               ],

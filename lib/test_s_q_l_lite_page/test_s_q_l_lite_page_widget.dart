@@ -168,7 +168,7 @@ class _TestSQLLitePageWidgetState extends State<TestSQLLitePageWidget> {
                                 id: listViewGetUserListRow.id,
                               );
 
-                              setState(() {});
+                              safeSetState(() {});
                             },
                             child: Icon(
                               Icons.settings_outlined,

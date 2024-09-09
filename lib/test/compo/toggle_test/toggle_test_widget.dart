@@ -41,7 +41,7 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
     // On component load action.
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       _model.isCheck = widget!.isCheck!;
-      setState(() {});
+      safeSetState(() {});
     });
   }
 
@@ -56,13 +56,13 @@ class _ToggleTestWidgetState extends State<ToggleTestWidget> {
   Widget build(BuildContext context) {
     return ToggleIcon(
       onPressed: () async {
-        setState(() => _model.isCheck = !_model.isCheck);
+        safeSetState(() => _model.isCheck = !_model.isCheck);
         await Future.delayed(const Duration(milliseconds: 1000));
         _model.apiResultjjc = await DataListCheckCall.call(
           docID: widget!.docID,
         );
 
-        setState(() {});
+        safeSetState(() {});
       },
       value: _model.isCheck,
       onIcon: Icon(

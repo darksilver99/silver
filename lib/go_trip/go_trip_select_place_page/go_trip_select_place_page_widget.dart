@@ -39,7 +39,7 @@ class _GoTripSelectPlacePageWidgetState
         getCurrentTimestamp,
         locale: FFLocalizations.of(context).languageCode,
       );
-      setState(() {});
+      safeSetState(() {});
       await showModalBottomSheet(
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
@@ -113,7 +113,7 @@ class _GoTripSelectPlacePageWidgetState
                           '_model.textController',
                           Duration(milliseconds: 2000),
                           () async {
-                            setState(() {});
+                            safeSetState(() {});
                             await Future.delayed(
                                 const Duration(milliseconds: 1000));
                           },
@@ -245,7 +245,7 @@ class _GoTripSelectPlacePageWidgetState
                                                   FFLocalizations.of(context)
                                                       .languageCode,
                                             );
-                                            setState(() {});
+                                            safeSetState(() {});
                                           },
                                           child: Column(
                                             mainAxisSize: MainAxisSize.max,
@@ -326,7 +326,7 @@ class _GoTripSelectPlacePageWidgetState
                                         locale: FFLocalizations.of(context)
                                             .languageCode,
                                       );
-                                      setState(() {});
+                                      safeSetState(() {});
                                     },
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,

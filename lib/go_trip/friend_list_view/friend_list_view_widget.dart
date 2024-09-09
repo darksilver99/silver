@@ -106,7 +106,7 @@ class _FriendListViewWidgetState extends State<FriendListViewWidget> {
                           value: _model.checkboxListTileValueMap[listItem] ??=
                               true,
                           onChanged: (newValue) async {
-                            setState(() =>
+                            safeSetState(() =>
                                 _model.checkboxListTileValueMap[listItem] =
                                     newValue!);
                           },

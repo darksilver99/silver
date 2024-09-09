@@ -38,7 +38,7 @@ class _OmiseTestPageWidgetState extends State<OmiseTestPageWidget> {
       if (selectedMedia != null &&
           selectedMedia
               .every((m) => validateFileFormat(m.storagePath, context))) {
-        setState(() => _model.isDataUploading = true);
+        safeSetState(() => _model.isDataUploading = true);
         var selectedUploadedFiles = <FFUploadedFile>[];
 
         var downloadUrls = <String>[];
@@ -66,12 +66,12 @@ class _OmiseTestPageWidgetState extends State<OmiseTestPageWidget> {
         }
         if (selectedUploadedFiles.length == selectedMedia.length &&
             downloadUrls.length == selectedMedia.length) {
-          setState(() {
+          safeSetState(() {
             _model.uploadedLocalFile = selectedUploadedFiles.first;
             _model.uploadedFileUrl = downloadUrls.first;
           });
         } else {
-          setState(() {});
+          safeSetState(() {});
           return;
         }
       }

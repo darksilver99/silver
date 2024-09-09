@@ -122,7 +122,7 @@ class _CallRequestViewWidgetState extends State<CallRequestViewWidget> {
                     hoverColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () async {
-                      setState(() {});
+                      safeSetState(() {});
                     },
                     child: Container(
                       width: 100.0,

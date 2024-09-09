@@ -150,7 +150,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                             child: Checkbox(
                               value: _model.checkboxValue1 ??= false,
                               onChanged: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.checkboxValue1 = newValue!);
                               },
                               side: BorderSide(
@@ -212,7 +212,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                             child: Checkbox(
                               value: _model.checkboxValue2 ??= false,
                               onChanged: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.checkboxValue2 = newValue!);
                               },
                               side: BorderSide(
@@ -274,7 +274,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                             child: Checkbox(
                               value: _model.checkboxValue3 ??= false,
                               onChanged: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.checkboxValue3 = newValue!);
                               },
                               side: BorderSide(
@@ -336,7 +336,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                             child: Checkbox(
                               value: _model.checkboxValue4 ??= false,
                               onChanged: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.checkboxValue4 = newValue!);
                               },
                               side: BorderSide(
@@ -398,7 +398,7 @@ class _AddFromBookingPageWidgetState extends State<AddFromBookingPageWidget> {
                             child: Checkbox(
                               value: _model.checkboxValue5 ??= false,
                               onChanged: (newValue) async {
-                                setState(
+                                safeSetState(
                                     () => _model.checkboxValue5 = newValue!);
                               },
                               side: BorderSide(

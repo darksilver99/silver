@@ -35,7 +35,7 @@ class _CallingWaitngPageWidgetState extends State<CallingWaitngPageWidget> {
       _model.rsUser =
           await UsersRecord.getDocumentOnce(FFAppState().callerUserRef!);
       _model.callerName = _model.rsUser!.displayName;
-      setState(() {});
+      safeSetState(() {});
     });
   }
 

@@ -119,7 +119,7 @@ class _SaveTripBottomSheetViewWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  setState(() {});
+                  safeSetState(() {});
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
@@ -154,7 +154,7 @@ class _SaveTripBottomSheetViewWidgetState
                 hoverColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onTap: () async {
-                  setState(() {});
+                  safeSetState(() {});
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.max,

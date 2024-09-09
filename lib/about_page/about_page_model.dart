@@ -12,10 +12,6 @@ class AboutPageModel extends FlutterFlowModel<AboutPageWidget> {
 
   String slot = '1';
 
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 
