@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 class FriendListViewModel extends FlutterFlowModel<FriendListViewWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for CheckboxListTile widget.
   Map<dynamic, bool> checkboxListTileValueMap = {};
   List<dynamic> get checkboxListTileCheckedItems =>

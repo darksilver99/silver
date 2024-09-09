@@ -118,7 +118,7 @@ class _ManualUploadPageWidgetState extends State<ManualUploadPageWidget> {
                         ),
                         options: ['Option 1', 'Option 2', 'Option 3'],
                         onChanged: (val) =>
-                            setState(() => _model.dropDownValue = val),
+                            safeSetState(() => _model.dropDownValue = val),
                         width: double.infinity,
                         height: 50.0,
                         textStyle:

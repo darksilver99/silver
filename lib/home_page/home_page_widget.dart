@@ -78,12 +78,16 @@ class _HomePageWidgetState extends State<HomePageWidget> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 AuthUserStreamWidget(
-                  builder: (context) => Text(
-                    currentUserDisplayName,
+                  builder: (context) => AnimatedDefaultTextStyle(
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
                           fontFamily: 'Montserrat',
                           letterSpacing: 0.0,
                         ),
+                    duration: Duration(milliseconds: 600),
+                    curve: Curves.bounceOut,
+                    child: Text(
+                      currentUserDisplayName,
+                    ),
                   ),
                 ),
                 Padding(
@@ -514,7 +518,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       if (selectedMedia != null &&
                           selectedMedia.every((m) =>
                               validateFileFormat(m.storagePath, context))) {
-                        setState(() => _model.isDataUploading = true);
+                        safeSetState(() => _model.isDataUploading = true);
                         var selectedUploadedFiles = <FFUploadedFile>[];
 
                         try {
@@ -532,12 +536,12 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         }
                         if (selectedUploadedFiles.length ==
                             selectedMedia.length) {
-                          setState(() {
+                          safeSetState(() {
                             _model.uploadedLocalFile =
                                 selectedUploadedFiles.first;
                           });
                         } else {
-                          setState(() {});
+                          safeSetState(() {});
                           return;
                         }
                         await uploadToAPI(selectedUploadedFiles.last.bytes!);

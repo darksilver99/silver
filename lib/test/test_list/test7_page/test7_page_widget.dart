@@ -141,7 +141,7 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
                                 value: _model.checkboxListTileValueMap[
                                     listViewDataListRecord] ??= false,
                                 onChanged: (newValue) async {
-                                  setState(() =>
+                                  safeSetState(() =>
                                       _model.checkboxListTileValueMap[
                                           listViewDataListRecord] = newValue!);
                                   if (newValue!) {

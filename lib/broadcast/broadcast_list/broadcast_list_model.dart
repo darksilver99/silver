@@ -16,7 +16,6 @@ import 'package:webviewx_plus/webviewx_plus.dart';
 class BroadcastListModel extends FlutterFlowModel<BroadcastListWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - API (getLiveStreamId)] action in Card widget.
   ApiCallResponse? apiResultk31;
   // Stores action output result for [Backend Call - API (getPastLiveStream)] action in Card widget.

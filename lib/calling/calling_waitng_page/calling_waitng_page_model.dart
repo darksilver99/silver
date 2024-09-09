@@ -18,7 +18,6 @@ class CallingWaitngPageModel extends FlutterFlowModel<CallingWaitngPageWidget> {
 
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // Stores action output result for [Backend Call - Read Document] action in CallingWaitngPage widget.
   UsersRecord? rsUser;
 

@@ -12,10 +12,6 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class DetailTestPageModel extends FlutterFlowModel<DetailTestPageWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,38 +78,96 @@ class _TmpWidgetWidgetState extends State<TmpWidgetWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Expanded(
-                child: Stack(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: double.infinity,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primary,
+                child: Builder(
+                  builder: (context) {
+                    final testListView = _model.testList.toList();
+
+                    return GridView.builder(
+                      padding: EdgeInsets.zero,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        childAspectRatio: 1.0,
                       ),
-                    ),
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 1.0),
-                      child: Container(
-                        width: MediaQuery.sizeOf(context).width * 0.5,
-                        decoration: BoxDecoration(),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 8.0, 0.0, 0.0),
-                          child: Text(
-                            'QR Version : 1',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
-                                  letterSpacing: 0.0,
-                                ),
+                      scrollDirection: Axis.vertical,
+                      itemCount: testListView.length,
+                      itemBuilder: (context, testListViewIndex) {
+                        final testListViewItem =
+                            testListView[testListViewIndex];
+                        return Container(
+                          width: double.infinity,
+                          height: double.infinity,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).lineColor,
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: BarcodeWidget(
+                                    data: 'http://ticket:00000001',
+                                    barcode: Barcode.qrCode(),
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    backgroundColor: Colors.transparent,
+                                    errorBuilder: (_context, _error) =>
+                                        SizedBox(
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                    ),
+                                    drawText: false,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'นาย aaaa',
+                                      textAlign: TextAlign.center,
+                                      maxLines: 1,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Text(
+                                      'นาย aaaa',
+                                      textAlign: TextAlign.center,
+                                      maxLines: 1,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Montserrat',
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
                 ),
               ),
             ],

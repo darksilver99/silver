@@ -457,8 +457,8 @@ class _BookingHotelPreviewPageWidgetState
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         4.0, 0.0, 0.0, 0.0),
                                     child: RatingBar.builder(
-                                      onRatingUpdate: (newValue) => setState(
-                                          () =>
+                                      onRatingUpdate: (newValue) =>
+                                          safeSetState(() =>
                                               _model.ratingBarValue = newValue),
                                       itemBuilder: (context, index) => Icon(
                                         Icons.circle_sharp,

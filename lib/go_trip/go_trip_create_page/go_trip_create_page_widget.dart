@@ -441,7 +441,7 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                         selectedMedia.every((m) =>
                                             validateFileFormat(
                                                 m.storagePath, context))) {
-                                      setState(
+                                      safeSetState(
                                           () => _model.isDataUploading = true);
                                       var selectedUploadedFiles =
                                           <FFUploadedFile>[];
@@ -463,12 +463,12 @@ class _GoTripCreatePageWidgetState extends State<GoTripCreatePageWidget> {
                                       }
                                       if (selectedUploadedFiles.length ==
                                           selectedMedia.length) {
-                                        setState(() {
+                                        safeSetState(() {
                                           _model.uploadedLocalFile =
                                               selectedUploadedFiles.first;
                                         });
                                       } else {
-                                        setState(() {});
+                                        safeSetState(() {});
                                         return;
                                       }
                                     }

@@ -14,10 +14,6 @@ class ImageToPDFPageModel extends FlutterFlowModel<ImageToPDFPageWidget> {
   String url =
       'https://storage.kd3.dev/photo/33c197374389b44ac1b0fa9b6ffcb713?imgCode=ZcjxBMI&activaite_key=180857855';
 
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

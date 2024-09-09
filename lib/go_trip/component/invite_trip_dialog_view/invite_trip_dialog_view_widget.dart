@@ -105,7 +105,7 @@ class _InviteTripDialogViewWidgetState
                         FormFieldController<String>(null),
                     options: ['Option 1'],
                     onChanged: (val) =>
-                        setState(() => _model.dropDownValue = val),
+                        safeSetState(() => _model.dropDownValue = val),
                     width: 300.0,
                     height: 50.0,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(

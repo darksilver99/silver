@@ -125,7 +125,8 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                   videoConfig: _initialVideoConfig,
                   onCameraRotateButtonTap: () async {
                     await switchCamera();
-                    setState(() => _isFrontCamSelected = !_isFrontCamSelected);
+                    safeSetState(
+                        () => _isFrontCamSelected = !_isFrontCamSelected);
                   },
                   startButtonText: 'Start Stream',
                   startButtonIcon: Icon(
@@ -207,7 +208,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
                             ),
                             broadcastListRecordReference);
 
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   onStopButtonTap: () async {
                     stopStreaming();
@@ -233,23 +234,23 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
       initialAudioConfig: _initialAudioConfig,
       initialVideoConfig: _initialVideoConfig,
     );
-    setState(() => _isCameraInitialized = true);
+    safeSetState(() => _isCameraInitialized = true);
   }
 
   LiveStreamController initLiveStreamController() {
     return LiveStreamController(
       onConnectionSuccess: () {
         print('Connection succeeded');
-        setState(() => muxBroadcastIsLive = true);
+        safeSetState(() => muxBroadcastIsLive = true);
         _startTimer();
       },
       onConnectionFailed: (error) {
         print('Connection failed: $error');
-        if (mounted) setState(() {});
+        safeSetState(() {});
       },
       onDisconnection: () {
         print('Disconnected');
-        if (mounted) setState(() => muxBroadcastIsLive = false);
+        safeSetState(() => muxBroadcastIsLive = false);
         _stopTimer();
       },
     );
@@ -301,7 +302,7 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
     try {
       WakelockPlus.disable();
       liveStreamController.stopStreaming();
-      if (mounted) setState(() => muxBroadcastIsLive = false);
+      safeSetState(() => muxBroadcastIsLive = false);
       _stopTimer();
     } catch (error) {
       if (error is PlatformException) {
@@ -315,11 +316,9 @@ class _BroadcastViewWidgetState extends State<BroadcastViewWidget> {
   void _startTimer() {
     _stopwatch.start();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (mounted) {
-        setState(() {
-          _durationString = _getDurationString(_stopwatch.elapsed);
-        });
-      }
+      safeSetState(() {
+        _durationString = _getDurationString(_stopwatch.elapsed);
+      });
     });
   }
 

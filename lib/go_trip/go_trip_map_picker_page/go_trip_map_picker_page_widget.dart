@@ -513,7 +513,7 @@ class _GoTripMapPickerPageWidgetState extends State<GoTripMapPickerPageWidget> {
                                   child: Checkbox(
                                     value: _model.checkboxValue ??= true,
                                     onChanged: (newValue) async {
-                                      setState(() =>
+                                      safeSetState(() =>
                                           _model.checkboxValue = newValue!);
                                     },
                                     side: BorderSide(

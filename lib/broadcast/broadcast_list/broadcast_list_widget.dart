@@ -184,7 +184,7 @@ class _BroadcastListWidgetState extends State<BroadcastListWidget> {
                           }
                         }
 
-                        setState(() {});
+                        safeSetState(() {});
                       },
                       child: Card(
                         clipBehavior: Clip.antiAliasWithSaveLayer,

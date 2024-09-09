@@ -48,7 +48,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
       _model.placeList = _model.resultList2Copy!.toList().cast<dynamic>();
       _model.isLoading = false;
       _model.isFullList = true;
-      setState(() {});
+      safeSetState(() {});
     });
 
     _model.textController ??= TextEditingController();
@@ -119,7 +119,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                           onChanged: (_) => EasyDebounce.debounce(
                             '_model.textController',
                             Duration(milliseconds: 2000),
-                            () => setState(() {}),
+                            () => safeSetState(() {}),
                           ),
                           autofocus: false,
                           obscureText: false,
@@ -172,7 +172,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                                 ? InkWell(
                                     onTap: () async {
                                       _model.textController?.clear();
-                                      setState(() {});
+                                      safeSetState(() {});
                                     },
                                     child: Icon(
                                       Icons.clear,
@@ -202,7 +202,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                         if (_model.textController.text != null &&
                             _model.textController.text != '') {
                           _model.isLoading = true;
-                          setState(() {});
+                          safeSetState(() {});
                           safeSetState(
                               () => _model.algoliaSearchResults = null);
                           await PlaceListRecord.search(
@@ -211,7 +211,7 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                               .then((r) => _model.algoliaSearchResults = r)
                               .onError(
                                   (_, __) => _model.algoliaSearchResults = [])
-                              .whenComplete(() => setState(() {}));
+                              .whenComplete(() => safeSetState(() {}));
 
                           _model.resultList = await actions.sortListByLocation(
                             currentUserLocationValue,
@@ -221,10 +221,10 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                               _model.resultList!.toList().cast<dynamic>();
                           _model.isLoading = false;
                           _model.isFullList = false;
-                          setState(() {});
+                          safeSetState(() {});
                         } else {
                           _model.isLoading = true;
-                          setState(() {});
+                          safeSetState(() {});
                           _model.fullListResult =
                               await queryPlaceListRecordOnce();
                           _model.resultList2 = await actions.sortListByLocation(
@@ -235,10 +235,10 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
                               _model.resultList2!.toList().cast<dynamic>();
                           _model.isLoading = false;
                           _model.isFullList = true;
-                          setState(() {});
+                          safeSetState(() {});
                         }
 
-                        setState(() {});
+                        safeSetState(() {});
                       },
                       child: Icon(
                         Icons.search_outlined,

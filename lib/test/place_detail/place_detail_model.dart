@@ -11,10 +11,6 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class PlaceDetailModel extends FlutterFlowModel<PlaceDetailWidget> {
-  ///  State fields for stateful widgets in this page.
-
-  final unfocusNode = FocusNode();
-
   @override
   void initState(BuildContext context) {}
 

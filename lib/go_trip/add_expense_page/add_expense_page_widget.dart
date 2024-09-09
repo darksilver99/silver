@@ -123,7 +123,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               FormFieldController<String>(null),
                           options: ['Option 1', 'Option 2', 'Option 3'],
                           onChanged: (val) =>
-                              setState(() => _model.dropDownValue = val),
+                              safeSetState(() => _model.dropDownValue = val),
                           width: double.infinity,
                           height: 50.0,
                           textStyle:
@@ -347,7 +347,7 @@ class _AddExpensePageWidgetState extends State<AddExpensePageWidget> {
                               _model.datePicked,
                               locale: FFLocalizations.of(context).languageCode,
                             );
-                            setState(() {});
+                            safeSetState(() {});
                           },
                           child: Container(
                             width: double.infinity,

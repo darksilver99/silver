@@ -46,7 +46,7 @@ class _UploadImageToMyProfileWebViewWidgetState
     _model.textController3 ??= TextEditingController();
     _model.textFieldFocusNode3 ??= FocusNode();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {
           _model.textController3?.text = '1';
         }));
   }
@@ -336,7 +336,7 @@ class _UploadImageToMyProfileWebViewWidgetState
                                                     onTap: () async {
                                                       _model.removeFromImageList(
                                                           imageListViewItem);
-                                                      setState(() {});
+                                                      safeSetState(() {});
                                                     },
                                                     child: Icon(
                                                       Icons.cancel_rounded,
@@ -369,7 +369,7 @@ class _UploadImageToMyProfileWebViewWidgetState
                           if (selectedMedia != null &&
                               selectedMedia.every((m) =>
                                   validateFileFormat(m.storagePath, context))) {
-                            setState(() => _model.isDataUploading = true);
+                            safeSetState(() => _model.isDataUploading = true);
                             var selectedUploadedFiles = <FFUploadedFile>[];
 
                             try {
@@ -387,12 +387,12 @@ class _UploadImageToMyProfileWebViewWidgetState
                             }
                             if (selectedUploadedFiles.length ==
                                 selectedMedia.length) {
-                              setState(() {
+                              safeSetState(() {
                                 _model.uploadedLocalFiles =
                                     selectedUploadedFiles;
                               });
                             } else {
-                              setState(() {});
+                              safeSetState(() {});
                               return;
                             }
                           }
@@ -404,9 +404,9 @@ class _UploadImageToMyProfileWebViewWidgetState
                                     _model.uploadedLocalFiles.toList())
                                 .toList()
                                 .cast<FFUploadedFile>();
-                            setState(() {});
+                            safeSetState(() {});
                           }
-                          setState(() {
+                          safeSetState(() {
                             _model.isDataUploading = false;
                             _model.uploadedLocalFiles = [];
                           });
@@ -464,7 +464,7 @@ class _UploadImageToMyProfileWebViewWidgetState
                     });
                     Navigator.pop(context);
 
-                    setState(() {});
+                    safeSetState(() {});
                   },
                   text: 'save',
                   options: FFButtonOptions(
