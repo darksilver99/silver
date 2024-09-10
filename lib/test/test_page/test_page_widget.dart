@@ -205,9 +205,7 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                           mainAxisSize: MainAxisSize.max,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              listViewTestDataTypeListRecord.testType.id
-                                  .toString(),
+                            AnimatedDefaultTextStyle(
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -215,15 +213,25 @@ class _TestPageWidgetState extends State<TestPageWidget> {
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
+                              duration: Duration(milliseconds: 600),
+                              curve: Curves.easeIn,
+                              child: Text(
+                                listViewTestDataTypeListRecord.testType.id
+                                    .toString(),
+                              ),
                             ),
-                            Text(
-                              listViewTestDataTypeListRecord.testType.title,
+                            AnimatedDefaultTextStyle(
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Montserrat',
                                     letterSpacing: 0.0,
                                   ),
+                              duration: Duration(milliseconds: 600),
+                              curve: Curves.easeInOut,
+                              child: Text(
+                                listViewTestDataTypeListRecord.testType.title,
+                              ),
                             ),
                           ],
                         ),
