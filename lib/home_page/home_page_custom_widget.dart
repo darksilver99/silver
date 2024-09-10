@@ -164,7 +164,7 @@ class _HomePageCustomWidgetState extends State<HomePageCustomWidget> with Ticker
     context.watch<FFAppState>();
 
     return GestureDetector(
-      onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
+      //onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
