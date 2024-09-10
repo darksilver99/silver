@@ -77,14 +77,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                     child: AnimatedDefaultTextStyle(
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily: 'Montserrat',
+                            color: _model.toggleText
+                                ? FlutterFlowTheme.of(context).alternate
+                                : FlutterFlowTheme.of(context).success,
                             letterSpacing: 0.0,
                           ),
                       duration: Duration(milliseconds: 600),
                       curve: Curves.bounceOut,
                       child: Text(
-                        _model.toggleText
-                            ? currentUserDisplayName
-                            : '${currentUserDisplayName} ^^',
+                        currentUserDisplayName,
                       ),
                     ),
                   ),
