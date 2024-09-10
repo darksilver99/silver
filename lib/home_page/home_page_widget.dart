@@ -77,19 +77,54 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
-                AuthUserStreamWidget(
-                  builder: (context) => AnimatedDefaultTextStyle(
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Montserrat',
-                          letterSpacing: 0.0,
+                if (_model.toggleText)
+                  AuthUserStreamWidget(
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        _model.toggleText = !_model.toggleText;
+                        safeSetState(() {});
+                      },
+                      child: AnimatedDefaultTextStyle(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
+                        duration: Duration(milliseconds: 600),
+                        curve: Curves.bounceOut,
+                        child: Text(
+                          currentUserDisplayName,
                         ),
-                    duration: Duration(milliseconds: 600),
-                    curve: Curves.bounceOut,
-                    child: Text(
-                      currentUserDisplayName,
+                      ),
                     ),
                   ),
-                ),
+                if (!_model.toggleText)
+                  AuthUserStreamWidget(
+                    builder: (context) => InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        _model.toggleText = !_model.toggleText;
+                        safeSetState(() {});
+                      },
+                      child: AnimatedDefaultTextStyle(
+                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                              fontFamily: 'Montserrat',
+                              letterSpacing: 0.0,
+                            ),
+                        duration: Duration(milliseconds: 600),
+                        curve: Curves.easeIn,
+                        child: Text(
+                          currentUserDisplayName,
+                        ),
+                      ),
+                    ),
+                  ),
                 Padding(
                   padding:
                       EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
