@@ -86,14 +86,23 @@ class _PlaceListWidgetState extends State<PlaceListWidget> {
               context.pop();
             },
           ),
-          title: Text(
-            'PlaceList',
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Kanit',
-                  color: FlutterFlowTheme.of(context).primary,
-                  fontSize: 22.0,
-                  letterSpacing: 0.0,
-                ),
+          title: InkWell(
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            onTap: () async {
+              FFAppState().update(() {});
+            },
+            child: Text(
+              'PlaceList',
+              style: FlutterFlowTheme.of(context).headlineMedium.override(
+                    fontFamily: 'Kanit',
+                    color: FlutterFlowTheme.of(context).primary,
+                    fontSize: 22.0,
+                    letterSpacing: 0.0,
+                  ),
+            ),
           ),
           actions: [],
           centerTitle: false,
