@@ -429,6 +429,12 @@ class FFAppState extends ChangeNotifier {
   set htmlContent(String value) {
     _htmlContent = value;
   }
+
+  String _testPersitence = 'aaa';
+  String get testPersitence => _testPersitence;
+  set testPersitence(String value) {
+    _testPersitence = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {
