@@ -159,8 +159,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         EdgeInsetsDirectional.fromSTEB(32.0, 16.0, 32.0, 0.0),
                     child: FFButtonWidget(
                       onPressed: () async {
-                        FFAppState().testPersitence = 'bbb';
-
                         context.pushNamed('PlaceList');
                       },
                       text: 'place List',

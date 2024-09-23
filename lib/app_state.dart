@@ -436,9 +436,9 @@ class FFAppState extends ChangeNotifier {
     _htmlContent = value;
   }
 
-  String _testPersitence = 'aaa';
-  String get testPersitence => _testPersitence;
-  set testPersitence(String value) {
+  bool _testPersitence = false;
+  bool get testPersitence => _testPersitence;
+  set testPersitence(bool value) {
     _testPersitence = value;
   }
 }
