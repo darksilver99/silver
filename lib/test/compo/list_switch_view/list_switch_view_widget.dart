@@ -52,39 +52,42 @@ class _ListSwitchViewWidgetState extends State<ListSwitchViewWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(16.0, 8.0, 16.0, 0.0),
-      child: SwitchListTile.adaptive(
-        value: _model.switchListTileValue ??= widget!.parameter2!,
-        onChanged: (newValue) async {
-          safeSetState(() => _model.switchListTileValue = newValue!);
-          if (newValue!) {
-            await widget!.parameter3!.update(createDataListRecordData(
-              isCheck: true,
-            ));
-          } else {
-            await widget!.parameter3!.update(createDataListRecordData(
-              isCheck: false,
-            ));
-          }
-        },
-        title: Text(
-          widget!.parameter1!,
-          style: FlutterFlowTheme.of(context).titleLarge.override(
-                fontFamily: 'Montserrat',
-                letterSpacing: 0.0,
-              ),
+      child: Material(
+        color: Colors.transparent,
+        child: SwitchListTile.adaptive(
+          value: _model.switchListTileValue ??= widget!.parameter2!,
+          onChanged: (newValue) async {
+            safeSetState(() => _model.switchListTileValue = newValue!);
+            if (newValue!) {
+              await widget!.parameter3!.update(createDataListRecordData(
+                isCheck: true,
+              ));
+            } else {
+              await widget!.parameter3!.update(createDataListRecordData(
+                isCheck: false,
+              ));
+            }
+          },
+          title: Text(
+            widget!.parameter1!,
+            style: FlutterFlowTheme.of(context).titleLarge.override(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 0.0,
+                ),
+          ),
+          subtitle: Text(
+            'Subtitle goes here...',
+            style: FlutterFlowTheme.of(context).labelMedium.override(
+                  fontFamily: 'Montserrat',
+                  letterSpacing: 0.0,
+                ),
+          ),
+          tileColor: FlutterFlowTheme.of(context).secondaryBackground,
+          activeColor: FlutterFlowTheme.of(context).primary,
+          activeTrackColor: FlutterFlowTheme.of(context).accent1,
+          dense: false,
+          controlAffinity: ListTileControlAffinity.trailing,
         ),
-        subtitle: Text(
-          'Subtitle goes here...',
-          style: FlutterFlowTheme.of(context).labelMedium.override(
-                fontFamily: 'Montserrat',
-                letterSpacing: 0.0,
-              ),
-        ),
-        tileColor: FlutterFlowTheme.of(context).secondaryBackground,
-        activeColor: FlutterFlowTheme.of(context).primary,
-        activeTrackColor: FlutterFlowTheme.of(context).accent1,
-        dense: false,
-        controlAffinity: ListTileControlAffinity.trailing,
       ),
     );
   }

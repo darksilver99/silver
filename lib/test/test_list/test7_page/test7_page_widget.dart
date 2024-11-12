@@ -127,57 +127,61 @@ class _Test7PageWidgetState extends State<Test7PageWidget> {
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 0.0),
-                            child: Theme(
-                              data: ThemeData(
-                                checkboxTheme: CheckboxThemeData(
-                                  visualDensity: VisualDensity.compact,
-                                  materialTapTargetSize:
-                                      MaterialTapTargetSize.shrinkWrap,
+                            child: Material(
+                              color: Colors.transparent,
+                              child: Theme(
+                                data: ThemeData(
+                                  checkboxTheme: CheckboxThemeData(
+                                    visualDensity: VisualDensity.compact,
+                                    materialTapTargetSize:
+                                        MaterialTapTargetSize.shrinkWrap,
+                                  ),
+                                  unselectedWidgetColor:
+                                      FlutterFlowTheme.of(context)
+                                          .secondaryText,
                                 ),
-                                unselectedWidgetColor:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                              ),
-                              child: CheckboxListTile(
-                                value: _model.checkboxListTileValueMap[
-                                    listViewDataListRecord] ??= false,
-                                onChanged: (newValue) async {
-                                  safeSetState(() =>
-                                      _model.checkboxListTileValueMap[
-                                          listViewDataListRecord] = newValue!);
-                                  if (newValue!) {
-                                    _model.addToCheckedRefList(
-                                        listViewDataListRecord.reference);
-                                  } else {
-                                    _model.removeFromCheckedRefList(
-                                        listViewDataListRecord.reference);
-                                  }
-                                },
-                                title: Text(
-                                  listViewDataListRecord.name,
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        letterSpacing: 0.0,
-                                      ),
+                                child: CheckboxListTile(
+                                  value: _model.checkboxListTileValueMap[
+                                      listViewDataListRecord] ??= false,
+                                  onChanged: (newValue) async {
+                                    safeSetState(() => _model
+                                            .checkboxListTileValueMap[
+                                        listViewDataListRecord] = newValue!);
+                                    if (newValue!) {
+                                      _model.addToCheckedRefList(
+                                          listViewDataListRecord.reference);
+                                    } else {
+                                      _model.removeFromCheckedRefList(
+                                          listViewDataListRecord.reference);
+                                    }
+                                  },
+                                  title: Text(
+                                    listViewDataListRecord.name,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    listViewDataListRecord.detail,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  activeColor:
+                                      FlutterFlowTheme.of(context).primary,
+                                  checkColor: FlutterFlowTheme.of(context).info,
+                                  dense: false,
+                                  controlAffinity:
+                                      ListTileControlAffinity.trailing,
                                 ),
-                                subtitle: Text(
-                                  listViewDataListRecord.detail,
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                activeColor:
-                                    FlutterFlowTheme.of(context).primary,
-                                checkColor: FlutterFlowTheme.of(context).info,
-                                dense: false,
-                                controlAffinity:
-                                    ListTileControlAffinity.trailing,
                               ),
                             ),
                           );

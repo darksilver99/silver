@@ -177,39 +177,42 @@ class _Test9PageWidgetState extends State<Test9PageWidget> {
                                                 ),
                                               ],
                                             ),
-                                            child: ListTile(
-                                              title: Text(
-                                                getJsonField(
-                                                  dataListItem,
-                                                  r'''$.name''',
-                                                ).toString(),
-                                                style:
+                                            child: Material(
+                                              color: Colors.transparent,
+                                              child: ListTile(
+                                                title: Text(
+                                                  getJsonField(
+                                                    dataListItem,
+                                                    r'''$.name''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .titleLarge
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                subtitle: Text(
+                                                  getJsonField(
+                                                    dataListItem,
+                                                    r'''$.detail''',
+                                                  ).toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            'Montserrat',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                                ),
+                                                tileColor:
                                                     FlutterFlowTheme.of(context)
-                                                        .titleLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          letterSpacing: 0.0,
-                                                        ),
+                                                        .secondaryBackground,
+                                                dense: false,
                                               ),
-                                              subtitle: Text(
-                                                getJsonField(
-                                                  dataListItem,
-                                                  r'''$.detail''',
-                                                ).toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .labelMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              'Montserrat',
-                                                          letterSpacing: 0.0,
-                                                        ),
-                                              ),
-                                              tileColor:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryBackground,
-                                              dense: false,
                                             ),
                                           ),
                                         ),

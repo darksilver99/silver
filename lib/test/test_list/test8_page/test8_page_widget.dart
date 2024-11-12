@@ -135,28 +135,31 @@ class _Test8PageWidgetState extends State<Test8PageWidget> {
                                   ),
                                 ],
                               ),
-                              child: ListTile(
-                                title: Text(
-                                  listViewDataListRecord.name,
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleLarge
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        letterSpacing: 0.0,
-                                      ),
+                              child: Material(
+                                color: Colors.transparent,
+                                child: ListTile(
+                                  title: Text(
+                                    listViewDataListRecord.name,
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleLarge
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  subtitle: Text(
+                                    listViewDataListRecord.detail,
+                                    style: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .override(
+                                          fontFamily: 'Montserrat',
+                                          letterSpacing: 0.0,
+                                        ),
+                                  ),
+                                  tileColor: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  dense: false,
                                 ),
-                                subtitle: Text(
-                                  listViewDataListRecord.detail,
-                                  style: FlutterFlowTheme.of(context)
-                                      .labelMedium
-                                      .override(
-                                        fontFamily: 'Montserrat',
-                                        letterSpacing: 0.0,
-                                      ),
-                                ),
-                                tileColor: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                dense: false,
                               ),
                             ),
                           );
