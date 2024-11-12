@@ -14,6 +14,7 @@ import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -31,6 +32,8 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   bool isDataUploading = false;
   FFUploadedFile uploadedLocalFile =
       FFUploadedFile(bytes: Uint8List.fromList([]));
+
+  var barCodeResult = '';
 
   @override
   void initState(BuildContext context) {}

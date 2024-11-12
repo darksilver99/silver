@@ -92,49 +92,52 @@ class _FriendListViewWidgetState extends State<FriendListViewWidget> {
                     itemCount: list.length,
                     itemBuilder: (context, listIndex) {
                       final listItem = list[listIndex];
-                      return Theme(
-                        data: ThemeData(
-                          checkboxTheme: CheckboxThemeData(
-                            visualDensity: VisualDensity.compact,
-                            materialTapTargetSize:
-                                MaterialTapTargetSize.shrinkWrap,
+                      return Material(
+                        color: Colors.transparent,
+                        child: Theme(
+                          data: ThemeData(
+                            checkboxTheme: CheckboxThemeData(
+                              visualDensity: VisualDensity.compact,
+                              materialTapTargetSize:
+                                  MaterialTapTargetSize.shrinkWrap,
+                            ),
+                            unselectedWidgetColor:
+                                FlutterFlowTheme.of(context).secondaryText,
                           ),
-                          unselectedWidgetColor:
-                              FlutterFlowTheme.of(context).secondaryText,
-                        ),
-                        child: CheckboxListTile(
-                          value: _model.checkboxListTileValueMap[listItem] ??=
-                              true,
-                          onChanged: (newValue) async {
-                            safeSetState(() =>
-                                _model.checkboxListTileValueMap[listItem] =
-                                    newValue!);
-                          },
-                          title: Text(
-                            'Title',
-                            style: FlutterFlowTheme.of(context)
-                                .titleLarge
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  letterSpacing: 0.0,
-                                ),
+                          child: CheckboxListTile(
+                            value: _model.checkboxListTileValueMap[listItem] ??=
+                                true,
+                            onChanged: (newValue) async {
+                              safeSetState(() =>
+                                  _model.checkboxListTileValueMap[listItem] =
+                                      newValue!);
+                            },
+                            title: Text(
+                              'Title',
+                              style: FlutterFlowTheme.of(context)
+                                  .titleLarge
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            subtitle: Text(
+                              'Subtitle goes here...',
+                              style: FlutterFlowTheme.of(context)
+                                  .labelMedium
+                                  .override(
+                                    fontFamily: 'Montserrat',
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            tileColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            activeColor: FlutterFlowTheme.of(context).tertiary,
+                            checkColor: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            dense: false,
+                            controlAffinity: ListTileControlAffinity.trailing,
                           ),
-                          subtitle: Text(
-                            'Subtitle goes here...',
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Montserrat',
-                                  letterSpacing: 0.0,
-                                ),
-                          ),
-                          tileColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          activeColor: FlutterFlowTheme.of(context).tertiary,
-                          checkColor:
-                              FlutterFlowTheme.of(context).secondaryBackground,
-                          dense: false,
-                          controlAffinity: ListTileControlAffinity.trailing,
                         ),
                       );
                     },
